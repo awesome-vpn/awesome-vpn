@@ -1,4 +1,4 @@
-[中文](https://github.com/hugetiny/FreeVPN/blob/dev/READMECN.md)
+[中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
 |  VPN/proxy  | Android | iOS | Win  | Mac | Linux |
 |  ----  | ----  | ---- | ----  | ---- | ---- |

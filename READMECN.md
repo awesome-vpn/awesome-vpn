@@ -1,4 +1,4 @@
-[English](https://github.com/hugetiny/FreeVPN/blob/dev/README.md)
+[English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
 
 #### 一键下载
 |  VPN/代理  | Android | iOS | Win  | Mac | Linux |
