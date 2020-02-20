@@ -31,17 +31,16 @@
 + 其他：蓝灯，赛风这种不用配置的比较适合新手，但是也比较容易被限制
 
 
-## Shadowsocks & V2ray 免费服务器分享
+### Shadowsocks & V2ray 免费服务器分享
 [freess](https://github.com/max2max/freess)
 [Free-SS-SSR](https://github.com/ThinkDevelop/Free-SS-SSR)
 [Share-SSR-V2ray](https://github.com/selierlin/Share-SSR-V2ray)
 
+### 补充
 + Windows平台bannedbook整合翻墙浏览器也不错，一直在更新：
 + Chrome整合翻墙[Github](https://github.com/bannedbook/fanqiang/wiki/Chrome%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85#chromego-down)
 + Firefox整合翻墙[Github](https://github.com/bannedbook/fanqiang/wiki/%E7%81%AB%E7%8B%90firefox%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%8C%85#firefoxfq-down)
-
 + iOS下架了好多，基本上中国大陆的我现在不知道能用的。除非越狱自己装ipa，信息请大家补充
-
 + 暂时没有精力写爬虫,star以后高点的话我写个爬虫，让大家能一直在本页下到最好的免费代理。也请大家多提issue和PR无论是评测还是补充，谢谢。
 
 
