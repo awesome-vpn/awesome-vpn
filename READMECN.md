@@ -1,4 +1,4 @@
-[English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
+[English](https://github.com/hugetiny/FreeVPN/blob/dev/README.md)
 
 ### 一键下载：点一下，玩一年，翻墙不花一份钱！
 |  VPN/代理  | Android | iOS | Win  | Mac | Linux |
@@ -13,7 +13,7 @@
 
 <h1 align="center">为自由而战，武汉加油！香港加油！</h1>
 
-![We are born to be free](./fightforfree.jpeg)
+![We are born free](./fightforfree.jpeg)
 + 开这个项目是为了让大家更容易的下载免费梯子
 + 收藏本页面，就能一键下载自己喜欢的对应平台的代理到自己对应的操作系统。
 + 如果有错或者，请提issue或者pr。
