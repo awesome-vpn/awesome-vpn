@@ -13,8 +13,8 @@
 
 ![We are born free](./fightforfree.jpeg)
 
-## [Negibox](https://github.com/hugetiny/negibox) is recommanded as a download tool
-## one-click proxy:Psiphon and lantern
+#### [Negibox](https://github.com/hugetiny/negibox) is recommanded as a download tool
+#### one-click proxy:Psiphon and lantern
 
 
 
