@@ -1,6 +1,6 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
 
-⭐收藏本页面，就能**一键下载**最新**免费**VPN，正在写爬虫中，以后每天更新。
+⭐收藏本页面，就能**一键下载**最新**免费**VPN，每天更新。
 
 |  VPN/proxy  | Android | iOS | Win  | Mac | Linux |
 |  ----  | ----  | ---- | ----  | ---- | ---- |
@@ -22,9 +22,9 @@
 
 |  VPN/代理   | 评分  | 点评 |
 |  ----  | ----  | ---- |
+| XX-Net  | ★★★★★ | 长久的项目，IPV6，看视频的话需要自己申请部署一套GAE |
 | v2ray  | ★★★★★ | 配合免费账号，效果不错 |
 | trojan  | ★★★★★ | 配合免费账号，效果不错 |
-| XX-Net  | ★★★★ | 配置略繁琐，IPV6，看视频的话需要自己申请部署一套GAE，但是用下来速度还是不错的 |
 | SS/SSR  | ★★★ | 被限制的很惨，连的上的速度也不是很理想， |
 
 shadowsocks就是SS/SSR不解释了。很多VPN都是SS/SSR/v2ray/trojan套一个界面。

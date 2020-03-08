@@ -9,7 +9,7 @@
 | psiphon  |[psiphon](https://www.psiphon3.com/PsiphonAndroid.apk)||[psiphon](https://www.psiphon3.com/psiphon3.exe)|
 | lantern |[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.apk) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.apk) | |[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.exe) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.exe)|[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.dmg) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.dmg)|[32bit installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-32-bit.deb) [64bit installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb)|
 
-<h1 align="center">Protect yourself on internet</h1>
+<h1 align="center">We are born free</h1>
 
 ![We are born free](./fightforfree.jpeg)
 
