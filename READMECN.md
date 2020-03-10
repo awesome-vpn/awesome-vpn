@@ -40,7 +40,7 @@ ssr://NDIuMjAwLjE2MS42Njo1MDA4OTphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dG
 <h1 align="center">为自由而战，武汉加油！香港加油！</h1>
 
 + 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
-+ 部分地区如果github release下载奇慢(迅雷一样慢)，手机用流量下载很快/挂现有代理下载
++ 墙外如果github release下载奇慢(迅雷一样慢)，请用手机流量下载/挂现有代理下载
 
 #### 大陆地区老司机评测：
 
@@ -53,8 +53,6 @@ ssr://NDIuMjAwLjE2MS42Njo1MDA4OTphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dG
 
 shadowsocks是SS，由clowwindy开发
 SSR是SS衍生的一个分支，由breakwa11开发，刚开始闭源引发争议，后来也开源了
-人家冒着生命危险开发免费翻墙工具，结果被一大堆键盘侠道德绑架，说什么不遵守开源协议
-同样讲遵守规矩，还没见统治者说老子说了算的时候网上的键盘侠敢打几个字的
 shadowsocksR后续没有很好的后来人维护，所以客户端链接就不放了
 
 很多VPN都是SS/SSR/v2ray/trojan套一个界面
