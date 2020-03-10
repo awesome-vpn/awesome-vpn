@@ -49,19 +49,19 @@ ssr://NDIuMjAwLjE2MS42Njo1MDA4OTphdXRoX2NoYWluX2E6bm9uZTp0bHMxLjJfdGlja2V0X2F1dG
 | v2ray  | ★★★★★ | 配合免费账号，效果不错 |
 | trojan  | ★★★★★ | 配合免费账号，效果不错 |
 | XX-Net  | ★★★★ | 连接建立有几率失败，IPV6需要设teredo，看视频和下载文件的话需要自己申请部署一套GAE，流量有限制 |
-| SS/SSR  | ★★★★ | 被限制的很惨，老牌神器，不知道有没有支持vmess类似的先进协议 |
+| SS/SSR  | ★★★★ | 老牌神器，不知道有没有支持vmess类似的先进协议 |
 
-shadowsocks就是SS，SSR是。很多VPN都是SS/SSR/v2ray/trojan套一个界面。
+shadowsocks是SS，由clowwindy开发
+SSR是SS衍生的一个分支，由breakwa11开发，刚开始闭源引发争议，后来也开源了
+人家冒着生命危险开发免费翻墙工具，结果被一大堆键盘侠道德绑架，说什么不遵守开源协议
+同样讲遵守规矩，还没见统治者说老子说了算的时候网上的键盘侠敢打几个字的
+shadowsocksR后续没有很好的后来人维护，所以客户端链接就不放了
+
+很多VPN都是SS/SSR/v2ray/trojan套一个界面
 
 下面这两个项目差不多，信息很多，都有免费账号，都有整合翻墙包，也都有全平台翻墙推荐，但我觉得都不够方便，这也是我写这个项目的原因。
 
 + [bannedbook](https://github.com/bannedbook/fanqiang)
 + [Alvin9999](https://github.com/Alvin9999/new-pac)
 
-其他的一些免费服务器分享项目
-
-+ [freess](https://github.com/max2max/freess)
-+ [Free-SS-SSR](https://github.com/ThinkDevelop/Free-SS-SSR)
-+ [Share-SSR-V2ray](https://github.com/selierlin/Share-SSR-V2ray)
-
-请大家多提issue和PR无论是评测还是补充，谢谢。
+最后祝病魔早日战胜方教授
