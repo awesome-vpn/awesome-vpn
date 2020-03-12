@@ -1,6 +1,6 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
 
-⭐收藏本页面，就能**一键下载**最新**免费**VPN，每天更新。
+⭐收藏本页面，就能**一键下载**最新**免费**VPN，每小时更新。
 
 |  VPN/代理  | Android | iOS | Win  | Mac | Linux |
 |  ----  | ----  | ---- | ----  | ---- | ---- |
