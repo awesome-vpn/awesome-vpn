@@ -1,6 +1,6 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
 
-⭐收藏本页面，就能**一键下载**最新**免费**VPN，每小时更新。
+⭐收藏本页面，就能**一键下载**最新免费VPN和批量免费账号，实时更新。
 
 |  VPN/代理  | Android | iOS | Win  | Mac | Linux |
 |  ----  | ----  | ---- | ----  | ---- | ---- |
@@ -11,7 +11,7 @@
 | psiphon  |[psiphon](https://www.psiphon3.com/PsiphonAndroid.apk)||[psiphon](https://www.psiphon3.com/psiphon3.exe)|
 | lantern |[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.apk) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.apk) | |[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.exe) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.exe)|[Github installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer.dmg) [S3 installer](https://s3.amazonaws.com/lantern/lantern-installer.dmg)|[32bit installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-32-bit.deb) [64bit installer](https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb)|
 
-#### 以下为互联网搜集的免费服务器账号，请用按客户端类型用支持**批量导入URL/链接**和**负载均衡**的客户端复制导入，所有免费账号都是侠义之士无偿提供，且用且珍惜。
+#### 以下为互联网搜集的免费服务器账号，请用按客户端类型用支持**批量导入URL/链接**和**负载均衡**功能的客户端复制导入，所有免费账号都是侠义之士无偿提供，且用且珍惜。
 
 
 ##### V2RAY
