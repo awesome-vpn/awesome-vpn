@@ -215,7 +215,7 @@ ssr://MTI3LjAuMC4yOjEwODg6b3JpZ2luOm5vbmU6cGxhaW46Ym05dVpRLz9yZW1hcmtzPVUxTlNWRT
 <h1 align="center">为自由而战</h1>
 
 + 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
-+ 墙外如果github release下载奇慢(迅雷一样慢)，请用手机流量下载/挂现有代理下载
++ 墙内如果github release下载奇慢(迅雷一样慢)，请用手机流量下载/挂现有代理下载
 
 #### 大陆地区老司机评测：
 
