@@ -3,7 +3,7 @@
 |  VPN/proxy  | Android | iOS | Win  | Mac | Linux |
 |  ----  | ----  | ---- | ----  | ---- | ---- |
 | XX-net | [Xndroid](https://github.com/XndroidDev/Xndroid/releases/download/1.3.2/app-release.apk)  | |[XX-Net](https://github.com/XX-net/XX-Net/releases/download/4.1.0/XX-Net-general-4.1.0.7z)  |[XX-Net](https://github.com/XX-net/XX-Net/releases/download/4.1.0/XX-Net-general-4.1.0.7z)  |[XX-Net](https://github.com/XX-net/XX-Net/releases/download/4.1.0/XX-Net-general-4.1.0.7z) |
-| v2ray  | [v2rayNG](https://github.com/2dust/v2rayNG/releases/download/1.2.8/v2rayNG_1.2.8.apk) |[shadowrocket](https://lueyingpro.github.io/shadowrocket/index.html) | [v2rayN](https://github.com/2dust/v2rayN/releases/download/3.19/v2rayN-Core.zip) | [V2rayU](https://github.com/yanue/V2rayU/releases/download/2.2.0/V2rayU.dmg) ||
+| v2ray  | [v2rayNG](https://github.com/2dust/v2rayNG/releases/download/1.2.9/v2rayNG_1.2.9.apk) |[shadowrocket](https://lueyingpro.github.io/shadowrocket/index.html) | [v2rayN](https://github.com/2dust/v2rayN/releases/download/3.19/v2rayN-Core.zip) | [V2rayU](https://github.com/yanue/V2rayU/releases/download/2.2.0/V2rayU.dmg) ||
 | trojan  | [igniter](https://github.com/trojan-gfw/igniter/releases/download/v0.9.3-beta/io.github.trojan_gfw.igniter-v0.9.3-beta-210000903-debug.apk) | [shadowrocket](https://lueyingpro.github.io/shadowrocket/index.html) | [v2rayN](https://github.com/2dust/v2rayN/releases/download/3.19/v2rayN-Core.zip) |||
 | [shadowsocks](https://shadowsocks.org/en/download/clients.html)  |[shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases/download/v5.1.1/shadowsocks--universal-5.1.1.apk) |  [Big Boss](http://apt.thebigboss.org/onepackage.php?bundleid=com.linusyang.shadowsocks) | [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases/download/4.1.10.0/Shadowsocks-4.1.10.0.zip) | [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases/download/v1.9.4/ShadowsocksX-NG.1.9.4.zip) |[Shadowsocks-Qt5](https://github.com/shadowsocks/shadowsocks-qt5/releases/download/v3.0.1/Shadowsocks-Qt5-3.0.1-x86_64.AppImage)
 | psiphon  |[psiphon](https://www.psiphon3.com/PsiphonAndroid.apk)||[psiphon](https://www.psiphon3.com/psiphon3.exe)|
@@ -89,6 +89,7 @@ ss://YWVzLTI1Ni1jZmI6ZUlXMERuazY5NDU0ZTZuU3d1c3B2OURtUzIwMXRRMERAMTkyLjI0MC4xMjM
 ss://YWVzLTE5Mi1jZmI6ZGF0b3VAMTE5LjE2Ny4xODAuMTA3OjExMDEz
 ss://cmM0LW1kNTp5VkVTQUxAMTcyLjEwNS4yMDEuMTMxOjM3MjEx
 ss://YWVzLTI1Ni1jZmI6ZUlXMERuazY5NDU0ZTZuU3d1c3B2OURtUzIwMXRRMERAMTczLjI1NS4yNTEuMjQ2OjgwOTk=
+ss://YWVzLTI1Ni1jZmI6ZUlXMERuazY5NDU0ZTZuU3d1c3B2OURtUzIwMXRRMERANjkuMzAuMjAxLjgyOjgwOTk=
 ss://bm9uZTpub25lQDEyNy4wLjAuMToxMDg4
 ss://bm9uZTpub25lQDEyNy4wLjAuMjoxMDg4
 ss://YWVzLTI1Ni1jZmI6OWQ2Y2NlYWEzNzNiZjJjOGFjYjIyZTYwYjZhNThiZTZANDUuNzkuMTExLjIxNDo0NDM=
@@ -110,7 +111,6 @@ ss://YWVzLTI1Ni1nY206ZjU1LmZ1bi0zMzczODU4M0AxNzIuMTA0LjUwLjE5NjoxOTY3NA==
 ss://YWVzLTI1Ni1nY206ZjU1LmZ1bi03OTQ5MjE0MkAxNzIuMTA1LjEyNC4xMjc6MTc0ODg=
 ss://YWVzLTI1Ni1nY206ZjU1LmZ1bi0wNTY2MDQ4OUAxMzkuMTYyLjIyLjc0OjE3NzYx
 ss://YWVzLTI1Ni1nY206aXN4Lnl0LTMzMTgyMTQwQDE5OC4xOTkuMTE3Ljg5OjE1NzA0
-ss://YWVzLTEyOC1jdHI6bmRodUAzNC43MS4xNC4xOTE6MjMzNA==
 
 ##### SSR
 ssr://bmw3LmJvb20ucGFydHk6MTcwMDA6YXV0aF9hZXMxMjhfc2hhMTphZXMtMjU2LWNmYjpodHRwX3NpbXBsZTpWV3M1TWtOVC8_cHJvdG9wYXJhbT1NVFl6T1RjM09tZEJTR1JXZEEmcmVtYXJrcz1VMU5TVkU5UFRGOU9iMlJsT3VTNHJlV2J2UzNtc1pfb2k0X25uSUUmZ3JvdXA9VjFkWExsTlRVbFJQVDB3dVEwOU4
@@ -181,6 +181,7 @@ ssr://MTkyLjI0MC4xMjMuMjY6ODA5OTpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhel
 ssr://MTE5LjE2Ny4xODAuMTA3OjExMDEzOmF1dGhfYWVzMTI4X3NoYTE6YWVzLTE5Mi1jZmI6dGxzMS4yX3RpY2tldF9hdXRoOlpHRjBiM1UvP29iZnNwYXJhbT1kWEJrWVhSbExtMXBZM0p2YzI5bWRDNWpiMjAmcHJvdG9wYXJhbT1NalV3TVRBNlkyRTRaMlE1JnJlbWFya3M9VTFOU1ZFOVBURjlPYjJSbE91UzRyZVdidlMzbHNiSGt1SnpubklFJmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO
 ssr://MTcyLjEwNS4yMDEuMTMxOjM3MjExOm9yaWdpbjpyYzQtbWQ1OnBsYWluOmVWWkZVMEZNLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPdWFYcGVhY3JDMVViMnQ1YncmZ3JvdXA9VjFkWExsTlRVbFJQVDB3dVEwOU4
 ssr://MTczLjI1NS4yNTEuMjQ2OjgwOTk6b3JpZ2luOmFlcy0yNTYtY2ZiOnBsYWluOlpVbFhNRVJ1YXpZNU5EVTBaVFp1VTNkMWMzQjJPVVJ0VXpJd01YUlJNRVEvP3JlbWFya3M9VTFOU1ZFOVBURjlPYjJSbE91ZS1qdVdidlMzbGlxRGxpS25ucG9fbHNMemt1cHJsdDU0Jmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO
+ssr://NjkuMzAuMjAxLjgyOjgwOTk6b3JpZ2luOmFlcy0yNTYtY2ZiOnBsYWluOlpVbFhNRVJ1YXpZNU5EVTBaVFp1VTNkMWMzQjJPVVJ0VXpJd01YUlJNRVEvP3JlbWFya3M9VTFOU1ZFOVBURjlPYjJSbE91ZS1qdVdidlMzbHI0Ym9pNF9waDR6bHQ1NCZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg
 ssr://MTI3LjAuMC4xOjEwODg6b3JpZ2luOm5vbmU6cGxhaW46Ym05dVpRLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPbTUxYkd3dGJuVnNiQSZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg
 ssr://MTI3LjAuMC4yOjEwODg6b3JpZ2luOm5vbmU6cGxhaW46Ym05dVpRLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPbTUxYkd3dGJuVnNiQSZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg
 ssr://NDUuNzkuMTExLjIxNDo0NDM6b3JpZ2luOmFlcy0yNTYtY2ZiOnBsYWluOk9XUTJZMk5sWVdFek56TmlaakpqT0dGallqSXlaVFl3WWpaaE5UaGlaVFkvP3JlbWFya3M9VTFOU1ZFOVBURjlPYjJSbE91ZS1qdVdidlMzbGlxRGxpS25ucG9fbHNMemt1cHJsdDU0Jmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO
@@ -202,7 +203,6 @@ ssr://MTcyLjEwNC41MC4xOTY6MTk2NzQ6b3JpZ2luOmFlcy0yNTYtZ2NtOnBsYWluOlpqVTFMbVoxYm
 ssr://MTcyLjEwNS4xMjQuMTI3OjE3NDg4Om9yaWdpbjphZXMtMjU2LWdjbTpwbGFpbjpaalUxTG1aMWJpMDNPVFE1TWpFME1nLz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPdWFXc09XS29PV2RvUzAmZ3JvdXA9VjFkWExsTlRVbFJQVDB3dVEwOU4
 ssr://MTM5LjE2Mi4yMi43NDoxNzc2MTpvcmlnaW46YWVzLTI1Ni1nY206cGxhaW46WmpVMUxtWjFiaTB3TlRZMk1EUTRPUS8_cmVtYXJrcz1VMU5TVkU5UFRGOU9iMlJsT201MWJHdyZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg
 ssr://MTk4LjE5OS4xMTcuODk6MTU3MDQ6b3JpZ2luOmFlcy0yNTYtZ2NtOnBsYWluOmFYTjRMbmwwTFRNek1UZ3lNVFF3Lz9yZW1hcmtzPVUxTlNWRTlQVEY5T2IyUmxPdWUtanVXYnZTM2xpcURsaUtubnBvX2xzTHprdXBybHQ1NCZncm91cD1WMWRYTGxOVFVsUlBUMHd1UTA5Tg
-ssr://MzQuNzEuMTQuMTkxOjIzMzQ6YXV0aF9zaGExX3Y0OmFlcy0xMjgtY3RyOnRsczEuMl90aWNrZXRfYXV0aDpibVJvZFEvP3JlbWFya3M9VTFOU1ZFOVBURjlPYjJSbE91ZS1qdVdidlMzbHZKZmxrSW5sc0x6a3Vwcmx0NTQmZ3JvdXA9VjFkWExsTlRVbFJQVDB3dVEwOU4
 
 
 <h1 align="center">We are born free</h1>
