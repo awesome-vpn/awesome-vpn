@@ -153,7 +153,6 @@ ssr://MTcyLjEwNC41MC4xMDI6ODA5OTpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhel
 ssr://MTcyLjEwNC41MC4xMDI6ODA5OTpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhelk1TkRVMFpUWnVVM2QxYzNCMk9VUnRVekl3TVhSUk1FUS8_cmVtYXJrcz1VMU5TVkU5UFRGOU9iMlJsT3VhV3NPV0tvT1dkb1MwJmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO
 ssr://MTcyLjEwNC41MC4xMDI6ODA5NzpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhelk1TkRVMFpUWnVVM2QxYzNCMk9VUnRVekl3TVhSUk1FUS8_cmVtYXJrcz1VMU5TVkU5UFRGOU9iMlJsT3VhV3NPV0tvT1dkb1MwJmdyb3VwPVYxZFhMbE5UVWxSUFQwd3VRMDlO
 
-
 ![We are born free](./fightforfree.jpeg)
 
 <h1 align="center">为自由而战</h1>
@@ -167,16 +166,17 @@ ssr://MTcyLjEwNC41MC4xMDI6ODA5NzpvcmlnaW46YWVzLTI1Ni1jZmI6cGxhaW46WlVsWE1FUnVhel
 |  ----  | ----  | ---- |
 | v2ray  | ★★★★★ | 配合免费账号，效果不错 |
 | trojan  | ★★★★★ | 配合免费账号，效果不错 |
-| XX-Net  | ★★★★ | 连接建立有几率失败，IPV6需要设teredo，看视频和下载文件的话需要自己申请部署一套GAE，流量有限制 |
+| XX-Net  | ★★★ | 连接建立有几率失败，IPV6需要设teredo，看视频和下载文件的话需要自己申请部署一套GAE，默认流量有限制 |
 | SS/SSR  | ★★★★ | 老牌神器，不知道有没有支持vmess类似的先进协议 |
 
-shadowsocks是SS，由clowwindy开发
-SSR是SS衍生的一个分支，由breakwa11开发，刚开始闭源引发争议，后来也开源了
-shadowsocksR后续没有很好的后来人维护，所以客户端链接就不放了
+shadowsocks是SS，由clowwindy开发。SSR是SS衍生的一个分支，由breakwa11开发，刚开始闭源引发争议，后来也开源了。shadowsocksR后续没有很好的后来人维护，所以客户端链接就不放了
 
-很多VPN都是SS/SSR/v2ray/trojan套一个界面
+很多VPN本质都是SS/SSR/v2ray/trojan/vmess套一个界面
 
-下面这两个项目差不多，信息很多，都有免费账号，都有整合翻墙包，也都有全平台翻墙推荐，但我觉得都不够方便，这也是我写这个项目的原因。
+GFW是基于黑名单模式的，无论协议多么先进，只要是服务器IP被封，那么必定连接不上。有很多可以用的服务器，不是封不了，是他们暂时没发现。
+所以本质上XX-Net的思想是最好的，用户通过GAEproxy接力，源源不绝，但是XX-Net的客户端可以改进下体验，诸如用户电脑没有开启IPV6时候自动提示，以及辅助用户申请GAEproxy
+
+github上的其他翻墙项目差不多，信息很多，都有免费账号，都有整合翻墙包，也都有全平台翻墙推荐，但我觉得都不够方便，太啰嗦，这也是我写这个项目的原因。
 
 + [bannedbook](https://github.com/bannedbook/fanqiang)
 + [Alvin9999](https://github.com/Alvin9999/new-pac)
