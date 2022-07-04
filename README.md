@@ -1,20 +1,5 @@
 [简体中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
-<h1 align="center">Our world is in danger</h1>
-<p align="center">At least the Internet is free</p>
-
-![We are born free](./fightforfree.jpeg)
-
-Clients support Advanced multiple protocol such as Xray,v2fly,Vmess,Trojan,Shadowsocks,Shadowsocks...
-
-|  VPN/proxy  | Android | iOS | Windows | Mac | Linux |
-|  ----  | ----  | ---- | ----  | ---- | ---- |
-|[v2rayNG](https://github.com/2dust/v2rayNG)|√|×|×|×|×|
-|[v2rayN](https://github.com/2dust/v2rayN)|×|×|√|×|×|
-|[netch](https://github.com/netchx/netch)|×|×|√|×|×|
-|[V2rayU](https://github.com/yanue/V2rayU/tree/01f41e80014e31426d8d96f0fdad534ecf5182d8)|×|×|×|√|×|
-|[Qv2ray](https://github.com/Qv2ray/Qv2ray)|×|×|√|√|√|
-|[V2RayX](https://github.com/Cenmrev/V2RayX)|×|×|x|√|x|
 
 Free server accounts:
 ```
@@ -170,7 +155,27 @@ trojan://9c822f05-cfdc-479a-9534-60f3d4127435@jgwcc2.gaox.ml:443#US-%e9%ab%98%e9
 ```
 
 
+Open source projects [Edit✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
 
+| VPN/proxy                                                                             | Android | iOS | Windows                 | Mac                                                                        | Linux | protocol    |
+|---------------------------------------------------------------------------------------|--------| ---- |-------------------------|----------------------------------------------------------------------------| ---- |-------------|
+| [outline](https://github.com/Jigsaw-Code/outline-client/releases)| √      |√| √                       | √                                                                          |√| Shadowsocks |
+| [v2rayNG](https://github.com/2dust/v2rayNG/releases)                                  | √      |×| ×                       | ×                                                                          |×| Xray        |
+| [v2rayN](https://github.com/2dust/v2rayN/releases)                                    | ×      |×| √                       | ×                                                                          |×| Xray        |
+| [netch](https://github.com/netchx/netch/releases)                                     | ×      |×| √                       | ×                                                                          |×| Xray        |
+| [V2rayU](https://github.com/yanue/V2rayU/releases) | ×      |×| ×                       | √                                                                          |×| V2ray       | 
+| [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)                                   | ×      |×| √                       | √                                                                          |√| Xray        |
+| [V2RayX](https://github.com/Cenmrev/V2RayX/releases)                                  | ×      |×| ×                       | √                                                                          |×| V2ray       |
+| [shadowsocks](https://github.com/shadowsocks) | [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)     |×| [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases/releases) |×| Shadowsocks |
+
+Multiple protocols: V2Ray supports multiple protocols, including Socks, HTTP, Shadowsocks, VMess etc. Each protocol may have its own transport, such as TCP, mKCP, WebSocket etc.
+
+Xray adds support for VLess on top of V2Ray.
+
+<h1 align="center">Our world is in danger</h1>
+<p align="center">At least the Internet is free</p>
+
+![We are born free](./fightforfree.jpeg)
 
 
 

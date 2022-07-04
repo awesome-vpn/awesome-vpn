@@ -1,41 +1,5 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md)
 
-⭐以后有空会我会写一个全平台一键翻墙的免费客户端，降低科学上网的门槛。
-
-![fightforfree](./fightforfree.jpeg)
-
-<h1 align="center">世界很危险，至少网络是免费自由的</h1>
-
-支持 Xray,v2fly,Vmess,Trojan,Shadowsocks,Shadowsocks 等多协议的客户端
-
-|  VPN/proxy  | Android | iOS | Windows | Mac | Linux |
-|  ----  | ----  | ---- | ----  | ---- | ---- |
-|[v2rayNG](https://github.com/2dust/v2rayNG)|√|×|×|×|×|
-|[v2rayN](https://github.com/2dust/v2rayN)|×|×|√|×|×|
-|[netch](https://github.com/netchx/netch)|×|×|√|×|×|
-|[Qv2ray](https://github.com/Qv2ray/Qv2ray)|×|×|√|√|√|
-|[V2rayU](https://github.com/yanue/V2rayU/tree/01f41e80014e31426d8d96f0fdad534ecf5182d8)|×|×|×|√|×|
-|[V2RayX](https://github.com/Cenmrev/V2RayX)|×|×|×|√|×|
-
-+ 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
-
-#### 大陆地区老司机指南：
-墙内如果github release下载奇慢(迅雷一样慢)，请用手机流量下载/找浏览器github加速的插件/油猴github加速脚本
-
-iOS 国区会下架所有vpn客户端，如果上appstore必须用美区账号或者越狱直接装ipa
-
-代理的协议有很多种Xray,v2fly,Vmess,Vless,Trojan,Shadowsocks,Shadowsocks...
-
-shadowsocks是SS，由clowwindy开发。SSR是SS衍生的一个分支，由breakwa11开发，刚开始闭源引发争议，后来也开源了。shadowsocksR后续没有很好的后来人维护，所以客户端链接就不放了
-
-很多VPN本质都是SS/SSR/v2ray/trojan/vmess套一个界面
-
-GFW是基于黑名单模式的，无论协议多么先进，只要是服务器IP被封，那么必定连接不上。有很多可以用的服务器，不是封不了，是他们的自动封禁系统没发现，手动还未封。
-
-XX-Net的思想是最好的，用户通过GAEproxy接力，源源不绝，但是XX-Net的客户端可以改进下体验，诸如用户电脑没有开启IPV6时候自动提示，以及辅助用户申请GAEproxy
-
-github上的其他翻墙项目差不多，信息很多，都有免费账号，都有整合翻墙包，也都有全平台翻墙推荐，但我觉得都不够方便，太啰嗦，这也是我写这个项目的原因。
-
 免费服务器账号：
 ```
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogImdpdGh1Yi5jb20vZnJlZWZxIC0g576O5Zu9QW1hem9u5pWw5o2u5Lit5b+DIDQyIiwNCiAgImFkZCI6ICJ2MjAuZW1vdnBuLnh5eiIsDQogICJwb3J0IjogIjEyNTYiLA0KICAiaWQiOiAiNjFlMjg1MTQtMTQ2Mi00M2I4LTk3YWMtMTg2ZGM3MDE1MWY5IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ3cyIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICJhd2Vpa2VqaS1Zb3VUdWJlIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
@@ -189,3 +153,43 @@ trojan://1Qfea1eL3zCALPJm@los2-cn2.v2ce.com:443?sni=los2-cn2.v2ce.com#v2cross.co
 trojan://9c822f05-cfdc-479a-9534-60f3d4127435@jgwcc2.gaox.ml:443#US-%e9%ab%98%e9%80%9f%e8%8a%82%e7%82%b9%e6%8e%a8%e8%8d%90%ef%bc%9av2cross.com
 ```
 
+
+开源客户端 [Edit✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
+
+| VPN/proxy                                                                             | Android | iOS | Windows                 | Mac                                                                        | Linux | protocol    |
+|---------------------------------------------------------------------------------------|--------| ---- |-------------------------|----------------------------------------------------------------------------| ---- |-------------|
+| [outline](https://github.com/Jigsaw-Code/outline-client/releases)| √      |√| √                       | √                                                                          |√| Shadowsocks |
+| [v2rayNG](https://github.com/2dust/v2rayNG/releases)                                  | √      |×| ×                       | ×                                                                          |×| V2ray       |
+| [v2rayN](https://github.com/2dust/v2rayN/releases)                                    | ×      |×| √                       | ×                                                                          |×|V2ray       |
+| [netch](https://github.com/netchx/netch/releases)                                     | ×      |×| √                       | ×                                                                          |×|V2ray       |
+| [V2rayU](https://github.com/yanue/V2rayU/releases) | ×      |×| ×                       | √                                                                          |×|V2ray       | 
+| [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)                                   | ×      |×| √                       | √                                                                          |√|V2ray       |
+| [V2RayX](https://github.com/Cenmrev/V2RayX/releases)                                  | ×      |×| ×                       | √                                                                          |×|V2ray       |
+| [shadowsocks](https://github.com/shadowsocks) | [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)     |×| [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases/releases) |×| Shadowsocks |
+
+多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。
+
+Xray是在V2Ray的基础上增加支持VLess。
+
+
+
++ 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
+
+#### 大陆地区老司机指南：
+墙内如果github release下载奇慢(迅雷一样慢)，请用手机流量下载/找浏览器github加速的插件/油猴github加速脚本
+
+iOS 国区会下架所有vpn客户端，如果上appstore必须用美区账号或者越狱直接装ipa
+
+很多VPN本质都是SS/SSR/v2ray/trojan/vmess套一个界面
+
+GFW是基于黑名单模式的，无论协议多么先进，只要是服务器IP被封，那么必定连接不上。有很多可以用的服务器，不是封不了，是他们的自动封禁系统没发现，手动还未封。
+
+XX-Net的思想是最好的，用户通过GAEproxy接力，源源不绝，但是XX-Net的客户端可以改进下体验，诸如用户电脑没有开启IPV6时候自动提示，以及辅助用户申请GAEproxy
+
+github上的其他翻墙项目差不多，我会整合一个免费好用的客户端。
+
+
+
+![fightforfree](./fightforfree.jpeg)
+
+<h1 align="center">世界很危险，至少网络是免费自由的</h1>
