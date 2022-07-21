@@ -6,7 +6,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 ```
 Shadowsocks Subscription Links
 ```
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all/ss
+https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
 ```
 
 Free server accounts:

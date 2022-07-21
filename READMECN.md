@@ -6,7 +6,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 ```
 Shadowsocks订阅链接
 ```
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all/ss
+https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
 ```
 
 免费服务器账号
@@ -83,7 +83,12 @@ Xray是在V2Ray的基础上增加支持VLess。
 ### Q&A：
 #### 墙内如果github release下载慢?
 
-找浏览器github加速的插件/油猴github加速脚本/手机流量下载
+1.找浏览器github加速的插件/油猴github加速脚本
+
+2.host修改大法 https://github.com/ineo6/hosts
+
+3.手机流量下载
+
 
 ### 墙内iOS
 iOS 国区会不定期下架所有vpn客户端
