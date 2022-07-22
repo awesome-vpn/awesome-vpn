@@ -1,6 +1,14 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md) | [简体中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
-所有协议订阅链接
+多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。
+
+Xray是在V2Ray的基础上增加支持VLess。
+
+免费一键翻墙客户端入选标准是一键/双击能用（不需要注册登录，没有收费提示和收费选项，没有强制广告）正在收录中，欢迎添加 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E5%85%8D%E8%B4%B9%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%AE%A2%E6%88%B7%E7%AB%AF)
+
+
+
+全网V2Ray多协议订阅链接
 ```
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 ```
@@ -59,7 +67,7 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 ```
 
 
-开源客户端 [编辑✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
+开源客户端 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
 
 | VPN/proxy                                                                             | Android | iOS | Windows                 | Mac                                                                        | Linux | protocol    |
 |---------------------------------------------------------------------------------------|--------| ---- |-------------------------|----------------------------------------------------------------------------| ---- |-------------|
@@ -71,11 +79,6 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 | [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)                                   | ×      |×| √                       | √                                                                          |√|V2ray       |
 | [V2RayX](https://github.com/Cenmrev/V2RayX/releases)                                  | ×      |×| ×                       | √                                                                          |×|V2ray       |
 | [shadowsocks](https://github.com/shadowsocks) | [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)     |×| [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases/releases) |×| Shadowsocks |
-
-多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。
-
-Xray是在V2Ray的基础上增加支持VLess。
-
 
 
 + 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
