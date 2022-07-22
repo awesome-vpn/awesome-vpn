@@ -85,7 +85,7 @@ Xray是在V2Ray的基础上增加支持VLess。
 
 1.找浏览器github加速的插件/油猴github加速脚本
 
-2.host修改大法 https://github.com/ineo6/hosts
+2.host修改大法
 
 3.手机流量下载
 
