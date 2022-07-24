@@ -1,23 +1,13 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md) | [简体中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
-多协议支持: V2Ray 可同时开启多个协议支持，包括 Socks、HTTP、Shadowsocks、VMess 等。每个协议可单独设置传输载体，比如 TCP、mKCP、WebSocket 等。
-
-Xray是在V2Ray的基础上增加支持VLess。
-
-免费一键翻墙客户端入选标准是一键/双击能用（不需要注册登录，没有收费提示和收费选项，没有强制广告）正在收录中，欢迎添加 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E5%85%8D%E8%B4%B9%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%AE%A2%E6%88%B7%E7%AB%AF)
-
-
-
-全网V2Ray多协议订阅链接
-```
+- 全网V2Ray多协议订阅链接
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-```
-Shadowsocks订阅链接
-```
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
-```
 
-免费服务器账号
+- 全网Shadowsocks订阅链接
+https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
+
+
+- 免费服务器账号
 ```
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTIwLjIzMy43LjIyMSIsDQogICJwb3J0IjogIjE4MDAyIiwNCiAgImlkIjogIjIxZGNiZWM4LWVlZTgtM2QyMC04MmI2LWY4YzE2ZmU2ZGM4ZCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIjEyMC4yMzMuNy4yMjEiLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiIsDQogICJhbHBuIjogIiINCn0=
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTIwLjE5Ny4xMzAuMTI2IiwNCiAgInBvcnQiOiAiMTMwMDkiLA0KICAiaWQiOiAiMjFkY2JlYzgtZWVlOC0zZDIwLTgyYjYtZjhjMTZmZTZkYzhkIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
@@ -67,21 +57,41 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 ```
 
 
-开源客户端 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
+#### 开源客户端 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Opensource-clients)
 
-| VPN/proxy                                                                             | Android | iOS | Windows                 | Mac                                                                        | Linux | protocol    |
-|---------------------------------------------------------------------------------------|--------| ---- |-------------------------|----------------------------------------------------------------------------| ---- |-------------|
-| [outline](https://github.com/Jigsaw-Code/outline-client/releases)| √      |√| √                       | √                                                                          |√| Shadowsocks |
-| [v2rayNG](https://github.com/2dust/v2rayNG/releases)                                  | √      |×| ×                       | ×                                                                          |×| V2ray       |
-| [v2rayN](https://github.com/2dust/v2rayN/releases)                                    | ×      |×| √                       | ×                                                                          |×|V2ray       |
-| [netch](https://github.com/netchx/netch/releases)                                     | ×      |×| √                       | ×                                                                          |×|V2ray       |
-| [V2rayU](https://github.com/yanue/V2rayU/releases) | ×      |×| ×                       | √                                                                          |×|V2ray       | 
-| [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)                                   | ×      |×| √                       | √                                                                          |√|V2ray       |
-| [V2RayX](https://github.com/Cenmrev/V2RayX/releases)                                  | ×      |×| ×                       | √                                                                          |×|V2ray       |
-| [shadowsocks](https://github.com/shadowsocks) | [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android/releases)     |×| [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases) | [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG/releases/releases) |×| Shadowsocks |
+| VPN/proxy                                                                | Android | iOS | Windows | Mac | Linux | Cores                                                                                   |
+|--------------------------------------------------------------------------|--------|-----|---------|-----|-----|-----------------------------------------------------------------------------------------|
+| [outline](https://github.com/Jigsaw-Code/outline-client)                 | √      | √ | √ | √ | √| [shadowsocks](https://github.com/shadowsocks/shadowsocks-libev)                         |
+| [ShadowsocksX-NG](https://github.com/shadowsocks/ShadowsocksX-NG)        | ×      | × | × | √ | ×| [shadowsocks](https://github.com/shadowsocks/shadowsocks-libev)                         |
+| [shadowsocks-android](https://github.com/shadowsocks/shadowsocks-android) | √      | × | × | × | ×| [shadowsocks](https://github.com/shadowsocks/shadowsocks-libev)                         |
+| [shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows) | ×      | × | √ | × | × | [shadowsocks](https://github.com/shadowsocks/shadowsocks-libev)                         |
+| [v2rayNG](https://github.com/2dust/v2rayNG)                              | √      | × | × | × | × | [v2ray](https://github.com/v2fly/v2ray-core) [xray](https://github.com/XTLS/Xray-core)  |
+| [v2rayN](https://github.com/2dust/v2rayN)                                | ×      | × | √ | × | × | [v2ray](https://github.com/v2fly/v2ray-core)  [xray](https://github.com/XTLS/Xray-core) |
+| [netch](https://github.com/netchx/netch)                                 | ×      | × | √ | × | × | [v2ray](https://github.com/v2fly/v2ray-core) shadowsocksr                               |
+| [V2rayU](https://github.com/yanue/V2rayU)                                | ×      | × | × | √ | × | [v2ray](https://github.com/v2fly/v2ray-core)                                            |
+| [V2RayX](https://github.com/Cenmrev/V2RayX)                              | ×      | × | × | √ | × | [v2ray](https://github.com/v2fly/v2ray-core)                                            |
+| [Qv2ray](https://github.com/Qv2ray/Qv2ray)                               | ×      | × | √ | √ | √ | [v2ray](https://github.com/v2fly/v2ray-core)                                            |
+| [SagerNet](https://github.com/SagerNet/SagerNet)                         | √      | × | × | × | × | [v2ray](https://github.com/v2fly/v2ray-core)                                                   |
+| [v2rayA](https://github.com/v2rayA/v2rayA)                   | ×       | × | ×   | ×   | √ |[v2ray](https://github.com/v2fly/v2ray-core)  shadowsocksr                                             |
 
 
-+ 开这个项目是为了让大家更容易的下载**免费**梯子,点一下，玩一年，翻墙不花一份钱！
+
+#### 核心区别 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
+
+| Cores                                                                                               | outbound protocol                                                                                              | inbound protocol                                                          | shadowsocks EncryMode                                                                                                                  |
+|-----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| [~~V2Ray~~](https://www.v2ray.com/chapter_02/02_protocols.html)                                     | Blackhole<br>DNS<br>Freedom<br>HTTP<br>MTProto<br>Shadowsocks<br>SOCKS<br>VMess                                | Dokodemo-door<br>HTTP<br>MTProto<br>Shadowsocks<br>SOCKS<br> VMess        | aes-256-cfbaes-128-cfb<br>chacha20<br>chacha20-ietf<br>aes-256-gcm<br>aes-128-gcm<br>chacha20-poly1305                                 |
+| [v2fly/V2Ray](https://www.v2fly.org/config/protocols/vless.html)                                    | Blackhole<br>DNS<br>Freedom<br>HTTP<br>MTProto<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS<br>Loopback | Dokodemo-door<br>HTTP<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS | AES-256-GCM<br>AES-128-GCM<br>ChaCha20-Poly1305                                                                                        |
+| [Xray](https://xtls.github.io/Xray-docs-next/config/inbounds/#%E5%8D%8F%E8%AE%AE%E5%88%97%E8%A1%A8) | Blackhole<br>DNS<br>Freedom<br>HTTP<br>MTProto<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS             | Dokodemo-door<br>HTTP<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS | 2022-blake3-aes-128-gcm<br>2022-blake3-aes-256-gcm<br>2022-blake3-chacha20-poly1305<br>AES-256-GCM<br>AES-128-GCM<br>ChaCha20-Poly1305 |
+| [Shadowsocks](https://github.com/shadowsocks/shadowsocks/wiki/Encryption)                           | Shadowsocks                                                                                                    | Shadowsocks                                                               | All                                                                                                                                    |
+
+
+#### 一键翻墙
+免费一键翻墙客户端入选标准是一键/双击能用（不需要注册登录，没有收费提示和收费选项，没有强制广告）正在收录中。
+
+欢迎添加 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E5%85%8D%E8%B4%B9%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%AE%A2%E6%88%B7%E7%AB%AF)
+
+
 
 ### Q&A：
 #### 墙内如果github release下载慢?
@@ -104,4 +114,4 @@ iOS 国区会不定期下架所有vpn客户端
 
 ![fightforfree](./fightforfree.jpeg)
 
-<h1 align="center">为自由而战</h1>
+<h1 style="text-align: center;">为自由而战</h1>
