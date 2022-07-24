@@ -1,9 +1,11 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md) | [简体中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
 - All-in-one Subscription Links from all over the world
+
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
 - Shadowsocks Subscription Links from all over the world
+
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
 
 
@@ -83,9 +85,16 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 | [Xray](https://xtls.github.io/Xray-docs-next/config/inbounds/#%E5%8D%8F%E8%AE%AE%E5%88%97%E8%A1%A8) | Blackhole<br>DNS<br>Freedom<br>HTTP<br>MTProto<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS             | Dokodemo-door<br>HTTP<br>Shadowsocks<br>SOCKS<br>VMess<br>Trojan<br>VLESS | 2022-blake3-aes-128-gcm<br>2022-blake3-aes-256-gcm<br>2022-blake3-chacha20-poly1305<br>AES-256-GCM<br>AES-128-GCM<br>ChaCha20-Poly1305 |
 | [Shadowsocks](https://github.com/shadowsocks/shadowsocks/wiki/Encryption)                           | Shadowsocks                                                                                                    | Shadowsocks                                                               | All                                                                                                                                    |
 
+#### Sections
 
+[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions)Feel to discuss
+
+[Issues](https://github.com/awesome-vpn/awesome-vpn/issues)Issues report to us
+
+[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki)Edit the wiki for everyone
 
 <h1 style="text-align: center;">Fight for free</h1>
+
 ![fightforfree](./fightforfree.jpeg)
 
 

@@ -92,25 +92,14 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 欢迎添加 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E5%85%8D%E8%B4%B9%E4%B8%80%E9%94%AE%E7%BF%BB%E5%A2%99%E5%AE%A2%E6%88%B7%E7%AB%AF)
 
 
+#### 版块分类
 
-### Q&A：
-#### 墙内如果github release下载慢?
+[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions)请畅所欲言，什么都能讨论
 
-1.找浏览器github加速的插件/油猴github加速脚本
+[Issues](https://github.com/awesome-vpn/awesome-vpn/issues)提给作者问题
 
-2.host修改大法
+[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki)请有基础的同学一起编辑公共的知识库
 
-3.手机流量下载
-
-
-### 墙内iOS
-iOS 国区会不定期下架所有vpn客户端
-
-不越狱使用Outline，用美区等其他地区账号
-
-越狱直接装ipa
-
-### github上的其他翻墙项目差不多，我会整合一个免费好用的客户端。
 
 ![fightforfree](./fightforfree.jpeg)
 
