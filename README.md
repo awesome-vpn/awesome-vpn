@@ -59,7 +59,7 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 ```
 
 
-#### Open source projects [Edit✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
+#### Open source projects [Edit wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
 
 | VPN/proxy                                                                 | Android | iOS | Windows | Mac | Linux | Cores                            | Open source |
 |---------------------------------------------------------------------------|---------|-----|---------|-----|-------|----------------------------------|-------------|
@@ -83,7 +83,7 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 | [Qv2ray](https://github.com/Qv2ray/Qv2ray)                                | ×       | ×   | √       | √   | √     | [v2ray](Cores#v2ray)             | √           |
 | [SoftEtherVPN](https://github.com/SoftEtherVPN/SoftEtherVPN)              | ×       | ×   | √       | √   | √     |                                  | √           |
 
-#### Cores Difference [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
+#### Cores Difference [Edit wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
 | Cores                                                                                                                    | Outbound Protocol                                                                                                                        | Inbound Protocol                                                                                    | encryption                                                                                                                                                                                                                                                                                                                    | Protocol Compatibility                                                                                                                                                                                                                                                              | language |
 |--------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
