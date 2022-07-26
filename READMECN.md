@@ -75,13 +75,10 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 | [v2rayA](https://github.com/v2rayA/v2rayA)                                | ×       | ×   | ×       | ×   | √     | [sagernet](Cores#v2ray-sagernet) | √           |
 | [clashX](https://github.com/yichengchen/clashX)                           | ×       | ×   | ×       | √   | ×     | [clash](Cores#clash)             | √           |
 | [ClashForAndroid](https://github.com/Kr328/ClashForAndroid)               | √       | ×   | ×       | ×   | ×     | [clash](Cores#clash)             | √           |
-| [clashX](https://github.com/yichengchen/clashX)                           | ×       | ×   | ×       | √   | ×     | [clash](Cores#clash)             | √           |
-| [clashX](https://github.com/yichengchen/clashX)                           | ×       | ×   | ×       | √   | ×     | [clash](Cores#clash)             | √           |
 | [igniter](https://github.com/trojan-gfw/igniter)                          | √       | ×   | ×       | ×   | ×     | [trojan](Cores#trojan)           | √           |
 | [V2rayU](https://github.com/yanue/V2rayU)                                 | ×       | ×   | ×       | √   | ×     | [v2ray](Cores#v2ray)             | √           |
 | [V2RayX](https://github.com/Cenmrev/V2RayX)                               | ×       | ×   | ×       | √   | ×     | [v2ray](Cores#v2ray)             | √           |
 | [Qv2ray](https://github.com/Qv2ray/Qv2ray)                                | ×       | ×   | √       | √   | √     | [v2ray](Cores#v2ray)             | √           |
-
 
 #### 核心区别 [编辑wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
