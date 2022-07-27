@@ -1,15 +1,15 @@
 [English](https://github.com/hugetiny/FreeVPN/blob/master/README.md) | [简体中文](https://github.com/hugetiny/FreeVPN/blob/master/READMECN.md)
 
-- 全网V2Ray多协议订阅链接
-- 
+> 全网V2Ray多协议订阅链接
+
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
-- 全网Shadowsocks订阅链接
-- 
+> 全网Shadowsocks订阅链接
+
 https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/ss
 
 
-- 免费服务器账号
+> 全网免费服务器账号
 ```
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTIwLjIzMy43LjIyMSIsDQogICJwb3J0IjogIjE4MDAyIiwNCiAgImlkIjogIjIxZGNiZWM4LWVlZTgtM2QyMC04MmI2LWY4YzE2ZmU2ZGM4ZCIsDQogICJhaWQiOiAiMCIsDQogICJzY3kiOiAiYXV0byIsDQogICJuZXQiOiAidGNwIiwNCiAgInR5cGUiOiAibm9uZSIsDQogICJob3N0IjogIjEyMC4yMzMuNy4yMjEiLA0KICAicGF0aCI6ICIvIiwNCiAgInRscyI6ICIiLA0KICAic25pIjogIiIsDQogICJhbHBuIjogIiINCn0=
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTIwLjE5Ny4xMzAuMTI2IiwNCiAgInBvcnQiOiAiMTMwMDkiLA0KICAiaWQiOiAiMjFkY2JlYzgtZWVlOC0zZDIwLTgyYjYtZjhjMTZmZTZkYzhkIiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
@@ -63,10 +63,9 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### 核心区别 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
-#### 一键翻墙
+#### 一键翻墙  [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E4%B8%80%E9%94%AE%E5%AE%A2%E6%88%B7%E7%AB%AF(%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86))
 免费一键翻墙客户端。入选标准是一键/双击能用（不需要注册登录，没有收费提示和收费选项，没有强制广告）正在收录中。
 
-欢迎添加 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E4%B8%80%E9%94%AE%E5%AE%A2%E6%88%B7%E7%AB%AF(%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86))
 
 #### 版块分类
 
