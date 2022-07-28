@@ -63,9 +63,6 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### 核心区别 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
-#### 一键翻墙  [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/%E4%B8%80%E9%94%AE%E5%AE%A2%E6%88%B7%E7%AB%AF(%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86))
-免费一键翻墙客户端。入选标准是一键/双击能用（不需要注册登录，没有收费提示和收费选项，没有强制广告）正在收录中。
-
 
 #### 版块分类
 
