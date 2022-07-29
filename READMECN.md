@@ -63,14 +63,35 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### 核心区别 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
+#### 一键客户端
+
+> 数据源自各大应用市场。由于Windows/macOS/Linux没有真正集中的应用市场，暂时无法爬取。**awesome-vpn评分**是依据算法筛选掉刷评论行为的评论后，接近真实的评分，**awesome-vpn评分**过低的应用不显示。
+
+中国地区VPN/proxy榜
+
+| VPN/proxy                                                                   | Google Play | iOS App Store | 华为  | 小米  | OPPO |
+|-----------------------------------------------------------------------------|-------------|---------------|-----|-----|------|
+| [老王 VPN](https://play.google.com/store/apps/details?id=com.sticktoit)       | √           | ×             | ×   | ×   | ×    | 
+| [Bingo VPN 饼哥](https://play.google.com/store/apps/details?id=com.sticktoit) | √           | ×             | ×   | ×   | ×    | 
+| [VPN - Super Unlimited Proxy](https://mobilejump.mobi)                      | √           | √             | ×   | ×   | ×    | 
+
+App Store 全球VPN/proxy榜
+
+
+
+Google Play 全球VPN/proxy榜
+
+
+
+
 
 #### 版块分类
 
-[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions) 请畅所欲言，什么都能讨论
+[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions) 畅所欲言，什么都能讨论
 
 [Issues](https://github.com/awesome-vpn/awesome-vpn/issues) 提给作者问题
 
-[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) 请有基础的同学一起编辑公共的知识库
+[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) 开放自由编辑的知识库
 
 <h1 style="text-align: center;">为自由而战</h1>
 

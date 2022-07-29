@@ -65,11 +65,11 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### Sections
 
-[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions) Feel to discuss
+[Discussions](https://github.com/awesome-vpn/awesome-vpn/discussions) Feel free to discuss
 
 [Issues](https://github.com/awesome-vpn/awesome-vpn/issues) Issues report to us
 
-[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) Edit the wiki for everyone
+[Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) Open VPN wiki for everyone
 
 <h1 style="text-align: center;">Fight for free</h1>
 
