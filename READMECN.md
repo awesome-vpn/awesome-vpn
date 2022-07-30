@@ -63,18 +63,21 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### 核心区别 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
-#### 一键客户端
+#### 中国大陆地区键客户端app
 
-> 数据源自各大应用市场。由于Windows/macOS/Linux没有真正集中的应用市场，暂时无法爬取。**awesome-vpn评分**是依据算法筛选掉刷评论行为的评论后，接近真实的评分，**awesome-vpn评分**过低的应用不显示。
+> GFW不定期封锁，本列表实时更新，数据爬取自各大应用市场，没有主观成分。适用于中国大陆地区。由于Windows/macOS/Linux没有真正集中的应用市场，暂时无法爬取。**awesome-vpn评分**是依据算法筛选掉各种刷评论行为的评论后，接近真实的评分。**awesome-vpn评分**过低和下载量过低的应用不显示。
 
-中国地区VPN/proxy榜
 
-| VPN/proxy                                                                   | Google Play | iOS App Store | 华为  | 小米  | OPPO |
-|-----------------------------------------------------------------------------|-------------|---------------|-----|-----|------|
-| [老王 VPN](https://play.google.com/store/apps/details?id=com.sticktoit)       | √           | ×             | ×   | ×   | ×    | 
-| [Bingo VPN 饼哥](https://play.google.com/store/apps/details?id=com.sticktoit) | √           | ×             | ×   | ×   | ×    | 
-| [VPN - Super Unlimited Proxy](https://mobilejump.mobi)                      | √           | √             | ×   | ×   | ×    | 
 
+|app|苹果App Store|Google Play|华为|小米|OPPO|商店评分|awesome-vpn评分|
+|---|---|---|---|---|---|---|---|
+|[老王VPN - 安全 秒连 高速 稳定 永久更新](https://play.google.com/store/apps/details?id=com.sticktoit&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.8|
+|[蚂蚁VPN   免注册  无限流量 快速安全的VPN](https://play.google.com/store/apps/details?id=com.mayi.xiaoyi&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.6|
+|[银河VPN: 梯子 全平台 科学上网无限流量快速安全的VPN](https://play.google.com/store/apps/details?id=com.galaxylab.ss&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.8|
+|[酷通VPN - 千兆带宽，全球分布，稳定高可用](https://play.google.com/store/apps/details?id=com.kuto.vpn&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.8|
+|[VPN Secure - Fast Hotspot VPN](https://play.google.com/store/apps/details?id=com.free.vpn.secure.proxy&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.6|
+|[VPN大师 - 高速 梯子 科学上网](https://play.google.com/store/apps/details?id=com.free.vpn.proxy.master.app&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.6|
+|[老王VPN Lite - 安全 秒连 高速 稳定 永久更新](https://play.google.com/store/apps/details?id=com.trustyourself&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|5|
 App Store 全球VPN/proxy榜
 
 
