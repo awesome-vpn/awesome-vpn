@@ -65,19 +65,33 @@ vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIiIsDQogICJhZGQiOiAiMTQ2LjcwLjQ2LjY4IiwN
 
 #### 中国大陆地区键客户端app
 
-> GFW不定期封锁，本列表实时更新，数据爬取自各大应用市场，没有主观成分。适用于中国大陆地区。由于Windows/macOS/Linux没有真正集中的应用市场，暂时无法爬取。**awesome-vpn评分**是依据算法筛选掉各种刷评论行为的评论后，接近真实的评分。**awesome-vpn评分**过低和下载量过低的应用不显示。
+> GFW不定期封锁，本列表实时更新，数据爬取自各大应用市场，没有主观成分。适用于中国大陆地区。
+> 
+> 由于Windows/macOS/Linux没有真正集中的应用市场，暂时无法爬取。
+> 
+> **awesome-vpn评分**是依据算法筛选掉各种刷评论行为的评论后，接近真实的评分。**awesome-vpn评分**过低和下载量过低的应用不显示。
+> 
+> 由于中国大陆对iOS App Store VPN的打压和苹果对刷评论行为的放任，爬虫显示国内高下载量的VPN/代理应用App Store 约85%以上存在垃圾评论行为。因此数据以中国香港为准。
 
 
 
 |app|苹果App Store|Google Play|华为|小米|OPPO|商店评分|awesome-vpn评分|
 |---|---|---|---|---|---|---|---|
-|[老王VPN - 安全 秒连 高速 稳定 永久更新](https://play.google.com/store/apps/details?id=com.sticktoit&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.8|
-|[蚂蚁VPN   免注册  无限流量 快速安全的VPN](https://play.google.com/store/apps/details?id=com.mayi.xiaoyi&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.6|
-|[银河VPN: 梯子 全平台 科学上网无限流量快速安全的VPN](https://play.google.com/store/apps/details?id=com.galaxylab.ss&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.8|
-|[酷通VPN - 千兆带宽，全球分布，稳定高可用](https://play.google.com/store/apps/details?id=com.kuto.vpn&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.8|
-|[VPN Secure - Fast Hotspot VPN](https://play.google.com/store/apps/details?id=com.free.vpn.secure.proxy&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|4.6|
-|[VPN大师 - 高速 梯子 科学上网](https://play.google.com/store/apps/details?id=com.free.vpn.proxy.master.app&hl=zh-cn&gl=cn)|x|√|x|x|x|4.7|4.6|
-|[老王VPN Lite - 安全 秒连 高速 稳定 永久更新](https://play.google.com/store/apps/details?id=com.trustyourself&hl=zh-cn&gl=cn)|x|√|x|x|x|4.8|5|
+|[老王VPN - 安全 秒連 高速 穩定 永久更新](https://play.google.com/store/apps/details?id=com.sticktoit&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|5|
+|[Galaxy VPN - VPN Unlimited](https://play.google.com/store/apps/details?id=com.galaxylab.ss&hl=zh-tw&gl=hk)|x|√|x|x|x|4.8|4|
+|[快連 VPN - 永遠都能翻過去的 VPN](https://play.google.com/store/apps/details?id=world.letsgo.booster.android.pro&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|4|
+|[VPN Secure - Fast Hotspot VPN](https://play.google.com/store/apps/details?id=com.free.vpn.secure.proxy&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|3.9|
+|[VPN - Super Unlimited Proxy](https://play.google.com/store/apps/details?id=com.free.vpn.super.hotspot.open&hl=zh-tw&gl=hk)|x|√|x|x|x|4.8|5|
+|[VPN Super Proxy - Proxy Master](https://play.google.com/store/apps/details?id=com.free.vpn.proxy.master.app&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|3.6|
+|[Upnet VPN](https://play.google.com/store/apps/details?id=com.upnetvpn.gp&hl=zh-tw&gl=hk)|x|√|x|x|x|4.9|4|
+|[베일덕 VPN - 빠르고 안전한 무료 VPN](https://play.google.com/store/apps/details?id=com.bgpworks.vpn&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|5|
+|[老王VPN Lite - 安全 秒連 高速 穩定 永久更新](https://play.google.com/store/apps/details?id=com.trustyourself&hl=zh-tw&gl=hk)|x|√|x|x|x|4.7|3.9|
+|[La VPN فیلتر شکن قوی و پرسرعت](https://play.google.com/store/apps/details?id=vpn.lavpn.unblock&hl=zh-tw&gl=hk)|x|√|x|x|x|4.9|5|
+|[VPN - Unlimited網絡高速代理加速器](https://apps.apple.com/hk/app/id1370293473?l=zh-tw)|√|x|x|x|x|4.73|5|
+|[VPN Master - 高速安全代理](https://apps.apple.com/hk/app/id1025707485?l=zh-tw)|√|x|x|x|x|4.62|3.9|
+|[奔腾 VPN - Best VPN Proxy Master](https://apps.apple.com/hk/app/id1113245013?l=zh-tw)|√|x|x|x|x|4.83|3.7|
+|[艾尚蜗牛VPN - 永久免费的国际直通车软件](https://apps.apple.com/hk/app/id1117203062?l=zh-tw)|√|x|x|x|x|4.7|3.5|
+
 App Store 全球VPN/proxy榜
 
 
