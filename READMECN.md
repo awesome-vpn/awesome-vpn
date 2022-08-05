@@ -1,4 +1,4 @@
-[Global](README.md) | [中国](READMECN.md) | [中国香港](READMEHK.md)
+[US](README.md) | [中国](READMECN.md)
 
 > 全网V2Ray多协议订阅链接
 
@@ -236,11 +236,11 @@ trojan://e49f9132-4f1c-4a11-998f-0b90697254e6@bai-piao-wang-zhe.iplc.nl.884899.c
 
 #### 核心区别 [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
-#### 一键翻墙客户端 [大陆应用市场数据](https://github.com/awesome-vpn/awesome-vpn/one-click-apps/zh-cn.md)
+#### 一键翻墙客户端 [大陆应用市场数据](one-click-apps/zh-cn.md)
 
-#### 一键翻墙客户端 [香港应用市场数据](https://github.com/awesome-vpn/awesome-vpn/one-click-apps/zh-hk.md)
+#### 一键翻墙客户端 [香港应用市场数据](one-click-apps/zh-hk.md)
 
-#### 一键翻墙客户端 [台湾应用市场数据](https://github.com/awesome-vpn/awesome-vpn/one-click-apps/zh-tw.md)
+#### 一键翻墙客户端 [台湾应用市场数据](one-click-apps/zh-tw.md)
 
 > 不推荐，可能存在强制广告和内购，为了方便订阅链接都不会添加的小白
 > 

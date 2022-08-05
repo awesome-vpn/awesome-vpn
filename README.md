@@ -1,4 +1,4 @@
-[Global](README.md) | [中国](READMECN.md) | [中国香港](READMEHK.md)
+[US](README.md) | [中国](READMECN.md)
 
 > All-in-one Subscription Links from all over the world
 
@@ -236,13 +236,11 @@ trojan://e49f9132-4f1c-4a11-998f-0b90697254e6@bai-piao-wang-zhe.iplc.nl.884899.c
 
 #### Cores Difference [wiki✏](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
-#### One-click Client [Apps](https://github.com/awesome-vpn/awesome-vpn/one-click-apps/en-us.md)
+#### One-click Client [Apps](one-click-apps/en-us.md)
 
 > Not recommended, may contain Ads and in-app purchase
 > 
 > **awesome-vpn** ratings are based on algorithms that filter out reviews with various review swiping behaviors. Apps with low **awesome-vpn** ratings and low downloads are not shown.
-
-
 
 
 
