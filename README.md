@@ -1,3 +1,5 @@
+<h1 style="text-align: center;">为自由而战，共产党毁灭吧</h1>
+
 [English-US](README.md) | [中国大陆](READMECN.md)
 
 > All-in-one Subscription Links from all over the world
@@ -262,9 +264,6 @@ ssr://MTY1LjIyLjYzLjI0NTozOTg0MTpvcmlnaW46cmM0OnBsYWluOlZFaEhNbWcwUzBJMlYwdHhUVG
 
 [Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) Open VPN wiki for everyone
 
-<h1 style="text-align: center;">Fight for free</h1>
-
-![fightforfree](./fightforfree.jpeg)
 
 
 
