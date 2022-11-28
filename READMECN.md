@@ -1,3 +1,5 @@
+<h1 style="text-align: center;">为自由而战，共产党毁灭吧</h1>
+
 [English-US](README.md) | [中国大陆](READMECN.md)
 
 > 全网V2Ray多协议订阅链接
@@ -270,8 +272,6 @@ ssr://MTY1LjIyLjYzLjI0NTozOTg0MTpvcmlnaW46cmM0OnBsYWluOlZFaEhNbWcwUzBJMlYwdHhUVG
 
 [Wiki](https://github.com/awesome-vpn/awesome-vpn/wiki) 开放自由编辑的知识库
 
-<h1 style="text-align: center;">为自由而战</h1>
 
-![fightforfree](./fightforfree.jpeg)
 
 
