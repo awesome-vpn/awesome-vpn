@@ -1,5 +1,3 @@
-<h1 style="text-align: center;">为自由而战，共产党毁灭吧</h1>
-
 [English-US](README.md) | [中国大陆](READMECN.md)
 
 > 全网V2Ray多协议订阅链接
