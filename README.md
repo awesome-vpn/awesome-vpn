@@ -7,7 +7,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
 #### Open source projects [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
 
-#### Cores Difference [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
+#### Cores [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
 
 #### One-click Client [Apps](one-click-apps/en-us.md)
 
