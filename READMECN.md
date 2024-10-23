@@ -1,23 +1,24 @@
-[English-US](README.md) | [中国大陆](READMECN.md)
+## [English](README.md) | [简体中文](READMECN.md)
 
 > 全网V2Ray,Shadowsocks,trojan等多协议订阅链接，每天更新
 
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+GitHub订阅链接:
+- https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
+镜像订阅链接 (如果GitHub连接不稳定,请使用以下链接):
+- https://raw.gitmirror.com/awesome-vpn/awesome-vpn/master/all [美国 Cloudflare CDN]
+- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [中国香港、日本、新加坡等]
+- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本、韩国、新加坡、美国、德国等]
+- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本 大阪]
 
-#### 开源客户端 [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/%E5%BC%80%E6%BA%90%E5%AE%A2%E6%88%B7%E7%AB%AF(%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86))
+#### [开源客户端](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
 
-
-目前所有 一键翻墙客户端都存在各种问题
+目前所有一键翻墙客户端都存在各种问题:
 
 - 连不上。服务器域名或者IP被墙。
-
 - 应用市场搜不到，被官方市场屏蔽。有点人气的App被屏蔽后有山寨的App冒充。
-
 - 强制收费。或者仅仅免费试用几天。或者有限流量。
 
-作者正在找各个应用市场上存续长久的翻墙客户端的经验，
+我正在寻找各个应用市场上长期存在的翻墙客户端的经验，并希望以此经验为基础，开发一款可以永久免费使用、省心的跨平台可用App。
 
-并以此经验为基础，开发一款一直可以免费使用省心的全平台可用的App。
-
-欢迎有经验的同学在Issue讨论
+欢迎有经验的开发者在Issues，Discussions中讨论

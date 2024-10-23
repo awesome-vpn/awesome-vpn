@@ -1,14 +1,24 @@
-[English-US](README.md) | [简体中文](READMECN.md)
+## [English](README.md) | [简体中文](READMECN.md)
 
-> All-in-one Subscription Links from all over the world
+> Multi-protocol subscription links for V2Ray, Shadowsocks, Trojan, etc. from across the web, updated daily
 
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+GitHub subscription link:
+- https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
+Mirror subscription links (If GitHub connection is unstable, please use the following links):
+- https://raw.gitmirror.com/awesome-vpn/awesome-vpn/master/all [USA Cloudflare CDN]
+- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [Hong Kong, Japan, Singapore, etc.]
+- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Japan, Korea, Singapore, USA, Germany, etc.]
+- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Osaka, Japan]
 
-#### Open source projects [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
+#### [Open Source Clients](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
 
-#### Cores [wiki](https://github.com/awesome-vpn/awesome-vpn/wiki/Cores)
+Currently, all one-click VPN clients face various issues:
 
-#### One-click Client [Apps](one-click-apps/en-us.md)
+- Connection failures. Server domains or IPs are blocked.
+- Unavailable in app stores, blocked by official markets. Popular apps, once blocked, are often impersonated by fake ones.
+- Forced payment. Or only a few days of free trial. Or limited traffic.
 
-> Not recommended, may contain Ads and in-app purchase
+I am researching long-standing VPN clients in various app markets, aiming to use this experience as a foundation to develop a free, permanent, cross-platform app that can be used long-term.
+
+We welcome experienced developers to discuss in Issues and Discussions.
