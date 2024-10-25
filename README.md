@@ -1,4 +1,4 @@
-[![简体中文](https://img.shields.io/badge/语言-简体中文-red)](READMECN.md)
+[![简体中文](https://img.shields.io/badge/语言-简体中文-red)](README_CN.md)
 [![English](https://img.shields.io/badge/Language-English-red)](README.md)
 [![العربية](https://img.shields.io/badge/اللغة-العربية-red)](README_AR.md)
 [![বাংলা](https://img.shields.io/badge/ভাষা-বাংলা-red)](README_BN.md)
