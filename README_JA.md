@@ -1,56 +1,82 @@
-[![日本語](https://img.shields.io/badge/言語-日本語-red)](README_JA.md)
-[![English](https://img.shields.io/badge/Language-English-red)](README.md)
-
 # 無料ネットワーク高速化リソース
 
-> V2Ray、Shadowsocks、Trojanなどの多プロトコル購読リンクを毎日更新。
+[![简体中文](https://img.shields.io/badge/语言-简体中文-red)](README_CN.md)
+[![English](https://img.shields.io/badge/Language-English-red)](README.md)
+[![日本語](https://img.shields.io/badge/言語-日本語-red)](README_JA.md)
 
-## 🚀 クイックアクセス
+## 🚀 クイックスタート
 
-GitHub購読リンク:
+1. GitHubで[オープンソースクライアント](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)を検索してインストール
+2. 以下の購読リンクをクライアントにコピー
+3. 適切なノードを選択して使用開始
+
+プロジェクトリンク:
+- [https://github.com/awesome-vpn/awesome-vpn](https://github.com/awesome-vpn/awesome-vpn)
+
+## 📥 購読リンク
+
+メイン購読リンク:
 - https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
 ミラーリンク (GitHubが不安定な場合):
-- https://raw.gitmirror.com/awesome-vpn/awesome-vpn/master/all [アメリカ Cloudflare CDN]
-- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [香港、日本、シンガポールなど]
-- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本、韓国、シンガポール、アメリカ、ドイツなど]
-- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本 大阪]
+- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [最適: 香港/日本/シンガポール]
+- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [最適: 日本/韓国/アメリカ/ヨーロッパ]
+- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [最適: 日本]
 
-## 📱 [オープンソースクライアント](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
+## 📊 VPNとプロキシプロトコルの分析
 
-## 🌟 特徴
-
-- 無料プロキシの共有
-- 無料アカウント
-- ネットワーク高速化
-- インターネット自由化ツール
-- 購読サービス
+| OSIレイヤー | プロトコル | 説明 |
+|------------|------------|------|
+| レイヤー2 - データリンク | PPTP | ポイントツーポイントトンネリングプロトコル、古く、セキュリティ性が低い |
+| レイヤー2 - データリンク | L2TP | レイヤー2トンネリングプロトコル、通常IPSecと併用 |
+| レイヤー3 - ネットワーク | IPsec | インターネットプロトコルセキュリティ、L2TPと併用または単独で使用可能 |
+| レイヤー3 - ネットワーク | WireGuard | 新しい効率的なVPNプロトコル、優れたパフォーマンス |
+| レイヤー3 - ネットワーク | GRE | 汎用ルーティングカプセル化、複数のネットワークレイヤープロトコルをカプセル化可能 |
+| レイヤー4 - トランスポート | TUIC | TCP over UDP、QUICベースのトランスポート層プロトコル |
+| レイヤー4 - トランスポート | Hysteria | QUICベースの高速ネットワーク伝送プロトコル |
+| レイヤー4 - トランスポート | Hysteria2 | Hysteriaの改良版、より効率的で安全 |
+| レイヤー4 - トランスポート | QUIC | Quick UDP Internet Connections、Googleが開発 |
+| レイヤー5 - セッション | SOCKS4 | シンプルなファイアウォール通過プロトコル、認証をサポートしない |
+| レイヤー5 - セッション | SOCKS5 | 認証とUDPをサポートする汎用プロキシプロトコル |
+| レイヤー5 - セッション | SSL/TLS | セキュアソケットレイヤー/トランスポートレイヤーセキュリティ、アプリケーション層に暗号化を提供 |
+| レイヤー7 - アプリケーション | OpenVPN | OpenSSLライブラリを使用した暗号化VPNシステム |
+| レイヤー7 - アプリケーション | Shadowsocks | 軽量な暗号化プロキシプロトコル |
+| レイヤー7 - アプリケーション | ShadowsocksR | Shadowsocksの拡張版、難読化などの機能を追加 |
+| レイヤー7 - アプリケーション | VMess | TLSベースの暗号化伝送プロトコル、V2Rayプロジェクトが提案 |
+| レイヤー7 - アプリケーション | VLESS | VMessの簡略化版、暗号化オーバーヘッドを削減 |
+| レイヤー7 - アプリケーション | Trojan | HTTPSトラフィックを装うプロキシプロトコル |
+| レイヤー7 - アプリケーション | Trojan-Go | TrojanプロトコルのGo実装、WebSocketなどの機能を追加 |
+| レイヤー7 - アプリケーション | HTTPプロキシ | 最も基本的なプロキシタイプ、通常暗号化されていない |
+| レイヤー7 - アプリケーション | HTTPSプロキシ | 暗号化されたHTTPプロキシ、より良いセキュリティを提供 |
+| レイヤー7 - アプリケーション | SSHトンネル | SSHプロトコルを使用して暗号化されたトンネルを作成 |
+| レイヤー7 - アプリケーション | Tor | 匿名通信ネットワーク、多層暗号化とリレーを通じて高いプライバシーを提供 |
+| レイヤー7 - アプリケーション | Naive | ChromiumネットワークスタックベースのHTTPSプロキシプロトコル |
+| レイヤー7 - アプリケーション | Brook | シンプルなクロスプラットフォームプロキシプロトコル |
+| レイヤー7 - アプリケーション | Shadowtls | ShadowsocksトラフィックをTLSトラフィックに偽装するプロトコル |
+| レイヤー7 - アプリケーション | Reality | TLS 1.3ベースの新しいプロキシプロトコル、より良い検出回避能力を提供 |
+| レイヤー7 - アプリケーション | WebSocket | 単一のTCP接続上で全二重通信を提供するプロトコル |
 
 ## ⚠️ 現在の課題
 
-多くのワンクリックVPNクライアントが直面している問題:
-- ドメイン/IPのブロックによる接続問題
+多くのワンクリックVPNクライアントが以下の問題に直面しています:
+- ドメイン/IPブロックによる接続の問題
 - アプリストアでの利用不可
-- 強制的な支払いや限定的な試用期間
+- 強制課金または期間限定トライアル
 
-## 🔬 私たちのミッション
+## 🔬 インターネットの自由化について
 
-長年存在するVPNクライアントを研究し、無料で信頼性の高いクロスプラットフォームソリューションを開発しています。以下の機能を提供するアプリの作成を目指しています:
+一般的に、国レベルでプロキシやVPNを大規模に遮断する場合、OSIプロトコルから特徴的なトラフィックを検出して大規模にブロックし、アプリストアにプロキシ関連アプリの削除を命じます。
+特定のターゲットに対する遮断の場合、IPやドメインレベルで精密な制限を実施します。理論的には、大量のサーバーサポートがない限り、プロキシプロトコルがどんなに進歩しても長期的な安定使用は困難です。
 
-- 永久無料かつ無制限の使用
-- 安定した接続
-- すべてのプラットフォームに対応
+そのため、良いプロキシクライアントには以下の条件が必要です:
 
-## 🤝 貢献
-
-経験豊富な開発者の方々のご参加をお待ちしています。このプロジェクトへの洞察と貢献をお願いします:
-
-- 提案のための問題を開く
-- ディスカッションに参加する
-- プルリクエストを提出する
-
-より良い、無料のインターネット高速化ソリューションを一緒に作りましょう！
+- 永久無料で無制限に使用可能
+- 大量のプロキシサーバーノード
+- すべてのプラットフォームをサポート
+- 複数のプロキシプロトコルをサポート
+- 複数の暗号化方式をサポート
+- モバイル版は公式アプリストア以外のインストール・アップデート方法を提供
 
 ## ⚖️ 免責事項
 
-このプロジェクトは教育および研究目的のみです。これらのリソースを使用する際は、地域の法律や規制を遵守する責任があります。
+本プロジェクトは教育および研究目的のみです。ユーザーはこれらのリソースを使用する際、地域の法律や規制を遵守する責任があります。

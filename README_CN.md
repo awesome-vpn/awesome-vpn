@@ -1,30 +1,57 @@
 [![简体中文](https://img.shields.io/badge/语言-简体中文-red)](README_CN.md)
 [![English](https://img.shields.io/badge/Language-English-red)](README.md)
 
-# 免费网络加速资源
+## 🚀 快速开始
 
-> 每日更新的V2Ray、Shadowsocks、Trojan等多协议订阅链接。
+1. 在Github上搜索并安装[开源客户端](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
+2. 将下方的订阅链接复制到客户端
+3. 选择合适的节点开始使用
 
-## 🚀 快速访问
+项目地址:
+- [https://github.com/awesome-vpn/awesome-vpn](https://github.com/awesome-vpn/awesome-vpn)
 
-GitHub订阅链接:
+## 📥 订阅链接
+
+主订阅链接:
 - https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
 
-镜像链接 (如果GitHub连接不稳定):
-- https://raw.gitmirror.com/awesome-vpn/awesome-vpn/master/all [美国 Cloudflare CDN]
-- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [中国香港、日本、新加坡等]
-- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本、韩国、新加坡、美国、德国等]
-- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [日本 大阪]
+备用镜像 (GitHub访问不稳定时使用):
+- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [优选: 香港/日本/新加坡]
+- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日韩/美国/欧洲]
+- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日本]
 
-## 📱 [开源客户端](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
+## 📊 VPN和代理协议分析
 
-## 🌟 功能
-
-- 免费代理分享
-- 免费账号
-- 网络加速
-- 科学上网工具
-- 订阅服务
+| OSI层级 | 协议 | 说明 |
+|--------|------|------|
+| 第2层 - 数据链路层 | PPTP | 点对点隧道协议，较旧，安全性较低 |
+| 第2层 - 数据链路层 | L2TP | 第二层隧道协议，通常与IPsec配合使用 |
+| 第3层 - 网络层 | IPsec | 互联网协议安全，可与L2TP配合或单独使用 |
+| 第3层 - 网络层 | WireGuard | 新型高效VPN协议，性能优越 |
+| 第3层 - 网络层 | GRE | 通用路由封装，可封装多种网络层协议 |
+| 第4层 - 传输层 | TUIC | TCP over UDP，基于QUIC的传输层协议 |
+| 第4层 - 传输层 | Hysteria | 基于QUIC的高速网络传输协议 |
+| 第4层 - 传输层 | Hysteria2 | Hysteria的改进版本，更高效和安全 |
+| 第4层 - 传输层 | QUIC | 快速UDP网络连接，由Google开发 |
+| 第5层 - 会话层 | SOCKS4 | 简单的防火墙穿透协议，不支持认证 |
+| 第5层 - 会话层 | SOCKS5 | 支持认证和UDP的通用代理协议 |
+| 第5层 - 会话层 | SSL/TLS | 安全套接字层/传输层安全，为应用层提供加密 |
+| 第7层 - 应用层 | OpenVPN | 使用OpenSSL库加密的VPN系统 |
+| 第7层 - 应用层 | Shadowsocks | 轻量级加密代理协议 |
+| 第7层 - 应用层 | ShadowsocksR | Shadowsocks的扩展版本，增加了混淆等特性 |
+| 第7层 - 应用层 | VMess | 基于TLS的加密传输协议，由V2Ray项目提出 |
+| 第7层 - 应用层 | VLESS | VMess的简化版本，减少了加密开销 |
+| 第7层 - 应用层 | Trojan | 伪装成HTTPS流量的代理协议 |
+| 第7层 - 应用层 | Trojan-Go | Trojan协议的Go语言实现，增加了WebSocket等特性 |
+| 第7层 - 应用层 | HTTP代理 | 最基本的代理类型，通常不加密 |
+| 第7层 - 应用层 | HTTPS代理 | 加密的HTTP代理，提供更好的安全性 |
+| 第7层 - 应用层 | SSH隧道 | 利用SSH协议创建加密隧道 |
+| 第7层 - 应用层 | Tor | 匿名通信网络，通过多层加密和中继提供高度隐私 |
+| 第7层 - 应用层 | Naive | 基于Chromium网络栈的HTTPS代理协议 |
+| 第7层 - 应用层 | Brook | 简单的跨平台代理协议 |
+| 第7层 - 应用层 | Shadowtls | 将Shadowsocks流量伪装成TLS流量的协议 |
+| 第7层 - 应用层 | Reality | 基于TLS 1.3的新型代理协议，提供更强的抗检测能力 |
+| 第7层 - 应用层 | WebSocket | 在单个TCP连接上提供全双工通信的协议 |
 
 ## ⚠️ 当前挑战
 
@@ -33,24 +60,20 @@ GitHub订阅链接:
 - 在应用商店中无法获取
 - 强制付费或限时试用
 
-## 🔬 我们的使命
+## 🔬 如何让互联网更自由
 
-我们正在研究长期存在的VPN客户端,以开发一个免费、可靠的跨平台解决方案。我们的目标是创建一个能提供以下特性的应用:
+一般国家层面要大范围封杀代理或者VPN，会从OSI协议中较容易检测出特征的流量进行大面积封锁。并勒令应用商店下架代理类应用。
+如果针对性封杀的话，会从IP或者域名层面实现精确打击。因此理论上，如果没有海量服务器支撑，无论代理协议多么先进，都无法长期稳定使用。
+
+所以需要一款好的代理客户端，满足以下条件：
 
 - 永久免费且无限制使用
-- 稳定的连接
+- 海量代理服务器节点
 - 跨所有平台支持
-
-## 🤝 贡献
-
-我们欢迎有经验的开发者加入我们的使命。分享您的见解并为这个项目做出贡献:
-
-- 提出建议性的问题
-- 参与讨论
-- 提交拉取请求
-
-让我们一起努力创造一个更好的、免费的互联网加速解决方案!
+- 支持多种代理协议
+- 支持多种加密方式
+- 手机版本提供官方应用商店之外的安装更新方式
 
 ## ⚖️ 免责声明
 
-本项目仅用于教育和研究目的。用户在使用这些资源时应负责遵守当地法律法规。
+本项目仅用于教育和研究目的。用户在使用这些资源时请负责遵守当地法律法规，保护自己。
