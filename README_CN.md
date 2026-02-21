@@ -1,11 +1,9 @@
-[![简体中文](https://img.shields.io/badge/语言-简体中文-red)](README_CN.md)
 [![English](https://img.shields.io/badge/Language-English-red)](README.md)
 
 ## 🚀 快速开始
 
-1. 下载并安装[推荐客户端](#推荐客户端)
-2. 复制下方的订阅链接
-3. 导入客户端并连接使用
+1. 复制下方的订阅链接
+2. 导入客户端并连接使用
 
 ## 📥 订阅链接
 
@@ -16,19 +14,6 @@
 - https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [优选: 香港/日本/新加坡]
 - https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日韩/美国/欧洲]
 - https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日本]
-
-## 📱 推荐客户端
-
-| 平台 | 客户端 | 协议支持 | 下载链接 |
-|------|--------|----------|----------|
-| **Windows** | **v2rayN** | VMess, VLESS, Trojan, SS 等 | [GitHub](https://github.com/2dust/v2rayN) |
-| | **Clash Verge** | Clash Meta (全协议) | [GitHub](https://github.com/clash-verge-rev/clash-verge-rev) |
-| **Android** | **v2rayNG** | VMess, VLESS, Trojan, SS 等 | [GitHub](https://github.com/2dust/v2rayNG) |
-| | **Sing-box** | 全协议 (官方客户端) | [Google Play](https://play.google.com/store/apps/details?id=io.nekohasekai.sfa) |
-| **macOS** | **Clash Verge** | Clash Meta (全协议) | [GitHub](https://github.com/clash-verge-rev/clash-verge-rev) |
-| | **Sing-box** | 全协议 (官方客户端) | [App Store](https://apps.apple.com/us/app/sing-box/id6451272673) |
-| **iOS** | **Sing-box** | 全协议 (官方客户端) | [App Store](https://apps.apple.com/us/app/sing-box/id6451272673) |
-| | **V2Box** | VMess, VLESS, Trojan, SS | [App Store](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) |
 
 ## 📊 VPN和代理协议分析
 

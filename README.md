@@ -1,29 +1,9 @@
 [![简体中文](https://img.shields.io/badge/语言-简体中文-red)](README_CN.md)
-[![English](https://img.shields.io/badge/Language-English-red)](README.md)
-[![العربية](https://img.shields.io/badge/اللغة-العربية-red)](README_AR.md)
-[![বাংলা](https://img.shields.io/badge/ভাষা-বাংলা-red)](README_BN.md)
-[![Deutsch](https://img.shields.io/badge/Sprache-Deutsch-red)](README_DE.md)
-[![Español](https://img.shields.io/badge/Idioma-Español-red)](README_ES.md)
-[![فارسی](https://img.shields.io/badge/زبان-فارسی-red)](README_FA.md)
-[![Français](https://img.shields.io/badge/Langue-Français-red)](README_FR.md)
-[![हिन्दी](https://img.shields.io/badge/भाषा-हिन्दी-red)](README_HI.md)
-[![Bahasa Indonesia](https://img.shields.io/badge/Bahasa-Indonesia-red)](README_ID.md)
-[![Italiano](https://img.shields.io/badge/Lingua-Italiano-red)](README_IT.md)
-[![日本語](https://img.shields.io/badge/言語-日本語-red)](README_JA.md)
-[![한국어](https://img.shields.io/badge/언어-한국어-red)](README_KO.md)
-[![Polski](https://img.shields.io/badge/Język-Polski-red)](README_PL.md)
-[![Português](https://img.shields.io/badge/Língua-Português-red)](README_PT.md)
-[![Русский](https://img.shields.io/badge/Язык-Русский-red)](README_RU.md)
-[![ไทย](https://img.shields.io/badge/ภาษา-ไทย-red)](README_TH.md)
-[![Türkçe](https://img.shields.io/badge/Dil-Türkçe-red)](README_TR.md)
-[![اردو](https://img.shields.io/badge/زبان-اردو-red)](README_UR.md)
-[![Tiếng Việt](https://img.shields.io/badge/Ngôn%20ngữ-Tiếng%20Việt-red)](README_VI.md)
 
 ## 🚀 Quick Start
 
-1. Download and install a [Recommended Client](#recommended-clients)
-2. Copy the subscription link below
-3. Import into your client and connect
+1. Copy the subscription link below
+2. Import into your client and connect
 
 ## 📥 Subscription Links
 
@@ -34,19 +14,6 @@ Mirror links (use if GitHub is unstable):
 - https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [Preferred: Hong Kong/Japan/Singapore]
 - https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Preferred: Japan/Korea/USA/Europe]
 - https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Preferred: Japan]
-
-## 📱 Recommended Clients
-
-| Platform | Client | Protocol Support | Link |
-|----------|--------|------------------|------|
-| **Windows** | **v2rayN** | VMess, VLESS, Trojan, SS, etc. | [GitHub](https://github.com/2dust/v2rayN) |
-| | **Clash Verge** | Clash Meta (All Protocols) | [GitHub](https://github.com/clash-verge-rev/clash-verge-rev) |
-| **Android** | **v2rayNG** | VMess, VLESS, Trojan, SS, etc. | [GitHub](https://github.com/2dust/v2rayNG) |
-| | **Sing-box** | All (Official Client) | [Google Play](https://play.google.com/store/apps/details?id=io.nekohasekai.sfa) |
-| **macOS** | **Clash Verge** | Clash Meta (All Protocols) | [GitHub](https://github.com/clash-verge-rev/clash-verge-rev) |
-| | **Sing-box** | All (Official Client) | [App Store](https://apps.apple.com/us/app/sing-box/id6451272673) |
-| **iOS** | **Sing-box** | All (Official Client) | [App Store](https://apps.apple.com/us/app/sing-box/id6451272673) |
-| | **V2Box** | VMess, VLESS, Trojan, SS | [App Store](https://apps.apple.com/us/app/v2box-v2ray-client/id6446814690) |
 
 ## 📊 VPN and Proxy Protocol Analysis
 
