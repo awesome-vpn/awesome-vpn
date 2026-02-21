@@ -12,7 +12,6 @@ Main subscription link:
 
 Mirror links (use if GitHub is unstable):
 - https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [Preferred: Hong Kong/Japan/Singapore]
-- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Preferred: Japan/Korea/USA/Europe]
 - https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [Preferred: Japan]
 
 ## 📊 VPN and Proxy Protocol Analysis

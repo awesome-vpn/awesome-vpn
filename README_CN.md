@@ -12,7 +12,6 @@
 
 备用镜像 (GitHub访问不稳定时使用):
 - https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [优选: 香港/日本/新加坡]
-- https://ghp.ci/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日韩/美国/欧洲]
 - https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日本]
 
 ## 📊 VPN和代理协议分析
