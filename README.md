@@ -21,12 +21,9 @@
 
 ## 🚀 Quick Start
 
-1. Search and install [open source clients](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients) on Github
-2. Copy the subscription link below to the client
-3. Select the appropriate node to start using
-
-Project link:
-- [https://github.com/awesome-vpn/awesome-vpn](https://github.com/awesome-vpn/awesome-vpn)
+1. Download and install a [Recommended Client](#recommended-clients)
+2. Copy the subscription link below
+3. Import into your client and connect
 
 ## 📥 Subscription Links
 

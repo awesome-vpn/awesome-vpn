@@ -3,12 +3,9 @@
 
 ## 🚀 快速开始
 
-1. 在Github上搜索并安装[开源客户端](https://github.com/awesome-vpn/awesome-vpn/wiki/Clients)
-2. 将下方的订阅链接复制到客户端
-3. 选择合适的节点开始使用
-
-项目地址:
-- [https://github.com/awesome-vpn/awesome-vpn](https://github.com/awesome-vpn/awesome-vpn)
+1. 下载并安装[推荐客户端](#推荐客户端)
+2. 复制下方的订阅链接
+3. 导入客户端并连接使用
 
 ## 📥 订阅链接
 
