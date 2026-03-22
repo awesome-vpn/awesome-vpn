@@ -66,6 +66,10 @@ class BinaryManager:
         return None
 
     def _get_latest_version(self):
+        # Check for pinned version in environment
+        pinned = os.getenv('SING_BOX_VERSION')
+        if pinned:
+            return pinned.lstrip('v')
         try:
             api_url = "https://api.github.com/repos/SagerNet/sing-box/releases/latest"
             headers = {"Accept": "application/vnd.github.v3+json"}
