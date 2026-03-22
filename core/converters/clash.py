@@ -175,7 +175,7 @@ def _convert_tuic(node: Dict[str, Any]) -> Dict[str, Any]:
     }
     if node.get("congestion_control"):
         proxy["congestion-controller"] = node["congestion_control"]
-    tls = node.get("tls", {})
+    tls = node.get("tls") or {}
     if tls.get("alpn"):
         proxy["alpn"] = tls["alpn"] if isinstance(tls["alpn"], list) else [tls["alpn"]]
     return proxy
