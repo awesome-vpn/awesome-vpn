@@ -1,0 +1,68 @@
+name: Daily Crawler
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+env:
+  SING_BOX_VERSION: "1.10.7"
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Cache sing-box binary
+      uses: actions/cache@v4
+      with:
+        path: bin/
+        key: sing-box-${{ runner.os }}-${{ runner.arch }}-${{ env.SING_BOX_VERSION }}
+
+    - name: Download GeoLite2-City.mmdb
+      run: |
+        mkdir -p config
+        curl -sL "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb" \
+          -o config/GeoLite2-City.mmdb
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Crawler
+      env:
+        TELEGRAM_CHANNELS: ${{ secrets.TELEGRAM_CHANNELS }}
+        EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
+        SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
+      run: |
+        python main.py --validate --workers 10 --output .
+
+    - name: Verify Outputs
+      run: |
+        [ -s all ] || (echo "ERROR: all is empty" && exit 1)
+        [ -s sing-box.json ] || (echo "ERROR: sing-box.json is empty" && exit 1)
+        [ -s clash.yaml ] || (echo "ERROR: clash.yaml is empty" && exit 1)
+        echo "Output sizes:"
+        ls -lh all sing-box.json clash.yaml
+        echo "Node count: $(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')"
+
+    - name: Commit and Push
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add all sing-box.json clash.yaml
+        NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
+        git diff --staged --quiet || \
+          git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes"
+        git push
