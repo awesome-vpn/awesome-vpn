@@ -1,70 +1,167 @@
-[![English](https://img.shields.io/badge/Language-English-red)](README.md)
+# Awesome VPN 🌍
 
-## 🚀 快速开始
+**免费代理节点，每日自动更新。无需配置，复制即用。**
 
-1. 复制下方的订阅链接
-2. 导入客户端并连接使用
+[English](README.md) | [简体中文](README_CN.md)
 
-## 📥 订阅链接
+---
 
-主订阅链接:
-- https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
+## 🚀 30秒快速上手
 
-备用镜像 (GitHub访问不稳定时使用):
-- https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all [优选: 香港/日本/新加坡]
-- https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all [优选: 日本]
+### 第一步：复制订阅链接
 
-## 📊 VPN和代理协议分析
+| 格式 | 链接 | 适用客户端 |
+|------|------|-----------|
+| **通用格式** | `https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/main/all` | v2rayN、V2RayNG、Shadowrocket |
+| **Sing-box** | `https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/main/sing-box.json` | Sing-box、NekoBox |
+| **Clash** | `https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/main/clash.yaml` | Clash Verge、ClashX |
 
-| OSI层级 | 协议 | 分类 | 说明 |
-|--------|------|------|------|
-| 第2层 - 数据链路层 | PPTP | VPN协议 | 点对点隧道协议，较旧，安全性较低 |
-| 第2层 - 数据链路层 | L2TP | VPN协议 | 第二层隧道协议，通常与IPsec配合使用 |
-| 第3层 - 网络层 | IPsec | VPN协议 | 互联网协议安全，可与L2TP配合或单独使用 |
-| 第3层 - 网络层 | WireGuard | VPN协议 | 新型高效VPN协议，性能优越 |
-| 第3层 - 网络层 | GRE | 隧道协议 | 通用路由封装，可封装多种网络层协议 |
-| 第4层 - 传输层 | TUIC | 传输协议 | TCP over UDP，基于QUIC的传输层协议 |
-| 第4层 - 传输层 | Hysteria | 传输协议 | 基于QUIC的高速网络传输协议 |
-| 第4层 - 传输层 | Hysteria2 | 传输协议 | Hysteria的改进版本，更高效和安全 |
-| 第4层 - 传输层 | Juicity | 传输协议 | 基于QUIC的代理协议，具有拥塞控制和零RTT特性 |
-| 第4层 - 传输层 | QUIC | 传输协议 | 快速UDP网络连接，由Google开发 |
-| 第5层 - 会话层 | SOCKS4 | 代理协议 | 简单的防火墙穿透协议，不支持认证 |
-| 第5层 - 会话层 | SOCKS5 | 代理协议 | 支持认证和UDP的通用代理协议 |
-| 第5层 - 会话层 | SSL/TLS | 加密协议 | 安全套接字层/传输层安全，为应用层提供加密 |
-| 第7层 - 应用层 | OpenVPN | VPN协议 | 使用OpenSSL库加密的VPN系统 |
-| 第7层 - 应用层 | Shadowsocks | 代理协议 | 轻量级加密代理协议 |
-| 第7层 - 应用层 | ShadowsocksR | 代理协议 | Shadowsocks的扩展版本，增加了混淆等特性 |
-| 第7层 - 应用层 | VMess | 代理协议 | 基于TLS的加密传输协议，由V2Ray项目提出 |
-| 第7层 - 应用层 | VLESS | 代理协议 | VMess的简化版本，减少了加密开销 |
-| 第7层 - 应用层 | Trojan | 代理协议 | 伪装成HTTPS流量的代理协议 |
-| 第7层 - 应用层 | Trojan-Go | 代理协议 | Trojan协议的Go语言实现，增加了WebSocket等特性 |
-| 第7层 - 应用层 | NaïveProxy | 代理协议 | 使用Chrome网络栈将流量伪装成标准HTTPS |
-| 第7层 - 应用层 | HTTP代理 | 代理协议 | 最基本的代理类型，通常不加密 |
-| 第7层 - 应用层 | HTTPS代理 | 代理协议 | 加密的HTTP代理，提供更好的安全性 |
-| 第7层 - 应用层 | SSH隧道 | 隧道协议 | 利用SSH协议创建加密隧道 |
-| 第7层 - 应用层 | Tor | 匿名网络 | 匿名通信网络，通过多层加密和中继提供高度隐私 |
-| 第7层 - 应用层 | Brook | 代理协议 | 简单的跨平台代理协议 |
-| 第7层 - 应用层 | Shadowtls | 传输协议 | 将Shadowsocks流量伪装成TLS流量的协议 |
-| 第7层 - 应用层 | Reality | 传输协议 | 基于TLS 1.3的新型代理协议，提供更强的抗检测能力 |
-| 第7层 - 应用层 | WebSocket | 传输协议 | 在单个TCP连接上提供全双工通信的协议 |
-| 第7层 - 应用层 | gRPC | 传输协议 | 高性能RPC框架，常作为代理的传输层使用 |
+> 💡 **不知道选哪个？** 用**通用格式**，大多数软件都支持。
 
-## ⚠️ 当前挑战
+### 第二步：下载客户端软件
 
-许多一键式VPN客户端面临以下问题:
-- 由于域名/IP被封锁导致的连接问题
-- 在应用商店中无法获取
-- 强制付费或限时试用
+| 系统 | 推荐软件 | 下载地址 |
+|------|---------|----------|
+| **Windows** | v2rayN | [GitHub下载](https://github.com/2dust/v2rayN/releases) |
+| **macOS** | V2RayXS / V2RayU | [GitHub下载](https://github.com/tzmax/V2RayXS/releases) |
+| **iOS** | Shadowrocket / Streisand | App Store（付费） |
+| **安卓** | v2rayNG / NekoBox | [GitHub下载](https://github.com/2dust/v2rayNG/releases) |
 
-## 🎯 我们的目标
+### 第三步：粘贴使用
 
-我们致力于提供稳定、免费的互联网访问资源和信息。本项目主要关注：
+1. 打开客户端软件
+2. 找到「订阅」或「导入」按钮
+3. 粘贴第一步复制的链接
+4. 点击「更新」或「下载」
+5. 选择一个服务器，点击「连接」
 
-- **资源聚合**：收集并验证来自各种来源的公共代理节点（V2Ray, Shadowsocks, Hysteria等）。
-- **稳定性**：通过每日自动更新和检测，确保节点的高可用性。
-- **易用性**：提供兼容主流客户端（v2rayN, Clash, Sing-box等）的简单订阅链接。
-- **知识普及**：提供关于协议和客户端的清晰文档，帮助用户突破封锁。
+---
+
+## 📥 订阅链接（镜像加速）
+
+如果 GitHub 访问慢，试试这些镜像：
+
+| 镜像 | 链接 | 位置 |
+|------|------|------|
+| **KKGitHub** | `https://raw.kkgithub.com/awesome-vpn/awesome-vpn/main/all` | 香港 |
+| **GHProxy** | `https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/main/all` | 日本 |
+
+---
+
+## ❓ 常见问题
+
+### Q：这是免费的吗？
+**是的。** 所有节点都是从公开渠道收集的，无需付费。
+
+### Q：为什么连不上？
+可能原因：
+- **节点过期**：等待下次自动更新（每天 UTC 00:00）
+- **网络被墙**：试试上面的镜像链接
+- **格式不对**：确认你用的格式（通用/Sing-box/Clash）和软件匹配
+
+### Q：安全吗？
+- 这些是**公共节点**，来自互联网公开渠道
+- **不要用于敏感操作**（网银、私人账号等）
+- 我们不记录你的流量，但公共节点可能会
+
+### Q：多久更新一次？
+**每天 UTC 00:00 自动更新**（北京时间早上8点）
+
+### Q：我应该用哪种格式？
+| 如果你的软件是... | 用这个格式 |
+|------------------|-----------|
+| v2rayN、v2rayNG、Shadowrocket、圈X | **通用格式** |
+| Sing-box、NekoBox、SFI | **Sing-box** |
+| Clash Verge、ClashX、CFW | **Clash** |
+
+---
+
+## 🛠️ 故障排除
+
+**"获取订阅失败"**
+→ 试试上面的镜像链接，或者先在客户端里开启「系统代理」再试。
+
+**"连接成功但上不了网"**
+→ 节点可能失效了。点击「更新订阅」获取最新节点，或换个服务器试试。
+
+**"速度很慢"**
+→ 公共节点用的人比较多。多试几个服务器，找到速度快的。
+
+---
+
+## 📱 客户端使用教程
+
+<details>
+<summary><b>v2rayN（Windows）</b></summary>
+
+1. 从 [GitHub](https://github.com/2dust/v2rayN/releases) 下载并解压
+2. 运行 `v2rayN.exe`
+3. 点击 **订阅** → **订阅设置**
+4. 粘贴通用格式链接，点击 **添加** → **确定**
+5. 点击 **订阅** → **更新订阅**
+6. 右键选择一个服务器 → **设为活动服务器**
+7. 点击 **系统代理** → **自动配置系统代理**
+</details>
+
+<details>
+<summary><b>v2rayNG（安卓）</b></summary>
+
+1. 从 [GitHub](https://github.com/2dust/v2rayNG/releases) 下载安装
+2. 点击右上角 **+** → **从剪贴板导入**（或「从URL导入」）
+3. 粘贴通用格式链接，点击 **导入**
+4. 点击右上角菜单（⋮）→ **更新订阅**
+5. 点击选择一个服务器
+6. 点击底部 **V** 按钮连接
+</details>
+
+<details>
+<summary><b>Shadowrocket（iOS）</b></summary>
+
+1. 在 App Store 购买 Shadowrocket（约¥20）
+2. 点击右上角 **+** → **类型选择「Subscribe」**
+3. 在 **URL** 栏粘贴通用格式链接
+4. 点击 **保存**，然后点击订阅更新
+5. 选择服务器，点击连接按钮
+</details>
+
+<details>
+<summary><b>Sing-box（全平台）</b></summary>
+
+1. 从 [GitHub](https://github.com/SagerNet/sing-box/releases) 下载
+2. 点击 **配置** → **+** → **远程配置**
+3. 粘贴 **Sing-box** 格式的链接
+4. 点击 **创建** → **连接**
+</details>
+
+---
+
+## 🔄 更新时间表
+
+| 更新类型 | UTC时间 | 北京时间 |
+|---------|---------|---------|
+| 自动更新 | 每天 00:00 | 每天 08:00 |
+| 手动触发 | 随时 | 随时（通过 GitHub Actions） |
+
+---
 
 ## ⚖️ 免责声明
 
-本项目仅用于教育和研究目的。用户在使用这些资源时请负责遵守当地法律法规，保护自己。
+- 本项目聚合**互联网公开的**代理节点
+- **仅供学习研究使用**
+- 请遵守当地法律法规
+- **不保证可用性** - 节点随时可能失效
+- 我们不拥有或控制这些节点
+
+---
+
+## 🌟 Star 趋势
+
+如果这个项目帮到了你，请点个 ⭐ 支持一下！
+
+[![Star History Chart](https://api.star-history.com/svg?repos=awesome-vpn/awesome-vpn&type=Date)](https://star-history.com/#awesome-vpn/awesome-vpn&Date)
+
+---
+
+<p align="center">
+  <b>人人享有自由互联网 🌐</b>
+</p>
