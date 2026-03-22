@@ -250,11 +250,6 @@ def test_missing_type():
     assert to_clash_proxy({}) is None
 
 
-def test_empty_node():
-    """Nodes with no type return None."""
-    assert to_clash_proxy({}) is None
-
-
 def test_to_clash_proxies_filters_unsupported():
     nodes = [
         {"type": "vmess", "tag": "n1", "server": "1.1.1.1", "server_port": 443, "uuid": "u1"},

@@ -1,7 +1,7 @@
 # core/converters/clash.py
 """Convert sing-box outbounds to Clash proxy format."""
 import logging
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +26,7 @@ def _convert_vmess(node: Dict[str, Any]) -> Dict[str, Any]:
         "alterId": node.get("alter_id", 0),
         "cipher": node.get("security", "auto"),
     }
-    tls = node.get("tls", {})
+    tls = node.get("tls") or {}
     if tls.get("enabled"):
         proxy["tls"] = True
         if tls.get("server_name"):
@@ -61,7 +61,7 @@ def _convert_vless(node: Dict[str, Any]) -> Dict[str, Any]:
     if node.get("flow"):
         proxy["flow"] = node["flow"]
 
-    tls = node.get("tls", {})
+    tls = node.get("tls") or {}
     if tls.get("enabled"):
         proxy["tls"] = True
         if tls.get("server_name"):
@@ -86,8 +86,8 @@ def _convert_vless(node: Dict[str, Any]) -> Dict[str, Any]:
     transport = node.get("transport", {})
     if transport:
         net_type = transport.get("type", "")
-        proxy["network"] = net_type
         if net_type == "ws":
+            proxy["network"] = "ws"
             ws_opts = {}
             if transport.get("path"):
                 ws_opts["path"] = transport["path"]
@@ -96,6 +96,7 @@ def _convert_vless(node: Dict[str, Any]) -> Dict[str, Any]:
             if ws_opts:
                 proxy["ws-opts"] = ws_opts
         elif net_type == "grpc":
+            proxy["network"] = "grpc"
             grpc_opts = {}
             if transport.get("service_name"):
                 grpc_opts["grpc-service-name"] = transport["service_name"]
@@ -124,7 +125,7 @@ def _convert_trojan(node: Dict[str, Any]) -> Dict[str, Any]:
         "port": node.get("server_port", 0),
         "password": node.get("password", ""),
     }
-    tls = node.get("tls", {})
+    tls = node.get("tls") or {}
     if tls.get("enabled"):
         if tls.get("server_name"):
             proxy["sni"] = tls["server_name"]
@@ -155,7 +156,7 @@ def _convert_hysteria2(node: Dict[str, Any]) -> Dict[str, Any]:
         "port": node.get("server_port", 0),
         "password": node.get("password", ""),
     }
-    tls = node.get("tls", {})
+    tls = node.get("tls") or {}
     if tls.get("server_name"):
         proxy["sni"] = tls["server_name"]
     if tls.get("insecure"):
@@ -192,7 +193,7 @@ CONVERTERS = {
 }
 
 
-def to_clash_proxies(nodes: list) -> list:
+def to_clash_proxies(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Convert a list of sing-box nodes to Clash proxies."""
     result = []
     for node in nodes:
