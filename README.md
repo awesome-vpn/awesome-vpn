@@ -23,7 +23,7 @@
 | Platform | Recommended App | Download |
 |----------|----------------|----------|
 | **Windows** | v2rayN | [GitHub](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | V2RayXS / V2RayU | [GitHub](https://github.com/tzmax/V2RayXS/releases) |
+| **macOS** | ClashX / V2RayXS | [ClashX](https://github.com/ClashX-Pro/ClashX/releases) / [V2RayXS](https://github.com/tzmax/V2RayXS/releases) |
 | **iOS** | Shadowrocket / Streisand | App Store (paid) |
 | **Android** | v2rayNG / NekoBox | [GitHub](https://github.com/2dust/v2rayNG/releases) |
 

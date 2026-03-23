@@ -23,7 +23,7 @@
 | 系统 | 推荐软件 | 下载地址 |
 |------|---------|----------|
 | **Windows** | v2rayN | [GitHub下载](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | V2RayXS / V2RayU | [GitHub下载](https://github.com/tzmax/V2RayXS/releases) |
+| **macOS** | ClashX / V2RayXS | [ClashX下载](https://github.com/ClashX-Pro/ClashX/releases) / [V2RayXS下载](https://github.com/tzmax/V2RayXS/releases) |
 | **iOS** | Shadowrocket / Streisand | App Store（付费） |
 | **安卓** | v2rayNG / NekoBox | [GitHub下载](https://github.com/2dust/v2rayNG/releases) |
 
