@@ -1,0 +1,69 @@
+name: Daily Crawler
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+env:
+  SING_BOX_VERSION: "1.13.3"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Cache sing-box binary
+      uses: actions/cache@v5
+      with:
+        path: bin/
+        key: sing-box-${{ runner.os }}-${{ runner.arch }}-${{ env.SING_BOX_VERSION }}
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Crawler
+      id: crawler
+      env:
+        TELEGRAM_CHANNELS: ${{ secrets.TELEGRAM_CHANNELS }}
+        EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
+        SOURCES_JSON: ${{ secrets.SOURCES_JSON }}
+        SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
+      run: |
+        python main.py --validate --workers 24 --validate-workers 50 --output .
+
+    - name: Verify Outputs
+      id: verify
+      run: |
+        [ -s all ] || (echo "ERROR: all is empty" && exit 1)
+        [ -s sing-box.json ] || (echo "ERROR: sing-box.json is empty" && exit 1)
+        [ -s clash.yaml ] || (echo "ERROR: clash.yaml is empty" && exit 1)
+        echo "Output sizes:"
+        ls -lh all sing-box.json clash.yaml
+        NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
+        echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
+        echo "Node count: $NODE_COUNT"
+
+    - name: Commit and Push
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add all sing-box.json clash.yaml
+        NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
+        git diff --staged --quiet || \
+          git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes"
+        git push
