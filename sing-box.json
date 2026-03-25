@@ -1,6 +1,14 @@
 {
   "outbounds": [
     {
+      "tag": "美国/San Jose/United States/San Jose/freeinternet",
+      "type": "shadowsocks",
+      "server": "pupas-shirting-unsung.freesocks.work",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "p78naCf2EfOlRSLTX0wFVx"
+    },
+    {
       "tag": "美国/North Bergen/United States/North Bergen/freeinternet",
       "type": "vless",
       "server": "137.184.218.169",
@@ -25,7 +33,7 @@
     {
       "tag": "美国/St. Louis/United States/St. Louis/freeinternet",
       "type": "vmess",
-      "server": "209.126.84.189",
+      "server": "v2ray.codefyinc.com",
       "server_port": 443,
       "uuid": "2c981164-9b93-4bca-94ff-b78d3f8498d7",
       "security": "auto",
@@ -34,56 +42,10 @@
       "transport": {
         "type": "ws",
         "headers": {
-          "Host": "209.126.84.189"
+          "Host": "v2ray.codefyinc.com"
         },
         "path": "/vmessws"
       }
-    },
-    {
-      "tag": "美国/San Jose/United States/San Jose/freeinternet",
-      "type": "shadowsocks",
-      "server": "pupas-shirting-unsung.freesocks.work",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "p78naCf2EfOlRSLTX0wFVx"
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco/freeinternet",
-      "type": "vmess",
-      "server": "104.17.77.77",
-      "server_port": 8443,
-      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "v2ray1.dozapp.xyz"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "v2ray1.dozapp.xyz"
-        },
-        "path": "/lMnsZUN4/"
-      }
-    },
-    {
-      "tag": "荷兰/Lelystad/Netherlands/Lelystad/freeinternet",
-      "type": "shadowsocks",
-      "server": "82.38.31.122",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "tag": "美国/Heritage Hills/United States/Heritage Hills/freeinternet",
-      "type": "shadowsocks",
-      "server": "tinkered-pennies-puppies.freesocks.work",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "hbGrpfvNrJsUmKmPbR3iY2"
     }
   ]
 }

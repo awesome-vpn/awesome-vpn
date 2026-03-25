@@ -1,4 +1,10 @@
 proxies:
+- name: 美国/San Jose/United States/San Jose/freeinternet
+  type: ss
+  server: pupas-shirting-unsung.freesocks.work
+  port: 443
+  password: p78naCf2EfOlRSLTX0wFVx
+  cipher: chacha20-ietf-poly1305
 - name: 美国/North Bergen/United States/North Bergen/freeinternet
   type: vless
   server: 137.184.218.169
@@ -12,7 +18,7 @@ proxies:
   client-fingerprint: chrome
 - name: 美国/St. Louis/United States/St. Louis/freeinternet
   type: vmess
-  server: 209.126.84.189
+  server: v2ray.codefyinc.com
   port: 443
   uuid: 2c981164-9b93-4bca-94ff-b78d3f8498d7
   alterId: 0
@@ -21,37 +27,4 @@ proxies:
   ws-opts:
     path: /vmessws
     headers:
-      Host: 209.126.84.189
-- name: 美国/San Jose/United States/San Jose/freeinternet
-  type: ss
-  server: pupas-shirting-unsung.freesocks.work
-  port: 443
-  password: p78naCf2EfOlRSLTX0wFVx
-  cipher: chacha20-ietf-poly1305
-- name: 美国/San Francisco/United States/San Francisco/freeinternet
-  type: vmess
-  server: 104.17.77.77
-  port: 8443
-  uuid: 60441548-b68e-43b2-8191-e3b884be4b3c
-  alterId: 0
-  cipher: auto
-  tls: true
-  servername: v2ray1.dozapp.xyz
-  skip-cert-verify: true
-  network: ws
-  ws-opts:
-    path: /lMnsZUN4/
-    headers:
-      Host: v2ray1.dozapp.xyz
-- name: 荷兰/Lelystad/Netherlands/Lelystad/freeinternet
-  type: ss
-  server: 82.38.31.122
-  port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-- name: 美国/Heritage Hills/United States/Heritage Hills/freeinternet
-  type: ss
-  server: tinkered-pennies-puppies.freesocks.work
-  port: 443
-  password: hbGrpfvNrJsUmKmPbR3iY2
-  cipher: chacha20-ietf-poly1305
+      Host: v2ray.codefyinc.com
