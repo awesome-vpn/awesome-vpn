@@ -344,9 +344,10 @@ class Validator:
             },
             "dns": {
                 "servers": [
-                    {"address": "8.8.8.8", "detour": node_config.get("tag", "proxy")},
-                    {"address": "1.1.1.1", "detour": node_config.get("tag", "proxy")}
-                ]
+                    {"tag": "dns-remote", "address": "8.8.8.8"},
+                    {"tag": "dns-local", "address": "1.1.1.1"}
+                ],
+                "final": "dns-remote"
             },
             "inbounds": [
                 {
