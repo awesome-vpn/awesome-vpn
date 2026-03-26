@@ -15,7 +15,7 @@ import struct
 import threading
 
 # 测试目标：Google 生成 204 响应（必须通过代理才能访问）
-TEST_URL = 'http://www.google.com/generate_204'
+TEST_URL = 'http://www.gstatic.com/generate_204'
 
 # IP检测服务
 IP_CHECK_URLS = [
@@ -344,8 +344,8 @@ class Validator:
             },
             "dns": {
                 "servers": [
-                    {"tag": "dns-google", "type": "udp", "server": "8.8.8.8"},
-                    {"tag": "dns-cloudflare", "type": "udp", "server": "1.1.1.1"}
+                    {"address": "8.8.8.8", "detour": node_config.get("tag", "proxy")},
+                    {"address": "1.1.1.1", "detour": node_config.get("tag", "proxy")}
                 ]
             },
             "inbounds": [
@@ -353,7 +353,8 @@ class Validator:
                     "type": "socks",
                     "tag": "socks-in",
                     "listen": "127.0.0.1",
-                    "listen_port": listen_port
+                    "listen_port": listen_port,
+                    "udp_enabled": True
                 }
             ],
             "outbounds": [
@@ -369,8 +370,7 @@ class Validator:
                         "inbound": "socks-in",
                         "outbound": node_config.get("tag", "proxy")
                     }
-                ],
-                "default_domain_resolver": "dns-google"
+                ]
             }
         }
         
@@ -382,10 +382,7 @@ class Validator:
                 tmp_config_path = tmp_file.name
             
             cmd = [self.sing_box_path, 'run', '-c', tmp_config_path]
-            # sing-box 1.12+ 兼容环境变量
-            env = os.environ.copy()
-            env['ENABLE_DEPRECATED_MISSING_DOMAIN_RESOLVER'] = 'true'
-            proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True, env=env)
+            proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
 
             # Poll until SOCKS5 port is accepting connections (much faster than fixed sleep)
             if not self._wait_for_socks5_ready(listen_port, timeout=3.0) or proc.poll() is not None:
@@ -421,17 +418,15 @@ class Validator:
             if not ip_changed:
                 return False
 
-            # === 验证 2: 访问 Google 返回404（翻墙环境特征）===
+            # === 验证 2: 访问 gstatic.com/generate_204 返回 204 ===
             start = time.time()
             try:
-                # 强制使用 SOCKS5 代理，禁用环境变量
                 session = requests.Session()
                 session.trust_env = False
                 session.proxies.update(proxies)
                 resp = session.get(TEST_URL, timeout=timeout)
                 latency = time.time() - start
-                # 翻墙环境返回404，大陆环境返回非404（被污染）
-                if resp.status_code != 404 or latency >= 3:
+                if resp.status_code != 204 or latency >= 3:
                     return False
             except:
                 return False
