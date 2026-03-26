@@ -12,12 +12,15 @@ env:
 jobs:
   crawl:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     permissions:
       contents: write
 
     steps:
     - name: Checkout
       uses: actions/checkout@v6
+      with:
+        fetch-depth: 1
 
     - name: Set up Python
       uses: actions/setup-python@v6
@@ -31,10 +34,33 @@ jobs:
         path: bin/
         key: sing-box-${{ runner.os }}-${{ runner.arch }}-${{ env.SING_BOX_VERSION }}
 
+    - name: Get current month (for MMDB cache key)
+      id: date
+      run: echo "month=$(date +'%Y-%m')" >> $GITHUB_OUTPUT
+
+    - name: Cache GeoLite2-City MMDB
+      id: mmdb-cache
+      uses: actions/cache@v5
+      with:
+        path: config/GeoLite2-City.mmdb
+        key: geolite2-mmdb-${{ steps.date.outputs.month }}
+        restore-keys: geolite2-mmdb-
+
     - name: Install Dependencies
+      run: pip install -r requirements.txt
+
+    - name: Download GeoLite2-City MMDB
+      if: steps.mmdb-cache.outputs.cache-hit != 'true'
       run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        mkdir -p config
+        curl -fSL --max-time 60 \
+          "https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-City.mmdb" \
+          -o config/GeoLite2-City.mmdb \
+          && echo "MMDB downloaded ($(du -sh config/GeoLite2-City.mmdb | cut -f1))" \
+          || echo "MMDB download failed — will use ipinfo.io fallback"
+
+    - name: Ensure config directory exists
+      run: mkdir -p config
 
     - name: Run Crawler
       id: crawler

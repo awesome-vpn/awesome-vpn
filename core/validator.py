@@ -12,6 +12,7 @@ import platform
 import shutil
 import socket
 import struct
+import threading
 
 # 测试目标：Google 生成 204 响应（必须通过代理才能访问）
 TEST_URL = 'http://www.google.com/generate_204'
@@ -27,6 +28,42 @@ DNS_TEST_DOMAINS = [
     ('www.baidu.com', 'Baidu'),
     ('www.taobao.com', 'Taobao'),
 ]
+
+# 端口分配锁，避免并发冲突
+_port_lock = threading.Lock()
+_allocated_ports = set()
+
+def _get_unique_port():
+    """获取一个未被使用的唯一端口"""
+    with _port_lock:
+        for _ in range(100):  # 最多尝试100次
+            port = random.randint(30000, 60000)
+            if port not in _allocated_ports:
+                # 检查端口是否真的未被占用
+                try:
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.settimeout(0.1)
+                    result = sock.connect_ex(('127.0.0.1', port))
+                    sock.close()
+                    if result != 0:  # 端口未被占用
+                        _allocated_ports.add(port)
+                        return port
+                except:
+                    pass
+        # 如果随机分配失败，使用顺序分配
+        for port in range(30000, 60000):
+            if port not in _allocated_ports:
+                try:
+                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.settimeout(0.1)
+                    result = sock.connect_ex(('127.0.0.1', port))
+                    sock.close()
+                    if result != 0:
+                        _allocated_ports.add(port)
+                        return port
+                except:
+                    pass
+        raise RuntimeError("无法分配可用端口")
 
 
 class Validator:
@@ -96,6 +133,17 @@ class Validator:
                 return True
         except:
             return False
+
+    def _wait_for_socks5_ready(self, port, timeout=3.0):
+        """Poll until sing-box SOCKS5 port accepts connections (replaces sleep)."""
+        deadline = time.time() + timeout
+        while time.time() < deadline:
+            try:
+                with socket.create_connection(('127.0.0.1', port), timeout=0.1):
+                    return True
+            except OSError:
+                time.sleep(0.05)
+        return False
 
     def check_udp_dns_via_socks5(self, listen_port, timeout=5):
         """
@@ -287,7 +335,7 @@ class Validator:
         if "tag" not in node_config:
             node_config["tag"] = "proxy"
 
-        listen_port = random.randint(30000, 60000)
+        listen_port = _get_unique_port()
         
         test_config = {
             "log": {
@@ -321,7 +369,8 @@ class Validator:
                         "inbound": "socks-in",
                         "outbound": node_config.get("tag", "proxy")
                     }
-                ]
+                ],
+                "default_domain_resolver": "dns-google"
             }
         }
         
@@ -338,14 +387,12 @@ class Validator:
             env['ENABLE_DEPRECATED_MISSING_DOMAIN_RESOLVER'] = 'true'
             proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True, env=env)
 
-            # 使用 time.sleep 等待 sing-box 启动
-            import time
-            time.sleep(1.5)
-
-            if proc.poll() is not None:
-                # 读取错误输出
-                stderr_output = proc.stderr.read() if proc.stderr else ""
-                print(f"    sing-box exited early: {stderr_output[:500]}")
+            # Poll until SOCKS5 port is accepting connections (much faster than fixed sleep)
+            if not self._wait_for_socks5_ready(listen_port, timeout=3.0) or proc.poll() is not None:
+                if proc.poll() is not None:
+                    stderr_output = proc.stderr.read() if proc.stderr else ""
+                    if stderr_output:
+                        print(f"    sing-box failed: {stderr_output[:200]}")
                 return False
             
             proxies = {
@@ -374,7 +421,7 @@ class Validator:
             if not ip_changed:
                 return False
 
-            # === 验证 2: 能访问 gstatic.com（最小最快的测试）===
+            # === 验证 2: 访问 Google 返回404（翻墙环境特征）===
             start = time.time()
             try:
                 # 强制使用 SOCKS5 代理，禁用环境变量
@@ -383,7 +430,8 @@ class Validator:
                 session.proxies.update(proxies)
                 resp = session.get(TEST_URL, timeout=timeout)
                 latency = time.time() - start
-                if resp.status_code != 204 or latency >= 0.3:
+                # 翻墙环境返回404，大陆环境返回非404（被污染）
+                if resp.status_code != 404 or latency >= 3:
                     return False
             except:
                 return False
@@ -409,6 +457,8 @@ class Validator:
         except Exception as e:
             return False
         finally:
+            with _port_lock:
+                _allocated_ports.discard(listen_port)
             if proc:
                 try:
                     proc.terminate()

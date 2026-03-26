@@ -351,22 +351,29 @@ def main():
         valid_nodes = validator.validate_nodes_parallel(valid_nodes, timeout=5, max_workers=args.validate_workers)
         logger.info(f"Valid nodes: {len(valid_nodes)}")
 
-        logger.info("\nUpdating node names with geo information...")
-        updated_link_to_node_map = {}
-        for node in valid_nodes:
+        logger.info("\nUpdating node names with geo information (parallel)...")
+        # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)
+        node_data = [
+            (node, node.get('tag', ''), link_to_node_map.get(node.get('tag', ''), ''))
+            for node in valid_nodes
+        ]
+
+        def resolve_geo(item):
+            node, original_tag, original_link = item
             server = node.get('server', '')
-            if server:
-                node_name = geo_utils.format_node_name(server)
-                original_tag = node.get('tag', '')
-                node['tag'] = node_name
-                if original_tag in link_to_node_map:
-                    original_link = link_to_node_map[original_tag]
-                    if '#' in original_link:
-                        base_link = original_link.rsplit('#', 1)[0]
-                        updated_link = f"{base_link}#{node_name}"
-                    else:
-                        updated_link = f"{original_link}#{node_name}"
-                    updated_link_to_node_map[node_name] = updated_link
+            node_name = geo_utils.format_node_name(server) if server else original_tag
+            return node, node_name, original_link
+
+        geo_workers = min(50, len(valid_nodes)) if valid_nodes else 1
+        with concurrent.futures.ThreadPoolExecutor(max_workers=geo_workers) as executor:
+            geo_results = list(executor.map(resolve_geo, node_data))
+
+        updated_link_to_node_map = {}
+        for node, node_name, original_link in geo_results:
+            node['tag'] = node_name
+            if original_link:
+                base_link = original_link.rsplit('#', 1)[0] if '#' in original_link else original_link
+                updated_link_to_node_map[node_name] = f"{base_link}#{node_name}"
         link_to_node_map = updated_link_to_node_map
 
     logger.info("\n" + "=" * 60)
