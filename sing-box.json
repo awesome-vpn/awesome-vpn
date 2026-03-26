@@ -1,20 +1,70 @@
 {
   "outbounds": [
     {
-      "tag": "美国/San Jose/United States/San Jose/freeinternet",
-      "type": "shadowsocks",
-      "server": "71.19.148.143",
+      "tag": "美国/San Francisco/United States/San Francisco/freeinternet",
+      "type": "vless",
+      "server": "162.159.12.151",
       "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "p78naCf2EfOlRSLTX0wFVx"
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "sni.111000.indevs.in"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "sni.111000.indevs.in"
+        }
+      }
+    },
+    {
+      "tag": "英国/London/United Kingdom/London/freeinternet",
+      "type": "vless",
+      "server": "185.238.228.238",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "sni.jpmj.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560&telegram🇨🇳+@wangcai2",
+        "headers": {
+          "Host": "sni.jpmj.dev"
+        }
+      }
+    },
+    {
+      "tag": "德国/Nürnberg/Germany/Nürnberg/freeinternet",
+      "type": "vmess",
+      "server": "46.225.54.75",
+      "server_port": 10410,
+      "uuid": "0654d64d-08bf-43e5-ad44-18a7d1a8d6f7",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp"
     },
     {
       "tag": "英国/London/United Kingdom/London/freeinternet",
       "type": "shadowsocks",
-      "server": "20.117.159.69",
+      "server": "series-a1.samanehha.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
       "password": "W74XFALLLuw6m5IA"
+    },
+    {
+      "tag": "荷兰/Lelystad/Netherlands/Lelystad/freeinternet",
+      "type": "shadowsocks",
+      "server": "193.29.139.202",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
     },
     {
       "tag": "美国/North Bergen/United States/North Bergen/freeinternet",
@@ -37,6 +87,536 @@
           "fingerprint": "chrome"
         }
       }
+    },
+    {
+      "tag": "荷兰/Lelystad/Netherlands/Lelystad/freeinternet",
+      "type": "shadowsocks",
+      "server": "193.29.139.189",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "QCXDxuDlTTMD7jtgHUjIoj"
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "shadowsocks",
+      "server": "213.109.147.242",
+      "server_port": 62685,
+      "method": "chacha20-ietf-poly1305",
+      "password": "VpKABcOpNNA0l5G2AVOmw8"
+    },
+    {
+      "tag": "美国/San Jose/United States/San Jose/freeinternet",
+      "type": "shadowsocks",
+      "server": "71.19.148.143",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "p78naCf2EfOlRSLTX0wFVx"
+    },
+    {
+      "tag": "波兰/Warsaw/Poland/Warsaw/freeinternet",
+      "type": "shadowsocks",
+      "server": "217.30.10.70",
+      "server_port": 9057,
+      "method": "aes-256-cfb",
+      "password": "wjTugX3ZtHMB9c3Z"
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "vless",
+      "server": "46.30.45.21",
+      "server_port": 443,
+      "uuid": "051a7ea0-11f4-41bb-8b1b-206761e0640f",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "nlx1.braidpro.online",
+        "reality": {
+          "enabled": true,
+          "public_key": "VEqQGFzn-jOPYzo85IPa0139OjCRvVA_puhKogsYimM",
+          "short_id": "ae6775f14ccefa03"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "奥地利/Vienna/Austria/Vienna/freeinternet",
+      "type": "vless",
+      "server": "212.183.88.238",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "sni.jpmj.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560&Telegram🇨🇳+@WangCai2",
+        "headers": {
+          "Host": "sni.jpmj.dev"
+        }
+      }
+    },
+    {
+      "tag": "荷兰/Lelystad/Netherlands/Lelystad/freeinternet",
+      "type": "shadowsocks",
+      "server": "82.38.31.179",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "tag": "乌克兰/Kyiv/Ukraine/Kyiv/freeinternet",
+      "type": "shadowsocks",
+      "server": "163.171.137.76",
+      "server_port": 47394,
+      "method": "chacha20-ietf-poly1305",
+      "password": "eafad96826c79ddd"
+    },
+    {
+      "tag": "土耳其/Istanbul/Turkey/Istanbul/freeinternet",
+      "type": "vmess",
+      "server": "45.89.52.207",
+      "server_port": 39651,
+      "uuid": "ac4c12c5-45f2-4398-a718-9983941ede2b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "KZ/Shchuchinsk/KZ/Shchuchinsk/freeinternet",
+      "type": "vless",
+      "server": "194.59.5.238",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sni.jpmj.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?telegram%F0%9F%87%A8%F0%9F%87%B3+%40wangcai2=",
+        "headers": {
+          "Host": "sni.jpmj.dev"
+        }
+      }
+    },
+    {
+      "tag": "芬兰/Helsinki/Finland/Helsinki/freeinternet",
+      "type": "shadowsocks",
+      "server": "promo18v.bystrivpn.ru",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "dAHM1pm8ag7KdlrUylQi6t"
+    },
+    {
+      "tag": "LV/Riga/LV/Riga/freeinternet",
+      "type": "shadowsocks",
+      "server": "185.176.221.72",
+      "server_port": 24637,
+      "method": "chacha20-ietf-poly1305",
+      "password": "MholStyHL7DhrewKbpQa20"
+    },
+    {
+      "tag": "美国/Secaucus/United States/Secaucus/freeinternet",
+      "type": "vless",
+      "server": "yesok42v2.ip4exordir.shop",
+      "server_port": 8880,
+      "uuid": "8dc7722c-2767-4eea-a28b-2f8daacc07e3",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "tag": "美国/Heritage Hills/United States/Heritage Hills/freeinternet",
+      "type": "shadowsocks",
+      "server": "tinkered-pennies-puppies.freesocks.work",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "hbGrpfvNrJsUmKmPbR3iY2"
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco/freeinternet",
+      "type": "vless",
+      "server": "188.114.98.0",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sni.111000.indevs.in"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560&Telegram🇨🇳+@WangCai2",
+        "headers": {
+          "Host": "sni.111000.indevs.in"
+        }
+      }
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "vless",
+      "server": "51.158.206.93",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fuck.rkn",
+        "reality": {
+          "enabled": true,
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
+          "short_id": "01"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "美国/Los Angeles/United States/Los Angeles/freeinternet",
+      "type": "shadowsocks",
+      "server": "107.151.182.253",
+      "server_port": 8080,
+      "method": "rc4-md5",
+      "password": "14fFPrbezE3HDZzsMOr6"
+    },
+    {
+      "tag": "波兰/Warsaw/Poland/Warsaw/freeinternet",
+      "type": "shadowsocks",
+      "server": "217.30.10.70",
+      "server_port": 9045,
+      "method": "aes-256-cfb",
+      "password": "Lp27rqyJq72bZsqX"
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco/freeinternet",
+      "type": "vless",
+      "server": "162.159.153.231",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sni.111000.indevs.in"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560&Telegram🇨🇳 @WangCai2",
+        "headers": {
+          "Host": "sni.111000.indevs.in"
+        }
+      }
+    },
+    {
+      "tag": "德国/Frankfurt am Main/Germany/Frankfurt am Main/freeinternet",
+      "type": "shadowsocks",
+      "server": "57.129.95.38",
+      "server_port": 11201,
+      "method": "chacha20-ietf-poly1305",
+      "password": "f54cdee10f8b25ce"
+    },
+    {
+      "tag": "波兰/Dźwirzyno/Poland/Dźwirzyno/freeinternet",
+      "type": "vless",
+      "server": "185.158.133.138",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "sni.111000.indevs.in"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?telegram%F0%9F%87%A8%F0%9F%87%B3+%40wangcai2=",
+        "headers": {
+          "Host": "sni.111000.indevs.in"
+        }
+      }
+    },
+    {
+      "tag": "美国/St. Louis/United States/St. Louis/freeinternet",
+      "type": "vmess",
+      "server": "v2ray.codefyinc.com",
+      "server_port": 443,
+      "uuid": "2c981164-9b93-4bca-94ff-b78d3f8498d7",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "v2ray.codefyinc.com"
+        },
+        "path": "/vmessws"
+      }
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "vless",
+      "server": "89.124.89.24",
+      "server_port": 443,
+      "uuid": "f7bae22e-20ab-11f1-835c-0242ac110002",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "nl1.cyphervpn.pro",
+        "reality": {
+          "enabled": true,
+          "public_key": "YW-C1ihJAmuzFtvNLUggNlEh86DQm8jvfrJ-wMj7XQY",
+          "short_id": "5bfa0c"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      }
+    },
+    {
+      "tag": "美国/Chicago/United States/Chicago/freeinternet",
+      "type": "shadowsocks",
+      "server": "104.192.227.163",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "9PW4j7jGvZEXaoL47DEjIx"
+    },
+    {
+      "tag": "德国/Frankfurt am Main/Germany/Frankfurt am Main/freeinternet",
+      "type": "shadowsocks",
+      "server": "57.129.94.79",
+      "server_port": 11206,
+      "method": "chacha20-ietf-poly1305",
+      "password": "70c455c9f19aa3a5"
+    },
+    {
+      "tag": "法国/Lauterbourg/France/Lauterbourg/freeinternet",
+      "type": "vless",
+      "server": "157.173.127.225",
+      "server_port": 443,
+      "uuid": "11beaf11-726d-4c11-8ce9-27308c1c608c",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "analytics.google.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "v3EwzA9RIIh5Ndxm-gypRY6RCJhOpQ-2WO7KaH8nsC8",
+          "short_id": "eab26c4a32"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        }
+      }
+    },
+    {
+      "tag": "芬兰/Helsinki/Finland/Helsinki/freeinternet",
+      "type": "shadowsocks",
+      "server": "193.47.60.186",
+      "server_port": 28687,
+      "method": "chacha20-ietf-poly1305",
+      "password": "yKVMoB3AwiTEznpnoq2FYR"
+    },
+    {
+      "tag": "CN/Lanzhou/CN/Lanzhou/freeinternet",
+      "type": "vless",
+      "server": "176.124.223.138",
+      "server_port": 2096,
+      "uuid": "6202b230-417c-4d8e-b624-0f71afa9c75d",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sni.111000.indevs.in"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560&telegram🇨🇳+@wangcai2",
+        "headers": {
+          "Host": "sni.111000.indevs.in"
+        }
+      }
+    },
+    {
+      "tag": "墨西哥/Mexico City/Mexico/Mexico City/freeinternet",
+      "type": "shadowsocks",
+      "server": "154.205.152.64",
+      "server_port": 11201,
+      "method": "chacha20-ietf-poly1305",
+      "password": "315eb3e160cf2432"
+    },
+    {
+      "tag": "法国/Paris/France/Paris/freeinternet",
+      "type": "shadowsocks",
+      "server": "57.130.28.148",
+      "server_port": 11201,
+      "method": "chacha20-ietf-poly1305",
+      "password": "74918bc801d53a4b"
+    },
+    {
+      "tag": "BG/Sofia/BG/Sofia/freeinternet",
+      "type": "shadowsocks",
+      "server": "89.44.197.181",
+      "server_port": 31348,
+      "method": "chacha20-ietf-poly1305",
+      "password": "zDLmeWRsfcFdKT1Tpy02xodEToqCldTxvZcRoPIZZtBdnIEL"
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "vless",
+      "server": "45.149.115.148",
+      "server_port": 443,
+      "uuid": "8b648e4c-ac38-4809-951b-e1c8862b13d1",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "google.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "0pX0dvxDHHJS2uK0t_SHauP1LB65JsRD1kQp9MK9vjI",
+          "short_id": "96"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "美国/Seattle/United States/Seattle/freeinternet",
+      "type": "shadowsocks",
+      "server": "144.126.145.77",
+      "server_port": 443,
+      "method": "aes-256-gcm",
+      "password": "QzM0NfuMNngbVnZK"
+    },
+    {
+      "tag": "英国/London/United Kingdom/London/freeinternet",
+      "type": "shadowsocks",
+      "server": "admin.c1.havij.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1kVr0KATIJI7mwOF"
+    },
+    {
+      "tag": "荷兰/Amsterdam/Netherlands/Amsterdam/freeinternet",
+      "type": "vless",
+      "server": "194.85.249.173",
+      "server_port": 433,
+      "uuid": "e81a36d5-b3c3-48e0-bf08-d8938a247391",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.google.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "LSqEbA7EfGiohFgxMYtFJq61jSd9wuSWqR__krgtERc",
+          "short_id": "d239de8e"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "tag": "HR/Zagreb/HR/Zagreb/freeinternet",
+      "type": "shadowsocks",
+      "server": "5.181.2.76",
+      "server_port": 36608,
+      "method": "chacha20-ietf-poly1305",
+      "password": "JOZ5Mb3nJCmmoKhd8Cc9aC"
+    },
+    {
+      "tag": "奥地利/Vienna/Austria/Vienna/freeinternet",
+      "type": "vless",
+      "server": "152.53.50.126",
+      "server_port": 22955,
+      "uuid": "63f92f3c-447c-4283-80b9-0af8e164cdad",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "one-piece.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "9Mt_Y8J_qDb1khlieWnhDSAq-kGtLHw6aOKgkAzOMms",
+          "short_id": "6ba85179e30d4fc2"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
+      }
+    },
+    {
+      "tag": "德国/Frankfurt am Main/Germany/Frankfurt am Main/freeinternet",
+      "type": "shadowsocks",
+      "server": "135.125.245.131",
+      "server_port": 20939,
+      "method": "chacha20-ietf-poly1305",
+      "password": "85d3d8ccba287d3e"
+    },
+    {
+      "tag": "美国/Ashburn/United States/Ashburn/freeinternet",
+      "type": "vless",
+      "server": "172.234.130.82",
+      "server_port": 10001,
+      "uuid": "53cd8178-2ee6-43d9-a2a7-881f287fd408",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "yahoo.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "kKX1o7FhJLyDaVE6sqXUcYpUIuFUgij_ueRYc_E4JhM",
+          "short_id": "1a24af87"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      }
+    },
+    {
+      "tag": "英国/Bexley/United Kingdom/Bexley/freeinternet",
+      "type": "shadowsocks",
+      "server": "57.129.140.88",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1v5g9FefdoO"
     }
   ]
 }
