@@ -15,7 +15,7 @@ import struct
 import threading
 
 # 测试目标：Google 生成 204 响应（必须通过代理才能访问）
-TEST_URL = 'http://www.gstatic.com/generate_204'
+TEST_URL = 'http://www.google.com/generate_204'
 
 # IP检测服务
 IP_CHECK_URLS = [
