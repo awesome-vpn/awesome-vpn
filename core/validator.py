@@ -344,8 +344,7 @@ class Validator:
             },
             "dns": {
                 "servers": [
-                    {"tag": "dns-remote", "address": "8.8.8.8"},
-                    {"tag": "dns-local", "address": "1.1.1.1"}
+                    {"type": "udp", "tag": "dns-remote", "server": "8.8.8.8"}
                 ],
                 "final": "dns-remote"
             },
@@ -354,8 +353,7 @@ class Validator:
                     "type": "socks",
                     "tag": "socks-in",
                     "listen": "127.0.0.1",
-                    "listen_port": listen_port,
-                    "udp_enabled": True
+                    "listen_port": listen_port
                 }
             ],
             "outbounds": [
