@@ -34,34 +34,27 @@ _port_lock = threading.Lock()
 _allocated_ports = set()
 
 def _get_unique_port():
-    """获取一个未被使用的唯一端口"""
+    """获取一个未被使用的唯一端口（用 bind 测试，模拟 sing-box 的实际绑定操作）"""
     with _port_lock:
-        for _ in range(100):  # 最多尝试100次
+        for _ in range(100):
             port = random.randint(30000, 60000)
             if port not in _allocated_ports:
-                # 检查端口是否真的未被占用
                 try:
-                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    sock.settimeout(0.1)
-                    result = sock.connect_ex(('127.0.0.1', port))
-                    sock.close()
-                    if result != 0:  # 端口未被占用
-                        _allocated_ports.add(port)
-                        return port
-                except:
+                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                        s.bind(('127.0.0.1', port))
+                    _allocated_ports.add(port)
+                    return port
+                except OSError:
                     pass
-        # 如果随机分配失败，使用顺序分配
+        # 随机分配失败则顺序扫描
         for port in range(30000, 60000):
             if port not in _allocated_ports:
                 try:
-                    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                    sock.settimeout(0.1)
-                    result = sock.connect_ex(('127.0.0.1', port))
-                    sock.close()
-                    if result != 0:
-                        _allocated_ports.add(port)
-                        return port
-                except:
+                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                        s.bind(('127.0.0.1', port))
+                    _allocated_ports.add(port)
+                    return port
+                except OSError:
                     pass
         raise RuntimeError("无法分配可用端口")
 
@@ -451,15 +444,20 @@ class Validator:
         except Exception as e:
             return False
         finally:
-            with _port_lock:
-                _allocated_ports.discard(listen_port)
             if proc:
                 try:
                     proc.terminate()
-                    proc.wait(timeout=1)
-                except:
+                    proc.wait(timeout=2)
+                except subprocess.TimeoutExpired:
                     proc.kill()
-            
+                    try:
+                        proc.wait(timeout=1)
+                    except Exception:
+                        pass
+            # 进程已终止后再释放端口，避免其他线程拿到仍被占用的端口
+            with _port_lock:
+                _allocated_ports.discard(listen_port)
+
             if tmp_config_path and os.path.exists(tmp_config_path):
                 try:
                     os.remove(tmp_config_path)
