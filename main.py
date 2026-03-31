@@ -158,7 +158,18 @@ def main():
     parser.add_argument('--output', type=str, default='output', help='Output directory')
     parser.add_argument('--workers', type=int, default=10, help='Number of fetch workers')
     parser.add_argument('--validate-workers', type=int, default=50, help='Number of validation workers (default 50)')
+    parser.add_argument('--local', action='store_true', help='Local mode: skip direct TCP checks that fail behind GFW')
     args = parser.parse_args()
+
+    # Auto-detect environment: GITHUB_ACTIONS=true is set automatically in GitHub Actions.
+    # In local mode, direct TCP connections to overseas servers are blocked by GFW,
+    # so we skip quick_tcp_prescreen and tcp_ping (sing-box validation still runs).
+    is_ci = os.getenv('GITHUB_ACTIONS') == 'true'
+    local_mode = args.local or not is_ci
+    if local_mode:
+        logger.info("Mode: LOCAL (direct TCP checks disabled — GFW environment)")
+    else:
+        logger.info("Mode: CI (full validation including direct TCP checks)")
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
     output_dir = args.output if os.path.isabs(args.output) else os.path.join(base_dir, args.output)
@@ -337,12 +348,15 @@ def main():
         logger.info("Pre-screening nodes with quick TCP check...")
         logger.info("=" * 60)
 
-        # P1: Fast TCP pre-screening to reduce validation time
-        from core.validator import quick_tcp_prescreen
-        prescreened = quick_tcp_prescreen(valid_nodes, max_workers=100, timeout=2)
-        filtered_out = len(valid_nodes) - len(prescreened)
-        logger.info(f"TCP pre-screen: {len(prescreened)}/{len(valid_nodes)} passed ({filtered_out} filtered)")
-        valid_nodes = prescreened
+        if local_mode:
+            logger.info("Skipping TCP pre-screen in local mode (direct TCP blocked behind GFW)")
+        else:
+            # P1: Fast TCP pre-screening to reduce validation time
+            from core.validator import quick_tcp_prescreen
+            prescreened = quick_tcp_prescreen(valid_nodes, max_workers=100, timeout=2)
+            filtered_out = len(valid_nodes) - len(prescreened)
+            logger.info(f"TCP pre-screen: {len(prescreened)}/{len(valid_nodes)} passed ({filtered_out} filtered)")
+            valid_nodes = prescreened
 
     if args.validate and len(valid_nodes) > 0:
         logger.info("\n" + "=" * 60)
@@ -350,7 +364,7 @@ def main():
         logger.info("=" * 60)
         bm = BinaryManager(base_dir)
         sing_box_path = bm.get_singbox_path()
-        validator = Validator(sing_box_path)
+        validator = Validator(sing_box_path, local_mode=local_mode)
         valid_nodes = validator.validate_nodes_parallel(valid_nodes, timeout=5, max_workers=args.validate_workers)
         logger.info(f"Valid nodes: {len(valid_nodes)}")
 

@@ -44,20 +44,26 @@ def _get_unique_port():
 
 
 class Validator:
-    def __init__(self, sing_box_path=None):
+    def __init__(self, sing_box_path=None, local_mode=False):
         if sing_box_path and os.path.exists(sing_box_path):
             self.sing_box_path = sing_box_path
         else:
             self.sing_box_path = self._find_sing_box()
-        
+
+        # local_mode=True: skip direct TCP checks (they fail behind GFW)
+        self.local_mode = local_mode
+
         if self.sing_box_path and os.path.exists(self.sing_box_path):
             print(f"Validator: Using sing-box at {self.sing_box_path}")
         else:
             print(f"Validator: sing-box binary not found. Validation will be skipped.")
-        
+
+        mode_label = 'local (skipping direct TCP checks)' if local_mode else 'CI'
+        print(f"Validator: Running in {mode_label} mode")
+
         self.logger = logging.getLogger('Validator')
         self.original_ip = self._get_original_ip()
-        print(f"Validator: Original IP (GitHub Actions): {self.original_ip}")
+        print(f"Validator: Original IP: {self.original_ip}")
 
     def _get_original_ip(self):
         """获取当前机器的真实IP（不经过代理）"""
@@ -301,8 +307,9 @@ class Validator:
         node_type = node.get('type', '').lower()
 
         # UDP 协议（QUIC-based）跳过 TCP ping，TCP 连不上其 UDP 端口是正常的
+        # 本地模式下也跳过 TCP ping：直连境外服务器在墙内经常被拦截
         UDP_PROTOCOLS = {'hysteria2', 'hy2', 'tuic'}
-        if server and port and node_type not in UDP_PROTOCOLS:
+        if server and port and node_type not in UDP_PROTOCOLS and not self.local_mode:
             if not self.tcp_ping(server, port, timeout=2):
                 return False
 
