@@ -14,10 +14,13 @@ def parse(data):
         'private_key': netquery.get('privateKey') or unquote(server_info.netloc.rsplit("@", 1)[0]),
         'peers': []
     }
+    public_key = netquery.get('publicKey') or netquery.get('publickey')
+    if not public_key:
+        return None
     peer_info = {
         'address': re.sub(r"\[|\]", "", server_info.netloc.rsplit("@", 1)[-1].rsplit(":", 1)[0]),
         'port': int(server_info.netloc.rsplit("@", 1)[-1].rsplit(":", 1)[1]),
-        'public_key': netquery.get('publicKey') or netquery.get('publickey'),
+        'public_key': public_key,
         'allowed_ips': [
             "0.0.0.0/0"
         ],

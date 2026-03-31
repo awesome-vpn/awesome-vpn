@@ -161,6 +161,8 @@ def parse(data):
         node['method'] = 'chacha20-ietf-poly1305'
     elif node['method'] == 'xchacha20-poly1305':
         node['method'] = 'xchacha20-ietf-poly1305'
+    elif node['method'] == 'auto':
+        return None
     if flag:
         return node,node_tls
     else:

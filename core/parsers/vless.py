@@ -47,10 +47,11 @@ def parse(data):
         node['tls']['server_name'] = netquery.get('sni', '') or netquery.get('peer', '')
         if node['tls']['server_name'] == 'None':
             node['tls']['server_name'] = ''
-        if netquery.get('security') == 'reality' or netquery.get('pbk'): #shadowrocket
+        pbk = netquery.get('pbk')
+        if (netquery.get('security') == 'reality' or pbk) and pbk: #shadowrocket
             node['tls']['reality'] = {
                 'enabled': True,
-                'public_key': netquery.get('pbk'),
+                'public_key': pbk,
             }
             # 处理 short_id，避免 fuck 'None' 或 null
             sid = netquery.get('sid')
