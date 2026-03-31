@@ -13,6 +13,8 @@ import logging
 
 import yaml
 from dotenv import load_dotenv
+# Load secrets: .secrets takes priority, .env as fallback
+load_dotenv('.secrets')
 load_dotenv()
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
