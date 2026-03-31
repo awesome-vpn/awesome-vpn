@@ -1,4 +1,5 @@
-import tool,re
+from . import tool
+import re
 from urllib.parse import urlparse, parse_qs, unquote
 def parse(data):
     info = data[:]
@@ -29,6 +30,8 @@ def parse(data):
         reserved_value = netquery.get('reserved')
         node['peers'][0]['reserved'] = [int(val) for val in reserved_value.split(",")] if ',' in reserved_value else reserved_value
     ip_value = netquery.get('ip') or netquery.get('address')
+    if not ip_value:
+        return None
     if ',' in ip_value:
         ipv4_value, ipv6_value = ip_value.split(",", 1)
         ipv4_value = ipv4_value + "/32" if '/' not in ipv4_value else ipv4_value

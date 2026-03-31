@@ -34,29 +34,13 @@ _port_lock = threading.Lock()
 _allocated_ports = set()
 
 def _get_unique_port():
-    """获取一个未被使用的唯一端口（用 bind 测试，模拟 sing-box 的实际绑定操作）"""
+    """让 OS 分配一个空闲端口，避免与 ephemeral 端口范围冲突"""
     with _port_lock:
-        for _ in range(100):
-            port = random.randint(30000, 60000)
-            if port not in _allocated_ports:
-                try:
-                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                        s.bind(('127.0.0.1', port))
-                    _allocated_ports.add(port)
-                    return port
-                except OSError:
-                    pass
-        # 随机分配失败则顺序扫描
-        for port in range(30000, 60000):
-            if port not in _allocated_ports:
-                try:
-                    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                        s.bind(('127.0.0.1', port))
-                    _allocated_ports.add(port)
-                    return port
-                except OSError:
-                    pass
-        raise RuntimeError("无法分配可用端口")
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('127.0.0.1', 0))
+            port = s.getsockname()[1]
+        _allocated_ports.add(port)
+        return port
 
 
 class Validator:
@@ -279,7 +263,7 @@ class Validator:
         print(f"Starting FINAL strict validation for {len(nodes)} nodes...")
         print(f"Criteria:")
         print(f"  1) IP must change (≠ {self.original_ip})")
-        print(f"  2) Can access gstatic.com via proxy")
+        print(f"  2) Can access google.com via proxy")
         print(f"  3) DNS works (TCP DNS via SOCKS5)")
         print(f"  4) hysteria2/tuic must have UDP support")
         print(f"  5) Latency < 3s")
@@ -304,7 +288,7 @@ class Validator:
         最终严格验证：
         1. TCP 连通性
         2. 出口 IP ≠ 原始 IP
-        3. 能访问 gstatic.com（最小最快的测试）
+        3. 能访问 google.com（最小最快的测试）
         4. DNS 解析正常（TCP DNS via SOCKS5）
         5. hysteria2/tuic 必须 UDP 通（SOCKS5 UDP ASSOCIATE）
         6. 延迟 < 3s
@@ -410,7 +394,7 @@ class Validator:
             if not ip_changed:
                 return False
 
-            # === 验证 2: 访问 gstatic.com/generate_204 返回 204 ===
+            # === 验证 2: 访问 google.com/generate_204 返回 204 ===
             start = time.time()
             try:
                 session = requests.Session()

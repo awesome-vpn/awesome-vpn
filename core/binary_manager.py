@@ -114,7 +114,6 @@ class BinaryManager:
                 
                 resp = requests.get(url, stream=True, timeout=120)
                 print(f"Download response status: {resp.status_code}")
-                print(f"Download headers: {dict(resp.headers)}")
                 
                 if resp.status_code != 200:
                     print(f"Download failed: HTTP {resp.status_code}")
@@ -147,12 +146,9 @@ class BinaryManager:
                 
                 print("Extracting...")
                 with tarfile.open(tar_path, 'r:gz') as tar:
-                    print("Listing archive contents:")
                     for member in tar.getmembers():
-                        print(f"  - {member.name}")
                         if member.name.endswith('/sing-box'):
                             member.name = binary_name
-                            print(f"  Extracting to: {os.path.join(self.bin_dir, binary_name)}")
                             tar.extract(member, self.bin_dir)
                             break
                 

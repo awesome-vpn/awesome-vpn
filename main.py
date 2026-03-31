@@ -317,12 +317,15 @@ def main():
     duplicates = 0
 
     for node, link in raw_parsed_nodes:
-        if deduplicator.is_duplicate(node) or deduplicator.is_redundant_server(node):
-            duplicates += 1
-            continue
-        original_tag = node.get('tag', '')
-        sing_box_outbounds.append(node)
-        link_to_node_map[original_tag] = link
+        # ss.py returns (node, node_tls) tuple for shadow-tls links
+        nodes_to_add = list(node) if isinstance(node, tuple) else [node]
+        for n in nodes_to_add:
+            if deduplicator.is_duplicate(n) or deduplicator.is_redundant_server(n):
+                duplicates += 1
+                continue
+            original_tag = n.get('tag', '')
+            sing_box_outbounds.append(n)
+            link_to_node_map[original_tag] = link
 
     logger.info(f"Successfully parsed: {len(sing_box_outbounds)} nodes")
     logger.info(f"Duplicates filtered: {duplicates}")

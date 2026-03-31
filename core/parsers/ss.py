@@ -1,5 +1,5 @@
 from . import tool
-import json,re,urllib.parse
+import ast,json,re,urllib.parse
 from urllib.parse import parse_qs
 def parse(data):
     param = data[5:]
@@ -61,7 +61,7 @@ def parse(data):
         param = param[:param.find('?')]
         node['plugin'] = 'v2ray-plugin'
         plugin = plugin.replace('true', '1').replace('false', '0')
-        plugin = eval(plugin)
+        plugin = ast.literal_eval(plugin)
         result_str = "mode={};{}{}{}{}{}{}{}".format(
             plugin.get("mode", ''),
             'host={};'.format(plugin["host"]) if plugin.get("host") else '',
@@ -132,7 +132,7 @@ def parse(data):
             plugin = tool.b64Decode(param2[param2.find('shadow-tls')+11:param2.find('&', param2.find('shadow-tls'))].split('#')[0]).decode('utf-8')
         else:
             plugin = tool.b64Decode(param2[param2.find('shadow-tls')+11:].split('#')[0]).decode('utf-8')
-        plugin = eval(plugin.replace('true','True'))
+        plugin = ast.literal_eval(plugin.replace('true','True'))
         node['detour'] = node['tag']+'_shadowtls'
         node_tls = {
             'tag':node['detour'],
