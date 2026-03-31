@@ -17,10 +17,10 @@ import threading
 # 测试目标：Google 生成 204 响应（必须通过代理才能访问）
 TEST_URL = 'https://www.google.com/generate_204'
 
-# IP检测服务
+# IP检测服务（HTTPS，同时验证代理的 HTTPS 转发能力）
 IP_CHECK_URLS = [
-    'http://ipinfo.io/ip',
-    'http://api.ipify.org',
+    'https://ipinfo.io/ip',
+    'https://api.ipify.org',
 ]
 
 # DNS 测试：验证通过代理解析国内域名
@@ -262,11 +262,11 @@ class Validator:
         valid_nodes = []
         print(f"Starting FINAL strict validation for {len(nodes)} nodes...")
         print(f"Criteria:")
-        print(f"  1) IP must change (≠ {self.original_ip})")
-        print(f"  2) Can access google.com via proxy")
+        print(f"  1) IP must change (≠ {self.original_ip}){' [SKIP: original_ip unknown]' if self.original_ip is None else ''}")
+        print(f"  2) Can access google.com via proxy (HTTPS)")
         print(f"  3) DNS works (TCP DNS via SOCKS5)")
         print(f"  4) hysteria2/tuic must have UDP support")
-        print(f"  5) Latency < 3s")
+        print(f"  5) Latency < 1.5s")
         
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_node = {executor.submit(self.validate_node_final, node, timeout): node for node in nodes}
@@ -299,8 +299,10 @@ class Validator:
         server = node.get('server')
         port = node.get('server_port') or node.get('port')
         node_type = node.get('type', '').lower()
-        
-        if server and port:
+
+        # UDP 协议（QUIC-based）跳过 TCP ping，TCP 连不上其 UDP 端口是正常的
+        UDP_PROTOCOLS = {'hysteria2', 'hy2', 'tuic'}
+        if server and port and node_type not in UDP_PROTOCOLS:
             if not self.tcp_ping(server, port, timeout=2):
                 return False
 
@@ -376,18 +378,20 @@ class Validator:
             # === 验证 1: 出口IP必须变化 ===
             ip_changed = False
             proxy_ip = None
+            # original_ip=None 时无法比较，跳过 IP 变化检查，仍要求能拿到代理 IP
+            need_ip_change = self.original_ip is not None
             for ip_url in IP_CHECK_URLS:
                 try:
-                    # 强制使用 SOCKS5 代理，禁用环境变量
                     session = requests.Session()
                     session.trust_env = False
                     session.proxies.update(proxies)
                     resp = session.get(ip_url, timeout=timeout)
                     if resp.status_code == 200:
                         proxy_ip = resp.text.strip()
-                        if proxy_ip and proxy_ip != self.original_ip:
-                            ip_changed = True
-                            break
+                        if proxy_ip:
+                            if not need_ip_change or proxy_ip != self.original_ip:
+                                ip_changed = True
+                                break
                 except:
                     continue
 
@@ -402,7 +406,7 @@ class Validator:
                 session.proxies.update(proxies)
                 resp = session.get(TEST_URL, timeout=timeout)
                 latency = time.time() - start
-                if resp.status_code != 204 or latency >= 3:
+                if resp.status_code != 204 or latency >= 1.5:
                     return False
             except:
                 return False
