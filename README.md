@@ -13,6 +13,7 @@
 
 ---
 
+- [guardian-agent-prompts](https://github.com/milkomida77/guardian-agent-prompts) - 49 production-tested AI agent system prompts for network workflow orchestration, automated infrastructure management, and multi-agent coordination. MIT licensed.
 ## 🚀 30-Second Quick Start
 
 ### Step 1: Copy a subscription link
