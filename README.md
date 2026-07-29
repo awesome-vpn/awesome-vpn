@@ -43,9 +43,10 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 | Platform | Recommended App | Download |
 |----------|----------------|----------|
 | **Windows** | v2rayN / Clash Verge Rev | [v2rayN](https://github.com/2dust/v2rayN/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **macOS** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://apps.apple.com/app/id6785291194) |
 | **Linux** | v2rayA / Clash Verge Rev | [v2rayA](https://github.com/v2rayA/v2rayA/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **iOS (Free)** | Streisand | [GitHub](https://github.com/MatsuriDayo/Streisand) |
+| **iOS (Free)** | Streisand / Rocket Proxy | [GitHub](https://github.com/MatsuriDayo/Streisand) / [App Store](https://apps.apple.com/app/id6785291194) |
+| **Apple TV** | Rocket Proxy | [App Store](https://apps.apple.com/app/id6785291194) |
 | **Android** | v2rayNG / Sing-box | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
 
 ### Step 3: Paste and connect
@@ -143,6 +144,27 @@ Possible reasons:
 3. Paste the Base64 List link in **URL** field
 4. Tap **Save**, then tap the subscription to update
 5. Select a server and tap the connect button
+</details>
+
+<details>
+<summary><b>Rocket Proxy (iOS / macOS / Apple TV)</b></summary>
+
+**iPhone, iPad, Mac**
+
+1. Install [Rocket Proxy](https://apps.apple.com/app/id6785291194) from the App Store (free)
+2. Open **Servers** → **Import Servers** → **Import from Link**
+3. Paste the Base64 List link and confirm
+4. Use **Update Subscriptions** to refresh later
+5. Select a server and connect
+
+**Apple TV**
+
+Servers are added on iPhone, iPad, or Mac and then sent over — no typing on the TV:
+
+1. On Apple TV: **Servers** → **Add** → **Receive from Nearby Device**
+2. On iPhone/iPad/Mac: **Servers** → **Send to Nearby Device**
+3. The Apple TV appears in the list; confirm to transfer, then connect
+
 </details>
 
 <details>
