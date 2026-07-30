@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 | Platform | Recommended App | Download |
 |----------|----------------|----------|
 | **Windows** | v2rayN / Clash Verge Rev | [v2rayN](https://github.com/2dust/v2rayN/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://apps.apple.com/app/id6785291194) |
+| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://github.com/jcltravels/RocketProxy/releases/latest) |
 | **Linux** | v2rayA / Clash Verge Rev | [v2rayA](https://github.com/v2rayA/v2rayA/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
 | **iOS (Free)** | Streisand / Rocket Proxy | [GitHub](https://github.com/MatsuriDayo/Streisand) / [App Store](https://apps.apple.com/app/id6785291194) |
 | **Apple TV** | Rocket Proxy | [App Store](https://apps.apple.com/app/id6785291194) |
@@ -149,7 +149,15 @@ Possible reasons:
 <details>
 <summary><b>Rocket Proxy (iOS / macOS / Apple TV)</b></summary>
 
-**iPhone, iPad, Mac**
+**Mac**
+
+1. Download the [latest `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) — free, notarized by Apple, no account required. (Also on the [Mac App Store](https://apps.apple.com/app/id6785291194).)
+2. Open **Servers** → **Import Servers** → **Import from Link**
+3. Paste the Base64 List link and confirm
+4. Use **Update Subscriptions** to refresh later
+5. Select a server and connect
+
+**iPhone, iPad**
 
 1. Install [Rocket Proxy](https://apps.apple.com/app/id6785291194) from the App Store (free)
 2. Open **Servers** → **Import Servers** → **Import from Link**

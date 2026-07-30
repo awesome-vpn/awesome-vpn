@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 | 系统 | 推荐软件 | 下载地址 |
 |------|---------|----------|
 | **Windows** | v2rayN / Clash Verge Rev | [v2rayN下载](https://github.com/2dust/v2rayN/releases) / [Clash Verge Rev下载](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev下载](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://apps.apple.com/app/id6785291194) |
+| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev下载](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://github.com/jcltravels/RocketProxy/releases/latest) |
 | **Linux** | v2rayA / Clash Verge Rev | [v2rayA下载](https://github.com/v2rayA/v2rayA/releases) / [Clash Verge Rev下载](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
 | **iOS (免费)** | Streisand / Rocket Proxy | [GitHub](https://github.com/MatsuriDayo/Streisand) / [App Store](https://apps.apple.com/app/id6785291194) |
 | **Apple TV** | Rocket Proxy | [App Store](https://apps.apple.com/app/id6785291194) |
@@ -149,7 +149,15 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 <details>
 <summary><b>Rocket Proxy（iOS / macOS / Apple TV）</b></summary>
 
-**iPhone、iPad、Mac**
+**Mac**
+
+1. 下载[最新 `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) —— 免费，已通过 Apple 公证，无需账号。（也可从 [Mac App Store](https://apps.apple.com/app/id6785291194) 安装。）
+2. 打开 **Servers** → **Import Servers** → **Import from Link**
+3. 粘贴 Base64 列表链接并确认
+4. 之后可用 **Update Subscriptions** 更新订阅
+5. 选择节点并连接
+
+**iPhone、iPad**
 
 1. 从 App Store 免费安装 [Rocket Proxy](https://apps.apple.com/app/id6785291194)
 2. 打开 **Servers** → **Import Servers** → **Import from Link**
