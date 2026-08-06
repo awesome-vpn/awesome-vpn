@@ -23,7 +23,7 @@ Right-click the link → "Copy link address":
 |--------|-------------------|----------|
 | **Base64 List** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all) | v2rayN, v2rayNG, Streisand |
 | **Sing-box JSON** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json) | Sing-box, NekoBox |
-| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev, ClashX |
+| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev, ClashX, Rocket Proxy |
 
 <details>
 <summary><b>📋 Copy all links (manual)</b></summary>
@@ -93,7 +93,7 @@ Possible reasons:
 | If your app is... | Use this format |
 |-------------------|-----------------|
 | v2rayN, v2rayNG, v2rayA, Streisand | **Base64 List** |
-| Clash Verge Rev, ClashX | **Clash YAML** |
+| Clash Verge Rev, ClashX, Rocket Proxy | **Clash YAML** |
 | Sing-box | **Sing-box JSON** |
 
 ---
@@ -151,9 +151,9 @@ Possible reasons:
 
 **Mac**
 
-1. Download the [latest `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) — free, notarized by Apple, no account required. (Also on the [Mac App Store](https://apps.apple.com/app/id6785291194).)
+1. Download the [latest `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) — free, notarized by Apple, universal (Intel and Apple silicon), no account required. (Also on the [Mac App Store](https://apps.apple.com/app/id6785291194).)
 2. Open **Servers** → **Import Servers** → **Import from Link**
-3. Paste the Base64 List link and confirm
+3. Paste the Base64 List **or the Clash YAML** link and confirm
 4. Use **Update Subscriptions** to refresh later
 5. Select a server and connect
 
@@ -161,7 +161,7 @@ Possible reasons:
 
 1. Install [Rocket Proxy](https://apps.apple.com/app/id6785291194) from the App Store (free)
 2. Open **Servers** → **Import Servers** → **Import from Link**
-3. Paste the Base64 List link and confirm
+3. Paste the Base64 List **or the Clash YAML** link and confirm
 4. Use **Update Subscriptions** to refresh later
 5. Select a server and connect
 

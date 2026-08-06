@@ -23,7 +23,7 @@
 |------|----------|-----------|
 | **Base64 列表** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all) | v2rayN、v2rayNG、Streisand |
 | **Sing-box JSON** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json) | Sing-box |
-| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev、ClashX |
+| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev、ClashX、Rocket Proxy |
 
 <details>
 <summary><b>📋 复制全部链接（手动）</b></summary>
@@ -151,9 +151,9 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 
 **Mac**
 
-1. 下载[最新 `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) —— 免费，已通过 Apple 公证，无需账号。（也可从 [Mac App Store](https://apps.apple.com/app/id6785291194) 安装。）
+1. 下载[最新 `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) —— 免费，已通过 Apple 公证，通用二进制（Intel 与 Apple 芯片），无需账号。（也可从 [Mac App Store](https://apps.apple.com/app/id6785291194) 安装。）
 2. 打开 **Servers** → **Import Servers** → **Import from Link**
-3. 粘贴 Base64 列表链接并确认
+3. 粘贴 Base64 列表**或 Clash YAML** 链接并确认
 4. 之后可用 **Update Subscriptions** 更新订阅
 5. 选择节点并连接
 
@@ -161,7 +161,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 
 1. 从 App Store 免费安装 [Rocket Proxy](https://apps.apple.com/app/id6785291194)
 2. 打开 **Servers** → **Import Servers** → **Import from Link**
-3. 粘贴 Base64 列表链接并确认
+3. 粘贴 Base64 列表**或 Clash YAML** 链接并确认
 4. 之后可用 **Update Subscriptions** 更新订阅
 5. 选择节点并连接
 
