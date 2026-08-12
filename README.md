@@ -179,7 +179,7 @@ Possible reasons:
 
 If this project helps you, please ⭐ star it!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=awesome-vpn/awesome-vpn&type=Date)](https://star-history.com/#awesome-vpn/awesome-vpn&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=awesome-vpn/awesome-vpn&type=Date)](https://star-history.dera.page/#awesome-vpn/awesome-vpn&Date)
 
 ---
 
