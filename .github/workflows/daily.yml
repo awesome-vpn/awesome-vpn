@@ -78,6 +78,8 @@ jobs:
         [ -s all ] || (echo "ERROR: all is empty" && exit 1)
         [ -s sing-box.json ] || (echo "ERROR: sing-box.json is empty" && exit 1)
         [ -s clash.yaml ] || (echo "ERROR: clash.yaml is empty" && exit 1)
+        [ -x bin/sing-box-linux-amd64 ] || (echo "ERROR: sing-box binary is missing" && exit 1)
+        bin/sing-box-linux-amd64 check -c sing-box.json
         echo "Output sizes:"
         ls -lh all sing-box.json clash.yaml
         NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
