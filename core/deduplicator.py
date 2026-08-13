@@ -1,6 +1,50 @@
 import hashlib
 import json
 
+
+def ensure_unique_tags(nodes):
+    """Rename duplicate, non-empty outbound tags in place.
+
+    sing-box requires tags to be unique across outbounds and endpoints. Keep the
+    first occurrence unchanged and suffix later occurrences with `` #N``. Tags
+    already present in the input are reserved so a generated suffix never
+    steals a name from another node.
+
+    Returns the number of renamed nodes.
+    """
+    reserved_tags = {
+        node.get('tag')
+        for node in nodes
+        if isinstance(node.get('tag'), str) and node.get('tag')
+    }
+    used_tags = set()
+    next_suffix = {}
+    renamed = 0
+
+    for node in nodes:
+        tag = node.get('tag')
+        if not isinstance(tag, str) or not tag:
+            continue
+
+        if tag not in used_tags:
+            used_tags.add(tag)
+            next_suffix.setdefault(tag, 2)
+            continue
+
+        suffix = next_suffix.get(tag, 2)
+        candidate = f"{tag} #{suffix}"
+        while candidate in reserved_tags or candidate in used_tags:
+            suffix += 1
+            candidate = f"{tag} #{suffix}"
+
+        node['tag'] = candidate
+        used_tags.add(candidate)
+        next_suffix[tag] = suffix + 1
+        renamed += 1
+
+    return renamed
+
+
 class Deduplicator:
     def __init__(self):
         self.seen_hashes = set()
