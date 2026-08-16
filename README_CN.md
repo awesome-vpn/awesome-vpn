@@ -179,7 +179,7 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 
 如果这个项目帮到了你，请点个 ⭐ 支持一下！
 
-[![Star History Chart](https://api.star-history.com/svg?repos=awesome-vpn/awesome-vpn&type=Date)](https://star-history.com/#awesome-vpn/awesome-vpn&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=awesome-vpn/awesome-vpn&type=Date)](https://star-history.dera.page/#awesome-vpn/awesome-vpn&Date)
 
 ---
 
