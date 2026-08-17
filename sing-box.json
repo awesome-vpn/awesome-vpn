@@ -1,55 +1,6 @@
 {
   "outbounds": [
     {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "172.66.44.97",
-      "server_port": 443,
-      "uuid": "83afd88f-200f-4d89-bfc7-66eff160c1d8",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "josni.hoyes.cloudns.ch"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "musiclovers85_musiclovers85",
-        "headers": {
-          "Host": "josni.hoyes.cloudns.ch"
-        },
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 512
-      }
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "172.67.202.17",
-      "server_port": 2095,
-      "uuid": "86c50e3a-5b87-49dd-bd20-03c7f2735e40",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "fuckfangbinxing.pusytroller.gq"
-        }
-      }
-    },
-    {
-      "tag": "美国/保德曼/United States/Boardman",
-      "type": "trojan",
-      "server": "sharing-duck.rooster465.autos",
-      "server_port": 443,
-      "password": "AE62539071",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "sharing-duck.rooster465.autos"
-      }
-    },
-    {
       "tag": "加拿大/多伦多/Canada/Toronto",
       "type": "shadowsocks",
       "server": "137.184.174.93",
@@ -58,70 +9,75 @@
       "password": "14fFPrbezE3HDZzsMOr6"
     },
     {
-      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "tag": "美国/United States",
+      "type": "shadowsocks",
+      "server": "37.19.198.244",
+      "server_port": 443,
+      "method": "aes-128-gcm",
+      "password": "shadowsocks"
+    },
+    {
+      "tag": "加拿大/蒙特利尔/Canada/Montreal",
       "type": "vmess",
-      "server": "38.246.226.240",
-      "server_port": 52080,
-      "uuid": "7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5",
+      "server": "158.51.121.63",
+      "server_port": 443,
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "seribus.org"
+      },
       "transport": {
-        "type": "http",
-        "path": "/"
+        "type": "ws",
+        "path": "linkvws"
+      }
+    },
+    {
+      "tag": "美国/United States",
+      "type": "vmess",
+      "server": "157.254.227.87",
+      "server_port": 443,
+      "uuid": "5b411308-d796-4694-b58d-d252e35bb475",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/d252e35bb475"
       }
     },
     {
       "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "104.17.28.89",
-      "server_port": 443,
-      "uuid": "1078d418-b4e0-4668-9018-dc90c2042d61",
+      "server": "172.67.96.178",
+      "server_port": 80,
+      "uuid": "234c52f2-0d7b-dc4a-0d6b-b0b300000023",
       "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "workspace.evan00.dpdns.org"
-      },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/sync",
         "headers": {
-          "Host": "workspace.evan00.dpdns.org"
+          "Host": "billowing-surf-d251.netizo06.workers.dev"
         }
       }
     },
     {
-      "tag": "日本/东京/Japan/Tokyo",
-      "type": "trojan",
-      "server": "welcome-owl.rooster465.autos",
-      "server_port": 443,
-      "password": "FH72359861",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "welcome-owl.rooster465.autos"
-      }
-    },
-    {
-      "tag": "日本/东京/Japan/Tokyo",
-      "type": "trojan",
-      "server": "57.180.13.78",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "healthy-louse.rooster465.autos"
-      }
-    },
-    {
-      "tag": "加拿大/Canada",
-      "type": "shadowsocks",
-      "server": "15.235.75.71",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "FD3rCuOsxOay"
+      "tag": "美国/凤凰城/United States/Phoenix",
+      "type": "vmess",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp"
     },
     {
       "tag": "德国/Germany",
@@ -147,21 +103,36 @@
       }
     },
     {
-      "tag": "荷兰/The Netherlands",
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "144.31.237.206",
-      "server_port": 443,
-      "uuid": "9500cf8b-020a-4a70-906c-e14bb5375875",
+      "server": "8.47.69.0",
+      "server_port": 8880,
+      "uuid": "a8178248-3cdf-4fb0-ab7b-87c1ab77201c",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/cdn/assets/stream",
+        "headers": {
+          "Host": "cnd.france2.gg.newwaycdn.com"
+        }
+      }
+    },
+    {
+      "tag": "荷兰/哈勒姆/The Netherlands/Haarlem",
+      "type": "vless",
+      "server": "51.158.206.98",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "www.sciencedirect.com",
+        "server_name": "fuck.rkn",
         "reality": {
           "enabled": true,
-          "public_key": "cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0",
-          "short_id": "a1b2c4d4a1b2c5d5"
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
+          "short_id": "01"
         },
         "utls": {
           "enabled": true
@@ -169,214 +140,271 @@
       }
     },
     {
-      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "tag": "加拿大/Canada",
       "type": "shadowsocks",
-      "server": "31.76.30.79",
-      "server_port": 10808,
-      "method": "chacha20-ietf-poly1305",
-      "password": "TmXSpcRBbhvHDg66bo2w89bToxQsbMoa"
-    },
-    {
-      "tag": "香港/Hong Kong",
-      "type": "trojan",
-      "server": "18.162.120.218",
-      "server_port": 50887,
-      "password": "6ec301428255a78a1d826988d86cc87e",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "www.nintendogames.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "trojan",
-      "server": "18.163.122.95",
-      "server_port": 27161,
-      "password": "BxceQaOe",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "t.me/ripaojiedian"
-      }
-    },
-    {
-      "tag": "法国/France",
-      "type": "vless",
-      "server": "162.19.156.14",
-      "server_port": 6800,
-      "uuid": "7595cd50-9326-48e4-a7bc-802e85e643ec",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "play.google.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "lQbgwNDYw6Zbjdim0JtXUarzb-3GSjDvtX6FJYZD9Qo"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      }
-    },
-    {
-      "tag": "法国/France",
-      "type": "shadowsocks",
-      "server": "51.255.13.232",
+      "server": "15.235.75.71",
       "server_port": 8388,
       "method": "chacha20-ietf-poly1305",
-      "password": "BqnqToih0PbU"
-    },
-    {
-      "tag": "英国/United Kingdom",
-      "type": "vless",
-      "server": "91.193.58.140",
-      "server_port": 2096,
-      "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "free-server.techsonic.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/free-server.techsonic.dev",
-        "headers": {
-          "Host": "free-server.techsonic.dev"
-        }
-      }
+      "password": "FD3rCuOsxOay"
     },
     {
       "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vmess",
-      "server": "rush-6it6b.teeopp.quest",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "server": "104.17.77.77",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "rush-6it6b.teeopp.quest",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "server_name": "v2ray1.dozapp.xyz"
       },
       "transport": {
         "type": "ws",
         "headers": {
-          "Host": "rush-6it6b.teeopp.quest"
+          "Host": "v2ray1.dozapp.xyz"
         },
-        "path": "/video/kz49hf/gbin5jve.m3u8"
+        "path": "/lMnsZUN4/"
       }
     },
     {
-      "tag": "美国/United States",
-      "type": "shadowsocks",
-      "server": "156.146.38.167",
-      "server_port": 443,
-      "method": "aes-128-gcm",
-      "password": "shadowsocks"
+      "tag": "土耳其/伊斯坦布尔/Türkiye/Istanbul",
+      "type": "vless",
+      "server": "185.39.204.155",
+      "server_port": 8443,
+      "uuid": "7e8f7489-e65f-4be6-93ed-867a74ec6759",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
+      }
     },
     {
-      "tag": "俄罗斯联邦/Russia",
-      "type": "vless",
-      "server": "217.19.122.234",
-      "server_port": 9001,
-      "uuid": "2c634977-584e-4e1f-b501-1b70c77a6743",
-      "packet_encoding": "xudp",
+      "tag": "波兰/华沙/Poland/Warsaw",
+      "type": "trojan",
+      "server": "relaxed-gull.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "api-maps.yandex.ru",
+        "server_name": "relaxed-gull.rooster465.autos"
+      }
+    },
+    {
+      "tag": "法国/巴黎/France/Paris",
+      "type": "vless",
+      "server": "89.208.113.16",
+      "server_port": 443,
+      "uuid": "adce7c2a-3191-49ae-b61c-9b8258ea1b0e",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "日本/东京/Japan/Tokyo",
+      "type": "trojan",
+      "server": "equal-labrador.rooster465.autos",
+      "server_port": 443,
+      "password": "FH72359861",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "equal-labrador.rooster465.autos"
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "shadowsocks",
+      "server": "switcher-nick-croquet.freesocks.work",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "RFK38Cg7APneSB5cWDcpbm"
+    },
+    {
+      "tag": "荷兰/恩斯赫德/The Netherlands/Enschede",
+      "type": "vless",
+      "server": "nl8.helper-internet.com",
+      "server_port": 443,
+      "uuid": "670decfe-68cc-499e-8cb1-22b39c20acbb",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "nl8.helper-internet.com",
         "reality": {
           "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
-          "short_id": "6ba85179e30d4fc2"
+          "public_key": "W-zf_ncm9sYALF5EqvUsxqTkYGdAw-tQczT2SqwVMGE",
+          "short_id": "ff776ff77be48b88"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "日本/东京/Japan/Tokyo",
+      "type": "trojan",
+      "server": "awaited-lark.rooster465.autos",
+      "server_port": 443,
+      "password": "AE62539071",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "awaited-lark.rooster465.autos",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "英国/United Kingdom",
+      "type": "shadowsocks",
+      "server": "82.38.31.49",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "vless",
+      "server": "132.243.223.88",
+      "server_port": 443,
+      "uuid": "fbb74aa8-b89a-4f20-9504-6b25aadf6681",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fin2.freeinternat.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "bZpzmeWiEJyJQy0W2hHc34Nr6BuFXj1UDd80Cbwh1Fk",
+          "short_id": "ff776ff77be48b88"
         },
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
         }
+      }
+    },
+    {
+      "tag": "马来西亚/吉隆坡/Malaysia/Kuala Lumpur",
+      "type": "vmess",
+      "server": "47.250.45.234",
+      "server_port": 8613,
+      "uuid": "80039b4d-bac0-4f89-82c7-54fad3b0a1ea",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/arki",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "匈牙利/布达佩斯/Hungary/Budapest",
+      "type": "shadowsocks",
+      "server": "217.70.14.216",
+      "server_port": 8443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "48UQWJVetDr7ETiOXF+aEQ=="
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "vless",
+      "server": "95.85.247.155",
+      "server_port": 443,
+      "uuid": "423b1d79-08c4-403f-9d5e-c541f791b55f",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "eu-west.cendora.ru",
+        "reality": {
+          "enabled": true,
+          "public_key": "m6RDw1b8R4lCaRUIzhHpy6TtX2Dhk6nyby8dWzeQqA0",
+          "short_id": "dd3ff38418d29d22"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.18.1.1",
+      "server_port": 2053,
+      "uuid": "da4747a6-be0d-4c1b-90f4-d82ec3012be2",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "music1000.melobitmusic1.ir"
       },
       "transport": {
-        "type": "grpc",
-        "service_name": "grpc-reality"
-      }
-    },
-    {
-      "tag": "英国/United Kingdom",
-      "type": "vless",
-      "server": "144.31.213.150",
-      "server_port": 443,
-      "uuid": "b052df40-d51c-456c-9bd6-57af01a87e4e",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "cdn.pinecloud.net",
-        "reality": {
-          "enabled": true,
-          "public_key": "vWSgdMDirb9aDZLWijSXXXl-NCTrtBgEe9MQqcgV6h8",
-          "short_id": "6a2e3af684799b19"
-        },
-        "utls": {
-          "enabled": true
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "music1000.melobitmusic1.ir"
         }
       }
     },
     {
-      "tag": "英属维尔京群岛/British Virgin Islands",
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "fin1.panel11.ru",
-      "server_port": 443,
-      "uuid": "9aff0732-7ce4-4b34-ba20-e67c6df64fdd",
+      "server": "188.114.97.6",
+      "server_port": 8443,
+      "uuid": "05cf7b0e-ad1a-42bb-80e7-73ae45b1019a",
       "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "fin1.panel11.ru",
-        "reality": {
-          "enabled": true,
-          "public_key": "lQ8pnlOU0kqS77TA7Fftl8nSzktXLzFpOLGqCZEAhjg",
-          "short_id": "aaec521b22bbe6cb"
-        },
-        "utls": {
-          "enabled": true
+        "server_name": "france.io-com-de-dev.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/api/voip/updates/static/x9i2",
+        "headers": {
+          "Host": "france.io-com-de-dev.org"
         }
       }
     },
     {
-      "tag": "荷兰/The Netherlands",
-      "type": "vless",
-      "server": "85.155.226.156",
-      "server_port": 443,
-      "uuid": "39c42b0a-b823-4c93-bb99-74b4183e518d",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
+      "tag": "新加坡/新加坡/Singapore/Singapore",
+      "type": "shadowsocks",
+      "server": "176.97.64.144",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "TFElG2FVqyqG"
+    },
+    {
+      "tag": "土耳其/伊斯坦布尔/Türkiye/Istanbul",
+      "type": "trojan",
+      "server": "tr-1.stunnel.cc",
+      "server_port": 8441,
+      "password": "tunnel-ljlcf",
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      }
+    },
+    {
+      "tag": "日本/东京/Japan/Tokyo",
+      "type": "trojan",
+      "server": "t11.qifei.app",
+      "server_port": 55682,
+      "password": "7d8e6db4-96cc-4710-afc0-619edde2d7a1",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "getsavesafe.net",
-        "reality": {
-          "enabled": true,
-          "public_key": "5Z6PwoPSNBLPIsX8lZtHM7-Y-psMMR1vz5Pit0EVISs",
-          "short_id": "82f5d3a1e9c0b661"
-        },
-        "utls": {
-          "enabled": true
-        }
+        "server_name": "t11.qifei.app"
       }
     },
     {
@@ -406,118 +434,300 @@
       }
     },
     {
-      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
-      "type": "vless",
-      "server": "185.79.138.71",
-      "server_port": 448,
-      "uuid": "0b0915d7-6800-4580-a44b-77d84f105e6a",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "www.samsung.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8",
-          "short_id": "cd21e552537c7c0b"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "荷兰/The Netherlands",
+      "tag": "法国/France",
       "type": "shadowsocks",
-      "server": "193.29.139.151",
-      "server_port": 8080,
+      "server": "51.77.225.200",
+      "server_port": 8388,
       "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+      "password": "zRZNBszYyWo5"
     },
     {
-      "tag": "印度尼西亚/Indonesia",
-      "type": "vmess",
-      "server": "202.47.89.133",
-      "server_port": 53548,
-      "uuid": "3a03613b-bbac-4a22-bee6-2c9a751a2761",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/dkfjh222"
-      }
+      "tag": "法国/France",
+      "type": "shadowsocks",
+      "server": "51.255.13.232",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "BqnqToih0PbU"
+    },
+    {
+      "tag": "南非/约翰内斯堡/South Africa/Johannesburg",
+      "type": "shadowsocks",
+      "server": "20.87.211.186",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "nFqDVGWvBowEwGtZ"
     },
     {
       "tag": "英国/United Kingdom",
       "type": "shadowsocks",
-      "server": "82.38.31.200",
+      "server": "82.38.31.186",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
       "password": "k1dBOmOB4oqi7Ump37a1bQ"
     },
     {
-      "tag": "英国/加的夫/United Kingdom/Cardiff",
-      "type": "shadowsocks",
-      "server": "134.65.62.195",
-      "server_port": 61312,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "5CkaY/EgA106Ec/ceWI2A4I7BXIgbDUJ6hRnDiCWX60="
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "104.16.98.215",
-      "server_port": 8880,
-      "uuid": "23187ddc-16a5-432d-bf4e-dd42a7ae39f7",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "steep-thunder-97fa.108-d10.workers.dev"
-        }
-      }
-    },
-    {
-      "tag": "日本/Japan",
+      "tag": "加拿大/多伦多/Canada/Toronto",
       "type": "vmess",
-      "server": "140.83.51.161",
-      "server_port": 25686,
-      "uuid": "6733c357-ba11-4e9f-f00f-7d87f2776ff9",
+      "server": "216.128.176.166",
+      "server_port": 28809,
+      "uuid": "ebca559c-a4a1-4062-9453-6412d8ff5255",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
-        "path": "/cctv13.m3u8"
+        "path": "/ebca559c-a4a1-4062-9453-6412d8ff5255"
       }
     },
     {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "shadowsocks",
-      "server": "193.124.203.144",
-      "server_port": 443,
-      "method": "2022-blake3-aes-256-gcm",
-      "password": "mkKfxndCZ9c3YIkAAmANrtfI/mlGJwwV9/GdVTYgW3M=:JazxiYc3Mc5tLn/Te3T59W6Zw4Z/BPuepQ0VlVD/cZ8="
+      "tag": "哈萨克斯坦/Kazakhstan",
+      "type": "vmess",
+      "server": "3h-kazakhstan1.09vpn.com",
+      "server_port": 80,
+      "uuid": "567f4be5-12ab-42e1-b8d9-db6fd1fdd31c",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/vmess/"
+      }
     },
     {
-      "tag": "德国/法兰克福/Germany/Frankfurt am Main",
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "47.244.120.197",
+      "server_port": 36703,
+      "uuid": "45b83519-9c4f-4052-a11b-02e017b636d4",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/arki",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "47.243.39.251",
+      "server_port": 32913,
+      "uuid": "47506713-508e-441a-bb02-56eb679b4dc9",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/"
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "191.44.118.250",
+      "server": "104.21.41.140",
       "server_port": 2053,
-      "uuid": "b6c29ae7-4748-4049-b642-b695c0d2c776",
+      "uuid": "e7961655-9674-4cbd-a36f-ec0d5d7d660c",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "po.fastbrokencompony.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "po.fastbrokencompony.com"
+        }
+      }
+    },
+    {
+      "tag": "美国/United States",
+      "type": "vmess",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "a150d554-e962-4632-829f-ee583ada3f95",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "d7pu5mzr9c4b0.cloudfront.net"
+        },
+        "path": "/htun"
+      }
+    },
+    {
+      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "type": "shadowsocks",
+      "server": "216.105.168.18",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "hCCWOcIsK5wrFz4OX70rWf"
+    },
+    {
+      "tag": "塞浦路斯/Cyprus",
+      "type": "vless",
+      "server": "in1.levikogjgfdd.ir",
+      "server_port": 40443,
+      "uuid": "511c1563-2cb6-4064-abc6-a59ee49818a8",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "vk.ru",
+        "server_name": "deepl.com",
         "reality": {
           "enabled": true,
-          "public_key": "E6u2RbffXIPvia5v5iIZVj6U_VpSBWmGTsHHNtH-5Rg",
-          "short_id": "417063feab794131"
+          "public_key": "cwmcqsfS7klQlkcoUNuATEk0NiPY-NnRb9z8rCJDQw0",
+          "short_id": "88b6"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "chatgpt.com",
+      "server_port": 2053,
+      "uuid": "d361072e-9e0e-4e2d-8ec7-2a4189b5b23a",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ov.iran-servers.shop"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/J5aLQOY1R9ONWYCM",
+        "headers": {
+          "Host": "ov.iran-servers.shop"
+        }
+      }
+    },
+    {
+      "tag": "伊朗/Iran",
+      "type": "vless",
+      "server": "185.143.234.238",
+      "server_port": 2086,
+      "uuid": "1ee1f28d-4975-4d7c-95c7-76172c20eed5",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "parsi.parsi.sbs"
+        }
+      }
+    },
+    {
+      "tag": "法国/France",
+      "type": "vless",
+      "server": "nasnet-162191099-direct.mbghalibaf.com",
+      "server_port": 443,
+      "uuid": "e8b1500b-e9e8-5492-8312-f4eadf7d0767",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "nasnet-162191099-direct.mbghalibaf.com"
+      }
+    },
+    {
+      "tag": "爱尔兰/都柏林/Ireland/Dublin",
+      "type": "trojan",
+      "server": "34.251.228.118",
+      "server_port": 443,
+      "password": "UO36402987",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "definite-ladybird.rooster465.autos"
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vmess",
+      "server": "rush-6it6b.teeopp.quest",
+      "server_port": 443,
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/video/kz49hf/gbin5jve.m3u8"
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "172.67.186.142",
+      "server_port": 443,
+      "uuid": "a746a471-0339-41ae-9750-d1f572bde296",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "YDqbCJ3IE4sqJux1AH93x.l9yawn7wAgNMFd0-CnzjnDC1U24q.Workers.dEV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vl/lbzuMME2utgQTXnVd5CGjUAy4JtKk9yQ",
+        "headers": {
+          "Host": "ydqbcj3ie4sqjux1ah93x.l9yawn7wagnmfd0-cnzjndc1u24q.workers.dev"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2560
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "zudssgtmrqg9lpvi.v.3dns.vip",
+      "server_port": 443,
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": ""
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess"
+      }
+    },
+    {
+      "tag": "荷兰/The Netherlands",
+      "type": "vless",
+      "server": "144.31.237.206",
+      "server_port": 443,
+      "uuid": "9500cf8b-020a-4a70-906c-e14bb5375875",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.sciencedirect.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "cNWgfJHerzIEb0RXxncP8R9Ex8-FkALOtbhneEIHpR0",
+          "short_id": "a1b2c4d4a1b2c5d5"
         },
         "utls": {
           "enabled": true
@@ -525,43 +735,200 @@
       }
     },
     {
-      "tag": "美国/San Francisco/United States/San Francisco",
+      "tag": "香港/香港/Hong Kong/Hong Kong",
       "type": "vmess",
-      "server": "104.17.77.77",
-      "server_port": 8443,
-      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "server": "mh7r5ardl0z5jtgy.v.3dns.vip",
+      "server_port": 443,
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "v2ray1.dozapp.xyz"
+        "server_name": "mh7R5ArdL0z5jTGY.v.3dns.vip"
       },
       "transport": {
         "type": "ws",
         "headers": {
-          "Host": "v2ray1.dozapp.xyz"
+          "Host": "mh7R5ArdL0z5jTGY.v.3dns.vip"
         },
-        "path": "/lMnsZUN4/"
+        "path": "/ws-vmess"
       }
     },
     {
-      "tag": "荷兰/哈勒姆/The Netherlands/Haarlem",
+      "tag": "印度/孟买/India/Mumbai",
+      "type": "vmess",
+      "server": "152.67.8.205",
+      "server_port": 80,
+      "uuid": "9db4c708-aef8-4359-821b-38e47990be0d",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "152.67.8.205"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "美国/United States",
+      "type": "vmess",
+      "server": "173.249.209.146",
+      "server_port": 20086,
+      "uuid": "3935c2dc-dbb0-43f7-b367-fe89abe87fdf",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/"
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "51.158.206.97",
-      "server_port": 23576,
-      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "server": "172.66.44.97",
+      "server_port": 443,
+      "uuid": "83afd88f-200f-4d89-bfc7-66eff160c1d8",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "josni.hoyes.cloudns.ch"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "josni.hoyes.cloudns.ch"
+        }
+      }
+    },
+    {
+      "tag": "俄罗斯联邦/Russia",
+      "type": "vless",
+      "server": "78.159.245.75",
+      "server_port": 9002,
+      "uuid": "2c634977-584e-4e1f-b501-1b70c77a6743",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "api-maps.yandex.ru",
+        "reality": {
+          "enabled": true,
+          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-reality"
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.21.15.212",
+      "server_port": 8880,
+      "uuid": "902fd911-ca5d-49a6-99ad-47372a266804",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/pyip=ProxyIP.JP.CMLiussss.net",
+        "headers": {
+          "Host": "young-wildflower-6b6c.100-52d.workers.dev"
+        }
+      }
+    },
+    {
+      "tag": "德国/Germany",
+      "type": "vless",
+      "server": "77.239.123.219",
+      "server_port": 443,
+      "uuid": "564082ff-cf3c-48db-9e10-8ad2312847b4",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "fuck.rkn",
+        "server_name": "node19.mxvpn.dev",
         "reality": {
           "enabled": true,
-          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
-          "short_id": "01"
+          "public_key": "TlpXTLz1Y-v8B6q9MX55U6eypjfL0LCSNE5zQP4yRHw",
+          "short_id": "bbc68cec8bb8d2e3"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "荷兰/The Netherlands",
+      "type": "shadowsocks",
+      "server": "89.125.33.16",
+      "server_port": 1234,
+      "method": "chacha20-ietf-poly1305",
+      "password": "36-MSsmwqV497atZ2dngqyJegd2kT6gf"
+    },
+    {
+      "tag": "德国/Germany",
+      "type": "shadowsocks",
+      "server": "51.195.126.38",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "2YdE4lFOid5a"
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "one-for-all.levikogjgfdd.ir",
+      "server_port": 443,
+      "uuid": "b2f6aa3a-2550-4a1c-b2c0-1c94b1207217",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "terazhediii.info"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/hdgrbws",
+        "headers": {
+          "Host": "terazhediii.info"
+        }
+      }
+    },
+    {
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "shadowsocks",
+      "server": "65.109.208.236",
+      "server_port": 42484,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "rbud6CCoqJ8zQAwJvsNR9EI3FZRtdRkeKe70xs28JGM=:fB5XqrRz/EkEWHtE9whPKiWkDhmhlLXcamsGBV2pz2k="
+    },
+    {
+      "tag": "新加坡/新加坡/Singapore/Singapore",
+      "type": "vless",
+      "server": "178.128.112.70",
+      "server_port": 443,
+      "uuid": "9206ae06-88ee-49b1-a558-531ade80fcaa",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.amazon.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "-O8QFkqeMAc6TzQp6eY1s38my_8jhBd7HDHxNki6QlY",
+          "short_id": "7f7f"
         },
         "utls": {
           "enabled": true,
@@ -570,14 +937,272 @@
       }
     },
     {
-      "tag": "新加坡/新加坡/Singapore/Singapore",
+      "tag": "德国/纽伦堡/Germany/Nuremberg",
+      "type": "vless",
+      "server": "159.195.46.178",
+      "server_port": 443,
+      "uuid": "859a537b-09cf-4bce-8da4-ecbb72950e3a",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "4.oncloudnineservicestreang.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "P5ceHLOW8Gmz45z-ozbm9T6xsdSsIGLB71-jMfSjCBQ",
+          "short_id": "04bc695105689674"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "美国/阿什本/United States/Ashburn",
+      "type": "shadowsocks",
+      "server": "autodiscover.fuzzyaytor.cyou",
+      "server_port": 42982,
+      "method": "chacha20-ietf-poly1305",
+      "password": "yTEXWB6XBHyv9SfQJzCSRWCnRYutFdUXg1wbcbutxPwZE6Uxcurka3GkoatgEdX483XZSHeJp3jXcTShLCRM8rPgMF3vYNfS"
+    },
+    {
+      "tag": "新西兰/New Zealand",
+      "type": "vless",
+      "server": "202.37.33.80",
+      "server_port": 443,
+      "uuid": "5aafc2be-9348-4dec-b896-f4a91253bbca",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "support.zoom.us.yxls.eu.cc"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/id-tksi",
+        "headers": {
+          "Host": "support.zoom.us.yxls.eu.cc"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
+    },
+    {
+      "tag": "塞浦路斯/Cyprus",
+      "type": "vless",
+      "server": "194.76.154.31",
+      "server_port": 40443,
+      "uuid": "9f0baff8-bdee-4de9-9515-bcc4932b41fa",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "deepl.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ",
+          "short_id": "a8ae"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "日本/Japan",
       "type": "vmess",
-      "server": "149.88.23.202",
+      "server": "168.138.43.75",
+      "server_port": 80,
+      "uuid": "11c3627f-31e8-4695-dfbd-34076e2f1f5d",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "168.138.43.75"
+        },
+        "path": "/cctv13.m3u8"
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "shadowsocks",
+      "server": "108.181.58.239",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "CJmTCCx7Ltud"
+    },
+    {
+      "tag": "塞舌尔/Seychelles",
+      "type": "trojan",
+      "server": "45.130.125.160",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.calmlunch.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
+      }
+    },
+    {
+      "tag": "法国/France",
+      "type": "shadowsocks",
+      "server": "54.36.174.140",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "ytw2awn"
+    },
+    {
+      "tag": "荷兰/The Netherlands",
+      "type": "shadowsocks",
+      "server": "193.29.139.168",
+      "server_port": 8080,
+      "method": "chacha20-ietf-poly1305",
+      "password": "QCXDxuDlTTMD7jtgHUjIoj"
+    },
+    {
+      "tag": "德国/法兰克福/Germany/Frankfurt am Main",
+      "type": "shadowsocks",
+      "server": "209.46.102.22",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1hhrqrokj3ag"
+    },
+    {
+      "tag": "英国/United Kingdom",
+      "type": "vless",
+      "server": "uk2.levikogjgfdd.ir",
+      "server_port": 443,
+      "uuid": "a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "gb1.murhost.network",
+        "reality": {
+          "enabled": true,
+          "public_key": "-nB-tCeZ4Zr72ArHUKnbUphbs4PlBS6iId6PkrPQQTE",
+          "short_id": "84f9881951050a30"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "154.37.223.56",
+      "server_port": 52080,
+      "uuid": "f1ac5c82-00a4-400b-bb20-530c91b7c5bb",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "http",
+        "path": "/QQqun-737805443"
+      }
+    },
+    {
+      "tag": "美国/迈阿密/United States/Miami",
+      "type": "vmess",
+      "server": "38.110.1.246",
       "server_port": 18000,
       "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp"
+    },
+    {
+      "tag": "伊朗/Iran",
+      "type": "shadowsocks",
+      "server": "e1.cover20.ir",
+      "server_port": 51570,
+      "method": "chacha20-ietf-poly1305",
+      "password": "WW382z3PcHtpz2O2qrEJZFN1ApP9zvngUHuBtkpptb0="
+    },
+    {
+      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "type": "shadowsocks",
+      "server": "108.181.0.177",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "G5p6ww4o67HB"
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.16.6.70",
+      "server_port": 443,
+      "uuid": "03707fb7-0990-440f-88f6-b0e0f7242a38",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "de-new.ariyuz.org"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "de-new.ariyuz.org"
+        }
+      }
+    },
+    {
+      "tag": "英国/伦敦/United Kingdom/London",
+      "type": "vless",
+      "server": "89.125.124.178",
+      "server_port": 8443,
+      "uuid": "d71aecee-ef16-418e-baf5-2b2458122d5a",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "gb.wlrus.cfd"
+      }
+    },
+    {
+      "tag": "意大利/Italy",
+      "type": "vless",
+      "server": "ov-italy1.09vpn.com",
+      "server_port": 80,
+      "uuid": "049e56d8-0ba0-49e3-b764-ee04122b9f00",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/vless/",
+        "headers": {
+          "Host": "ov-italy1.09vpn.com"
+        }
+      }
+    },
+    {
+      "tag": "马来西亚/吉隆坡/Malaysia/Kuala Lumpur",
+      "type": "vmess",
+      "server": "47.250.45.234",
+      "server_port": 43063,
+      "uuid": "c77f48f5-4be3-4461-b52b-49998e7b897b",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/arki",
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 2048
+      }
     },
     {
       "tag": "美国/United States",
@@ -601,35 +1226,21 @@
       }
     },
     {
-      "tag": "印度/孟买/India/Mumbai",
-      "type": "vmess",
-      "server": "152.67.8.205",
-      "server_port": 80,
-      "uuid": "9db4c708-aef8-4359-821b-38e47990be0d",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/"
-      }
-    },
-    {
-      "tag": "英国/United Kingdom",
+      "tag": "波兰/Poland",
       "type": "vless",
-      "server": "144.31.213.225",
+      "server": "201.3.225.13",
       "server_port": 443,
-      "uuid": "9e3de7f7-a595-4117-b1b6-dc41eb870ab1",
+      "uuid": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "www.cloudflare.com",
+        "server_name": "uwu.spectrumproxy.shop",
         "reality": {
           "enabled": true,
-          "public_key": "ABNRlkjlonYV9TOFYgjWwz0wn1s6sg_yCErsLYkU_Sg",
-          "short_id": "d6ff9019a77e354a"
+          "public_key": "EyzTSZxq5qlUT2xW0l7VP-DzIh2ucabMan9ekEv9Owo",
+          "short_id": "143627f1"
         },
         "utls": {
           "enabled": true
@@ -637,55 +1248,31 @@
       }
     },
     {
-      "tag": "英国/伦敦/United Kingdom/London",
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "46.250.240.80",
-      "server_port": 2053,
-      "uuid": "5c53b9e9-fbe8-4c50-a623-73cdafa3886b",
+      "server": "www.speedtest.net",
+      "server_port": 443,
+      "uuid": "0432902e-6604-40cd-bbd0-57ab4e5d909f",
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "www.cloudflare.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "cevjPz2GmTrXDFXQbGizdN6t4c6m11kclJEf5nOHOTE",
-          "short_id": "52dfc493bb6b6c16"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
+        "server_name": "bPB-4dc4958B.hXjkcgHcHv.woRkeRs.deV"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoiOENNZnB6WTgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119",
+        "headers": {
+          "Host": "bpb-4dc4958b.hxjkcghchv.workers.dev"
         }
       }
     },
     {
-      "tag": "新加坡/新加坡/Singapore/Singapore",
-      "type": "shadowsocks",
-      "server": "176.97.64.144",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "TFElG2FVqyqG"
-    },
-    {
-      "tag": "美国/凤凰城/United States/Phoenix",
+      "tag": "香港/Hong Kong",
       "type": "vmess",
-      "server": "129.146.77.248",
-      "server_port": 39495,
-      "uuid": "f836c736-87fc-4fde-aabc-00857ecdff3e",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/cctv13.m3u8"
-      }
-    },
-    {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "47.243.39.251",
-      "server_port": 32913,
-      "uuid": "47506713-508e-441a-bb02-56eb679b4dc9",
+      "server": "156.245.232.239",
+      "server_port": 35043,
+      "uuid": "b15e481d-17e4-41a8-84c2-23d4f0514d9a",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
@@ -695,110 +1282,11 @@
       }
     },
     {
-      "tag": "波兰/华沙/Poland/Warsaw",
-      "type": "shadowsocks",
-      "server": "194.61.121.93",
-      "server_port": 7538,
-      "method": "chacha20-ietf-poly1305",
-      "password": "U9YAoqBgg5VyGBc6vQv1sN"
-    },
-    {
-      "tag": "美国/北伯根/United States/North Bergen",
+      "tag": "美国/United States",
       "type": "vless",
-      "server": "137.184.218.169",
-      "server_port": 36925,
-      "uuid": "c9fd0fb1-8251-4106-b09a-f4b426736f67",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "www.cloudflare.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "lJ9INPpO4rdnm2Tek_yg0PGFyUrBB6MoKyvqt_Mfqm0"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "塞浦路斯/Cyprus",
-      "type": "vless",
-      "server": "5.253.30.99",
-      "server_port": 40443,
-      "uuid": "511c1563-2cb6-4064-abc6-a59ee49818a8",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "deepl.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "cwmcqsfS7klQlkcoUNuATEk0NiPY-NnRb9z8rCJDQw0",
-          "short_id": "88b6"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      }
-    },
-    {
-      "tag": "伊朗/Iran",
-      "type": "shadowsocks",
-      "server": "e1.cover20.ir",
-      "server_port": 51570,
-      "method": "chacha20-ietf-poly1305",
-      "password": "Pqv5vBsEVUAN9CSnVESmO9GKjbcyQdvmRH0vZ7KcGnI="
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vmess",
-      "server": "cf.levikogjgfdd.ir",
-      "server_port": 2053,
-      "uuid": "9a1a05d9-69be-45d3-e326-c6621edf7b31",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "deapp.jisuyun.top"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "deapp.jisuyun.top"
-        },
-        "path": "/devm"
-      }
-    },
-    {
-      "tag": "法国/France",
-      "type": "shadowsocks",
-      "server": "51.77.225.200",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "zRZNBszYyWo5"
-    },
-    {
-      "tag": "德国/Germany",
-      "type": "shadowsocks",
-      "server": "51.195.126.38",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "2YdE4lFOid5a"
-    },
-    {
-      "tag": "拉脱维亚/里加/Latvia/Riga",
-      "type": "vless",
-      "server": "91.197.3.43",
-      "server_port": 52463,
-      "uuid": "22696950-587f-42c0-af24-c1ffab17d0cd",
+      "server": "31.76.46.138",
+      "server_port": 20422,
+      "uuid": "d8523317-503e-43ad-b2c3-e5f77d725848",
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
@@ -806,8 +1294,8 @@
         "server_name": "yahoo.com",
         "reality": {
           "enabled": true,
-          "public_key": "zOv4BhJVbINHdcULln0vQ_6sxKiGjJPj4uyMttX9pWo",
-          "short_id": "cdaed92e1d0c"
+          "public_key": "ZUQTvwYk_hDqSrw36uc18MkeEIXIGZZGsf5XWVwdqAQ",
+          "short_id": "90"
         },
         "utls": {
           "enabled": true,
@@ -816,132 +1304,118 @@
       }
     },
     {
-      "tag": "巴西/圣保罗/Brazil/São Paulo",
-      "type": "shadowsocks",
-      "server": "163.176.56.46",
-      "server_port": 59319,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "2f/hSnAF5GDhyve8brmwep/LzS1dKM8uaWRYsvIobFw="
-    },
-    {
-      "tag": "爱尔兰/都柏林/Ireland/Dublin",
-      "type": "trojan",
-      "server": "definite-ladybird.rooster465.autos",
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "vless",
+      "server": "132.243.223.144",
       "server_port": 443,
-      "password": "UO36402987",
+      "uuid": "2cb6b4d9-0c74-45e2-a4fb-645bb8ac532a",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "definite-ladybird.rooster465.autos"
+        "server_name": "fin3.o4ka-internet.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "V2JprbR_aJkS7uX6anyU3nrswGxdvDQT2HpY4WnzuC8",
+          "short_id": "5629431325884ff0"
+        },
+        "utls": {
+          "enabled": true
+        }
       }
     },
     {
       "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
       "type": "vless",
-      "server": "91.196.35.146",
-      "server_port": 443,
-      "uuid": "423b1d79-08c4-403f-9d5e-c541f791b55f",
+      "server": "176.109.106.34",
+      "server_port": 9888,
+      "uuid": "130e6aab-9eba-441e-9021-22cbccc72832",
       "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "russia.cendora.ru",
+        "server_name": "dl.google.com",
         "reality": {
           "enabled": true,
-          "public_key": "uo-U-FDlo7Cqldg7JKUe8jHvYnwP08NanGX0tUFrqEc",
-          "short_id": "bef240e96a8474a3"
+          "public_key": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+          "short_id": "aabbccdd"
         },
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-tunnel"
       }
     },
     {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "drbkg16egf3fzlm3.v.3dns.vip",
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.16.71.182",
       "server_port": 443,
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
+      "uuid": "f178a8ac-48ca-4510-8a16-4ef6f972f240",
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "insecure": true,
-        "server_name": "DrBKg16eGf3FZlM3.v.3dns.vip"
+        "insecure": false,
+        "server_name": "fLoRAl-fire-1f55.vEeGsHHEehH.WorKErs.dev"
       },
       "transport": {
         "type": "ws",
+        "path": "/eyJqdW5rIjoiYTJzRVB1QW1HQSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0",
         "headers": {
-          "Host": "DrBKg16eGf3FZlM3.v.3dns.vip"
-        },
-        "path": "/ws-vmess"
+          "Host": "fLoRAl-fire-1f55.vEeGsHHEehH.WorKErs.dev"
+        }
       }
     },
     {
       "tag": "日本/东京/Japan/Tokyo",
-      "type": "trojan",
-      "server": "160.16.110.77",
-      "server_port": 55682,
-      "password": "7d8e6db4-96cc-4710-afc0-619edde2d7a1",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "t11.qifei.app",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
       "type": "shadowsocks",
-      "server": "141.148.234.216",
-      "server_port": 45819,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "ChsbgW3Or5iKoWxNZQyTSxGx3KIKHjOD+w1t9/MbeeA="
+      "server": "176.97.73.215",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "ma6zc4JoLRJA"
     },
     {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "6jdvarazgu3qqr6q.v.3dns.vip",
-      "server_port": 443,
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "6JDvArazgU3qQR6Q.v.3dns.vip"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "6JDvArazgU3qQR6Q.v.3dns.vip"
-        },
-        "path": "/ws-vmess"
-      }
-    },
-    {
-      "tag": "塞浦路斯/Cyprus",
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
       "type": "vless",
-      "server": "5.253.42.164",
-      "server_port": 40443,
-      "uuid": "e99ba96d-dec8-42eb-be53-19e71eef7cab",
+      "server": "185.79.138.127",
+      "server_port": 2053,
+      "uuid": "70e20b2e-3b1f-4c25-9a3d-9240570391bb",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "deepl.com",
+        "server_name": "vk.ru",
         "reality": {
           "enabled": true,
-          "public_key": "g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw",
-          "short_id": "68a8"
+          "public_key": "DUJWZCU-CjH9TglyqNQjydr7sp1ujsn2gHcXGWmgRj8",
+          "short_id": "e0331b94eb540116"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "vless",
+      "server": "185.79.138.71",
+      "server_port": 448,
+      "uuid": "0b0915d7-6800-4580-a44b-77d84f105e6a",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.samsung.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8",
+          "short_id": "cd21e552537c7c0b"
         },
         "utls": {
           "enabled": true,
@@ -950,9 +1424,32 @@
       }
     },
     {
-      "tag": "加拿大/蒙特利尔/Canada/Montreal",
+      "tag": "美国/United States",
+      "type": "vless",
+      "server": "47.89.186.170",
+      "server_port": 55861,
+      "uuid": "d51ed55c-d6dd-400b-aaf6-017c33969bfe",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.intel.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "t2ndf6SeVxinFCo5bcemnW_ZZhAtmHWiAkllks5qPWs",
+          "short_id": "7551ed1b"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vmess",
-      "server": "158.51.121.63",
+      "server": "rush-w1niu.teeopp.online",
       "server_port": 443,
       "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
@@ -961,11 +1458,14 @@
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "seribus.org"
+        "server_name": "rush-w1niu.teeopp.online"
       },
       "transport": {
         "type": "ws",
-        "path": "linkvws"
+        "headers": {
+          "Host": "rush-w1niu.teeopp.online"
+        },
+        "path": "/video/v4sx3q/zxzrurkc.m3u8"
       }
     },
     {
@@ -994,24 +1494,9 @@
       }
     },
     {
-      "tag": "伊朗/Iran",
-      "type": "vless",
-      "server": "185.143.233.238",
-      "server_port": 2086,
-      "uuid": "1ee1f28d-4975-4d7c-95c7-76172c20eed5",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "parsi.parsi.sbs"
-        }
-      }
-    },
-    {
       "tag": "香港/香港/Hong Kong/Hong Kong",
       "type": "vmess",
-      "server": "8.210.189.158",
+      "server": "47.83.198.38",
       "server_port": 443,
       "uuid": "f23bb427c1f94373876c2f43e9f790f3",
       "security": "auto",
@@ -1020,31 +1505,160 @@
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "2b9hwY8oCx7Q74NM.v.3dns.vip"
+        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip"
       },
       "transport": {
         "type": "ws",
         "headers": {
-          "Host": "2b9hwY8oCx7Q74NM.v.3dns.vip"
+          "Host": "wwafj5lhl6bi8au9.v.3dns.vip"
         },
         "path": "/ws-vmess"
       }
     },
     {
-      "tag": "美国/United States",
-      "type": "shadowsocks",
-      "server": "198.98.53.130",
+      "tag": "法国/巴黎/France/Paris",
+      "type": "trojan",
+      "server": "great-krill.rooster465.autos",
       "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "eDfN7SODQceIOmIAbtJJtK"
+      "password": "QV31589740",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "great-krill.rooster465.autos"
+      }
     },
     {
-      "tag": "荷兰/The Netherlands",
+      "tag": "印度尼西亚/Indonesia",
+      "type": "vmess",
+      "server": "202.47.89.133",
+      "server_port": 53548,
+      "uuid": "3a03613b-bbac-4a22-bee6-2c9a751a2761",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/dkfjh222"
+      }
+    },
+    {
+      "tag": "荷兰/哈勒姆/The Netherlands/Haarlem",
+      "type": "vless",
+      "server": "163.172.213.174",
+      "server_port": 80,
+      "uuid": "e73df646-1f62-41bf-8c50-653497d603d0",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/vless/",
+        "headers": {
+          "Host": "SC-TheNetherlands2.09vpn.com"
+        }
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.16.79.73",
+      "server_port": 443,
+      "uuid": "83afd88f-200f-4d89-bfc7-66eff160c1d8",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "josni.hoyes.cloudns.ch"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "musiclovers85",
+        "headers": {
+          "Host": "josni.hoyes.cloudns.ch"
+        },
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "max_early_data": 512
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "qtkdr8jxe3wefxjm.v.3dns.vip",
+      "server_port": 443,
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "qTKDR8jXE3wEFxJM.v.3dns.vip"
+      },
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "qTKDR8jXE3wEFxJM.v.3dns.vip"
+        },
+        "path": "/ws-vmess"
+      }
+    },
+    {
+      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "type": "vless",
+      "server": "194.55.189.249",
+      "server_port": 40443,
+      "uuid": "8212a50b-25bf-4739-bba1-aaffb5ffc84c",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "deepl.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "KCbW84C8h2Ja01LS0Ro8EpLLfzMTjs11t1ldDWLd5zo",
+          "short_id": "aae8"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "type": "vmess",
+      "server": "38.246.226.240",
+      "server_port": 52080,
+      "uuid": "7d4bd961-230c-4b34-ab5d-05cf0dfb4ea5",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "http",
+        "path": "/"
+      }
+    },
+    {
+      "tag": "美国/凤凰城/United States/Phoenix",
+      "type": "vmess",
+      "server": "129.146.77.248",
+      "server_port": 39495,
+      "uuid": "f836c736-87fc-4fde-aabc-00857ecdff3e",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "129.146.77.248"
+        },
+        "path": "/cctv13.m3u8"
+      }
+    },
+    {
+      "tag": "南非/约翰内斯堡/South Africa/Johannesburg",
       "type": "shadowsocks",
-      "server": "193.29.139.168",
-      "server_port": 8080,
+      "server": "102.37.156.224",
+      "server_port": 443,
       "method": "chacha20-ietf-poly1305",
-      "password": "QCXDxuDlTTMD7jtgHUjIoj"
+      "password": "aduB9HGxQHjA2SBMRjkHX6"
     },
     {
       "tag": "韩国/首尔特别市/South Korea/Seoul",
@@ -1068,43 +1682,90 @@
     {
       "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "one-for-all.levikogjgfdd.ir",
-      "server_port": 2053,
-      "uuid": "e7961655-9674-4cbd-a36f-ec0d5d7d660c",
+      "server": "8.47.69.0",
+      "server_port": 2095,
+      "uuid": "86c50e3a-5b87-49dd-bd20-03c7f2735e40",
       "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "po.fastbrokencompony.com"
-      },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "po.fastbrokencompony.com"
+          "Host": "fuckingfangbinxing.pusytroller.cf"
         }
       }
     },
     {
-      "tag": "南非/约翰内斯堡/South Africa/Johannesburg",
+      "tag": "美国/United States",
       "type": "shadowsocks",
-      "server": "102.133.165.160",
-      "server_port": 16233,
+      "server": "198.98.53.130",
+      "server_port": 443,
       "method": "chacha20-ietf-poly1305",
-      "password": "Xsy8Ox4yOV3xLlpxtjzs3X"
+      "password": "eDfN7SODQceIOmIAbtJJtK"
     },
     {
-      "tag": "挪威/奥斯陆/Norway/Oslo",
-      "type": "shadowsocks",
-      "server": "185.213.23.63",
-      "server_port": 990,
-      "method": "chacha20-ietf-poly1305",
-      "password": "ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44="
+      "tag": "美国/United States",
+      "type": "vless",
+      "server": "180.178.60.253",
+      "server_port": 10000,
+      "uuid": "431fe973-a43a-4fac-bf83-2a772e0d0625",
+      "packet_encoding": "xudp"
     },
     {
       "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "104.16.79.73",
+      "server": "172.67.202.17",
+      "server_port": 2095,
+      "uuid": "86c50e3a-5b87-49dd-bd20-03c7f2735e40",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "fuckfangbinxing.pusytroller.gq"
+        }
+      }
+    },
+    {
+      "tag": "塞浦路斯/Cyprus",
+      "type": "vless",
+      "server": "5.253.42.164",
+      "server_port": 40443,
+      "uuid": "e99ba96d-dec8-42eb-be53-19e71eef7cab",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "deepl.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "g77ZJbm18JEotapmVRjaXi133MzkbhkU2lxhVeXx8zw",
+          "short_id": "68a8"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "韩国/首尔特别市/South Korea/Seoul",
+      "type": "vmess",
+      "server": "217.142.138.61",
+      "server_port": 80,
+      "uuid": "ac1b933d-afff-4487-93ef-f57130a55dff",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "http",
+        "path": "/"
+      }
+    },
+    {
+      "tag": "美国/United States",
+      "type": "vless",
+      "server": "208.103.161.32",
       "server_port": 443,
       "uuid": "83afd88f-200f-4d89-bfc7-66eff160c1d8",
       "packet_encoding": "xudp",
@@ -1115,41 +1776,171 @@
       },
       "transport": {
         "type": "ws",
-        "path": "musiclovers85?ed=512/mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn-mtmvpn",
+        "path": "/sg-melbi_/",
         "headers": {
           "Host": "josni.hoyes.cloudns.ch"
         }
       }
     },
     {
-      "tag": "香港/Hong Kong",
+      "tag": "美国/希尔斯伯勒/United States/Hillsboro",
+      "type": "vless",
+      "server": "51.81.223.225",
+      "server_port": 11094,
+      "uuid": "f1fa0ad9-b122-4b7c-da82-4bea9edc48dd",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.yahoo.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "9dnXiXxP4xgvtTVRj9SBFdyO6mjGvVhWD8qVZZLCCCk",
+          "short_id": "a356addf"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "美国/北伯根/United States/North Bergen",
+      "type": "vless",
+      "server": "137.184.218.169",
+      "server_port": 36925,
+      "uuid": "c9fd0fb1-8251-4106-b09a-f4b426736f67",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "www.cloudflare.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "lJ9INPpO4rdnm2Tek_yg0PGFyUrBB6MoKyvqt_Mfqm0"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
       "type": "vmess",
-      "server": "156.245.232.239",
-      "server_port": 35043,
-      "uuid": "b15e481d-17e4-41a8-84c2-23d4f0514d9a",
+      "server": "n1761296892.4u9ma.icu",
+      "server_port": 443,
+      "uuid": "d6db128f-42b9-40b1-b979-5e0095fa593c",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "n1761296892.4u9ma.icu"
+      },
       "transport": {
         "type": "ws",
+        "headers": {
+          "Host": "n1761296892.4u9ma.icu"
+        },
         "path": "/"
       }
     },
     {
-      "tag": "南非/约翰内斯堡/South Africa/Johannesburg",
-      "type": "shadowsocks",
-      "server": "4.168.234.5",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "LY94CL8HouUwEPF3"
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "vless",
+      "server": "72.56.92.177",
+      "server_port": 40443,
+      "uuid": "4480161e-2c59-4d37-8736-675c9af32bf1",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "deepl.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "fWzCKXwvMXaacsl1DdFb1vKQ9l9cTK1G7udqmaYHL0Y",
+          "short_id": "01d1bf2d4755d40c"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
     },
     {
-      "tag": "英国/加的夫/United Kingdom/Cardiff",
+      "tag": "英国/United Kingdom",
+      "type": "vless",
+      "server": "144.31.213.150",
+      "server_port": 443,
+      "uuid": "b052df40-d51c-456c-9bd6-57af01a87e4e",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cdn.pinecloud.net",
+        "reality": {
+          "enabled": true,
+          "public_key": "vWSgdMDirb9aDZLWijSXXXl-NCTrtBgEe9MQqcgV6h8",
+          "short_id": "6a2e3af684799b19"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "英国/United Kingdom",
       "type": "shadowsocks",
-      "server": "144.24.229.230",
-      "server_port": 61312,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "EOMKHJ7htCaQWlQV7lWfaNS5jnhWg94TbhEMDEby7sE="
+      "server": "104.249.22.75",
+      "server_port": 43377,
+      "method": "chacha20-ietf-poly1305",
+      "password": "2MaqmLJwWXtdJPvpzXD2MSYiZrXDwneqZbAEXqZUw7RzX7ndd3xFM9C3u9NdRXZPTNgDBenPLn6B6VrwmodCSEQc8RfuxBn8"
+    },
+    {
+      "tag": "哈萨克斯坦/阿斯塔纳/Kazakhstan/Astana",
+      "type": "vless",
+      "server": "178.236.16.98",
+      "server_port": 35728,
+      "uuid": "a00d89f6-ab7e-4e30-a5e5-54c701d62c93",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "yahoo.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "vhUFNoFcvtZAVMo8y5K5eU2V43m5q6yjmWIhp5RkFng",
+          "short_id": "69a2"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "trojan",
+      "server": "edu.ruangguru.com",
+      "server_port": 443,
+      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "id1.nathaya.web.id"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/trojan",
+        "headers": {
+          "Host": "id1.nathaya.web.id"
+        }
+      }
     },
     {
       "tag": "澳大利亚/悉尼/Australia/Sydney",
@@ -1160,18 +1951,32 @@
       "password": "bIOoi5TuImG2KccxV7-jcA7Cez+vun-c_E"
     },
     {
-      "tag": "韩国/春川市/South Korea/Chuncheon",
-      "type": "vmess",
-      "server": "152.67.218.38",
-      "server_port": 443,
-      "uuid": "b5e9480a-b7aa-40a4-f9a7-5299b5e363b4",
-      "security": "auto",
-      "alter_id": 0,
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "8.39.125.152",
+      "server_port": 8443,
+      "uuid": "8525fe74-67e6-4a55-8a26-95f227bd1384",
       "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "bitter-shadow-4fc5.alvlirm852.workers.dev"
+      },
       "transport": {
         "type": "ws",
-        "path": "/"
+        "path": "/",
+        "headers": {
+          "Host": "bitter-shadow-4fc5.alvlirm852.workers.dev"
+        }
       }
+    },
+    {
+      "tag": "日本/Japan",
+      "type": "shadowsocks",
+      "server": "45.32.16.53",
+      "server_port": 8388,
+      "method": "chacha20-ietf-poly1305",
+      "password": "uTBjZhDmOMwBVAJI"
     },
     {
       "tag": "香港/香港/Hong Kong/Hong Kong",
@@ -1188,20 +1993,73 @@
       }
     },
     {
-      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "194.55.189.249",
-      "server_port": 40443,
-      "uuid": "8212a50b-25bf-4739-bba1-aaffb5ffc84c",
+      "server": "104.16.72.41",
+      "server_port": 80,
+      "uuid": "dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51",
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/http",
+        "headers": {
+          "Host": "de.vpnbase.net"
+        }
+      }
+    },
+    {
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "vless",
+      "server": "65.109.208.236",
+      "server_port": 26116,
+      "uuid": "1b9db1dd-d164-4916-9ba8-a5f5be37cc85",
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "韩国/首尔特别市/South Korea/Seoul",
+      "type": "vmess",
+      "server": "140.238.2.250",
+      "server_port": 443,
+      "uuid": "41a7089a-040b-4538-8b8d-010902405bde",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp"
+    },
+    {
+      "tag": "美国/United States",
+      "type": "vmess",
+      "server": "198.23.184.122",
+      "server_port": 443,
+      "uuid": "6910f78e-3c38-46a1-b287-837279ad9b4a",
+      "security": "auto",
+      "alter_id": 0,
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
+        "insecure": true,
+        "server_name": "xc163.meiziba5566.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/837279ad9b4a"
+      }
+    },
+    {
+      "tag": "美国/芝加哥/United States/Chicago",
+      "type": "vless",
+      "server": "67.220.73.204",
+      "server_port": 18662,
+      "uuid": "814bd064-544d-4255-a070-5705c03f6da9",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
         "insecure": false,
-        "server_name": "deepl.com",
+        "server_name": "www.apple.com",
         "reality": {
           "enabled": true,
-          "public_key": "KCbW84C8h2Ja01LS0Ro8EpLLfzMTjs11t1ldDWLd5zo",
-          "short_id": "aae8"
+          "public_key": "k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0",
+          "short_id": "48050fab"
         },
         "utls": {
           "enabled": true
@@ -1232,430 +2090,81 @@
       }
     },
     {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "shadowsocks",
-      "server": "212.192.15.41",
-      "server_port": 8388,
-      "method": "aes-256-gcm",
-      "password": "IjLjlHbNCgw2D4dV"
+      "tag": "韩国/首尔特别市/South Korea/Seoul",
+      "type": "vmess",
+      "server": "132.145.80.230",
+      "server_port": 80,
+      "uuid": "5155860e-d07d-46c3-9128-3afbd84626c7",
+      "security": "auto",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/cctv13.m3u8"
+      }
     },
     {
-      "tag": "美国/United States",
+      "tag": "香港/香港/Hong Kong/Hong Kong",
       "type": "vmess",
-      "server": "157.254.227.163",
+      "server": "n1747624274.4u9ma.icu",
       "server_port": 443,
-      "uuid": "eba24d1d-0c2b-4b67-862f-cae68626f3fa",
+      "uuid": "d8daf507-a4ac-4eea-8399-8f0cd071eb52",
       "security": "auto",
       "alter_id": 0,
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "insecure": true,
-        "server_name": "xc166.meiziba5566.com"
+        "server_name": ""
       },
       "transport": {
-        "type": "ws",
-        "path": "/cae68626f3fa"
+        "type": "ws"
       }
     },
     {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "ex1ogt73nzpqkac2.v.3dns.vip",
+      "tag": "荷兰/The Netherlands",
+      "type": "vless",
+      "server": "85.155.226.156",
       "server_port": 443,
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "EX1oGt73NzPQKAc2.v.3dns.vip"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "EX1oGt73NzPQKAc2.v.3dns.vip"
-        },
-        "path": "/ws-vmess"
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "vless",
-      "server": "95.85.228.161",
-      "server_port": 8443,
-      "uuid": "7e8f7489-e65f-4be6-93ed-867a74ec6759",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "vless",
-      "server": "72.56.92.177",
-      "server_port": 40443,
-      "uuid": "4480161e-2c59-4d37-8736-675c9af32bf1",
+      "uuid": "39c42b0a-b823-4c93-bb99-74b4183e518d",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "deepl.com",
+        "server_name": "getsavesafe.net",
         "reality": {
           "enabled": true,
-          "public_key": "fWzCKXwvMXaacsl1DdFb1vKQ9l9cTK1G7udqmaYHL0Y",
-          "short_id": "01d1bf2d4755d40c"
+          "public_key": "5Z6PwoPSNBLPIsX8lZtHM7-Y-psMMR1vz5Pit0EVISs",
+          "short_id": "82f5d3a1e9c0b661"
         },
         "utls": {
           "enabled": true
         }
       }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "shadowsocks",
-      "server": "nl1.levikogjgfdd.ir",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "CJmTCCx7Ltud"
-    },
-    {
-      "tag": "塞浦路斯/Cyprus",
-      "type": "vless",
-      "server": "194.76.154.31",
-      "server_port": 40443,
-      "uuid": "9f0baff8-bdee-4de9-9515-bcc4932b41fa",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "deepl.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "MN6QjUHDUXyteMdR-cDna89fq4X3qgQhLnNqTtRUbBQ",
-          "short_id": "a8ae"
-        },
-        "utls": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
-      "type": "vless",
-      "server": "72.56.36.96",
-      "server_port": 40443,
-      "uuid": "598b823c-d3fc-4013-aae5-837f10080f7a",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "deepl.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "cZF84xUCciKRXxTA39vNnh0U8CjUZiUSjLzuNTMOzV8",
-          "short_id": "33e48a03db900ff3"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      }
-    },
-    {
-      "tag": "哈萨克斯坦/阿斯塔纳/Kazakhstan/Astana",
-      "type": "vless",
-      "server": "178.236.16.98",
-      "server_port": 35728,
-      "uuid": "a00d89f6-ab7e-4e30-a5e5-54c701d62c93",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "yahoo.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "vhUFNoFcvtZAVMo8y5K5eU2V43m5q6yjmWIhp5RkFng",
-          "short_id": "69a2"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
-      "type": "vless",
-      "server": "163.5.153.153",
-      "server_port": 443,
-      "uuid": "0a76a766-d141-44b8-944e-dff757d7116f",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "www.samsung.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "aB_2Tcf0A5LoiIEZHztR_l-ZOFeJKxYRH67s_OVQ9C0",
-          "short_id": "a91045bc"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "日本/东京/Japan/Tokyo",
-      "type": "shadowsocks",
-      "server": "176.97.73.215",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "ma6zc4JoLRJA"
-    },
-    {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "47.244.120.197",
-      "server_port": 36703,
-      "uuid": "45b83519-9c4f-4052-a11b-02e017b636d4",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/arki",
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2048
-      }
-    },
-    {
-      "tag": "加拿大/多伦多/Canada/Toronto",
-      "type": "shadowsocks",
-      "server": "166.88.130.218",
-      "server_port": 30331,
-      "method": "aes-256-gcm",
-      "password": "fbcec76953a2d173"
-    },
-    {
-      "tag": "塞舌尔/Seychelles",
-      "type": "vless",
-      "server": "45.145.56.163",
-      "server_port": 443,
-      "uuid": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "de2.spectrum.vu",
-        "reality": {
-          "enabled": true,
-          "public_key": "Vci2ab6lM0ezoLBj2LgE-ynvakjbWOqUUSZmk5vcNjE",
-          "short_id": "44d44d1c625a13aa"
-        },
-        "utls": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "tag": "美国/阿什本/United States/Ashburn",
-      "type": "shadowsocks",
-      "server": "autodiscover.fuzzyaytor.cyou",
-      "server_port": 42982,
-      "method": "chacha20-ietf-poly1305",
-      "password": "yTEXWB6XBHyv9SfQJzCSRWCnRYutFdUXg1wbcbutxPwZE6Uxcurka3GkoatgEdX483XZSHeJp3jXcTShLCRM8rPgMF3vYNfS"
-    },
-    {
-      "tag": "美国/United States",
-      "type": "vless",
-      "server": "180.178.60.253",
-      "server_port": 10000,
-      "uuid": "431fe973-a43a-4fac-bf83-2a772e0d0625",
-      "packet_encoding": "xudp"
     },
     {
       "tag": "美国/San Francisco/United States/San Francisco",
       "type": "vless",
-      "server": "8.39.125.152",
-      "server_port": 8443,
-      "uuid": "8525fe74-67e6-4a55-8a26-95f227bd1384",
+      "server": "104.16.98.215",
+      "server_port": 8880,
+      "uuid": "23187ddc-16a5-432d-bf4e-dd42a7ae39f7",
       "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "bitter-shadow-4fc5.alvlirm852.workers.dev"
-      },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "bitter-shadow-4fc5.alvlirm852.workers.dev"
-        }
-      }
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vmess",
-      "server": "rush-72frf.meeopp.site",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "server_name": "rush-72frf.meeopp.site"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "rush-72frf.meeopp.site"
-        },
-        "path": "/video/o2nwt7/r0r2dmbb.m3u8"
-      }
-    },
-    {
-      "tag": "英国/United Kingdom",
-      "type": "shadowsocks",
-      "server": "104.249.22.75",
-      "server_port": 43377,
-      "method": "chacha20-ietf-poly1305",
-      "password": "2MaqmLJwWXtdJPvpzXD2MSYiZrXDwneqZbAEXqZUw7RzX7ndd3xFM9C3u9NdRXZPTNgDBenPLn6B6VrwmodCSEQc8RfuxBn8"
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "104.18.42.163",
-      "server_port": 2087,
-      "uuid": "77777777-8a3e-6666-b6d1-a9c5f0e8b3a2",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "faxf32gkfzoxqv.fx6hsv0.ccwu.cc"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "faxf32gkfzoxqv.fx6hsv0.ccwu.cc"
-        }
-      }
-    },
-    {
-      "tag": "日本/东京/Japan/Tokyo",
-      "type": "vmess",
-      "server": "207.56.229.202",
-      "server_port": 2052,
-      "uuid": "9bb81a28-00d0-4dcc-bf81-369721d208c9",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "www.bing.com"
-        },
-        "path": "9bb81a28-00d0-4dcc-bf81-369721d208c9-vm"
-      }
-    },
-    {
-      "tag": "美国/United States",
-      "type": "vless",
-      "server": "31.76.46.138",
-      "server_port": 20422,
-      "uuid": "d8523317-503e-43ad-b2c3-e5f77d725848",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "yahoo.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "ZUQTvwYk_hDqSrw36uc18MkeEIXIGZZGsf5XWVwdqAQ",
-          "short_id": "90"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
+          "Host": "steep-thunder-97fa.108-d10.workers.dev"
         }
       }
     },
     {
       "tag": "南非/约翰内斯堡/South Africa/Johannesburg",
       "type": "shadowsocks",
-      "server": "102.37.156.224",
-      "server_port": 443,
+      "server": "102.133.165.160",
+      "server_port": 16233,
       "method": "chacha20-ietf-poly1305",
-      "password": "aduB9HGxQHjA2SBMRjkHX6"
-    },
-    {
-      "tag": "韩国/首尔特别市/South Korea/Seoul",
-      "type": "vmess",
-      "server": "217.142.138.61",
-      "server_port": 80,
-      "uuid": "ac1b933d-afff-4487-93ef-f57130a55dff",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http",
-        "path": "/"
-      }
-    },
-    {
-      "tag": "南非/South Africa",
-      "type": "shadowsocks",
-      "server": "139.84.247.164",
-      "server_port": 8388,
-      "method": "chacha20-ietf-poly1305",
-      "password": "tfAcRikawhNoZAhu"
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "8.47.69.0",
-      "server_port": 8880,
-      "uuid": "a8178248-3cdf-4fb0-ab7b-87c1ab77201c",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/cdn/assets/stream",
-        "headers": {
-          "Host": "cnd.france2.gg.newwaycdn.com"
-        }
-      }
-    },
-    {
-      "tag": "德国/法兰克福/Germany/Frankfurt am Main",
-      "type": "vless",
-      "server": "185.126.67.76",
-      "server_port": 443,
-      "uuid": "b6f3b292-00c9-430e-bc4c-b1294bd895c0",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "cdn-de-4.ai-apiroute.cc",
-        "reality": {
-          "enabled": true,
-          "public_key": "kaw2U8L2ZTcgo56qUBONfylYJpHprI_CgZfv1I4q2Sc",
-          "short_id": "b512d49930874a31"
-        },
-        "utls": {
-          "enabled": true
-        }
-      }
+      "password": "Xsy8Ox4yOV3xLlpxtjzs3X"
     },
     {
       "tag": "俄罗斯联邦/Russia",
@@ -1673,270 +2182,89 @@
       }
     },
     {
-      "tag": "美国/United States",
-      "type": "vmess",
-      "server": "173.249.209.146",
-      "server_port": 20086,
-      "uuid": "3935c2dc-dbb0-43f7-b367-fe89abe87fdf",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/"
-      }
-    },
-    {
-      "tag": "英国/United Kingdom",
+      "tag": "法国/France",
       "type": "vless",
-      "server": "gb1.murhost.network",
+      "server": "gr2.levikogjgfdd.ir",
       "server_port": 443,
-      "uuid": "a6f6d9c9-9d43-4d0e-bf95-4b87cc5bbaac",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "gb1.murhost.network",
-        "reality": {
-          "enabled": true,
-          "public_key": "-nB-tCeZ4Zr72ArHUKnbUphbs4PlBS6iId6PkrPQQTE",
-          "short_id": "84f9881951050a30"
-        },
-        "utls": {
-          "enabled": true
-        }
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "shadowsocks",
-      "server": "152.70.53.76",
-      "server_port": 45819,
-      "method": "2022-blake3-chacha20-poly1305",
-      "password": "YyppYr+19SFyy4WAU2OmSlq+NwKjR+L0oV2CCJ6rMAM="
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "ytryurdj64bbb.localip.ir",
-      "server_port": 443,
-      "uuid": "03707fb7-0990-440f-88f6-b0e0f7242a38",
+      "uuid": "25f3beef-a4b6-40bc-aa74-17a0f89f683c",
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "ro-3.ariyuz.org"
+        "server_name": "finite-node.rtxconfigz.com"
       },
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "ro-3.ariyuz.org"
-        }
-      }
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "log.bpminecraft.com",
-      "server_port": 8880,
-      "uuid": "7242eccf-5261-4e31-813e-871bfbde90c2",
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "path": "/pyip=ProxyIP.JP.CMLiussss.net",
-        "headers": {
-          "Host": "long-flower-ac0d.176-17e.workers.dev"
-        }
-      }
-    },
-    {
-      "tag": "菲律宾/马尼拉/Philippines/Manila",
-      "type": "vmess",
-      "server": "61.245.11.60",
-      "server_port": 80,
-      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "61.245.11.60"
-        },
-        "path": "/vmess/"
-      }
-    },
-    {
-      "tag": "俄罗斯联邦/Russia",
-      "type": "vless",
-      "server": "45.8.211.57",
-      "server_port": 443,
-      "uuid": "03707fb7-0990-440f-88f6-b0e0f7242a38",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "de-new-1.ariyuz.org"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "de-new-1.ariyuz.org"
-        }
-      }
-    },
-    {
-      "tag": "美国/United States",
-      "type": "vless",
-      "server": "208.103.161.32",
-      "server_port": 443,
-      "uuid": "83afd88f-200f-4d89-bfc7-66eff160c1d8",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "josni.hoyes.cloudns.ch"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/sg-melbi_/",
-        "headers": {
-          "Host": "josni.hoyes.cloudns.ch"
-        }
-      }
-    },
-    {
-      "tag": "新加坡/新加坡/Singapore/Singapore",
-      "type": "vless",
-      "server": "178.128.112.70",
-      "server_port": 443,
-      "uuid": "9206ae06-88ee-49b1-a558-531ade80fcaa",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "www.amazon.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "-O8QFkqeMAc6TzQp6eY1s38my_8jhBd7HDHxNki6QlY",
-          "short_id": "7f7f"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "vless",
-      "server": "185.109.48.13",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "forfreeuse.rtqa.ru"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.rtqa.ru"
-        }
-      }
-    },
-    {
-      "tag": "香港/香港/Hong Kong/Hong Kong",
-      "type": "vmess",
-      "server": "154.37.223.56",
-      "server_port": 52080,
-      "uuid": "f1ac5c82-00a4-400b-bb20-530c91b7c5bb",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "transport": {
-        "type": "http",
-        "path": "/QQqun-737805443"
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "shadowsocks",
-      "server": "switcher-nick-croquet.freesocks.work",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "9tqhMdIrTkgQ46PvhyAtMH"
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "vless",
-      "server": "82.115.6.93",
-      "server_port": 443,
-      "uuid": "8c00ea88-31f7-445a-8f74-f6e7f03a1553",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "kuraakavaa-5l7.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "kuraakavaa-5l7.pages.dev"
-        }
-      }
-    },
-    {
-      "tag": "美国/San Francisco/United States/San Francisco",
-      "type": "vless",
-      "server": "empty-water-a05b.gfbghfbfngbdgbghngf.workers.dev",
-      "server_port": 443,
-      "uuid": "f6a92fa2-5685-3c70-16d5-ba38b388dbbf",
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "empty-water-a05b.gfbghfbfngbdgbghngf.workers.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "empty-water-a05b.gfbghfbfngbdgbghngf.workers.dev"
+          "Host": "telegram.us"
         }
       }
     },
     {
       "tag": "美国/洛杉矶/United States/Los Angeles",
-      "type": "shadowsocks",
-      "server": "216.105.168.18",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "hCCWOcIsK5wrFz4OX70rWf"
+      "type": "vmess",
+      "server": "74.48.28.190",
+      "server_port": 80,
+      "uuid": "4ed58974-48cd-472e-c818-fb847b8c551f",
+      "security": "aes-128-gcm",
+      "alter_id": 0,
+      "packet_encoding": "xudp",
+      "transport": {
+        "type": "ws",
+        "path": "/cctv13.m3u8"
+      }
     },
     {
-      "tag": "美国/United States",
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "hysteria2",
+      "server": "86.107.178.72",
+      "server_port": 8443,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-turbo-nl.yyuyy.com",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "hysteria2",
+      "server": "nl174.mechvpn.online",
+      "server_port": 443,
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "nl174.mechvpn.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "英国/United Kingdom",
       "type": "vless",
-      "server": "47.89.186.170",
-      "server_port": 55861,
-      "uuid": "d51ed55c-d6dd-400b-aaf6-017c33969bfe",
+      "server": "31.76.39.217",
+      "server_port": 2053,
+      "uuid": "629f88a6-b20b-4489-a22f-4d8b418c0488",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "www.intel.com",
+        "server_name": "uk-t2.vinnypuxtomoon.today",
         "reality": {
           "enabled": true,
-          "public_key": "t2ndf6SeVxinFCo5bcemnW_ZZhAtmHWiAkllks5qPWs",
-          "short_id": "7551ed1b"
+          "public_key": "RwtMzZtTCmy9WRq3_27xeGF8-1l_qPXRVG3yIFp-6Go",
+          "short_id": "c0d1d1776fed0f6d"
         },
         "utls": {
           "enabled": true,
@@ -1945,9 +2273,91 @@
       }
     },
     {
+      "tag": "美国/San Francisco/United States/San Francisco",
+      "type": "vless",
+      "server": "104.21.85.253",
+      "server_port": 443,
+      "uuid": "50414e45-4c5f-5a45-5553-442afaf15942",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "z-e-u-s-um9pdt.shoameny.workers.dev"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/stream/PANEL_ZEUS/442afaf15942",
+        "headers": {
+          "Host": "z-e-u-s-um9pdt.shoameny.workers.dev"
+        }
+      }
+    },
+    {
+      "tag": "美国/哥伦布/United States/Columbus",
+      "type": "hysteria2",
+      "server": "us6.dexlos.com",
+      "server_port": 21000,
+      "password": "B86A0475-AB74-44BE-8209-A67F85CBF52C",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "us6.dexlos.com",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "xK9mN2pLq5vR8wB3"
+      }
+    },
+    {
+      "tag": "伊朗/Iran",
+      "type": "shadowsocks",
+      "server": "e2.cover20.ir",
+      "server_port": 30874,
+      "method": "chacha20-ietf-poly1305",
+      "password": "GdvV4RwPXf3hcas8+x9nyTslk/fKtPpppMP4zd4q5KA="
+    },
+    {
+      "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
+      "type": "hysteria2",
+      "server": "138.124.68.188",
+      "server_port": 443,
+      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "usa1.spectrumproxy.shop",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "香港/Hong Kong",
+      "type": "hysteria2",
+      "server": "202.146.222.89",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
       "tag": "芬兰/赫尔辛基/Finland/Helsinki",
       "type": "hysteria2",
-      "server": "31.76.80.69",
+      "server": "fiproxy1.lockdwn.com",
       "server_port": 443,
       "password": "6aab8efdf13945829ae3699c342be406",
       "up_mbps": 10,
@@ -1968,14 +2378,14 @@
     {
       "tag": "中国/China",
       "type": "hysteria2",
-      "server": "gorbachev-th.kvnfreetest.uk",
+      "server": "gorbachev-new-th.kvnfreetest.uk",
       "server_port": 55443,
-      "password": "6f7a8009ecf6a12e10d03f9d88493c89",
+      "password": "083417772bc618cd61f0cca23dd91680",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "gorbachev-th.kvnfreetest.uk",
+        "server_name": "gorbachev-new-th.kvnfreetest.uk",
         "insecure": false,
         "alpn": [
           "h3"
@@ -1983,29 +2393,201 @@
       }
     },
     {
-      "tag": "法国/France",
-      "type": "vless",
-      "server": "finite-node.rtxconfigz.com",
+      "tag": "印度/海得拉巴/India/Hyderabad",
+      "type": "hysteria2",
+      "server": "iq5ny.pleiades.codes",
+      "server_port": 8443,
+      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "iq5ny.pleiades.codes",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "德国/Germany",
+      "type": "hysteria2",
+      "server": "fr131.mechvpn.online",
       "server_port": 443,
-      "uuid": "25f3beef-a4b6-40bc-aa74-17a0f89f683c",
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "fr131.mechvpn.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "hysteria2",
+      "server": "nl1.noesissite.ru",
+      "server_port": 443,
+      "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "nl1.noesissite.ru",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "香港/香港/Hong Kong/Hong Kong",
+      "type": "vmess",
+      "server": "47.76.44.32",
+      "server_port": 443,
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
       "packet_encoding": "xudp",
       "tls": {
         "enabled": true,
-        "insecure": false,
-        "server_name": "finite-node.rtxconfigz.com"
+        "insecure": true,
+        "server_name": "93ucrn4i0PffUAbk.v.3dns.vip"
       },
       "transport": {
         "type": "ws",
-        "path": "/",
         "headers": {
-          "Host": "telegram.us"
-        }
+          "Host": "93ucrn4i0PffUAbk.v.3dns.vip"
+        },
+        "path": "/ws-vmess"
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "hysteria2",
+      "server": "86.107.178.69",
+      "server_port": 8443,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-turbo-nl.yyuyy.com",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "新加坡/Singapore",
+      "type": "hysteria2",
+      "server": "xjp4.mangshe.xyz",
+      "server_port": 2060,
+      "password": "22d891f5-ad85-4824-b0b8-e30cf3d37eb5",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "xjp4.mangshe.xyz",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "奥地利/朗根策斯多夫/Austria/Langenzersdorf",
+      "type": "hysteria2",
+      "server": "at133.mechvpn.online",
+      "server_port": 443,
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "at133.mechvpn.online",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "罗马尼亚/Romania",
+      "type": "hysteria2",
+      "server": "85.204.107.165",
+      "server_port": 8443,
+      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
+      "type": "hysteria2",
+      "server": "nl8.mechvpn.online",
+      "server_port": 443,
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "nl8.mechvpn.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "波兰/华沙/Poland/Warsaw",
+      "type": "hysteria2",
+      "server": "144.31.1.28",
+      "server_port": 2086,
+      "password": "08794874-93d0-4cf2-b9d6-1f2774cdffeb",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "panel.vlessbotkey.ru",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
       }
     },
     {
       "tag": "美国/United States",
       "type": "hysteria2",
-      "server": "222.167.212.80",
+      "server": "222.167.212.79",
+      "server_port": 8443,
+      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-power-pl.ddnsguru.com",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "美国/United States",
+      "type": "hysteria2",
+      "server": "222.167.212.24",
       "server_port": 8443,
       "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
       "up_mbps": 10,
@@ -2037,16 +2619,16 @@
       }
     },
     {
-      "tag": "中国/China",
+      "tag": "罗马尼亚/Romania",
       "type": "hysteria2",
-      "server": "gorbachev-new-th.kvnfreetest.uk",
-      "server_port": 55443,
-      "password": "083417772bc618cd61f0cca23dd91680",
+      "server": "85.204.107.164",
+      "server_port": 8443,
+      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "gorbachev-new-th.kvnfreetest.uk",
+        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com",
         "insecure": false,
         "alpn": [
           "h3"
@@ -2054,17 +2636,51 @@
       }
     },
     {
-      "tag": "美国/United States",
+      "tag": "法国/巴黎/France/Paris",
       "type": "hysteria2",
-      "server": "222.167.212.24",
-      "server_port": 8443,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
+      "server": "62.210.7.139",
+      "server_port": 60111,
+      "password": "github.com/Alvin9999-newpac/fanqiang",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com",
-        "insecure": false,
+        "server_name": "bing.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "奥地利/朗根策斯多夫/Austria/Langenzersdorf",
+      "type": "hysteria2",
+      "server": "at164.mechvpn.online",
+      "server_port": 443,
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "at164.mechvpn.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "波兰/华沙/Poland/Warsaw",
+      "type": "hysteria2",
+      "server": "144.31.5.9",
+      "server_port": 2102,
+      "password": "08794874-93d0-4cf2-b9d6-1f2774cdffeb",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "panel.vlessbotkey.ru",
+        "insecure": true,
         "alpn": [
           "h3"
         ]
@@ -2081,40 +2697,6 @@
       "tls": {
         "enabled": true,
         "server_name": "nl.prisma-access.club",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "印度/海得拉巴/India/Hyderabad",
-      "type": "hysteria2",
-      "server": "iq5ny.pleiades.codes",
-      "server_port": 8443,
-      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "iq5ny.pleiades.codes",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
-      "type": "hysteria2",
-      "server": "138.124.68.188",
-      "server_port": 443,
-      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "usa1.spectrumproxy.shop",
         "insecure": false,
         "alpn": [
           "h3"
@@ -2139,110 +2721,101 @@
       }
     },
     {
-      "tag": "法国/巴黎/France/Paris",
+      "tag": "台湾/台北市/Taiwan/Taipei",
       "type": "hysteria2",
-      "server": "151.247.197.253",
-      "server_port": 36723,
-      "password": "Krab9Hyst2_Rk7pQ2xL",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.cloudflare.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "hysteria2",
-      "server": "86.107.178.69",
-      "server_port": 8443,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-turbo-nl.yyuyy.com",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
-      "type": "hysteria2",
-      "server": "fiproxy1.lockdwn.com",
+      "server": "160.187.100.109",
       "server_port": 443,
-      "password": "6aab8efdf13945829ae3699c342be406",
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "fiproxy1.lockdwn.com",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "uw9b2qq5rx"
-      }
-    },
-    {
-      "tag": "中国/China",
-      "type": "hysteria2",
-      "server": "167.179.34.13",
-      "server_port": 55443,
-      "password": "6f7a8009ecf6a12e10d03f9d88493c89",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "gorbachev-th.kvnfreetest.uk",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "日本/Japan",
-      "type": "vmess",
-      "server": "140.83.57.20",
-      "server_port": 13118,
-      "uuid": "1f01e389-fbcb-494c-e46a-210ec36329c2",
-      "security": "auto",
-      "alter_id": 0,
-      "packet_encoding": "xudp",
-      "tls": {
-        "enabled": true,
+        "server_name": "127.0.0.1",
         "insecure": true,
-        "server_name": "sg.11160321.de5.net"
-      },
-      "transport": {
-        "type": "ws",
-        "headers": {
-          "Host": "sg.11160321.de5.net"
-        },
-        "path": "/"
+        "alpn": [
+          "h3"
+        ]
       }
     },
     {
-      "tag": "日本/东京/Japan/Tokyo",
+      "tag": "美国/United States",
       "type": "hysteria2",
-      "server": "207.56.227.226",
-      "server_port": 48920,
-      "password": "53f193c4-6482-45fb-8e00-60e0baf016ee",
+      "server": "de.1.23.h2corp.org",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
+        "server_name": "germany3.h2corp.local",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "香港/Hong Kong",
+      "type": "hysteria2",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "202.146.222.29",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "德国/Germany",
+      "type": "hysteria2",
+      "server": "srvhy1.ezcon24.online",
+      "server_port": 8443,
+      "password": "553e3253-c454-431d-a7e6-42bc06ea5e14",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "srvhy1.ezcon24.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "罗马尼亚/Romania",
+      "type": "hysteria2",
+      "server": "162.249.124.102",
+      "server_port": 8443,
+      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "mercedes-grape.yyuyy.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "印度/海得拉巴/India/Hyderabad",
+      "type": "hysteria2",
+      "server": "179.61.227.102",
+      "server_port": 8443,
+      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "iq5ny.pleiades.codes",
         "insecure": true,
         "alpn": [
           "h3"
@@ -2267,16 +2840,16 @@
       }
     },
     {
-      "tag": "德国/Germany",
+      "tag": "阿联酋/迪拜/United Arab Emirates/Dubai",
       "type": "hysteria2",
-      "server": "91.196.34.52",
-      "server_port": 8443,
-      "password": "553e3253-c454-431d-a7e6-42bc06ea5e14",
+      "server": "db1.mangshe.xyz",
+      "server_port": 2056,
+      "password": "22d891f5-ad85-4824-b0b8-e30cf3d37eb5",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "srvhy1.ezcon24.online",
+        "server_name": "db1.mangshe.xyz",
         "insecure": false,
         "alpn": [
           "h3"
@@ -2284,16 +2857,84 @@
       }
     },
     {
-      "tag": "德国/法兰克福/Germany/Frankfurt am Main",
+      "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
       "type": "hysteria2",
-      "server": "mg2.mangshe.xyz",
-      "server_port": 2056,
-      "password": "22d891f5-ad85-4824-b0b8-e30cf3d37eb5",
+      "server": "usa1.spectrumproxy.shop",
+      "server_port": 443,
+      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "mg2.mangshe.xyz",
+        "server_name": "usa1.spectrumproxy.shop",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "新加坡/新加坡/Singapore/Singapore",
+      "type": "hysteria2",
+      "server": "140.99.130.34",
+      "server_port": 4466,
+      "password": "6a3fe9d0-0d68-4f29-ae99-5771d4217a45",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "sg3.xiaoliyu.cyou",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "台湾/台北市/Taiwan/Taipei",
+      "type": "hysteria2",
+      "server": "103.115.109.49",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "https://t.me/oneclickvpnkeys",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "罗马尼亚/Romania",
+      "type": "hysteria2",
+      "server": "162.249.124.99",
+      "server_port": 8443,
+      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "mercedes-grape.yyuyy.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "波兰/华沙/Poland/Warsaw",
+      "type": "hysteria2",
+      "server": "144.31.5.9",
+      "server_port": 2101,
+      "password": "08794874-93d0-4cf2-b9d6-1f2774cdffeb",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "panel.vlessbotkey.ru",
         "insecure": true,
         "alpn": [
           "h3"
@@ -2318,33 +2959,16 @@
       }
     },
     {
-      "tag": "印度/海得拉巴/India/Hyderabad",
+      "tag": "俄罗斯联邦/Russia",
       "type": "hysteria2",
-      "server": "179.61.227.102",
-      "server_port": 8443,
-      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "server": "185.22.155.81",
+      "server_port": 50160,
+      "password": "2a0099ded5baa93c55823af39229c5b1",
       "up_mbps": 10,
       "down_mbps": 100,
       "tls": {
         "enabled": true,
-        "server_name": "iq5ny.pleiades.codes",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "中国/China",
-      "type": "hysteria2",
-      "server": "167.179.34.31",
-      "server_port": 55443,
-      "password": "083417772bc618cd61f0cca23dd91680",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "gorbachev-new-th.kvnfreetest.uk",
+        "server_name": "185-22-155-81.liao.kdns.fr",
         "insecure": false,
         "alpn": [
           "h3"
@@ -2352,9 +2976,47 @@
       }
     },
     {
+      "tag": "美国/洛杉矶/United States/Los Angeles",
+      "type": "hysteria2",
+      "server": "40t1.wxgqlfx.vip",
+      "server_port": 11683,
+      "password": "76c1579d-e996-473c-b23f-2c8301082602",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "204.44.74.220",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "芬兰/赫尔辛基/Finland/Helsinki",
+      "type": "hysteria2",
+      "server": "31.76.80.69",
+      "server_port": 443,
+      "password": "6aab8efdf13945829ae3699c342be406",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "fiproxy1.lockdwn.com",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "uw9b2qq5rx"
+      }
+    },
+    {
       "tag": "美国/United States",
       "type": "hysteria2",
-      "server": "222.167.212.79",
+      "server": "222.167.212.80",
       "server_port": 8443,
       "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
       "up_mbps": 10,
@@ -2363,40 +3025,6 @@
         "enabled": true,
         "server_name": "grape-power-pl.ddnsguru.com",
         "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "德国/Germany",
-      "type": "hysteria2",
-      "server": "srvhy1.ezcon24.online",
-      "server_port": 8443,
-      "password": "553e3253-c454-431d-a7e6-42bc06ea5e14",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "srvhy1.ezcon24.online",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "台湾/台北市/Taiwan/Taipei",
-      "type": "hysteria2",
-      "server": "160.187.100.109",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "127.0.0.1",
-        "insecure": true,
         "alpn": [
           "h3"
         ]
@@ -2424,230 +3052,6 @@
       }
     },
     {
-      "tag": "罗马尼亚/Romania",
-      "type": "hysteria2",
-      "server": "85.204.107.164",
-      "server_port": 8443,
-      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "hysteria2",
-      "server": "nl1.noesissite.ru",
-      "server_port": 443,
-      "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "nl1.noesissite.ru",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "新加坡/新加坡/Singapore/Singapore",
-      "type": "hysteria2",
-      "server": "140.99.130.34",
-      "server_port": 4466,
-      "password": "1427eb10-7529-4d38-a6a2-01b337868b37",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "sg3.xiaoliyu.cyou",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "hysteria2",
-      "server": "86.107.178.72",
-      "server_port": 8443,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-turbo-nl.yyuyy.com",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "台湾/台北市/Taiwan/Taipei",
-      "type": "hysteria2",
-      "server": "103.115.109.49",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "https://t.me/oneclickvpnkeys",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "俄罗斯联邦/莫斯科/Russia/Moscow",
-      "type": "hysteria2",
-      "server": "89.169.47.112",
-      "server_port": 443,
-      "password": "b268a3a1-3826-44a3-9ffb-3ac2095300ca",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "game.hambot.ru",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "印度尼西亚/Indonesia",
-      "type": "hysteria2",
-      "server": "202.155.11.54",
-      "server_port": 443,
-      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "us54.mechvpn.online",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "罗马尼亚/Romania",
-      "type": "hysteria2",
-      "server": "162.249.124.99",
-      "server_port": 8443,
-      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "mercedes-grape.yyuyy.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "香港/Hong Kong",
-      "type": "hysteria2",
-      "server": "202.146.222.89",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "荷兰/阿姆斯特丹/The Netherlands/Amsterdam",
-      "type": "hysteria2",
-      "server": "138.124.55.19",
-      "server_port": 8445,
-      "password": "085178e12d2211ec",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "nl.prisma-access.club",
-        "insecure": false,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "罗马尼亚/Romania",
-      "type": "hysteria2",
-      "server": "162.249.124.102",
-      "server_port": 8443,
-      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "mercedes-grape.yyuyy.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
-      "tag": "荷兰/The Netherlands",
-      "type": "hysteria2",
-      "server": "nl2.sferavpn.pro",
-      "server_port": 443,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "nl2.sferavpn.pro",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "44f1c1e2f8b99e792ceed574627a1eb0"
-      }
-    },
-    {
-      "tag": "印度/孟买/India/Mumbai",
-      "type": "hysteria2",
-      "server": "92.4.68.18",
-      "server_port": 12694,
-      "password": "4e756809",
-      "up_mbps": 10,
-      "down_mbps": 100,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true,
-        "alpn": [
-          "h3"
-        ]
-      }
-    },
-    {
       "tag": "俄罗斯联邦/Russia",
       "type": "hysteria2",
       "server": "185-22-155-81.liao.kdns.fr",
@@ -2662,6 +3066,78 @@
         "alpn": [
           "h3"
         ]
+      }
+    },
+    {
+      "tag": "奥地利/朗根策斯多夫/Austria/Langenzersdorf",
+      "type": "hysteria2",
+      "server": "at188.mechvpn.online",
+      "server_port": 443,
+      "password": "53c76647-14d1-4df5-99cb-be99ad2e6bd9",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "at188.mechvpn.online",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "阿联酋/United Arab Emirates",
+      "type": "hysteria2",
+      "server": "cabinet.wwwinternetvideo.click",
+      "server_port": 443,
+      "password": "sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "cabinet.wwwinternetvideo.click",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "中国/China",
+      "type": "hysteria2",
+      "server": "167.179.34.31",
+      "server_port": 55443,
+      "password": "083417772bc618cd61f0cca23dd91680",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "gorbachev-new-th.kvnfreetest.uk",
+        "insecure": false,
+        "alpn": [
+          "h3"
+        ]
+      }
+    },
+    {
+      "tag": "加拿大/Canada",
+      "type": "hysteria2",
+      "server": "51.79.91.52",
+      "server_port": 38871,
+      "password": "IJMFOXhvbQ",
+      "up_mbps": 10,
+      "down_mbps": 100,
+      "tls": {
+        "enabled": true,
+        "server_name": "play.google.com",
+        "insecure": true,
+        "alpn": [
+          "h3"
+        ]
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "t-me-V2RayyNGvpn"
       }
     }
   ]
