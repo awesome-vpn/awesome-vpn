@@ -23,7 +23,7 @@ Right-click the link → "Copy link address":
 |--------|-------------------|----------|
 | **Base64 List** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all) | v2rayN, v2rayNG, Streisand |
 | **Sing-box JSON** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json) | Sing-box, NekoBox |
-| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev, ClashX |
+| **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev, ClashX, Rocket Proxy |
 
 <details>
 <summary><b>📋 Copy all links (manual)</b></summary>
@@ -43,9 +43,10 @@ https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
 | Platform | Recommended App | Download |
 |----------|----------------|----------|
 | **Windows** | v2rayN / Clash Verge Rev | [v2rayN](https://github.com/2dust/v2rayN/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **macOS** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **macOS** | Clash Verge Rev / Rocket Proxy | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Rocket Proxy](https://github.com/jcltravels/RocketProxy/releases/latest) |
 | **Linux** | v2rayA / Clash Verge Rev | [v2rayA](https://github.com/v2rayA/v2rayA/releases) / [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **iOS (Free)** | Streisand | [GitHub](https://github.com/MatsuriDayo/Streisand) |
+| **iOS (Free)** | Streisand / Rocket Proxy | [GitHub](https://github.com/MatsuriDayo/Streisand) / [App Store](https://apps.apple.com/app/id6785291194) |
+| **Apple TV** | Rocket Proxy | [App Store](https://apps.apple.com/app/id6785291194) |
 | **Android** | v2rayNG / Sing-box | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
 
 ### Step 3: Paste and connect
@@ -92,7 +93,7 @@ Possible reasons:
 | If your app is... | Use this format |
 |-------------------|-----------------|
 | v2rayN, v2rayNG, v2rayA, Streisand | **Base64 List** |
-| Clash Verge Rev, ClashX | **Clash YAML** |
+| Clash Verge Rev, ClashX, Rocket Proxy | **Clash YAML** |
 | Sing-box | **Sing-box JSON** |
 
 ---
@@ -143,6 +144,35 @@ Possible reasons:
 3. Paste the Base64 List link in **URL** field
 4. Tap **Save**, then tap the subscription to update
 5. Select a server and tap the connect button
+</details>
+
+<details>
+<summary><b>Rocket Proxy (iOS / macOS / Apple TV)</b></summary>
+
+**Mac**
+
+1. Download the [latest `.dmg`](https://github.com/jcltravels/RocketProxy/releases/latest) — free, notarized by Apple, universal (Intel and Apple silicon), no account required. (Also on the [Mac App Store](https://apps.apple.com/app/id6785291194).)
+2. Open **Servers** → **Import Servers** → **Import from Link**
+3. Paste the Base64 List **or the Clash YAML** link and confirm
+4. Use **Update Subscriptions** to refresh later
+5. Select a server and connect
+
+**iPhone, iPad**
+
+1. Install [Rocket Proxy](https://apps.apple.com/app/id6785291194) from the App Store (free)
+2. Open **Servers** → **Import Servers** → **Import from Link**
+3. Paste the Base64 List **or the Clash YAML** link and confirm
+4. Use **Update Subscriptions** to refresh later
+5. Select a server and connect
+
+**Apple TV**
+
+Servers are added on iPhone, iPad, or Mac and then sent over — no typing on the TV:
+
+1. On Apple TV: **Servers** → **Add** → **Receive from Nearby Device**
+2. On iPhone/iPad/Mac: **Servers** → **Send to Nearby Device**
+3. The Apple TV appears in the list; confirm to transfer, then connect
+
 </details>
 
 <details>
