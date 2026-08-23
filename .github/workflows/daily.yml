@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - uses: astral-sh/setup-uv@v6
         with:
@@ -46,7 +46,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         fetch-depth: 1
 
@@ -56,7 +56,7 @@ jobs:
         python-version: "3.11"
 
     - name: Cache sing-box binary
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: bin/
         key: sing-box-${{ runner.os }}-${{ runner.arch }}-${{ env.SING_BOX_VERSION }}
@@ -67,7 +67,7 @@ jobs:
 
     - name: Cache GeoLite2-City MMDB
       id: mmdb-cache
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: config/GeoLite2-City.mmdb
         key: geolite2-mmdb-${{ steps.date.outputs.month }}
@@ -128,7 +128,7 @@ jobs:
 
     - name: Upload artifacts
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: crawler-outputs
         path: |
