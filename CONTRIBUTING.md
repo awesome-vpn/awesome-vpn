@@ -48,9 +48,9 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 > **All commits MUST be in English. `uv` is the ONLY local entry for Python — never `pip`/`pip3`. `uv.lock` is NEVER committed (see `.gitignore`).**
 
-- `pyproject.toml` + `uv.lock` is the single source of truth; `requirements*.txt` is legacy fallback only
+- `pyproject.toml` is the single source of truth; `uv.lock` is local-only and `requirements*.txt` has been removed — standard `uv` (no `pip` files)
 - Local: `uv sync --group dev` / `uv run pytest -q` / `uv run ruff check .` / `make install` (which wraps `uv`)
-- CI: `astral-sh/setup-uv@v6` + `uv sync` + `uv run ...` (never `actions/setup-python` + `pip`)
+- CI: `astral-sh/setup-uv@v7` + `uv sync` + `uv run ...` (never `actions/setup-python` + `pip`)
 
 ## Development Setup
 
