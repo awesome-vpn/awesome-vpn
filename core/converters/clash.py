@@ -1,12 +1,13 @@
 # core/converters/clash.py
 """Convert sing-box outbounds to Clash proxy format."""
+
 import logging
-from typing import Optional, Dict, Any, List
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
 
-def to_clash_proxy(node: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+def to_clash_proxy(node: dict[str, Any]) -> dict[str, Any] | None:
     """Convert a sing-box outbound dict to Clash proxy dict."""
     ntype = node.get("type", "").lower()
     converter = CONVERTERS.get(ntype)
@@ -16,7 +17,7 @@ def to_clash_proxy(node: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     return converter(node)
 
 
-def _convert_vmess(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_vmess(node: dict[str, Any]) -> dict[str, Any]:
     proxy = {
         "name": node.get("tag", "vmess"),
         "type": "vmess",
@@ -50,7 +51,7 @@ def _convert_vmess(node: Dict[str, Any]) -> Dict[str, Any]:
     return proxy
 
 
-def _convert_vless(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_vless(node: dict[str, Any]) -> dict[str, Any]:
     proxy = {
         "name": node.get("tag", "vless"),
         "type": "vless",
@@ -106,7 +107,7 @@ def _convert_vless(node: Dict[str, Any]) -> Dict[str, Any]:
     return proxy
 
 
-def _convert_shadowsocks(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_shadowsocks(node: dict[str, Any]) -> dict[str, Any]:
     return {
         "name": node.get("tag", "ss"),
         "type": "ss",
@@ -117,7 +118,7 @@ def _convert_shadowsocks(node: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def _convert_trojan(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_trojan(node: dict[str, Any]) -> dict[str, Any]:
     proxy = {
         "name": node.get("tag", "trojan"),
         "type": "trojan",
@@ -148,7 +149,7 @@ def _convert_trojan(node: Dict[str, Any]) -> Dict[str, Any]:
     return proxy
 
 
-def _convert_hysteria2(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_hysteria2(node: dict[str, Any]) -> dict[str, Any]:
     proxy = {
         "name": node.get("tag", "hysteria2"),
         "type": "hysteria2",
@@ -164,7 +165,7 @@ def _convert_hysteria2(node: Dict[str, Any]) -> Dict[str, Any]:
     return proxy
 
 
-def _convert_tuic(node: Dict[str, Any]) -> Dict[str, Any]:
+def _convert_tuic(node: dict[str, Any]) -> dict[str, Any]:
     proxy = {
         "name": node.get("tag", "tuic"),
         "type": "tuic",
@@ -193,19 +194,19 @@ CONVERTERS = {
 }
 
 
-def to_clash_proxies(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def to_clash_proxies(nodes: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Convert a list of sing-box nodes to Clash proxies with unique names."""
     result = []
     used_names = set()
     name_counter = {}
-    
+
     for node in nodes:
         proxy = to_clash_proxy(node)
         if not proxy:
             continue
-            
+
         name = proxy.get("name", "unnamed")
-        
+
         # Handle duplicate names by adding suffix
         if name in used_names:
             if name not in name_counter:
@@ -216,7 +217,7 @@ def to_clash_proxies(nodes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             used_names.add(new_name)
         else:
             used_names.add(name)
-        
+
         result.append(proxy)
-    
+
     return result

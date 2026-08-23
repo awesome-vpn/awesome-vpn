@@ -1,54 +1,55 @@
 #!/usr/bin/env python3
 """SingBox Node Crawler for awesome-vpn."""
 
-import json
-import os
-import sys
 import argparse
 import base64
-from datetime import datetime
-import urllib.parse
 import concurrent.futures
+import json
 import logging
+import os
+import sys
+import urllib.parse
+from datetime import datetime
 
 import yaml
 from dotenv import load_dotenv
+
 # Load secrets: .secrets takes priority, .env as fallback
-load_dotenv('.secrets')
+load_dotenv(".secrets")
 load_dotenv()
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
-sys.path.append(os.path.join(current_dir, 'core', 'parsers'))
+sys.path.append(os.path.join(current_dir, "core", "parsers"))
 
-from core.spider import Spider
-from core.deduplicator import Deduplicator, ensure_unique_tags
-from core.validator import Validator
 from core.binary_manager import BinaryManager
-from core.geo_utils import GeoUtils
 from core.converters.clash import to_clash_proxies
+from core.deduplicator import Deduplicator, ensure_unique_tags
+from core.geo_utils import GeoUtils
+from core.spider import Spider
+from core.validator import Validator
 
 try:
-    import vmess
-    import vless
+    import hysteria2
     import ss
     import trojan
-    import hysteria2
     import tuic
+    import vless
+    import vmess
 except ImportError:
-    from core.parsers import vmess, vless, ss, trojan, hysteria2, tuic
+    from core.parsers import hysteria2, ss, trojan, tuic, vless, vmess
 
-logging.basicConfig(level=logging.INFO, format='%(message)s')
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 logger = logging.getLogger(__name__)
 
 PROTOCOL_PARSERS = {
-    'vmess': vmess,
-    'vless': vless,
-    'ss': ss,
-    'trojan': trojan,
-    'hysteria2': hysteria2,
-    'hy2': hysteria2,
-    'tuic': tuic
+    "vmess": vmess,
+    "vless": vless,
+    "ss": ss,
+    "trojan": trojan,
+    "hysteria2": hysteria2,
+    "hy2": hysteria2,
+    "tuic": tuic,
 }
 
 
@@ -62,16 +63,16 @@ def parse_source_params(param_str):
         return options
     try:
         params = urllib.parse.parse_qs(param_str, keep_blank_values=True)
-        if 'max' in params and params['max']:
+        if "max" in params and params["max"]:
             try:
-                options['max_nodes'] = int(params['max'][0])
-            except:
+                options["max_nodes"] = int(params["max"][0])
+            except (ValueError, TypeError):
                 pass
-        if 'ignore' in params and params['ignore']:
-            ignore = [p.strip() for p in params['ignore'][0].split(',') if p.strip()]
+        if "ignore" in params and params["ignore"]:
+            ignore = [p.strip() for p in params["ignore"][0].split(",") if p.strip()]
             if ignore:
-                options['ignore_protocols'] = ignore
-    except:
+                options["ignore_protocols"] = ignore
+    except Exception:
         pass
     return options
 
@@ -79,16 +80,16 @@ def parse_source_params(param_str):
 def apply_source_filters(links, options):
     if not links:
         return []
-    ignore = set([p.lower() for p in options.get('ignore_protocols', [])])
+    ignore = set([p.lower() for p in options.get("ignore_protocols", [])])
     if ignore:
         filtered = []
         for link in links:
-            protocol = link.split('://')[0].lower() if '://' in link else ''
+            protocol = link.split("://")[0].lower() if "://" in link else ""
             if protocol and protocol in ignore:
                 continue
             filtered.append(link)
         links = filtered
-    max_nodes = options.get('max_nodes')
+    max_nodes = options.get("max_nodes")
     if isinstance(max_nodes, int) and max_nodes > 0:
         links = links[:max_nodes]
     return links
@@ -97,39 +98,39 @@ def apply_source_filters(links, options):
 def resolve_date_url(url):
     try:
         return datetime.now().strftime(url)
-    except:
+    except Exception:
         return url
 
 
 def expand_sources_list(list_path, spider):
     entries = []
-    allow_blocked = os.getenv('ALLOW_BLOCKED_SOURCES') == '1'
+    allow_blocked = os.getenv("ALLOW_BLOCKED_SOURCES") == "1"
     if not os.path.exists(list_path):
         return entries
-    with open(list_path, 'r') as f:
+    with open(list_path) as f:
         for raw_line in f:
             line = raw_line.strip()
-            if not line or line.startswith('#'):
+            if not line or line.startswith("#"):
                 continue
-            if line == 'EOF':
+            if line == "EOF":
                 break
             blocked = False
-            if line.startswith('!'):
+            if line.startswith("!"):
                 blocked = True
                 line = line[1:].strip()
             if blocked and not allow_blocked:
                 continue
             is_date = False
-            if line.startswith('+date'):
+            if line.startswith("+date"):
                 is_date = True
-                line = line[len('+date'):].strip()
+                line = line[len("+date") :].strip()
             is_list = False
-            if line.startswith('*'):
+            if line.startswith("*"):
                 is_list = True
                 line = line[1:].strip()
-            param_str = ''
-            if '#' in line:
-                line, param_str = line.split('#', 1)
+            param_str = ""
+            if "#" in line:
+                line, param_str = line.split("#", 1)
             url = line.strip()
             if not url:
                 continue
@@ -142,10 +143,10 @@ def expand_sources_list(list_path, spider):
                     if content:
                         for item in content.splitlines():
                             item = item.strip()
-                            if not item or item.startswith('#'):
+                            if not item or item.startswith("#"):
                                 continue
-                            item_url = item.split('#')[0].strip()
-                            if item_url.startswith('http'):
+                            item_url = item.split("#")[0].strip()
+                            if item_url.startswith("http"):
                                 entries.append((item_url, options))
                 except Exception as e:
                     logger.debug(f"Error fetching list {url}: {e}")
@@ -154,19 +155,70 @@ def expand_sources_list(list_path, spider):
     return entries
 
 
+def save_singbox(output_dir, nodes):
+    """Write sing-box.json (outbounds only)."""
+    path = os.path.join(output_dir, "sing-box.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({"outbounds": nodes}, f, indent=2, ensure_ascii=False)
+    logger.info(f"Saved: {path}")
+    return path
+
+
+def save_all(output_dir, nodes, source_links):
+    """Write base64-encoded `all` file, preserving original link with updated tag."""
+    links_output = []
+    for node in nodes:
+        tag = node.get("tag", "")
+        original_link = source_links.get(id(node), "")
+        if original_link:
+            base_link = original_link.rsplit("#", 1)[0] if "#" in original_link else original_link
+            links_output.append(f"{base_link}#{tag}")
+        else:
+            server = node.get("server", "")
+            port = node.get("server_port") or node.get("port", "")
+            ntype = node.get("type", "")
+            links_output.append(f"{ntype}://{tag}@{server}:{port}")
+    encoded = base64.b64encode("\n".join(links_output).encode()).decode()
+    path = os.path.join(output_dir, "all")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(encoded)
+    logger.info(f"Saved: {path}")
+    return path
+
+
+def save_clash(output_dir, nodes):
+    """Write clash.yaml converted from sing-box nodes."""
+    proxies = to_clash_proxies(nodes)
+    data = {"proxies": proxies}
+    path = os.path.join(output_dir, "clash.yaml")
+    with open(path, "w", encoding="utf-8") as f:
+        yaml.dump(data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+    logger.info(f"Saved: {path}")
+    return path
+
+
 def main():
-    parser = argparse.ArgumentParser(description='SingBox Node Crawler')
-    parser.add_argument('--validate', action='store_true', help='Validate nodes')
-    parser.add_argument('--output', type=str, default='output', help='Output directory')
-    parser.add_argument('--workers', type=int, default=10, help='Number of fetch workers')
-    parser.add_argument('--validate-workers', type=int, default=50, help='Number of validation workers (default 50)')
-    parser.add_argument('--local', action='store_true', help='Local mode: skip direct TCP checks that fail behind GFW')
+    parser = argparse.ArgumentParser(description="SingBox Node Crawler")
+    parser.add_argument("--validate", action="store_true", help="Validate nodes")
+    parser.add_argument("--output", type=str, default="output", help="Output directory")
+    parser.add_argument("--workers", type=int, default=10, help="Number of fetch workers")
+    parser.add_argument(
+        "--validate-workers",
+        type=int,
+        default=30,
+        help="Number of validation workers (default 30, lowered to avoid CI FD exhaustion)",
+    )
+    parser.add_argument(
+        "--local",
+        action="store_true",
+        help="Local mode: skip direct TCP checks that fail behind GFW",
+    )
     args = parser.parse_args()
 
     # Auto-detect environment: GITHUB_ACTIONS=true is set automatically in GitHub Actions.
     # In local mode, direct TCP connections to overseas servers are blocked by GFW,
     # so we skip quick_tcp_prescreen and tcp_ping (sing-box validation still runs).
-    is_ci = os.getenv('GITHUB_ACTIONS') == 'true'
+    is_ci = os.getenv("GITHUB_ACTIONS") == "true"
     local_mode = args.local or not is_ci
     if local_mode:
         logger.info("Mode: LOCAL (direct TCP checks disabled — GFW environment)")
@@ -185,7 +237,7 @@ def main():
     spider = Spider(max_workers=args.workers)
     deduplicator = Deduplicator()
 
-    mmdb_path = os.path.join(base_dir, 'config', 'GeoLite2-City.mmdb')
+    mmdb_path = os.path.join(base_dir, "config", "GeoLite2-City.mmdb")
     geo_utils = GeoUtils(mmdb_path)
 
     all_links = []
@@ -193,39 +245,49 @@ def main():
     logger.info("\n[1/5] Loading sources from config...")
 
     # Load sources from env var or default config file
-    sources_json_env = os.getenv('SOURCES_JSON', '')
+    sources_json_env = os.getenv("SOURCES_JSON", "")
     temp_config_file = None
     if sources_json_env:
         import tempfile
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             f.write(sources_json_env)
             config_path = f.name
             temp_config_file = config_path
         logger.info("      Using SOURCES_JSON from environment")
     else:
-        config_path = os.path.join(base_dir, 'config', 'sources.json')
+        config_path = os.path.join(base_dir, "config", "sources.json")
         logger.info("      Using default config/sources.json")
-    with open(config_path, 'r') as f:
-        sources = json.load(f)
+    try:
+        with open(config_path) as f:
+            sources = json.load(f)
+    except FileNotFoundError:
+        logger.warning(
+            f"Config not found at {config_path}, using empty sources (set SOURCES_JSON or create config/sources.json)"
+        )
+        sources = {"urls": []}
+    except json.JSONDecodeError as e:
+        logger.error(f"Invalid JSON in {config_path}: {e}, using empty sources")
+        sources = {"urls": []}
 
     # Clean up temp file if created from SOURCES_JSON
     if temp_config_file and os.path.exists(temp_config_file):
         try:
             os.remove(temp_config_file)
-        except:
+        except OSError:
             pass
 
     # Load secrets from environment
-    tg_secret = os.getenv('TELEGRAM_CHANNELS', '')
-    telegram_channels = [c.strip() for c in tg_secret.split(',') if c.strip()]
-    extra_urls = [u.strip() for u in os.getenv('EXTRA_URLS', '').splitlines() if u.strip()]
+    tg_secret = os.getenv("TELEGRAM_CHANNELS", "")
+    telegram_channels = [c.strip() for c in tg_secret.split(",") if c.strip()]
+    extra_urls = [u.strip() for u in os.getenv("EXTRA_URLS", "").splitlines() if u.strip()]
 
     logger.info(f"      Found {len(sources.get('urls', []))} URL sources")
     logger.info(f"      Found {len(telegram_channels)} Telegram channels (from Secrets)")
     logger.info(f"      Found {len(extra_urls)} extra URLs (from Secrets)")
 
     logger.info("\n[2/5] Fetching URLs...")
-    url_sources = sources.get('urls', [])
+    url_sources = sources.get("urls", [])
     urls_to_fetch = []
     url_options = {}
 
@@ -236,17 +298,17 @@ def main():
     for entry in url_sources:
         options = {}
         if isinstance(entry, dict):
-            if entry.get('enabled') is False:
+            if entry.get("enabled") is False:
                 continue
-            url = entry.get('url')
+            url = entry.get("url")
             if not url:
                 continue
-            if entry.get('update_method') == 'change_date':
+            if entry.get("update_method") == "change_date":
                 url = resolve_date_url(url)
-            if entry.get('max_nodes'):
-                options['max_nodes'] = entry.get('max_nodes')
-            if entry.get('ignore_protocols'):
-                options['ignore_protocols'] = entry.get('ignore_protocols')
+            if entry.get("max_nodes"):
+                options["max_nodes"] = entry.get("max_nodes")
+            if entry.get("ignore_protocols"):
+                options["ignore_protocols"] = entry.get("ignore_protocols")
         else:
             url = entry
         urls_to_fetch.append(url)
@@ -275,10 +337,10 @@ def main():
             all_links.extend(links)
 
     logger.info("\n[4/5] Processing sources.list...")
-    list_path = os.path.join(base_dir, 'config', 'sources.list')
+    list_path = os.path.join(base_dir, "config", "sources.list")
     for url, options in expand_sources_list(list_path, spider):
         try:
-            if url.startswith('http'):
+            if url.startswith("http"):
                 content = spider.fetch_url(url)
                 links = spider.parse_subscription(content)
             else:
@@ -302,7 +364,7 @@ def main():
 
     def parse_link_simple(link):
         try:
-            protocol = link.split('://')[0].lower()
+            protocol = link.split("://")[0].lower()
             parser = get_parser(protocol)
             if parser:
                 return parser.parse(link), link
@@ -354,9 +416,12 @@ def main():
         else:
             # P1: Fast TCP pre-screening to reduce validation time
             from core.validator import quick_tcp_prescreen
-            prescreened = quick_tcp_prescreen(valid_nodes, max_workers=100, timeout=2)
+
+            prescreened = quick_tcp_prescreen(valid_nodes, max_workers=60, timeout=2)
             filtered_out = len(valid_nodes) - len(prescreened)
-            logger.info(f"TCP pre-screen: {len(prescreened)}/{len(valid_nodes)} passed ({filtered_out} filtered)")
+            logger.info(
+                f"TCP pre-screen: {len(prescreened)}/{len(valid_nodes)} passed ({filtered_out} filtered)"
+            )
             valid_nodes = prescreened
 
     if args.validate and len(valid_nodes) > 0:
@@ -366,28 +431,27 @@ def main():
         bm = BinaryManager(base_dir)
         sing_box_path = bm.get_singbox_path()
         validator = Validator(sing_box_path, local_mode=local_mode)
-        valid_nodes = validator.validate_nodes_parallel(valid_nodes, timeout=5, max_workers=args.validate_workers)
+        valid_nodes = validator.validate_nodes_parallel(
+            valid_nodes, timeout=5, max_workers=args.validate_workers
+        )
         logger.info(f"Valid nodes: {len(valid_nodes)}")
 
         logger.info("\nUpdating node names with geo information (parallel)...")
         # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)
-        node_data = [
-            (node, node.get('tag', ''))
-            for node in valid_nodes
-        ]
+        node_data = [(node, node.get("tag", "")) for node in valid_nodes]
 
         def resolve_geo(item):
             node, original_tag = item
-            server = node.get('server', '')
+            server = node.get("server", "")
             node_name = geo_utils.format_node_name(server) if server else original_tag
             return node, node_name
 
-        geo_workers = min(50, len(valid_nodes)) if valid_nodes else 1
+        geo_workers = min(30, len(valid_nodes)) if valid_nodes else 1
         with concurrent.futures.ThreadPoolExecutor(max_workers=geo_workers) as executor:
             geo_results = list(executor.map(resolve_geo, node_data))
 
         for node, node_name in geo_results:
-            node['tag'] = node_name
+            node["tag"] = node_name
 
     renamed_tags = ensure_unique_tags(valid_nodes)
     logger.info(f"Renamed duplicate tags: {renamed_tags}")
@@ -396,42 +460,9 @@ def main():
     logger.info("Saving output...")
     logger.info("=" * 60)
 
-    # Output 1: sing-box.json (outbounds only)
-    singbox_path = os.path.join(output_dir, 'sing-box.json')
-    with open(singbox_path, 'w') as f:
-        json.dump({"outbounds": valid_nodes}, f, indent=2, ensure_ascii=False)
-    logger.info(f"Saved: {singbox_path}")
-
-    # Output 2: all (base64-encoded proxy links)
-    links_output = []
-    for node in valid_nodes:
-        tag = node.get('tag', '')
-        original_link = source_links.get(id(node), '')
-        if original_link:
-            base_link = original_link.rsplit('#', 1)[0] if '#' in original_link else original_link
-            links_output.append(f"{base_link}#{tag}")
-        else:
-            server = node.get('server', '')
-            port = node.get('server_port') or node.get('port', '')
-            ntype = node.get('type', '')
-            links_output.append(f"{ntype}://{tag}@{server}:{port}")
-
-    raw_links = '\n'.join(links_output)
-    encoded = base64.b64encode(raw_links.encode()).decode()
-
-    all_path = os.path.join(output_dir, 'all')
-    with open(all_path, 'w') as f:
-        f.write(encoded)
-    logger.info(f"Saved: {all_path}")
-
-    # Output 3: clash.yaml (proxies list)
-    clash_proxies = to_clash_proxies(valid_nodes)
-    clash_data = {"proxies": clash_proxies}
-
-    clash_path = os.path.join(output_dir, 'clash.yaml')
-    with open(clash_path, 'w') as f:
-        yaml.dump(clash_data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-    logger.info(f"Saved: {clash_path}")
+    save_singbox(output_dir, valid_nodes)
+    save_all(output_dir, valid_nodes, source_links)
+    save_clash(output_dir, valid_nodes)
 
     logger.info("\n" + "=" * 60)
     logger.info("Summary:")

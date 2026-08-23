@@ -5,14 +5,47 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+concurrency:
+  group: daily-crawler
+  cancel-in-progress: false
+
 env:
   SING_BOX_VERSION: "1.13.3"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install test deps
+        run: pip install pytest
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Lint (ruff check, non-blocking)
+        continue-on-error: true
+        run: |
+          pip install ruff
+          ruff check . || true
+
   crawl:
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    needs: test
     permissions:
       contents: write
 
@@ -70,7 +103,7 @@ jobs:
         SOURCES_JSON: ${{ secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
       run: |
-        python main.py --validate --workers 24 --validate-workers 50 --output .
+        python main.py --validate --workers 24 --validate-workers 30 --output .
 
     - name: Verify Outputs
       id: verify
@@ -80,13 +113,30 @@ jobs:
         [ -s clash.yaml ] || (echo "ERROR: clash.yaml is empty" && exit 1)
         [ -x bin/sing-box-linux-amd64 ] || (echo "ERROR: sing-box binary is missing" && exit 1)
         bin/sing-box-linux-amd64 check -c sing-box.json
+        python -c "import json,collections; tags=[n['tag'] for n in json.load(open('sing-box.json'))['outbounds']]; assert len(tags)==len(set(tags)), f'duplicate tags found: {len(tags)-len(set(tags))}'"
         echo "Output sizes:"
         ls -lh all sing-box.json clash.yaml
         NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
         echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
         echo "Node count: $NODE_COUNT"
+        if [ "$NODE_COUNT" -lt 10 ]; then
+          echo "WARNING: node count suspiciously low ($NODE_COUNT)"
+        fi
+
+    - name: Upload artifacts
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: crawler-outputs
+        path: |
+          all
+          sing-box.json
+          clash.yaml
+        retention-days: 7
+        if-no-files-found: error
 
     - name: Commit and Push
+      if: steps.verify.outputs.node_count != '0'
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"

@@ -14,8 +14,14 @@ output/
 *.log
 
 # Config (contains sources, should be set via GitHub Secrets)
-config/
+config/GeoLite2-City.mmdb
+config/sources.json
 .secrets
 
 # sing-box binary (cached)
 bin/
+# dev tooling
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+__pycache__/

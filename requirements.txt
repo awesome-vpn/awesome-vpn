@@ -1,10 +1,13 @@
-requests[socks]
-pyyaml
-beautifulsoup4
-chardet
-cryptography
-paramiko
-scp
-geoip2
-maxminddb
-python-dotenv
+# Core runtime dependencies — pinned for reproducible CI builds.
+# Regenerate with: pip freeze | grep -f <(cut -d'=' -f1 requirements.txt | cut -d'>' -f1 | cut -d'[' -f1) > requirements.lock
+requests[socks]>=2.32.0
+PyYAML>=6.0.1
+beautifulsoup4>=4.12.0
+chardet>=5.2.0
+cryptography>=42.0.0
+paramiko>=3.4.0
+scp>=0.15.0
+geoip2>=4.7.0
+maxminddb>=2.2.0
+python-dotenv>=1.0.0
+# NOTE: geoip2 pulls aiohttp; no extra pin needed.

@@ -1,9 +1,10 @@
 # tests/test_clash_converter.py
-import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+import sys
 
-from core.converters.clash import to_clash_proxy, to_clash_proxies
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+
+from core.converters.clash import to_clash_proxies, to_clash_proxy
 
 
 def test_vmess_conversion():
@@ -14,7 +15,7 @@ def test_vmess_conversion():
         "server_port": 443,
         "uuid": "uuid-1234",
         "security": "auto",
-        "tls": {"enabled": True}
+        "tls": {"enabled": True},
     }
     result = to_clash_proxy(singbox_node)
     assert result["name"] == "test-vmess"
@@ -31,7 +32,7 @@ def test_vmess_tls_fields():
         "server": "1.2.3.4",
         "server_port": 443,
         "uuid": "abc",
-        "tls": {"enabled": True, "server_name": "example.com", "insecure": True}
+        "tls": {"enabled": True, "server_name": "example.com", "insecure": True},
     }
     result = to_clash_proxy(node)
     assert result["tls"] is True
@@ -46,11 +47,7 @@ def test_vmess_websocket_transport():
         "server": "1.2.3.4",
         "server_port": 80,
         "uuid": "abc",
-        "transport": {
-            "type": "ws",
-            "path": "/path",
-            "headers": {"Host": "cdn.example.com"}
-        }
+        "transport": {"type": "ws", "path": "/path", "headers": {"Host": "cdn.example.com"}},
     }
     result = to_clash_proxy(node)
     assert result["network"] == "ws"
@@ -68,8 +65,8 @@ def test_vless_with_reality():
         "tls": {
             "enabled": True,
             "reality": {"enabled": True, "public_key": "pk123", "short_id": "sid456"},
-            "utls": {"fingerprint": "chrome"}
-        }
+            "utls": {"fingerprint": "chrome"},
+        },
     }
     result = to_clash_proxy(node)
     assert result["reality-opts"]["public-key"] == "pk123"
@@ -85,7 +82,7 @@ def test_vless_with_flow():
         "server_port": 443,
         "uuid": "uuid-test",
         "flow": "xtls-rprx-vision",
-        "tls": {"enabled": True}
+        "tls": {"enabled": True},
     }
     result = to_clash_proxy(node)
     assert result["flow"] == "xtls-rprx-vision"
@@ -99,7 +96,7 @@ def test_vless_grpc_transport():
         "server_port": 443,
         "uuid": "uuid-test",
         "tls": {"enabled": True},
-        "transport": {"type": "grpc", "service_name": "myservice"}
+        "transport": {"type": "grpc", "service_name": "myservice"},
     }
     result = to_clash_proxy(node)
     assert result["network"] == "grpc"
@@ -113,7 +110,7 @@ def test_ss_conversion():
         "server": "3.4.5.6",
         "server_port": 8388,
         "password": "pass123",
-        "method": "aes-256-gcm"
+        "method": "aes-256-gcm",
     }
     result = to_clash_proxy(node)
     assert result["type"] == "ss"
@@ -131,7 +128,7 @@ def test_ss_alias():
         "server": "5.6.7.8",
         "server_port": 1234,
         "password": "pw",
-        "method": "chacha20-ietf-poly1305"
+        "method": "chacha20-ietf-poly1305",
     }
     result = to_clash_proxy(node)
     assert result["type"] == "ss"
@@ -145,7 +142,7 @@ def test_trojan_conversion():
         "server": "4.5.6.7",
         "server_port": 443,
         "password": "trpass",
-        "tls": {"enabled": True, "server_name": "trojan.example.com", "insecure": False}
+        "tls": {"enabled": True, "server_name": "trojan.example.com", "insecure": False},
     }
     result = to_clash_proxy(node)
     assert result["type"] == "trojan"
@@ -160,7 +157,7 @@ def test_trojan_insecure():
         "server": "4.5.6.7",
         "server_port": 443,
         "password": "pw",
-        "tls": {"enabled": True, "insecure": True}
+        "tls": {"enabled": True, "insecure": True},
     }
     result = to_clash_proxy(node)
     assert result["skip-cert-verify"] is True
@@ -173,7 +170,7 @@ def test_trojan_websocket_transport():
         "server": "4.5.6.7",
         "server_port": 443,
         "password": "pw",
-        "transport": {"type": "ws", "path": "/ws"}
+        "transport": {"type": "ws", "path": "/ws"},
     }
     result = to_clash_proxy(node)
     assert result["network"] == "ws"
@@ -187,7 +184,7 @@ def test_hysteria2_conversion():
         "server": "5.6.7.8",
         "server_port": 443,
         "password": "hypass",
-        "tls": {"server_name": "hy2.example.com", "insecure": True}
+        "tls": {"server_name": "hy2.example.com", "insecure": True},
     }
     result = to_clash_proxy(node)
     assert result["type"] == "hysteria2"
@@ -204,7 +201,7 @@ def test_hysteria2_alias():
         "server": "5.6.7.8",
         "server_port": 443,
         "password": "pw",
-        "tls": {}
+        "tls": {},
     }
     result = to_clash_proxy(node)
     assert result["type"] == "hysteria2"
@@ -219,7 +216,7 @@ def test_tuic_conversion():
         "uuid": "tuic-uuid",
         "password": "tuicpass",
         "congestion_control": "bbr",
-        "tls": {"alpn": ["h3"]}
+        "tls": {"alpn": ["h3"]},
     }
     result = to_clash_proxy(node)
     assert result["type"] == "tuic"
@@ -236,7 +233,7 @@ def test_tuic_alpn_string_normalized_to_list():
         "server_port": 443,
         "uuid": "uuid",
         "password": "pw",
-        "tls": {"alpn": "h3"}
+        "tls": {"alpn": "h3"},
     }
     result = to_clash_proxy(node)
     assert result["alpn"] == ["h3"]
@@ -254,8 +251,14 @@ def test_to_clash_proxies_filters_unsupported():
     nodes = [
         {"type": "vmess", "tag": "n1", "server": "1.1.1.1", "server_port": 443, "uuid": "u1"},
         {"type": "unknown", "tag": "bad"},
-        {"type": "shadowsocks", "tag": "n2", "server": "2.2.2.2", "server_port": 8388,
-         "password": "pw", "method": "aes-256-gcm"},
+        {
+            "type": "shadowsocks",
+            "tag": "n2",
+            "server": "2.2.2.2",
+            "server_port": 8388,
+            "password": "pw",
+            "method": "aes-256-gcm",
+        },
     ]
     result = to_clash_proxies(nodes)
     assert len(result) == 2
