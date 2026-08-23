@@ -122,6 +122,59 @@ def quality_score(node: dict[str, Any], latency_ms: float | None = None) -> floa
     return base
 
 
+def filter_timeout_outliers(
+    nodes: list[dict[str, Any]], latency_key: str = "_latency_ms", max_latency_ms: int = 800
+) -> list[dict[str, Any]]:
+    """科学剔除 timeout/慢节点：动态阈值 + 统计离群。
+
+    - 硬阈值：> max_latency_ms (默认 800ms，大陆体感) 直接剔除
+    - 统计阈值：> P90 且 > 中位数*1.8 的离群点剔除（避免“一刀切”误伤）
+    - 无 _latency_ms（未测速）则放行，交由后续 quality 排序
+    """
+    if not nodes:
+        return nodes
+    latencies: list[float] = [
+        float(n.get(latency_key))  # type: ignore[arg-type]
+        for n in nodes
+        if isinstance(n.get(latency_key), (int, float))
+    ]
+    if not latencies:
+        return nodes
+
+    # 硬阈值
+    hard_filtered: list[dict[str, Any]] = [
+        n
+        for n in nodes
+        if n.get(latency_key) is None or float(n.get(latency_key, 0)) <= max_latency_ms
+    ]
+
+    # 统计阈值：P90
+    try:
+        import statistics
+
+        lat_sorted: list[float] = sorted(float(x) for x in latencies)
+        p90_idx = int(len(lat_sorted) * 0.9)
+        p90: float = float(lat_sorted[min(p90_idx, len(lat_sorted) - 1)])
+        median: float = float(statistics.median(lat_sorted))
+        # 离群阈值为 P90 与 median*1.8 取大者，避免在高延迟整体偏高时过度剔除
+        outlier_threshold: float = max(p90, median * 1.8, 600.0)
+        hard_filtered = [
+            n
+            for n in hard_filtered
+            if n.get(latency_key) is None or float(n.get(latency_key, 0)) <= outlier_threshold
+        ]
+        # 若统计阈值剔除过多（>30%），说明分布本身分散，回退仅硬阈值
+        if len(hard_filtered) < len(nodes) * 0.7:
+            return [
+                n
+                for n in nodes
+                if n.get(latency_key) is None or n.get(latency_key, 0) <= max_latency_ms
+            ]
+    except Exception:
+        pass
+    return hard_filtered
+
+
 def filter_by_china_probe(
     nodes: list[dict[str, Any]], probe_url: str, timeout: int = 4, max_workers: int = 20
 ) -> list[dict[str, Any]]:

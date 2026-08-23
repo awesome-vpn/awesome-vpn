@@ -156,11 +156,40 @@ def expand_sources_list(list_path, spider):
 
 
 def save_singbox(output_dir, nodes):
-    """Write sing-box.json (outbounds only)."""
+    """Write sing-box.json with urltest/selector (Clash `auto` 对等)."""
+    outbounds = list(nodes)  # 保持原始节点顺序（已按 quality 排序）
+    tags = [n.get("tag") for n in outbounds if n.get("tag")]
+
+    # sing-box 原生 `auto`：urltest 每 5m 测 https://www.google.com/generate_204，tolerance 50ms 选优
+    if tags:
+        outbounds.append(
+            {
+                "type": "urltest",
+                "tag": "auto",
+                "outbounds": tags,
+                "url": "https://www.google.com/generate_204",
+                "interval": "5m",
+                "tolerance": 50,
+                "interrupt_exist_connections": False,
+            }
+        )
+        outbounds.append(
+            {
+                "type": "selector",
+                "tag": "proxy",
+                "outbounds": ["auto", "direct"],
+                "default": "auto",
+                "interrupt_exist_connections": False,
+            }
+        )
+        # direct 兜底（若节点中无 direct）
+        if not any(o.get("tag") == "direct" for o in outbounds):
+            outbounds.append({"type": "direct", "tag": "direct"})
+
     path = os.path.join(output_dir, "sing-box.json")
     with open(path, "w", encoding="utf-8") as f:
-        json.dump({"outbounds": nodes}, f, indent=2, ensure_ascii=False)
-    logger.info(f"Saved: {path}")
+        json.dump({"outbounds": outbounds}, f, indent=2, ensure_ascii=False)
+    logger.info(f"Saved: {path} ({len(outbounds)} outbounds inc. auto/proxy)")
     return path
 
 
@@ -187,13 +216,42 @@ def save_all(output_dir, nodes, source_links):
 
 
 def save_clash(output_dir, nodes):
-    """Write clash.yaml converted from sing-box nodes."""
+    """Write clash.yaml with proxy-groups auto (url-test) — 策略组 `auto`."""
     proxies = to_clash_proxies(nodes)
+    proxy_names = [p.get("name") for p in proxies if p.get("name")]
+
+    # Clash `auto` 对等 sing-box urltest：每 300s 测 https://www.google.com/generate_204
+    proxy_groups = []
+    if proxy_names:
+        proxy_groups = [
+            {
+                "name": "PROXY",
+                "type": "select",
+                "proxies": ["Auto", "DIRECT"]
+                + proxy_names[:10],  # 仅前10避免配置过长，Auto 已含全量
+            },
+            {
+                "name": "Auto",
+                "type": "url-test",
+                "proxies": proxy_names,
+                "url": "https://www.google.com/generate_204",
+                "interval": 300,
+                "tolerance": 50,
+            },
+        ]
+
     data = {"proxies": proxies}
+    if proxy_groups:
+        data["proxy-groups"] = proxy_groups
+        # 兜底规则：让 Auto 接管
+        data["rules"] = ["MATCH,PROXY"]
+
     path = os.path.join(output_dir, "clash.yaml")
     with open(path, "w", encoding="utf-8") as f:
         yaml.dump(data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-    logger.info(f"Saved: {path}")
+    logger.info(
+        f"Saved: {path} ({len(proxies)} proxies, auto group {'yes' if proxy_groups else 'no'})"
+    )
     return path
 
 
@@ -451,12 +509,20 @@ def main():
 
         # 统一评分 + 排序（无论是否截断，都让优质节点在前）
         if valid_nodes:
-            from core.quality import filter_by_china_probe, quality_score
+            from core.quality import filter_by_china_probe, filter_timeout_outliers, quality_score
 
             for n in valid_nodes:
                 n["_quality"] = quality_score(n, n.get("_latency_ms"))
 
             valid_nodes.sort(key=lambda x: x.get("_quality", 0), reverse=True)
+
+            # 科学剔除 timeout：800ms 硬阈值 + P90/中位数离群，解决“几十个 timeout”
+            before_timeout = len(valid_nodes)
+            valid_nodes = filter_timeout_outliers(valid_nodes, "_latency_ms", max_latency_ms=800)
+            if len(valid_nodes) < before_timeout:
+                logger.info(
+                    f"Timeout outlier filter: {len(valid_nodes)}/{before_timeout} kept (800ms + P90)"
+                )
 
             # 可选：大陆侧探活二次过滤（需外网探针）
             if china_check_url:
