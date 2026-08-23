@@ -279,14 +279,14 @@ class Validator:
 
         valid_nodes = []
         print(f"Starting FINAL strict validation for {len(nodes)} nodes...")
-        print("Criteria:")
+        print("Criteria (strict, China-aware):")
         print(
             f"  1) IP must change (≠ {self.original_ip}){' [SKIP: original_ip unknown]' if self.original_ip is None else ''}"
         )
-        print("  2) Can access google.com via proxy (HTTPS)")
-        print("  3) DNS works (TCP DNS via SOCKS5)")
+        print("  2) google.com/generate_204 == 204 via proxy, latency < 1.0s (was 1.5s)")
+        print("  3) DNS works (TCP DNS via SOCKS5, require 1/2)")
         print("  4) hysteria2/tuic must have UDP support")
-        print("  5) Latency < 1.5s")
+        print("  5) China resistance score (REALITY/WS+TLS/CDN +10) used for ranking")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_node = {
@@ -295,28 +295,31 @@ class Validator:
             for i, future in enumerate(concurrent.futures.as_completed(future_to_node)):
                 node = future_to_node[future]
                 try:
-                    if future.result():
+                    ok, latency_ms = future.result()
+                    if ok:
+                        # stash latency for ranking; not part of sing-box outbound spec, will be stripped on save
+                        node["_latency_ms"] = latency_ms
                         valid_nodes.append(node)
                 except Exception:
                     pass
                 if (i + 1) % 50 == 0:
                     print(f"Validated {i + 1}/{len(nodes)}, {len(valid_nodes)} valid...")
 
-        print(f"Complete: {len(valid_nodes)}/{len(nodes)} passed")
+        print(f"Complete: {len(valid_nodes)}/{len(nodes)} passed before ranking")
         return valid_nodes
 
     def validate_node_final(self, node, timeout=5):
         """
-        最终严格验证：
+        最终严格验证（China-aware, 严格）：
         1. TCP 连通性
         2. 出口 IP ≠ 原始 IP
-        3. 能访问 google.com（最小最快的测试）
+        3. google.com/generate_204 == 204 via proxy, latency < 1.0s
         4. DNS 解析正常（TCP DNS via SOCKS5）
         5. hysteria2/tuic 必须 UDP 通（SOCKS5 UDP ASSOCIATE）
-        6. 延迟 < 3s
+        返回 (ok, latency_ms)
         """
         if not self.sing_box_path or not os.path.exists(self.sing_box_path):
-            return True
+            return True, 0.0
 
         server = node.get("server")
         port = node.get("server_port") or node.get("port")
@@ -327,7 +330,7 @@ class Validator:
         UDP_PROTOCOLS = {"hysteria2", "hy2", "tuic"}
         if server and port and node_type not in UDP_PROTOCOLS and not self.local_mode:
             if not self.tcp_ping(server, port, timeout=2):
-                return False
+                return False, 0.0
 
         node_config = node.copy()
         keys_to_remove = [k for k in list(node_config.keys()) if k.startswith("_")]
@@ -377,7 +380,7 @@ class Validator:
                     stderr_output = proc.stderr.read() if proc.stderr else ""
                     if stderr_output:
                         print(f"    sing-box failed: {stderr_output[:200]}")
-                return False
+                return False, 0.0
 
             proxies = {
                 "http": f"socks5://127.0.0.1:{listen_port}",
@@ -405,9 +408,9 @@ class Validator:
                     continue
 
             if not ip_changed:
-                return False
+                return False, 0.0
 
-            # === 验证 2: 访问 google.com/generate_204 返回 204 ===
+            # === 验证 2: 访问 google.com/generate_204 返回 204, 延迟 <1.0s (大陆用户体感阈值) ===
             start = time.time()
             try:
                 session = requests.Session()
@@ -415,10 +418,10 @@ class Validator:
                 session.proxies.update(proxies)
                 resp = session.get(TEST_URL, timeout=timeout)
                 latency = time.time() - start
-                if resp.status_code != 204 or latency >= 1.5:
-                    return False
+                if resp.status_code != 204 or latency >= 1.0:
+                    return False, latency * 1000
             except Exception:
-                return False
+                return False, 0.0
 
             # === 验证 3: DNS 解析正常（通过 SOCKS5 TCP DNS）===
             dns_works = False
@@ -428,18 +431,18 @@ class Validator:
                     break
 
             if not dns_works:
-                return False
+                return False, latency * 1000
 
             # === 验证 4: UDP 支持（hysteria2/tuic 必须）===
             if node_type in ["hysteria2", "hy2", "tuic"]:
                 udp_ok = self.check_udp_dns_via_socks5(listen_port, timeout=3)
                 if not udp_ok:
-                    return False
+                    return False, latency * 1000
 
-            return True
+            return True, latency * 1000
 
         except Exception:
-            return False
+            return False, 0.0
         finally:
             if proc:
                 try:

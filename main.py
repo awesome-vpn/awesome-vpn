@@ -434,7 +434,57 @@ def main():
         valid_nodes = validator.validate_nodes_parallel(
             valid_nodes, timeout=5, max_workers=args.validate_workers
         )
-        logger.info(f"Valid nodes: {len(valid_nodes)}")
+        logger.info(f"Valid nodes (before ranking): {len(valid_nodes)}")
+
+        # --- 严格质量管控（大陆友好） ---
+        # GitHub 能连 ≠ 大陆能连：GFW 对直连 `server:port` 的 TCP 阻断是主因。
+        # 此处用本地可算的抗封锁分 + 实测延迟做 Top-N 优选，宁缺毋滥。
+        try:
+            max_nodes = int(os.getenv("MAX_NODES", "80"))
+        except (ValueError, TypeError):
+            max_nodes = 80
+        # CHINA_CHECK_URL 可选：若提供大陆侧探活接口（如自建杭州/深圳探针），
+        # 可在此对 valid_nodes 再做一轮 `server:port` 可达性校验（当前仅启发式）
+        china_check_url = os.getenv("CHINA_CHECK_URL", "").strip()
+        if china_check_url:
+            logger.info(f"China check enabled: {china_check_url} (external probe)")
+
+        # 统一评分 + 排序（无论是否截断，都让优质节点在前）
+        if valid_nodes:
+            from core.quality import filter_by_china_probe, quality_score
+
+            for n in valid_nodes:
+                n["_quality"] = quality_score(n, n.get("_latency_ms"))
+
+            valid_nodes.sort(key=lambda x: x.get("_quality", 0), reverse=True)
+
+            # 可选：大陆侧探活二次过滤（需外网探针）
+            if china_check_url:
+                before = len(valid_nodes)
+                valid_nodes = filter_by_china_probe(valid_nodes, china_check_url)
+                logger.info(f"China probe: {len(valid_nodes)}/{before} reachable from mainland")
+
+            # 严格截断：宁缺毋滥
+            if max_nodes > 0 and len(valid_nodes) > max_nodes:
+                dropped = len(valid_nodes) - max_nodes
+                logger.info(
+                    f"Quality ranking: keep Top {max_nodes}/{len(valid_nodes)} (drop {dropped} low-quality)"
+                )
+                for n in valid_nodes[max_nodes : max_nodes + 3]:
+                    logger.debug(
+                        f"  dropped example: {n.get('type')} {n.get('server')}:{n.get('server_port')} q={n.get('_quality'):.1f}"
+                    )
+                valid_nodes = valid_nodes[:max_nodes]
+            else:
+                logger.info(
+                    f"Quality ranking: {len(valid_nodes)} <= {max_nodes}, keep all (sorted)"
+                )
+
+            for n in valid_nodes:
+                n.pop("_quality", None)
+                n.pop("_latency_ms", None)
+
+        logger.info(f"Valid nodes (after ranking): {len(valid_nodes)}")
 
         logger.info("\nUpdating node names with geo information (parallel)...")
         # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)

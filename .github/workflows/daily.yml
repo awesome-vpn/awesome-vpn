@@ -11,6 +11,7 @@ concurrency:
 
 env:
   SING_BOX_VERSION: "1.13.3"
+  MAX_NODES: "80"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -95,6 +96,9 @@ jobs:
         EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
         SOURCES_JSON: ${{ secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
+        MAX_NODES: ${{ env.MAX_NODES }}
+        # 可选：大陆侧探活（自建杭州/深圳探针POST {server,port} → {ok:bool}）
+        CHINA_CHECK_URL: ${{ secrets.CHINA_CHECK_URL }}
       run: |
         uv run python main.py --validate --workers 24 --validate-workers 30 --output .
 
@@ -111,10 +115,15 @@ jobs:
         ls -lh all sing-box.json clash.yaml
         NODE_COUNT=$(uv run python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
         echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
-        echo "Node count: $NODE_COUNT"
+        echo "Node count: $NODE_COUNT (target MAX_NODES=${{ env.MAX_NODES }})"
         if [ "$NODE_COUNT" -lt 10 ]; then
-          echo "WARNING: node count suspiciously low ($NODE_COUNT)"
+          echo "::warning::node count suspiciously low ($NODE_COUNT)"
         fi
+        if [ "$NODE_COUNT" -gt 80 ]; then
+          echo "::warning::node count exceeds MAX_NODES (strict mode expected <=80, got $NODE_COUNT)"
+        fi
+        # 大陆友好度抽检：统计 REALITY/WS+TLS 占比（抗封锁形态）
+        uv run python -c "import json; d=json.load(open('sing-box.json')); total=len(d['outbounds']); reality=sum(1 for n in d['outbounds'] if n.get('tls',{}).get('reality',{}).get('enabled')); ws=sum(1 for n in d['outbounds'] if (n.get('transport') or {}).get('type')=='ws'); print(f'Quality: REALITY {reality}/{total} ({reality*100//total if total else 0}%), WS {ws}/{total}')"
 
     - name: Upload artifacts
       if: always()
