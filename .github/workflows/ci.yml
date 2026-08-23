@@ -19,29 +19,29 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: "3.11"
-          cache: pip
-      - name: Install ruff
-        run: pip install ruff
+      - name: Install deps (uv)
+        run: uv sync --group dev
       - name: Ruff lint
-        run: ruff check .
+        run: uv run ruff check .
       - name: Ruff format check
-        run: ruff format --check .
+        run: uv run ruff format --check .
 
   typecheck: # mypy 渐进式类型检查
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: "3.11"
-          cache: pip
-      - run: pip install -r requirements-dev.txt
+      - run: uv sync --group dev
       - name: mypy
-        run: mypy core main.py --ignore-missing-imports --explicit-package-bases
+        run: uv run mypy core main.py --ignore-missing-imports --explicit-package-bases
         continue-on-error: true # 过渡期不阻断，成熟后改为 false
 
   test: # pytest + coverage + xdist 并行 + codecov
@@ -52,15 +52,15 @@ jobs:
         python-version: ["3.11", "3.12"]
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: ${{ matrix.python-version }}
-          cache: pip
       - name: Install deps
-        run: pip install -r requirements-dev.txt
+        run: uv sync --group dev
       - name: Run tests with coverage
         run: |
-          pytest --cov --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=25 -n auto -q
+          uv run pytest --cov --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=25 -n auto -q
       - name: Upload coverage to Codecov (best-effort)
         if: matrix.python-version == '3.11'
         continue-on-error: true
@@ -77,18 +77,18 @@ jobs:
           path: htmlcov
           retention-days: 7
 
-  security: # bandit + pip-audit + gitleaks 轻量安全
+  security: # bandit + pip-audit 轻量安全
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: "3.11"
-          cache: pip
-      - run: pip install bandit[toml] pip-audit
+      - run: uv sync --group dev
       - name: Bandit (SAST)
-        run: bandit -c pyproject.toml -r core main.py
+        run: uv run bandit -c pyproject.toml -r core main.py
       - name: pip-audit (SCA)
-        run: pip-audit --desc --local || true # 私有源 404 不阻断，发 warn 即可
+        run: uv run pip-audit --desc --local || true
         continue-on-error: true

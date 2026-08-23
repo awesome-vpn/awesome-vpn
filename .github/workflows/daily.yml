@@ -21,26 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          enable-cache: true
+          python-version: "3.11"
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
-
-      - name: Install test deps
-        run: pip install pytest
+      - name: Install Dependencies (uv)
+        run: uv sync --group dev
 
       - name: Run tests
-        run: pytest -q
+        run: uv run pytest -q
 
       - name: Lint (ruff check, non-blocking)
         continue-on-error: true
-        run: |
-          pip install ruff
-          ruff check . || true
+        run: uv run ruff check . || true
 
   crawl:
     runs-on: ubuntu-latest
@@ -55,11 +49,10 @@ jobs:
       with:
         fetch-depth: 1
 
-    - name: Set up Python
-      uses: actions/setup-python@v6
+    - uses: astral-sh/setup-uv@v6
       with:
-        python-version: '3.11'
-        cache: 'pip'
+        enable-cache: true
+        python-version: "3.11"
 
     - name: Cache sing-box binary
       uses: actions/cache@v5
@@ -79,8 +72,8 @@ jobs:
         key: geolite2-mmdb-${{ steps.date.outputs.month }}
         restore-keys: geolite2-mmdb-
 
-    - name: Install Dependencies
-      run: pip install -r requirements.txt
+    - name: Install Dependencies (uv)
+      run: uv sync
 
     - name: Download GeoLite2-City MMDB
       if: steps.mmdb-cache.outputs.cache-hit != 'true'
@@ -103,7 +96,7 @@ jobs:
         SOURCES_JSON: ${{ secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
       run: |
-        python main.py --validate --workers 24 --validate-workers 30 --output .
+        uv run python main.py --validate --workers 24 --validate-workers 30 --output .
 
     - name: Verify Outputs
       id: verify
@@ -113,10 +106,10 @@ jobs:
         [ -s clash.yaml ] || (echo "ERROR: clash.yaml is empty" && exit 1)
         [ -x bin/sing-box-linux-amd64 ] || (echo "ERROR: sing-box binary is missing" && exit 1)
         bin/sing-box-linux-amd64 check -c sing-box.json
-        python -c "import json,collections; tags=[n['tag'] for n in json.load(open('sing-box.json'))['outbounds']]; assert len(tags)==len(set(tags)), f'duplicate tags found: {len(tags)-len(set(tags))}'"
+        uv run python -c "import json,collections; tags=[n['tag'] for n in json.load(open('sing-box.json'))['outbounds']]; assert len(tags)==len(set(tags)), f'duplicate tags found: {len(tags)-len(set(tags))}'"
         echo "Output sizes:"
         ls -lh all sing-box.json clash.yaml
-        NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
+        NODE_COUNT=$(uv run python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
         echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
         echo "Node count: $NODE_COUNT"
         if [ "$NODE_COUNT" -lt 10 ]; then
@@ -141,7 +134,7 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add all sing-box.json clash.yaml
-        NODE_COUNT=$(python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
+        NODE_COUNT=$(uv run python -c 'import json; print(len(json.load(open("sing-box.json"))["outbounds"]))')
         git diff --staged --quiet || \
           git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes"
         git push

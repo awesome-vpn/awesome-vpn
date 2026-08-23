@@ -20,15 +20,15 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: "3.11"
-          cache: pip
-      - run: pip install ruff
+      - run: uv sync --group dev
       - name: Ruff fix
         run: |
-          ruff check --fix . || true
-          ruff format . || true
+          uv run ruff check --fix . || true
+          uv run ruff format . || true
       - name: Push fixes if any
         run: |
           if ! git diff --quiet; then

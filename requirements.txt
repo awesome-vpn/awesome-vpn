@@ -1,5 +1,7 @@
-# Core runtime dependencies — pinned for reproducible CI builds.
-# Regenerate with: pip freeze | grep -f <(cut -d'=' -f1 requirements.txt | cut -d'>' -f1 | cut -d'[' -f1) > requirements.lock
+# LEGACY — 本文件由 uv 管理，首选 `uv sync` (pyproject.toml + uv.lock)
+# 保留此文件仅为兼容 `pip install -r requirements.txt` 及旧 CI
+# 更新: `uv pip compile pyproject.toml -o requirements.txt` 或手动同步
+# 主入口: pyproject.toml [project.dependencies] + uv.lock
 requests[socks]>=2.32.0
 PyYAML>=6.0.1
 beautifulsoup4>=4.12.0
