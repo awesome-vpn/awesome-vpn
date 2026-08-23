@@ -227,15 +227,14 @@ def save_clash(output_dir, nodes):
     proxies = to_clash_proxies(nodes)
     proxy_names = [p.get("name") for p in proxies if p.get("name")]
 
-    # Clash `auto` 对等 sing-box urltest：每 300s 测 https://www.google.com/generate_204
+    # Clash/mihomo：select 组放全量节点供手动选择，url-test 组自动选最快
     proxy_groups = []
     if proxy_names:
         proxy_groups = [
             {
                 "name": "PROXY",
                 "type": "select",
-                "proxies": ["Auto", "DIRECT"]
-                + proxy_names[:10],  # 仅前10避免配置过长，Auto 已含全量
+                "proxies": ["Auto", "DIRECT"] + proxy_names,
             },
             {
                 "name": "Auto",
