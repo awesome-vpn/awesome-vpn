@@ -20,6 +20,8 @@ config/sources.json
 
 # sing-box binary (cached)
 bin/
+# uv - IRON RULE: pyproject.toml is single source of truth, do not commit uv.lock
+uv.lock
 # dev tooling & quality artifacts
 .ruff_cache/
 .mypy_cache/

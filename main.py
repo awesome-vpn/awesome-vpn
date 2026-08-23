@@ -102,6 +102,43 @@ def resolve_date_url(url):
         return url
 
 
+def format_source_label(source_url: str) -> str:
+    """生成中文来源标签，用于节点名 ` [来源:xxx]`，保留核心域名/频道，避免过长。"""
+    if not source_url:
+        return "未知来源"
+    s = source_url.strip()
+    # Telegram
+    if "t.me" in s or s.startswith("@"):
+        # s like https://t.me/s/channel or Telegram:@channel
+        if "t.me" in s:
+            # 提取 channel
+            try:
+                channel = s.split("t.me/")[-1].split("/")[0].lstrip("@").split("?")[0]
+                if channel and channel != "s":
+                    return f"Telegram:{channel}"
+            except Exception:
+                pass
+        else:
+            return f"Telegram:{s.lstrip('@')[:20]}"
+        return "Telegram"
+    # GitHub
+    if "github" in s.lower() or "raw.githubusercontent" in s.lower():
+        return "GitHub"
+    # 提取域名
+    try:
+        from urllib.parse import urlparse
+
+        host = urlparse(s).hostname or ""
+        if host:
+            # 去 www.
+            if host.startswith("www."):
+                host = host[4:]
+            return host[:30]
+        return s[:30]
+    except Exception:
+        return s[:20]
+
+
 def expand_sources_list(list_path, spider):
     entries = []
     allow_blocked = os.getenv("ALLOW_BLOCKED_SOURCES") == "1"
@@ -298,7 +335,8 @@ def main():
     mmdb_path = os.path.join(base_dir, "config", "GeoLite2-City.mmdb")
     geo_utils = GeoUtils(mmdb_path)
 
-    all_links = []
+    all_links: list[str] = []
+    link_to_source: dict[str, str] = {}  # proxy link -> subscription URL / TG channel
 
     logger.info("\n[1/5] Loading sources from config...")
 
@@ -379,6 +417,9 @@ def main():
             links = spider.parse_subscription(content)
             links = apply_source_filters(links, url_options.get(url, {}))
             logger.info(f"      {url}: {len(links)} links")
+            for link in links:
+                if link not in link_to_source:
+                    link_to_source[link] = url
             all_links.extend(links)
 
     logger.info("\n[3/5] Fetching Telegram channels...")
@@ -392,6 +433,10 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=tg_workers) as executor:
         for channel, links in executor.map(_fetch_channel, telegram_channels):
             logger.info(f"      @{channel}: {len(links)} links")
+            src = f"https://t.me/s/{channel}"
+            for link in links:
+                if link not in link_to_source:
+                    link_to_source[link] = src
             all_links.extend(links)
 
     logger.info("\n[4/5] Processing sources.list...")
@@ -405,6 +450,9 @@ def main():
                 links = [url]
             links = apply_source_filters(links, options)
             logger.info(f"      {url}: {len(links)} links")
+            for link in links:
+                if link not in link_to_source:
+                    link_to_source[link] = url
             all_links.extend(links)
         except Exception as e:
             logger.debug(f"      Failed to process {url}: {e}")
@@ -445,8 +493,9 @@ def main():
 
     # Phase 2: Single-threaded deduplication
     logger.info("Deduplicating nodes...")
-    sing_box_outbounds = []
-    source_links = {}
+    sing_box_outbounds: list[dict] = []
+    source_links: dict[int, str] = {}
+    node_source_map: dict[int, str] = {}  # 节点 -> 订阅源 URL（用于中文来源标注）
     duplicates = 0
 
     for node, link in raw_parsed_nodes:
@@ -458,6 +507,7 @@ def main():
                 continue
             sing_box_outbounds.append(n)
             source_links[id(n)] = link
+            node_source_map[id(n)] = link_to_source.get(link, "未知来源")
 
     logger.info(f"Successfully parsed: {len(sing_box_outbounds)} nodes")
     logger.info(f"Duplicates filtered: {duplicates}")
@@ -516,12 +566,12 @@ def main():
 
             valid_nodes.sort(key=lambda x: x.get("_quality", 0), reverse=True)
 
-            # 科学剔除 timeout：800ms 硬阈值 + P90/中位数离群，解决“几十个 timeout”
+            # 科学剔除 timeout：500ms 硬阈值（大陆体感），无墙环境下验证有墙可用性
             before_timeout = len(valid_nodes)
-            valid_nodes = filter_timeout_outliers(valid_nodes, "_latency_ms", max_latency_ms=800)
+            valid_nodes = filter_timeout_outliers(valid_nodes, "_latency_ms", max_latency_ms=500)
             if len(valid_nodes) < before_timeout:
                 logger.info(
-                    f"Timeout outlier filter: {len(valid_nodes)}/{before_timeout} kept (800ms + P90)"
+                    f"Timeout filter: {len(valid_nodes)}/{before_timeout} kept (500ms hard)"
                 )
 
             # 可选：大陆侧探活二次过滤（需外网探针）
@@ -554,12 +604,18 @@ def main():
 
         logger.info("\nUpdating node names with geo information (parallel)...")
         # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)
-        node_data = [(node, node.get("tag", "")) for node in valid_nodes]
+        # 同时拼接中文来源： [来源:GitHub] / [来源:Telegram:xxx] / [来源:example.com]
+        node_data = [
+            (node, node.get("tag", ""), node_source_map.get(id(node), "未知来源"))
+            for node in valid_nodes
+        ]
 
         def resolve_geo(item):
-            node, original_tag = item
+            node, original_tag, source_url = item
             server = node.get("server", "")
-            node_name = geo_utils.format_node_name(server) if server else original_tag
+            geo_name = geo_utils.format_node_name(server) if server else original_tag
+            source_label = format_source_label(source_url)
+            node_name = f"{geo_name} [来源:{source_label}]"
             return node, node_name
 
         geo_workers = min(30, len(valid_nodes)) if valid_nodes else 1

@@ -44,12 +44,20 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 - Update README.md if your changes affect usage
 - End all files with a newline
 
+## Iron Rules
+
+> **All commits MUST be in English. `uv` is the ONLY local entry for Python — never `pip`/`pip3`. `uv.lock` is NEVER committed (see `.gitignore`).**
+
+- `pyproject.toml` + `uv.lock` is the single source of truth; `requirements*.txt` is legacy fallback only
+- Local: `uv sync --group dev` / `uv run pytest -q` / `uv run ruff check .` / `make install` (which wraps `uv`)
+- CI: `astral-sh/setup-uv@v6` + `uv sync` + `uv run ...` (never `actions/setup-python` + `pip`)
+
 ## Development Setup
 
 ### Prerequisites
 
 - Python 3.11+
-- pip
+- uv 0.12+ (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
 
 ### Setup
 
@@ -58,11 +66,13 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 git clone https://github.com/awesome-vpn/awesome-vpn.git
 cd awesome-vpn
 
-# Install dependencies
-pip install -r requirements.txt
+# Install dependencies (iron rule: use uv, not pip)
+uv sync --group dev
+# or: make install
 
 # Run the crawler
-python main.py --validate --workers 24 --validate-workers 50
+uv run python main.py --validate --workers 24 --validate-workers 30
+# or: make help
 ```
 
 ## Style Guidelines
