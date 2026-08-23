@@ -22,7 +22,7 @@ sys.path.append(current_dir)
 sys.path.append(os.path.join(current_dir, 'core', 'parsers'))
 
 from core.spider import Spider
-from core.deduplicator import Deduplicator
+from core.deduplicator import Deduplicator, ensure_unique_tags
 from core.validator import Validator
 from core.binary_manager import BinaryManager
 from core.geo_utils import GeoUtils
@@ -326,7 +326,7 @@ def main():
     # Phase 2: Single-threaded deduplication
     logger.info("Deduplicating nodes...")
     sing_box_outbounds = []
-    link_to_node_map = {}
+    source_links = {}
     duplicates = 0
 
     for node, link in raw_parsed_nodes:
@@ -336,9 +336,8 @@ def main():
             if deduplicator.is_duplicate(n) or deduplicator.is_redundant_server(n):
                 duplicates += 1
                 continue
-            original_tag = n.get('tag', '')
             sing_box_outbounds.append(n)
-            link_to_node_map[original_tag] = link
+            source_links[id(n)] = link
 
     logger.info(f"Successfully parsed: {len(sing_box_outbounds)} nodes")
     logger.info(f"Duplicates filtered: {duplicates}")
@@ -373,27 +372,25 @@ def main():
         logger.info("\nUpdating node names with geo information (parallel)...")
         # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)
         node_data = [
-            (node, node.get('tag', ''), link_to_node_map.get(node.get('tag', ''), ''))
+            (node, node.get('tag', ''))
             for node in valid_nodes
         ]
 
         def resolve_geo(item):
-            node, original_tag, original_link = item
+            node, original_tag = item
             server = node.get('server', '')
             node_name = geo_utils.format_node_name(server) if server else original_tag
-            return node, node_name, original_link
+            return node, node_name
 
         geo_workers = min(50, len(valid_nodes)) if valid_nodes else 1
         with concurrent.futures.ThreadPoolExecutor(max_workers=geo_workers) as executor:
             geo_results = list(executor.map(resolve_geo, node_data))
 
-        updated_link_to_node_map = {}
-        for node, node_name, original_link in geo_results:
+        for node, node_name in geo_results:
             node['tag'] = node_name
-            if original_link:
-                base_link = original_link.rsplit('#', 1)[0] if '#' in original_link else original_link
-                updated_link_to_node_map[node_name] = f"{base_link}#{node_name}"
-        link_to_node_map = updated_link_to_node_map
+
+    renamed_tags = ensure_unique_tags(valid_nodes)
+    logger.info(f"Renamed duplicate tags: {renamed_tags}")
 
     logger.info("\n" + "=" * 60)
     logger.info("Saving output...")
@@ -409,9 +406,10 @@ def main():
     links_output = []
     for node in valid_nodes:
         tag = node.get('tag', '')
-        original_link = link_to_node_map.get(tag, '')
+        original_link = source_links.get(id(node), '')
         if original_link:
-            links_output.append(original_link)
+            base_link = original_link.rsplit('#', 1)[0] if '#' in original_link else original_link
+            links_output.append(f"{base_link}#{tag}")
         else:
             server = node.get('server', '')
             port = node.get('server_port') or node.get('port', '')
