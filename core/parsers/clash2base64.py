@@ -24,9 +24,9 @@ def clash2v2ray(share_link):
                 or share_link.get("ws-opts", {}).get("path", ""),
                 "tls": "",
             }
-            if share_link.get("skip-cert-verify") == False:
+            if not share_link.get("skip-cert-verify"):
                 vmess_info["verify_cert"] = False
-            if share_link.get("tls") and share_link["tls"] != False:
+            if share_link.get("tls") and share_link["tls"]:
                 vmess_info["tls"] = "tls"
                 vmess_info["sni"] = share_link.get("servername", "")
             if vmess_info["net"] == "grpc":
@@ -44,7 +44,7 @@ def clash2v2ray(share_link):
                     share_link.get("http-opts", {}).get("headers", {}).get("Host", [])
                 )
                 vmess_info["path"] = share_link.get("http-opts", {}).get("path", [])
-            if share_link.get("smux", {}).get("enabled", "") == True:
+            if share_link.get("smux", {}).get("enabled", ""):
                 vmess_info["protocol"] = share_link["smux"]["protocol"]
                 vmess_info["max_connections"] = share_link["smux"].get("max-connections", "")
                 vmess_info["min_streams"] = share_link["smux"].get("min-streams", "")
@@ -86,11 +86,11 @@ def clash2v2ray(share_link):
                     ss_info["headers"] = share_link["plugin-opts"]["headers"]
                 if share_link["plugin-opts"].get("fingerprint"):
                     ss_info["fingerprint"] = share_link["plugin-opts"]["fingerprint"]
-                if share_link["plugin-opts"].get("mux") == True:
+                if share_link["plugin-opts"].get("mux"):
                     ss_info["mux"] = True
-                if share_link["plugin-opts"].get("skip-cert-verify") == True:
+                if share_link["plugin-opts"].get("skip-cert-verify"):
                     ss_info["skip-cert-verify"] = True
-                if share_link["plugin-opts"].get("tls") == True:
+                if share_link["plugin-opts"].get("tls"):
                     ss_info["tls"] = True
                 v2ray_plugin = {
                     "mode": ss_info.get("obfs", ""),
@@ -116,7 +116,7 @@ def clash2v2ray(share_link):
             )
         else:
             link = "ss://{base_link}@{server}:{port}".format(base_link=base_link, **ss_info)
-        if share_link.get("smux", {}).get("enabled", "") == True:
+        if share_link.get("smux", {}).get("enabled", ""):
             ss_info["protocol"] = share_link["smux"]["protocol"]
             ss_info["max_connections"] = share_link["smux"].get("max-connections", "")
             ss_info["min_streams"] = share_link["smux"].get("min-streams", "")
@@ -125,7 +125,7 @@ def clash2v2ray(share_link):
             link += "&protocol={protocol}&max-connections={max_connections}&min-streams={min_streams}&max-streams={max_streams}&padding={padding}#{name}".format(
                 **ss_info
             )
-        elif share_link.get("udp-over-tcp") == True:
+        elif share_link.get("udp-over-tcp"):
             link += "&uot=1#{name}".format(**ss_info)
         else:
             link += f"#{ss_info['name']}"
@@ -144,7 +144,7 @@ def clash2v2ray(share_link):
             "obfsparam": base64.b64encode(share_link.get("obfs-param").encode("utf-8")).decode(
                 "utf-8"
             )
-            if share_link.get("obfs-param") != None
+            if share_link.get("obfs-param") is not None
             else "",
             "protoparam": base64.b64encode(
                 share_link.get("protocol-param", "").encode("utf-8")
@@ -166,7 +166,7 @@ def clash2v2ray(share_link):
             "server": share_link["server"],
             "port": share_link["port"],
             "sni": share_link.get("sni", ""),
-            "allowInsecure": "1" if share_link.get("skip-cert-verify") == True else "0",
+            "allowInsecure": "1" if share_link.get("skip-cert-verify") else "0",
             "type": share_link.get("network", "tcp"),
             "fp": share_link.get("client-fingerprint", ""),
             "alpn": quote(",".join(share_link.get("alpn", "")), "utf-8"),
@@ -206,7 +206,7 @@ def clash2v2ray(share_link):
             link = "trojan://{password}@{server}:{port}?sni={sni}&allowInsecure={allowInsecure}&type={type}&fp={fp}&alpn={alpn}".format(
                 **trojan_info
             )
-        if share_link.get("smux", {}).get("enabled", "") == True:
+        if share_link.get("smux", {}).get("enabled", ""):
             trojan_info["protocol"] = share_link["smux"]["protocol"]
             trojan_info["max_connections"] = share_link["smux"].get("max-connections", "")
             trojan_info["min_streams"] = share_link["smux"].get("min-streams", "")
@@ -228,10 +228,10 @@ def clash2v2ray(share_link):
             "fp": share_link.get("client-fingerprint", ""),
             "type": share_link.get("network", "tcp"),
             "flow": share_link.get("flow", ""),
-            "allowInsecure": "1" if share_link.get("skip-cert-verify") == True else "0",
+            "allowInsecure": "1" if share_link.get("skip-cert-verify") else "0",
             "name": quote(share_link["name"], "utf-8"),
         }
-        if share_link.get("tls") == False:
+        if not share_link.get("tls"):
             vless_info["security"] = "none"
         else:
             vless_info["security"] = "tls"
@@ -279,7 +279,7 @@ def clash2v2ray(share_link):
                 link = "vless://{uuid}@{server}:{port}?encryption=none&security={security}&sni={sni}&serverName={sni}&type={type}&fp={fp}&flow={flow}&allowInsecure={allowInsecure}".format(
                     **vless_info
                 )
-        if share_link.get("smux", {}).get("enabled", "") == True:
+        if share_link.get("smux", {}).get("enabled", ""):
             vless_info["protocol"] = share_link["smux"]["protocol"]
             vless_info["max_connections"] = share_link["smux"].get("max-connections", "")
             vless_info["min_streams"] = share_link["smux"].get("min-streams", "")
@@ -300,7 +300,7 @@ def clash2v2ray(share_link):
             port=share_link["port"],
             alpn=quote(",".join(share_link.get("alpn", "")), "utf-8"),
             allowInsecure=share_link.get("allowInsecure", "1"),
-            disable_sni="0" if share_link.get("disable-sni", "") == False else "1",
+            disable_sni="0" if not share_link.get("disable-sni", "") else "1",
             sni=share_link.get("sni", ""),
             udp_relay_mode=share_link.get("udp-relay-mode", "native"),
             control=share_link.get("congestion-controller", "bbr"),
@@ -315,7 +315,7 @@ def clash2v2ray(share_link):
             protocol=share_link.get("protocol", "udp"),
             auth=share_link.get("auth_str", share_link.get("auth-str")),
             alpn=quote(",".join(share_link.get("alpn", "")), "utf-8"),
-            allowInsecure="0" if share_link.get("skip-cert-verify", "") == False else "1",
+            allowInsecure="0" if not share_link.get("skip-cert-verify", "") else "1",
             sni=share_link.get("sni", ""),
             upmbps=int(re.search(r"\d+", str(share_link.get("up", "")))[0]),
             downmbps=int(re.search(r"\d+", str(share_link.get("down", "")))[0]),
@@ -330,7 +330,7 @@ def clash2v2ray(share_link):
             server=share_link["server"],
             port=share_link["port"],
             ports=",{}".format(share_link["ports"]) if share_link.get("ports") else "",
-            allowInsecure="0" if share_link.get("skip-cert-verify", "") == False else "1",
+            allowInsecure="0" if not share_link.get("skip-cert-verify", "") else "1",
             obfs=share_link.get("obfs", "none"),
             obfspassword=share_link.get("obfs-password", ""),
             fingerprint=share_link.get("fingerprint", ""),
@@ -433,7 +433,7 @@ def clash2v2ray(share_link):
             minIdleSession=share_link.get("min-idle-session", ""),
             alpn=quote(",".join(share_link.get("alpn", "")), "utf-8"),
             fp=share_link.get("client-fingerprint", ""),
-            allowInsecure="1" if share_link.get("skip-cert-verify", "") == True else "0",
+            allowInsecure="1" if share_link.get("skip-cert-verify", "") else "0",
             sni=share_link.get("sni", ""),
             name=share_link["name"].encode("utf-8", "surrogatepass").decode("utf-8"),
         )

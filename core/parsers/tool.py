@@ -225,7 +225,7 @@ def firstLine(data):
 
 def genName(length=8):
     name = ""
-    for i in range(length):
+    for _i in range(length):
         name += random.choice(string.ascii_letters + string.digits)
     return name
 

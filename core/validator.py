@@ -31,7 +31,7 @@ DNS_TEST_DOMAINS = [
 
 # 端口分配锁，避免并发冲突
 _port_lock = threading.Lock()
-_allocated_ports = set()
+_allocated_ports: set[int] = set()
 
 
 def _get_unique_port():
@@ -422,7 +422,7 @@ class Validator:
 
             # === 验证 3: DNS 解析正常（通过 SOCKS5 TCP DNS）===
             dns_works = False
-            for domain, name in DNS_TEST_DOMAINS:
+            for domain, _name in DNS_TEST_DOMAINS:
                 if self.check_dns_via_proxy(listen_port, domain, timeout=3):
                     dns_works = True
                     break

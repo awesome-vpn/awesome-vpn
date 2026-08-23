@@ -96,7 +96,7 @@ def parse(data):
             "insecure": True,
             "server_name": item.get("host", "") if item.get("net") not in ["h2", "http"] else "",
         }
-        if item.get("verify_cert") == False:
+        if not item.get("verify_cert"):
             node["tls"]["insecure"] = False
         if item.get("sni"):
             node["tls"]["server_name"] = item["sni"]
@@ -138,6 +138,6 @@ def parse(data):
         else:
             node["multiplex"]["max_connections"] = int(item["max_connections"])
             node["multiplex"]["min_streams"] = int(item["min_streams"])
-        if item.get("padding") == True:
+        if item.get("padding"):
             node["multiplex"]["padding"] = True
     return node

@@ -1,7 +1,29 @@
-# Development / CI tooling
+# Development / CI 质量工具链 — 全主流组合
+# 安装: pip install -r requirements-dev.txt
+# 或: pip install -e .[dev]  (如已配置)
 -r requirements.txt
+
+# --- 测试 ---
 pytest>=8.0.0
-ruff>=0.8.0
+pytest-cov>=6.0.0          # 覆盖率, 对接 coverage.py
+pytest-xdist>=3.6.0         # 并行跑测试: pytest -n auto
+hypothesis>=6.100.0         # property-based testing
+coverage[toml]>=7.6.0
+
+# --- 质量：lint / format / 类型 ---
+ruff>=0.8.0                 # lint + format + isort 三合一
 mypy>=1.10.0
 types-requests>=2.32.0
 types-PyYAML>=6.0
+types-beautifulsoup4>=4.12.0
+
+# --- 安全 ---
+bandit[toml]>=1.7.0         # 代码安全扫描
+pip-audit>=2.7.0            # 依赖漏洞扫描
+
+# --- 自动纠错 & 预提交 ---
+pre-commit>=4.0.0           # git hook 自动修复
+deptry>=0.18.0              # 检测缺失/冗余依赖 (可选)
+
+# --- 可选增强 ---
+# vulture>=2.10             # 死代码检测 (噪音较大，按需启用)

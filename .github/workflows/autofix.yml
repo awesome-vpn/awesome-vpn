@@ -1,0 +1,42 @@
+name: Autofix
+
+# 主流自动纠错工作流：PR 中若 ruff 可自动修复，直接推回 fix commit
+# 等价于本地 pre-commit install 后 commit 时的自动修复，但覆盖“忘记本地安装”的情况
+on:
+  pull_request:
+    branches: [master, main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ruff-autofix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install ruff
+      - name: Ruff fix
+        run: |
+          ruff check --fix . || true
+          ruff format . || true
+      - name: Push fixes if any
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore(autofix): ruff fix + format"
+            git push
+          else
+            echo "No autofix needed"
+          fi
