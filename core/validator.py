@@ -279,14 +279,10 @@ class Validator:
 
         valid_nodes = []
         print(f"Starting FINAL strict validation for {len(nodes)} nodes...")
-        print("Criteria (strict, China-aware):")
-        print(
-            f"  1) IP must change (≠ {self.original_ip}){' [SKIP: original_ip unknown]' if self.original_ip is None else ''}"
-        )
-        print("  2) google.com/generate_204 == 204 via proxy, latency < 1.0s (was 1.5s)")
-        print("  3) DNS works (TCP DNS via SOCKS5, require 1/2)")
+        print("Criteria (concise, keep 2+4):")
+        print("  2) google.com/generate_204 == 204 via proxy, latency < 1.0s")
         print("  4) hysteria2/tuic must have UDP support")
-        print("  5) China resistance score (REALITY/WS+TLS/CDN +10) used for ranking")
+        print("  + China resistance score + 500ms hard filter + Top-N")
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             future_to_node = {
@@ -310,13 +306,10 @@ class Validator:
 
     def validate_node_final(self, node, timeout=5):
         """
-        最终严格验证（China-aware, 严格）：
-        1. TCP 连通性
-        2. 出口 IP ≠ 原始 IP
-        3. google.com/generate_204 == 204 via proxy, latency < 1.0s
-        4. DNS 解析正常（TCP DNS via SOCKS5）
-        5. hysteria2/tuic 必须 UDP 通（SOCKS5 UDP ASSOCIATE）
-        返回 (ok, latency_ms)
+        Concise validation (keep 2+4):
+        2) google.com/generate_204 == 204 via proxy, latency < 1.0s
+        4) hysteria2/tuic UDP ASSOCIATE
+        Returns (ok, latency_ms)
         """
         if not self.sing_box_path or not os.path.exists(self.sing_box_path):
             return True, 0.0
@@ -387,30 +380,7 @@ class Validator:
                 "https": f"socks5://127.0.0.1:{listen_port}",
             }
 
-            # === 验证 1: 出口IP必须变化 ===
-            ip_changed = False
-            proxy_ip = None
-            # original_ip=None 时无法比较，跳过 IP 变化检查，仍要求能拿到代理 IP
-            need_ip_change = self.original_ip is not None
-            for ip_url in IP_CHECK_URLS:
-                try:
-                    session = requests.Session()
-                    session.trust_env = False
-                    session.proxies.update(proxies)
-                    resp = session.get(ip_url, timeout=timeout)
-                    if resp.status_code == 200:
-                        proxy_ip = resp.text.strip()
-                        if proxy_ip:
-                            if not need_ip_change or proxy_ip != self.original_ip:
-                                ip_changed = True
-                                break
-                except Exception:
-                    continue
-
-            if not ip_changed:
-                return False, 0.0
-
-            # === 验证 2: 访问 google.com/generate_204 返回 204, 延迟 <1.0s (大陆用户体感阈值) ===
+            # === 验证 2: google.com/generate_204 == 204 via proxy, <1.0s ===
             start = time.time()
             try:
                 session = requests.Session()
@@ -422,16 +392,6 @@ class Validator:
                     return False, latency * 1000
             except Exception:
                 return False, 0.0
-
-            # === 验证 3: DNS 解析正常（通过 SOCKS5 TCP DNS）===
-            dns_works = False
-            for domain, _name in DNS_TEST_DOMAINS:
-                if self.check_dns_via_proxy(listen_port, domain, timeout=3):
-                    dns_works = True
-                    break
-
-            if not dns_works:
-                return False, latency * 1000
 
             # === 验证 4: UDP 支持（hysteria2/tuic 必须）===
             if node_type in ["hysteria2", "hy2", "tuic"]:

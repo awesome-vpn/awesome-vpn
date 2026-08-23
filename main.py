@@ -103,40 +103,10 @@ def resolve_date_url(url):
 
 
 def format_source_label(source_url: str) -> str:
-    """生成中文来源标签，用于节点名 ` [来源:xxx]`，保留核心域名/频道，避免过长。"""
+    """直接返回原始 URL，用于节点名 `[url]`，不做简化，便于追溯来源。"""
     if not source_url:
         return "未知来源"
-    s = source_url.strip()
-    # Telegram
-    if "t.me" in s or s.startswith("@"):
-        # s like https://t.me/s/channel or Telegram:@channel
-        if "t.me" in s:
-            # 提取 channel
-            try:
-                channel = s.split("t.me/")[-1].split("/")[0].lstrip("@").split("?")[0]
-                if channel and channel != "s":
-                    return f"Telegram:{channel}"
-            except Exception:
-                pass
-        else:
-            return f"Telegram:{s.lstrip('@')[:20]}"
-        return "Telegram"
-    # GitHub
-    if "github" in s.lower() or "raw.githubusercontent" in s.lower():
-        return "GitHub"
-    # 提取域名
-    try:
-        from urllib.parse import urlparse
-
-        host = urlparse(s).hostname or ""
-        if host:
-            # 去 www.
-            if host.startswith("www."):
-                host = host[4:]
-            return host[:30]
-        return s[:30]
-    except Exception:
-        return s[:20]
+    return source_url.strip()
 
 
 def expand_sources_list(list_path, spider):
@@ -604,7 +574,7 @@ def main():
 
         logger.info("\nUpdating node names with geo information (parallel)...")
         # Pre-collect data before parallelizing; geo_utils is thread-safe (cached)
-        # 同时拼接中文来源： [来源:GitHub] / [来源:Telegram:xxx] / [来源:example.com]
+        # 直接把订阅 URL 打在名字里： 日本/东京/Japan/Tokyo [https://xxx]（用户要求）
         node_data = [
             (node, node.get("tag", ""), node_source_map.get(id(node), "未知来源"))
             for node in valid_nodes
@@ -614,8 +584,8 @@ def main():
             node, original_tag, source_url = item
             server = node.get("server", "")
             geo_name = geo_utils.format_node_name(server) if server else original_tag
-            source_label = format_source_label(source_url)
-            node_name = f"{geo_name} [来源:{source_label}]"
+            # 直接使用原始 URL，不做简化
+            node_name = f"{geo_name} [{source_url.strip()}]"
             return node, node_name
 
         geo_workers = min(30, len(valid_nodes)) if valid_nodes else 1
