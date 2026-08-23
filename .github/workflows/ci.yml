@@ -64,7 +64,7 @@ jobs:
       - name: Upload coverage to Codecov (best-effort)
         if: matrix.python-version == '3.11'
         continue-on-error: true
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           files: ./coverage.xml
           fail_ci_if_error: false
