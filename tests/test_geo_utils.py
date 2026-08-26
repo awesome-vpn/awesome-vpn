@@ -16,7 +16,7 @@ def test_format_node_name_with_city(tmp_path):
     geo = GeoUtils(str(mmdb))
     # Mock cache directly to avoid network/DNS
     geo._cache["1.2.3.4"] = ("美国", "United States", "洛杉矶", "Los Angeles")
-    assert geo.format_node_name("1.2.3.4") == "美国/洛杉矶/United States/Los Angeles"
+    assert geo.format_node_name("1.2.3.4") == "United States/Los Angeles"
     geo.close()
 
 
@@ -25,7 +25,7 @@ def test_format_node_name_without_city(tmp_path):
     mmdb.write_text("")
     geo = GeoUtils(str(mmdb))
     geo._cache["5.6.7.8"] = ("德国", "Germany", "", "")
-    assert geo.format_node_name("5.6.7.8") == "德国/Germany"
+    assert geo.format_node_name("5.6.7.8") == "Germany"
     geo.close()
 
 

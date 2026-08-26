@@ -176,10 +176,10 @@ class GeoUtils:
         return result
 
     def format_node_name(self, host):
-        country_zh, country_en, city_zh, city_en = self.get_geo_info(host)
-        if city_zh and city_en:
-            return f"{country_zh}/{city_zh}/{country_en}/{city_en}"
-        return f"{country_zh}/{country_en}"
+        _country_zh, country_en, _city_zh, city_en = self.get_geo_info(host)
+        if city_en:
+            return f"{country_en}/{city_en}"
+        return country_en or "Unknown"
 
     def close(self):
         if self.reader:

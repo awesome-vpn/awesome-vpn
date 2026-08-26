@@ -163,16 +163,15 @@ def expand_sources_list(list_path, spider):
 
 
 def save_singbox(output_dir, nodes):
-    """Write sing-box.json with urltest/selector (Clash `auto` 对等)."""
-    outbounds = list(nodes)  # 保持原始节点顺序（已按 quality 排序）
+    """Write sing-box.json with standardized English groups."""
+    outbounds = list(nodes)
     tags = [n.get("tag") for n in outbounds if n.get("tag")]
 
-    # sing-box 原生 `auto`：urltest 每 5m 测 https://www.google.com/generate_204，tolerance 50ms 选优
     if tags:
         outbounds.append(
             {
                 "type": "urltest",
-                "tag": "auto",
+                "tag": "Auto",
                 "outbounds": tags,
                 "url": "https://www.google.com/generate_204",
                 "interval": "5m",
@@ -183,13 +182,12 @@ def save_singbox(output_dir, nodes):
         outbounds.append(
             {
                 "type": "selector",
-                "tag": "proxy",
-                "outbounds": ["auto", "direct"],
-                "default": "auto",
+                "tag": "PROXY",
+                "outbounds": ["Auto", "direct"],
+                "default": "Auto",
                 "interrupt_exist_connections": False,
             }
         )
-        # direct 兜底（若节点中无 direct）
         if not any(o.get("tag") == "direct" for o in outbounds):
             outbounds.append({"type": "direct", "tag": "direct"})
 
@@ -223,18 +221,17 @@ def save_all(output_dir, nodes, source_links):
 
 
 def save_clash(output_dir, nodes):
-    """Write clash.yaml with proxy-groups auto (url-test) — 策略组 `auto`."""
+    """Write clash.yaml with standardized English groups."""
     proxies = to_clash_proxies(nodes)
     proxy_names = [p.get("name") for p in proxies if p.get("name")]
 
-    # Clash/mihomo：select 组放全量节点供手动选择，url-test 组自动选最快
     proxy_groups = []
     if proxy_names:
         proxy_groups = [
             {
                 "name": "PROXY",
                 "type": "select",
-                "proxies": ["Auto", "DIRECT"] + proxy_names,
+                "proxies": ["Auto", "DIRECT"],
             },
             {
                 "name": "Auto",

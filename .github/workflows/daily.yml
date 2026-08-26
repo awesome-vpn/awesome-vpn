@@ -113,8 +113,8 @@ jobs:
         uv run python -c "import json,collections; tags=[n['tag'] for n in json.load(open('sing-box.json'))['outbounds']]; assert len(tags)==len(set(tags)), f'duplicate tags found: {len(tags)-len(set(tags))}'"
         echo "Output sizes:"
         ls -lh all sing-box.json clash.yaml
-        # 统计有效节点（排除 sing-box 的 auto/proxy/direct 策略组）
-        NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("tag") not in ("auto","proxy","direct")]))')
+        # 统计有效节点（排除策略组，按 type 而非 tag，改名免疫）
+        NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("type") not in ("urltest","selector","direct")])))')
         echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
         echo "Node count: $NODE_COUNT (target MAX_NODES=${{ env.MAX_NODES }})"
         if [ "$NODE_COUNT" -lt 10 ]; then
@@ -123,8 +123,8 @@ jobs:
         if [ "$NODE_COUNT" -gt 80 ]; then
           echo "::warning::node count exceeds MAX_NODES (strict mode expected <=80, got $NODE_COUNT)"
         fi
-        # 大陆友好度抽检：统计 REALITY/WS+TLS 占比（抗封锁形态，排除策略组）
-        uv run python -c "import json; d=json.load(open('sing-box.json')); nodes=[n for n in d['outbounds'] if n.get('tag') not in ('auto','proxy','direct')]; total=len(nodes); reality=sum(1 for n in nodes if n.get('tls',{}).get('reality',{}).get('enabled')); ws=sum(1 for n in nodes if (n.get('transport') or {}).get('type')=='ws'); print(f'Quality: REALITY {reality}/{total} ({reality*100//total if total else 0}%), WS {ws}/{total}')"
+        # 大陆友好度抽检：统计 REALITY/WS+TLS 占比（排除策略组）
+        uv run python -c "import json; d=json.load(open('sing-box.json')); nodes=[n for n in d['outbounds'] if n.get('type') not in ('urltest','selector','direct')]; total=len(nodes); reality=sum(1 for n in nodes if n.get('tls',{}).get('reality',{}).get('enabled')); ws=sum(1 for n in nodes if (n.get('transport') or {}).get('type')=='ws'); print(f'Quality: REALITY {reality}/{total} ({reality*100//total if total else 0}%), WS {ws}/{total}')"
 
     - name: Upload artifacts
       if: always()
@@ -144,7 +144,7 @@ jobs:
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add all sing-box.json clash.yaml
-        NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("tag") not in ("auto","proxy","direct")]))')
+        NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("type") not in ("urltest","selector","direct")])))')
         git diff --staged --quiet || \
           git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes"
         git push
