@@ -11,7 +11,7 @@ concurrency:
 
 env:
   SING_BOX_VERSION: "1.13.3"
-  MAX_NODES: "80"
+  MAX_NODES: "50"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -92,15 +92,16 @@ jobs:
     - name: Run Crawler
       id: crawler
       env:
-        TELEGRAM_CHANNELS: ${{ secrets.TELEGRAM_CHANNELS }}
+        # 优先读取 Variables（可见），回退 Secrets（兼容旧配置）
+        TELEGRAM_CHANNELS: ${{ vars.ACTIVE_TELEGRAM_CHANNELS || secrets.TELEGRAM_CHANNELS }}
         EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
-        SOURCES_JSON: ${{ secrets.SOURCES_JSON }}
+        SOURCES_JSON: ${{ vars.ACTIVE_GITHUB_URLS || secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
-        MAX_NODES: ${{ env.MAX_NODES }}
+        MAX_NODES: "50"
         # 可选：大陆侧探活（自建杭州/深圳探针POST {server,port} → {ok:bool}）
         CHINA_CHECK_URL: ${{ secrets.CHINA_CHECK_URL }}
       run: |
-        uv run python main.py --validate --workers 24 --validate-workers 30 --output .
+        uv run python main.py --validate --workers 30 --validate-workers 50 --output .
 
     - name: Verify Outputs
       id: verify
@@ -120,8 +121,8 @@ jobs:
         if [ "$NODE_COUNT" -lt 10 ]; then
           echo "::warning::node count suspiciously low ($NODE_COUNT)"
         fi
-        if [ "$NODE_COUNT" -gt 80 ]; then
-          echo "::warning::node count exceeds MAX_NODES (strict mode expected <=80, got $NODE_COUNT)"
+        if [ "$NODE_COUNT" -gt 50 ]; then
+          echo "::warning::node count exceeds MAX_NODES (strict 50, got $NODE_COUNT)"
         fi
         # 大陆友好度抽检：统计 REALITY/WS+TLS 占比（排除策略组）
         uv run python -c "import json; d=json.load(open('sing-box.json')); nodes=[n for n in d['outbounds'] if n.get('type') not in ('urltest','selector','direct')]; total=len(nodes); reality=sum(1 for n in nodes if n.get('tls',{}).get('reality',{}).get('enabled')); ws=sum(1 for n in nodes if (n.get('transport') or {}).get('type')=='ws'); print(f'Quality: REALITY {reality}/{total} ({reality*100//total if total else 0}%), WS {ws}/{total}')"
