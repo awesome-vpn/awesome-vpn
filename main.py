@@ -256,17 +256,18 @@ def save_all(output_dir, nodes, source_links):
 
 
 def save_clash(output_dir, nodes):
-    """Write clash.yaml with standardized English groups."""
+    """Write clash.yaml with ideal dler.io-like format: emoji+udp, auto+manual."""
     proxies = to_clash_proxies(nodes)
     proxy_names = [p.get("name") for p in proxies if p.get("name")]
 
+    # 理想格式：带完整 Clash 基础配置 + 双组（手动 PROXY + 自动 Auto） + 基础规则
     proxy_groups = []
     if proxy_names:
         proxy_groups = [
             {
                 "name": "PROXY",
                 "type": "select",
-                "proxies": ["Auto", "DIRECT"],
+                "proxies": ["Auto", "DIRECT"] + proxy_names,
             },
             {
                 "name": "Auto",
@@ -278,11 +279,26 @@ def save_clash(output_dir, nodes):
             },
         ]
 
-    data = {"proxies": proxies}
+    data = {
+        "port": 7890,
+        "socks-port": 7891,
+        "allow-lan": True,
+        "mode": "Rule",
+        "log-level": "info",
+        "external-controller": "127.0.0.1:9090",
+        "proxies": proxies,
+    }
     if proxy_groups:
         data["proxy-groups"] = proxy_groups
-        # 兜底规则：让 Auto 接管
-        data["rules"] = ["MATCH,PROXY"]
+        data["rules"] = [
+            "DOMAIN-SUFFIX,local,DIRECT",
+            "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
+            "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
+            "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
+            "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
+            "GEOIP,LAN,DIRECT,no-resolve",
+            "MATCH,PROXY",
+        ]
 
     path = os.path.join(output_dir, "clash.yaml")
     with open(path, "w", encoding="utf-8") as f:

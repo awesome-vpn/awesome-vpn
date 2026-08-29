@@ -18,11 +18,12 @@ def test_vmess_conversion():
         "tls": {"enabled": True},
     }
     result = to_clash_proxy(singbox_node)
-    assert result["name"] == "test-vmess"
+    assert result["name"].endswith("test-vmess")
     assert result["type"] == "vmess"
     assert result["server"] == "1.2.3.4"
     assert result["port"] == 443
     assert result["uuid"] == "uuid-1234"
+    assert result["udp"] is True
 
 
 def test_vmess_tls_fields():
@@ -262,8 +263,8 @@ def test_to_clash_proxies_filters_unsupported():
     ]
     result = to_clash_proxies(nodes)
     assert len(result) == 2
-    assert result[0]["name"] == "n1"
-    assert result[1]["name"] == "n2"
+    assert result[0]["name"].endswith("n1")
+    assert result[1]["name"].endswith("n2")
 
 
 def test_to_clash_proxies_empty_list():
@@ -273,7 +274,7 @@ def test_to_clash_proxies_empty_list():
 def test_vmess_default_tag_when_missing():
     node = {"type": "vmess", "server": "1.2.3.4", "server_port": 80, "uuid": "u"}
     result = to_clash_proxy(node)
-    assert result["name"] == "vmess"
+    assert result["name"].endswith("vmess")
 
 
 def test_vmess_alter_id_default_zero():

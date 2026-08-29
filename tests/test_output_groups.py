@@ -79,24 +79,29 @@ def test_clash_groups_are_english_and_standard():
         save_clash(tmp, nodes)
         data = yaml.safe_load((Path(tmp) / "clash.yaml").read_text())
         assert "proxies" in data
+        # Header from ideal dler.io format
+        assert data["port"] == 7890
+        assert data["mode"] == "Rule"
         groups = {g["name"]: g for g in data["proxy-groups"]}
         # English groups
         assert "PROXY" in groups
         assert "Auto" in groups
         assert "proxy" not in groups and "auto" not in groups
-        # PROXY is select with only Auto+DIRECT
+        # PROXY is select with Auto+DIRECT+all nodes (ideal format, emoji+udp)
         assert groups["PROXY"]["type"] == "select"
-        assert groups["PROXY"]["proxies"] == ["Auto", "DIRECT"]
-        # Auto is url-test with all nodes
+        assert "Auto" in groups["PROXY"]["proxies"] and "DIRECT" in groups["PROXY"]["proxies"]
+        assert len(groups["PROXY"]["proxies"]) == 5  # Auto, DIRECT + 3 nodes
+        # Auto is url-test with all nodes (with emoji prefix)
         assert groups["Auto"]["type"] == "url-test"
-        assert set(groups["Auto"]["proxies"]) == {"node-1", "node-2", "node-3"}
+        assert len(groups["Auto"]["proxies"]) == 3
+        assert all(any(n.endswith(tag) for n in groups["Auto"]["proxies"]) for tag in ["node-1", "node-2", "node-3"])
         assert groups["Auto"]["url"] == "https://www.google.com/generate_204"
         # rules
         assert data["rules"][-1] == "MATCH,PROXY"
-        # ordinary nodes must not appear in PROXY select alongside Auto
-        assert not any(
-            n.startswith("node-") for n in groups["PROXY"]["proxies"] if n not in ("Auto", "DIRECT")
-        )
+        # proxies should have emoji and udp (ideal like insert=false&emoji=true&udp=true)
+        for p in data["proxies"]:
+            assert p.get("udp") is True
+            assert len(p["name"]) > 0
 
 
 def test_output_configs_contain_no_chinese():

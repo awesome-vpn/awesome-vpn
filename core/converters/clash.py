@@ -6,6 +6,67 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
+# Emoji for ideal clash format (subconverter emoji=true)
+COUNTRY_EMOJI = {
+    "United States": "🇺🇸",
+    "Japan": "🇯🇵",
+    "Germany": "🇩🇪",
+    "Netherlands": "🇳🇱",
+    "Singapore": "🇸🇬",
+    "Hong Kong": "🇭🇰",
+    "Taiwan": "🇹🇼",
+    "United Kingdom": "🇬🇧",
+    "France": "🇫🇷",
+    "Canada": "🇨🇦",
+    "Australia": "🇦🇺",
+    "South Korea": "🇰🇷",
+    "Russia": "🇷🇺",
+    "Turkey": "🇹🇷",
+    "Sweden": "🇸🇪",
+    "Switzerland": "🇨🇭",
+    "Brazil": "🇧🇷",
+    "India": "🇮🇳",
+    "Italy": "🇮🇹",
+    "Spain": "🇪🇸",
+    "Poland": "🇵🇱",
+    "Romania": "🇷🇴",
+    "Norway": "🇳🇴",
+    "Finland": "🇫🇮",
+    "Denmark": "🇩🇰",
+    "Ireland": "🇮🇪",
+    "Austria": "🇦🇹",
+    "Belgium": "🇧🇪",
+    "Czech Republic": "🇨🇿",
+    "Greece": "🇬🇷",
+    "Israel": "🇮🇱",
+    "Mexico": "🇲🇽",
+    "Argentina": "🇦🇷",
+    "Chile": "🇨🇱",
+    "Colombia": "🇨🇴",
+    "Malaysia": "🇲🇾",
+    "Thailand": "🇹🇭",
+    "Vietnam": "🇻🇳",
+    "Indonesia": "🇮🇩",
+    "Philippines": "🇵🇭",
+    "New Zealand": "🇳🇿",
+    "South Africa": "🇿🇦",
+    "United Arab Emirates": "🇦🇪",
+    "Saudi Arabia": "🇸🇦",
+    "Egypt": "🇪🇬",
+    "Nigeria": "🇳🇬",
+    "Kenya": "🇰🇪",
+    "Unknown": "🏳️",
+}
+
+EMOJI_FALLBACK = "🌍"
+
+
+def _emoji_for_tag(tag: str) -> str:
+    for country, emoji in COUNTRY_EMOJI.items():
+        if country in tag:
+            return emoji
+    return EMOJI_FALLBACK
+
 
 def to_clash_proxy(node: dict[str, Any]) -> dict[str, Any] | None:
     """Convert a sing-box outbound dict to Clash proxy dict."""
@@ -18,14 +79,16 @@ def to_clash_proxy(node: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def _convert_vmess(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "vmess")
     proxy = {
-        "name": node.get("tag", "vmess"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "vmess",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "uuid": node.get("uuid", ""),
         "alterId": node.get("alter_id", 0),
         "cipher": node.get("security", "auto"),
+        "udp": True,
     }
     tls = node.get("tls") or {}
     if tls.get("enabled"):
@@ -52,12 +115,14 @@ def _convert_vmess(node: dict[str, Any]) -> dict[str, Any]:
 
 
 def _convert_vless(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "vless")
     proxy = {
-        "name": node.get("tag", "vless"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "vless",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "uuid": node.get("uuid", ""),
+        "udp": True,
     }
     if node.get("flow"):
         proxy["flow"] = node["flow"]
@@ -108,23 +173,27 @@ def _convert_vless(node: dict[str, Any]) -> dict[str, Any]:
 
 
 def _convert_shadowsocks(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "ss")
     return {
-        "name": node.get("tag", "ss"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "ss",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "password": node.get("password", ""),
         "cipher": node.get("method", "none"),
+        "udp": True,
     }
 
 
 def _convert_trojan(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "trojan")
     proxy = {
-        "name": node.get("tag", "trojan"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "trojan",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "password": node.get("password", ""),
+        "udp": True,
     }
     tls = node.get("tls") or {}
     if tls.get("enabled"):
@@ -150,12 +219,14 @@ def _convert_trojan(node: dict[str, Any]) -> dict[str, Any]:
 
 
 def _convert_hysteria2(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "hysteria2")
     proxy = {
-        "name": node.get("tag", "hysteria2"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "hysteria2",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "password": node.get("password", ""),
+        "udp": True,
     }
     tls = node.get("tls") or {}
     if tls.get("server_name"):
@@ -166,13 +237,15 @@ def _convert_hysteria2(node: dict[str, Any]) -> dict[str, Any]:
 
 
 def _convert_tuic(node: dict[str, Any]) -> dict[str, Any]:
+    tag = node.get("tag", "tuic")
     proxy = {
-        "name": node.get("tag", "tuic"),
+        "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "tuic",
         "server": node.get("server", ""),
         "port": node.get("server_port", 0),
         "uuid": node.get("uuid", ""),
         "password": node.get("password", ""),
+        "udp": True,
     }
     if node.get("congestion_control"):
         proxy["congestion-controller"] = node["congestion_control"]
