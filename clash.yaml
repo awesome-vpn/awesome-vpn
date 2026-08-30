@@ -5,6 +5,18 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+- name: 🇺🇸 United States [GH:MatinGhanbari/v2ray-conf]
+  type: vless
+  server: 47.253.226.114
+  port: 443
+  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc
+  client-fingerprint: chrome
 - name: 🇩🇪 Germany [TG]
   type: vless
   server: 169.40.42.212
@@ -18,6 +30,34 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
+- name: 🇯🇵 Japan/Tokyo [TG]
+  type: vless
+  server: 31.76.91.72
+  port: 2087
+  uuid: 524e00ce-ed89-481d-b4a4-6d7017f884e3
+  udp: true
+  tls: true
+  servername: ads.x5.ru
+  reality-opts:
+    public-key: -ZTJcZ_UcqAB7LHgkUqhnlJsQs_oBafRgjsFtWZElmM
+    short-id: c226283c4de5b1ad
+  client-fingerprint: chrome
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
+- name: 🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf]
+  type: vless
+  server: o.server5peekconfig.workers.dev
+  port: 443
+  uuid: 04cb9c0f-363c-4bf8-a195-2cb8bd43b02a
+  udp: true
+  tls: true
+  servername: O.seRVer5peEKCOnFIG.WOrKers.dEV
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiSU9LdXp3R1p6IiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcmVmaXgiLCJwYW5lbElQcyI6WyJbMmEwMjo4OTg6MTQ2OjY0OjpdIl19
+    headers:
+      Host: O.seRVer5peEKCOnFIG.WOrKers.dEV
 - name: 🇺🇸 United States/North Bergen [TG]
   type: vless
   server: 137.184.218.169
@@ -30,46 +70,33 @@ proxies:
   reality-opts:
     public-key: lJ9INPpO4rdnm2Tek_yg0PGFyUrBB6MoKyvqt_Mfqm0
   client-fingerprint: chrome
+- name: 🇺🇸 United States/Fremont [TG]
+  type: vless
+  server: 173.230.155.55
+  port: 50900
+  uuid: 2c082e78-bd9d-4960-b9f3-cde0040cb4f3
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.amd.com
+  reality-opts:
+    public-key: vdE4t2bYhYun6fZ9Weu_f6MXtsmq8iJ7XQBUj62scR0
+    short-id: 12fa394e28d52011
+  client-fingerprint: chrome
 - name: 🇺🇸 United States/San Francisco [TG]
   type: vless
-  server: 172.64.145.93
+  server: 172.64.53.74
   port: 2087
   uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
   udp: true
   tls: true
-  servername: fx3h2kf8xn.fx6hsv0.ccwu.cc
+  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
   network: ws
   ws-opts:
     path: /
     headers:
-      Host: fx3h2kf8xn.fx6hsv0.ccwu.cc
-- name: 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
-  type: vless
-  server: 172.233.156.42
-  port: 12668
-  uuid: 1990630e-c2cf-4d1f-bba0-a51423df89a9
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.tesla.com
-  reality-opts:
-    public-key: 3sM_YEGrVBcvVyTzs6wes0zYq3GSGYbDfgkseWaYFmU
-    short-id: 7403a0a9d45e89
-  client-fingerprint: firefox
-- name: 🇺🇸 United States/Los Angeles [TG]
-  type: vless
-  server: 192.204.45.220
-  port: 47991
-  uuid: 68b369cb-ee77-41e4-b514-cbaa6bbe7c19
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.tesla.com
-  reality-opts:
-    public-key: RqYNfh-KZgzEYEeNE-Qpu4dscJMGfanILFdQomJu8DY
-    short-id: 76b663f249db51ac
-  client-fingerprint: firefox
-- name: 🇺🇸 United States [GH:youfoundamin/V2rayCollec]
+      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
+- name: 🇺🇸 United States [TG]
   type: vless
   server: 47.89.186.170
   port: 55861
@@ -81,62 +108,59 @@ proxies:
   reality-opts:
     public-key: t2ndf6SeVxinFCo5bcemnW_ZZhAtmHWiAkllks5qPWs
     short-id: 7551ed1b
+  client-fingerprint: firefox
+- name: 🇯🇵 Japan/Tokyo [GH:MatinGhanbari/v2ray-conf]
+  type: vless
+  server: 18.177.61.231
+  port: 30203
+  uuid: 0346a35f-8e11-4b33-852d-00fa9c642878
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.sony.com
+  reality-opts:
+    public-key: dsJ2WwzENgTAgd8okJPXLpwzdsDjU67mBEnhUhgvvTk
+    short-id: 40150721499a92
+  client-fingerprint: firefox
+- name: '🇯🇵 Japan/Tokyo [TG] #2'
+  type: vless
+  server: 18.178.233.232
+  port: 16138
+  uuid: 3fd01721-c3e7-4205-9b2c-4eb1f8f8578d
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.sony.com
+  reality-opts:
+    public-key: WVECuhHY1uql8Rwwmo10t72L1s_l-03b23w0gY2PDkI
+    short-id: 6305d3c1a69dc2
   client-fingerprint: chrome
-- name: 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+- name: '🇯🇵 Japan/Tokyo [TG] #3'
   type: vless
-  server: 172.64.52.230
-  port: 2087
-  uuid: 77777777-8a3e-6666-b6d1-a9c5f0e8b3a2
+  server: 13.230.66.70
+  port: 23607
+  uuid: babf64f8-f9ee-4564-a097-16433f2ebd46
   udp: true
+  flow: xtls-rprx-vision
   tls: true
-  servername: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: faxf32gkfzoxqv.fx6hsv0.ccwu.cc
-- name: 🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf]
-  type: vmess
-  server: rush-6it6b.teeopp.quest
-  port: 443
-  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
-  alterId: 0
-  cipher: auto
-  udp: true
-  tls: true
-  servername: rush-6it6b.teeopp.quest
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: rush-6it6b.teeopp.quest
-- name: 🇺🇸 United States/Fremont [GH:4n0nymou3/multi-proxy-co]
+  servername: www.tesla.com
+  reality-opts:
+    public-key: liATkHCbR_IPjdgOhHK5nZO6fgCO091bTab3v2G8Lm4
+    short-id: 701b0c5c9dee514d
+  client-fingerprint: chrome
+- name: '🇯🇵 Japan/Tokyo [TG] #4'
   type: vless
-  server: 45.33.62.166
-  port: 43595
-  uuid: 2642f590-2bce-4031-8f93-7eed983621f5
+  server: 57.180.21.90
+  port: 32114
+  uuid: 8d644890-a8cd-46e5-a318-f2e64cce7a60
   udp: true
   flow: xtls-rprx-vision
   tls: true
   servername: www.amd.com
   reality-opts:
-    public-key: waNzNRIL_3TaF3UfgeAy1M5r8YVUeOA0nx3jPiXYZSE
-    short-id: e482c0320674c651
+    public-key: zsxQcqhGeGLxY7Y8PYZ0LyYvD3lJgRYd8FHp3WI9mSU
+    short-id: 9bdea8e40dba4c
   client-fingerprint: firefox
-- name: 🇺🇸 United States/Piscataway [GH:ebrasha/free-v2ray-publi]
-  type: hysteria2
-  server: 172.93.104.215
-  port: 443
-  password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  udp: true
-  sni: usa0003rlbhy01.tcp-reset-club.net
-- name: 🇺🇸 United States/Piscataway [GH:Surfboardv2ray/TGParse]
-  type: hysteria2
-  server: usa0003rlbhy01.tcp-reset-club.net
-  port: 443
-  password: 8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3
-  udp: true
-  sni: usa0003rlbhy01.tcp-reset-club.net
 - name: 🇨🇦 Canada/Montreal [GH:Epodonios/v2ray-configs]
   type: hysteria2
   server: vpn-ca-001.fastervpn.world
@@ -145,17 +169,106 @@ proxies:
   udp: true
   sni: t.me
   skip-cert-verify: true
-- name: 🇨🇦 Canada/Montreal [GH:ebrasha/free-v2ray-publi]
+- name: 🇨🇦 Canada/Montreal [GH:Surfboardv2ray/TGParse]
   type: hysteria2
   server: 15.223.183.81
   port: 443
   password: H7mP2xY9kJ4nQ8wR5tF6vB3z
   udp: true
+  sni: t.me
   skip-cert-verify: true
 - name: '🇺🇸 United States/San Francisco [TG] #2'
   type: vless
-  server: 162.159.43.187
+  server: 172.65.90.52
+  port: 8880
+  uuid: 30e4c878-15ca-4f53-ab32-04c60ecd3f31
+  udp: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.US.CMLiussss.net
+    headers:
+      Host: blue-rice-7142.30-346.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #3'
+  type: vless
+  server: 172.67.209.127
+  port: 8880
+  uuid: 1b3ad465-d37e-48a2-bb53-d7fddfc97b11
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: calm-silence-d4a1.217.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #4'
+  type: vless
+  server: 104.16.100.215
+  port: 8880
+  uuid: 8d36dcef-c008-47f1-b8a0-4f63193697f8
+  udp: true
+  network: ws
+  ws-opts:
+    path: /pyip=te93Ǫ
+    headers:
+      Host: tiny-union-8d4d.32-c76.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #5'
+  type: vless
+  server: 172.66.140.62
+  port: 8880
+  uuid: 160ca353-676d-4b7f-a041-0289e388b865
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: proud-cloud-7bdd.208-a52.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #6'
+  type: vless
+  server: 172.64.88.251
+  port: 8880
+  uuid: 87a5d3eb-afd4-4193-9787-c54ef7c26c8c
+  udp: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.KR.CMLiussss.net
+    headers:
+      Host: patient-cake-39c7.44-e7a.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #7'
+  type: vless
+  server: 104.16.107.139
+  port: 8880
+  uuid: 56eba3f8-94f8-48f2-920b-d79bb042d0bb
+  udp: true
+  network: ws
+  ws-opts:
+    path: /pyip=ProxyIP.SG.CMLiussss.net
+    headers:
+      Host: lingering-glade-21ce.61-b6f.workers.dev
+- name: '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #2'
+  type: vless
+  server: 104.16.98.215
+  port: 8880
+  uuid: 23187ddc-16a5-432d-bf4e-dd42a7ae39f7
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: steep-thunder-97fa.108-d10.workers.dev
+- name: '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #3'
+  type: vless
+  server: 172.64.150.28
   port: 2082
+  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  udp: true
+  network: ws
+  ws-opts:
+    path: /fp
+    headers:
+      Host: hhlfy.twiladaphne.ndjp.net
+- name: 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+  type: vless
+  server: 108.162.198.178
+  port: 80
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   network: ws
@@ -163,26 +276,27 @@ proxies:
     path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 United States [GH:barry-far/V2ray-config]
-  type: vmess
-  server: 165.140.216.142
-  port: 443
-  uuid: b65a2d69-5634-42a2-e4be-54e8a6176900
-  alterId: 0
-  cipher: auto
+- name: 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
+  type: trojan
+  server: us01.duotg.top
+  port: 27732
+  password: 02cd3bac-2a78-4dbb-82b9-6b64084ddd8e
   udp: true
-- name: 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
-  type: ss
-  server: 37.19.198.236
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
+  sni: www.microsoft.com
+  skip-cert-verify: true
+- name: 🇯🇵 Japan/Tokyo [GH:4n0nymou3/multi-proxy-co]
+  type: trojan
+  server: jp200m.jiasu.asia
+  port: 50000
+  password: 0964f6b7-6aab-4b84-9e80-dd078ed1f269
   udp: true
-- name: 🇫🇷 France [TG]
+  sni: jp200m.jiasu.asia
+  skip-cert-verify: true
+- name: 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
   type: ss
-  server: 54.36.174.140
+  server: 216.105.168.18
   port: 443
-  password: ytw2awn
+  password: hCCWOcIsK5wrFz4OX70rWf
   cipher: chacha20-ietf-poly1305
   udp: true
 - name: 🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf]
@@ -198,25 +312,71 @@ proxies:
     path: /cctv13.m3u8
     headers:
       Host: 129.146.77.248
-- name: 🇬🇧 United Kingdom/Canary Wharf [TG]
-  type: vless
-  server: 104.238.174.99
-  port: 24314
-  uuid: 59d79f8f-74a8-4d29-9ebd-8917d81f85a9
+- name: 🇺🇸 United States/Los Angeles [TG]
+  type: trojan
+  server: 14.1.28.76
+  port: 50740
+  password: r49gssuondznyu2eex83
   udp: true
-- name: 🇫🇮 Finland/Helsinki [TG]
-  type: vless
-  server: 65.109.215.50
-  port: 39633
-  uuid: 845a492d-21e6-4cc0-abbb-b66813a163c0
-  udp: true
+  skip-cert-verify: true
 - name: 🇩🇪 Germany [GH:barry-far/V2ray-config]
   type: vmess
-  server: 82.198.246.250
+  server: 82.198.246.233
   port: 180
   uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
   alterId: 0
   cipher: auto
+  udp: true
+- name: 🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config]
+  type: vmess
+  server: newrelax.relaxedboy.online
+  port: 110
+  uuid: 8e9687fc-a3a7-414a-8676-8e2136797cfe
+  alterId: 0
+  cipher: auto
+  udp: true
+- name: '🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf] #2'
+  type: vmess
+  server: 129.146.143.80
+  port: 48111
+  uuid: d4603cc2-e0ee-4651-83f5-1db5b7168177
+  alterId: 0
+  cipher: auto
+  udp: true
+- name: 🇨🇦 Canada [GH:MatinGhanbari/v2ray-conf]
+  type: ss
+  server: 108.181.118.10
+  port: 8388
+  password: G5p6ww4o67HB
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇷🇺 Russia/Moscow [TG]
+  type: ss
+  server: 138.124.68.88
+  port: 1443
+  password: OTgxZ
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇺🇸 United States/Ashburn [GH:SoliSpirit/v2ray-configs]
+  type: ss
+  server: 108.181.57.93
+  port: 8388
+  password: RSo52SbxW40r
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇬🇧 United Kingdom [TG]
+  type: ss
+  server: 82.38.31.185
+  port: 8080
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: '🇯🇵 Japan/Tokyo [TG] #5'
+  type: ss
+  server: 84.247.155.196
+  port: 80
+  password: 3eOFeNssde7PYYMv
+  cipher: aes-256-gcm
   udp: true
 - name: 🇨🇦 Canada/Toronto [GH:MatinGhanbari/v2ray-conf]
   type: ss
@@ -225,42 +385,6 @@ proxies:
   password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
   udp: true
-- name: 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
-  type: ss
-  server: 108.181.0.177
-  port: 8388
-  password: G5p6ww4o67HB
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇪🇸 Spain/Madrid [GH:barry-far/V2ray-config]
-  type: vmess
-  server: 85.90.217.42
-  port: 22324
-  uuid: 04621bae-ab36-11ec-b909-0242ac120002
-  alterId: 0
-  cipher: auto
-  udp: true
-- name: '🇫🇷 France [TG] #2'
-  type: ss
-  server: 51.77.225.200
-  port: 8388
-  password: zRZNBszYyWo5
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇳🇱 The Netherlands/Amsterdam [GH:MatinGhanbari/v2ray-conf]
-  type: ss
-  server: 108.181.126.122
-  port: 8388
-  password: CJmTCCx7Ltud
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇮🇹 Italy [TG]
-  type: ss
-  server: 57.131.48.45
-  port: 8388
-  password: itzvpn@321
-  cipher: aes-256-gcm
-  udp: true
 - name: 🇳🇱 The Netherlands [TG]
   type: ss
   server: 193.29.139.168
@@ -268,33 +392,82 @@ proxies:
   password: QCXDxuDlTTMD7jtgHUjIoj
   cipher: chacha20-ietf-poly1305
   udp: true
-- name: 🇫🇷 France/Paris [GH:SoliSpirit/v2ray-configs]
+- name: 🇫🇷 France [TG]
   type: ss
-  server: 38.180.92.242
-  port: 32245
-  password: pFNN9jKe8jwD
+  server: 51.77.225.200
+  port: 8388
+  password: zRZNBszYyWo5
   cipher: chacha20-ietf-poly1305
   udp: true
-- name: 🇳🇱 The Netherlands/Amsterdam [GH:mfuu/v2ray]
+- name: 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
   type: ss
-  server: 141.148.244.146
-  port: 45819
-  password: w5pcVb0VsP2Ze6TbJAXR7ZaofRyoJn5sm0CdhBg78q4=
+  server: 129.146.62.211
+  port: 50356
+  password: 3RVXu5xARCPQlD3Fv/cmQt7o/XGqUZLwrTTt0FkA2vo=
+  cipher: 2022-blake3-chacha20-poly1305
+  udp: true
+- name: '🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config] #2'
+  type: ss
+  server: 129.146.60.116
+  port: 50356
+  password: xDEXXhNhDE1+LUHo1bMUnTwFqgPX3i7cpDX+hUx+dRg=
+  cipher: 2022-blake3-chacha20-poly1305
+  udp: true
+- name: 🇹🇼 Taiwan/New Taipei City [GH:MatinGhanbari/v2ray-conf]
+  type: ss
+  server: r3mrcg00129437x.cybervena.com
+  port: 50099
+  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #2'
+  type: ss
+  server: 158.180.59.229
+  port: 59924
+  password: kN17ITmzNrnFpaTp4JSEAy/PV/tKXm+zGT9GaeWm9hU=
   cipher: 2022-blake3-chacha20-poly1305
   udp: true
 - name: 🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi]
+  type: ss
+  server: 141.148.239.62
+  port: 45819
+  password: 7vDcApvjEM/BKjaxYQLBjym80MGCi6eJ8jkfoY+6bUs=
+  cipher: 2022-blake3-chacha20-poly1305
+  udp: true
+- name: '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #3'
+  type: ss
+  server: 129.159.15.175
+  port: 59924
+  password: IwxNmiHQr4nZQEjxKD8bl/0lbvbZ/HJJbzAkjwnHOkk=
+  cipher: 2022-blake3-chacha20-poly1305
+  udp: true
+- name: '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #2'
   type: ss
   server: 158.178.155.37
   port: 45819
   password: 14zduVOpqZOK6iayk+xd34h98ymp6qr2NuJj2xtWXiY=
   cipher: 2022-blake3-chacha20-poly1305
   udp: true
-- name: 🇺🇸 United States [TG]
+- name: '🇺🇸 United States [TG] #2'
   type: ss
   server: 31.76.82.131
   port: 34260
   password: cTAObwg4OWWXkZJQs0ZdgC
   cipher: chacha20-ietf-poly1305
+  udp: true
+- name: '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #3'
+  type: ss
+  server: 141.148.237.51
+  port: 45819
+  password: Bq7fNTetsKxZR/aGO54gR4+Dac67uZ+YYRnIWuHGIo4=
+  cipher: 2022-blake3-chacha20-poly1305
+  udp: true
+- name: 🇬🇧 United Kingdom/Cardiff [GH:ebrasha/free-v2ray-publi]
+  type: ss
+  server: 134.65.59.103
+  port: 61312
+  password: EfGEytWYCn3S7KiNjCTKlsDjG4MdZzAB+GTSuKlREUQ=
+  cipher: 2022-blake3-chacha20-poly1305
   udp: true
 proxy-groups:
 - name: PROXY
@@ -302,73 +475,107 @@ proxy-groups:
   proxies:
   - Auto
   - DIRECT
+  - 🇺🇸 United States [GH:MatinGhanbari/v2ray-conf]
   - 🇩🇪 Germany [TG]
-  - 🇺🇸 United States/North Bergen [TG]
-  - 🇺🇸 United States/San Francisco [TG]
-  - 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
-  - 🇺🇸 United States/Los Angeles [TG]
-  - 🇺🇸 United States [GH:youfoundamin/V2rayCollec]
-  - 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+  - 🇯🇵 Japan/Tokyo [TG]
   - 🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf]
-  - 🇺🇸 United States/Fremont [GH:4n0nymou3/multi-proxy-co]
-  - 🇺🇸 United States/Piscataway [GH:ebrasha/free-v2ray-publi]
-  - 🇺🇸 United States/Piscataway [GH:Surfboardv2ray/TGParse]
-  - 🇨🇦 Canada/Montreal [GH:Epodonios/v2ray-configs]
-  - 🇨🇦 Canada/Montreal [GH:ebrasha/free-v2ray-publi]
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States [GH:barry-far/V2ray-config]
-  - 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
-  - 🇫🇷 France [TG]
-  - 🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf]
-  - 🇬🇧 United Kingdom/Canary Wharf [TG]
-  - 🇫🇮 Finland/Helsinki [TG]
-  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
-  - 🇨🇦 Canada/Toronto [GH:MatinGhanbari/v2ray-conf]
-  - 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
-  - 🇪🇸 Spain/Madrid [GH:barry-far/V2ray-config]
-  - '🇫🇷 France [TG] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:MatinGhanbari/v2ray-conf]
-  - 🇮🇹 Italy [TG]
-  - 🇳🇱 The Netherlands [TG]
-  - 🇫🇷 France/Paris [GH:SoliSpirit/v2ray-configs]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:mfuu/v2ray]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi]
+  - 🇺🇸 United States/North Bergen [TG]
+  - 🇺🇸 United States/Fremont [TG]
+  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States [TG]
+  - 🇯🇵 Japan/Tokyo [GH:MatinGhanbari/v2ray-conf]
+  - '🇯🇵 Japan/Tokyo [TG] #2'
+  - '🇯🇵 Japan/Tokyo [TG] #3'
+  - '🇯🇵 Japan/Tokyo [TG] #4'
+  - 🇨🇦 Canada/Montreal [GH:Epodonios/v2ray-configs]
+  - 🇨🇦 Canada/Montreal [GH:Surfboardv2ray/TGParse]
+  - '🇺🇸 United States/San Francisco [TG] #2'
+  - '🇺🇸 United States/San Francisco [TG] #3'
+  - '🇺🇸 United States/San Francisco [TG] #4'
+  - '🇺🇸 United States/San Francisco [TG] #5'
+  - '🇺🇸 United States/San Francisco [TG] #6'
+  - '🇺🇸 United States/San Francisco [TG] #7'
+  - '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #2'
+  - '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #3'
+  - 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+  - 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
+  - 🇯🇵 Japan/Tokyo [GH:4n0nymou3/multi-proxy-co]
+  - 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Los Angeles [TG]
+  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config]
+  - '🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf] #2'
+  - 🇨🇦 Canada [GH:MatinGhanbari/v2ray-conf]
+  - 🇷🇺 Russia/Moscow [TG]
+  - 🇺🇸 United States/Ashburn [GH:SoliSpirit/v2ray-configs]
+  - 🇬🇧 United Kingdom [TG]
+  - '🇯🇵 Japan/Tokyo [TG] #5'
+  - 🇨🇦 Canada/Toronto [GH:MatinGhanbari/v2ray-conf]
+  - 🇳🇱 The Netherlands [TG]
+  - 🇫🇷 France [TG]
+  - 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
+  - '🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config] #2'
+  - 🇹🇼 Taiwan/New Taipei City [GH:MatinGhanbari/v2ray-conf]
+  - '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #2'
+  - 🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi]
+  - '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #3'
+  - '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #2'
+  - '🇺🇸 United States [TG] #2'
+  - '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #3'
+  - 🇬🇧 United Kingdom/Cardiff [GH:ebrasha/free-v2ray-publi]
 - name: Auto
   type: url-test
   proxies:
+  - 🇺🇸 United States [GH:MatinGhanbari/v2ray-conf]
   - 🇩🇪 Germany [TG]
-  - 🇺🇸 United States/North Bergen [TG]
-  - 🇺🇸 United States/San Francisco [TG]
-  - 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
-  - 🇺🇸 United States/Los Angeles [TG]
-  - 🇺🇸 United States [GH:youfoundamin/V2rayCollec]
-  - 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+  - 🇯🇵 Japan/Tokyo [TG]
   - 🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf]
-  - 🇺🇸 United States/Fremont [GH:4n0nymou3/multi-proxy-co]
-  - 🇺🇸 United States/Piscataway [GH:ebrasha/free-v2ray-publi]
-  - 🇺🇸 United States/Piscataway [GH:Surfboardv2ray/TGParse]
-  - 🇨🇦 Canada/Montreal [GH:Epodonios/v2ray-configs]
-  - 🇨🇦 Canada/Montreal [GH:ebrasha/free-v2ray-publi]
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States [GH:barry-far/V2ray-config]
-  - 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
-  - 🇫🇷 France [TG]
-  - 🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf]
-  - 🇬🇧 United Kingdom/Canary Wharf [TG]
-  - 🇫🇮 Finland/Helsinki [TG]
-  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
-  - 🇨🇦 Canada/Toronto [GH:MatinGhanbari/v2ray-conf]
-  - 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
-  - 🇪🇸 Spain/Madrid [GH:barry-far/V2ray-config]
-  - '🇫🇷 France [TG] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:MatinGhanbari/v2ray-conf]
-  - 🇮🇹 Italy [TG]
-  - 🇳🇱 The Netherlands [TG]
-  - 🇫🇷 France/Paris [GH:SoliSpirit/v2ray-configs]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:mfuu/v2ray]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi]
+  - 🇺🇸 United States/North Bergen [TG]
+  - 🇺🇸 United States/Fremont [TG]
+  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States [TG]
+  - 🇯🇵 Japan/Tokyo [GH:MatinGhanbari/v2ray-conf]
+  - '🇯🇵 Japan/Tokyo [TG] #2'
+  - '🇯🇵 Japan/Tokyo [TG] #3'
+  - '🇯🇵 Japan/Tokyo [TG] #4'
+  - 🇨🇦 Canada/Montreal [GH:Epodonios/v2ray-configs]
+  - 🇨🇦 Canada/Montreal [GH:Surfboardv2ray/TGParse]
+  - '🇺🇸 United States/San Francisco [TG] #2'
+  - '🇺🇸 United States/San Francisco [TG] #3'
+  - '🇺🇸 United States/San Francisco [TG] #4'
+  - '🇺🇸 United States/San Francisco [TG] #5'
+  - '🇺🇸 United States/San Francisco [TG] #6'
+  - '🇺🇸 United States/San Francisco [TG] #7'
+  - '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #2'
+  - '🇺🇸 United States/San Francisco [GH:MatinGhanbari/v2ray-conf] #3'
+  - 🇺🇸 United States/San Francisco [GH:Pawdroid/Free-servers]
+  - 🇺🇸 United States/Los Angeles [GH:4n0nymou3/multi-proxy-co]
+  - 🇯🇵 Japan/Tokyo [GH:4n0nymou3/multi-proxy-co]
+  - 🇺🇸 United States/Los Angeles [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Los Angeles [TG]
+  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config]
+  - '🇺🇸 United States/Phoenix [GH:MatinGhanbari/v2ray-conf] #2'
+  - 🇨🇦 Canada [GH:MatinGhanbari/v2ray-conf]
+  - 🇷🇺 Russia/Moscow [TG]
+  - 🇺🇸 United States/Ashburn [GH:SoliSpirit/v2ray-configs]
+  - 🇬🇧 United Kingdom [TG]
+  - '🇯🇵 Japan/Tokyo [TG] #5'
+  - 🇨🇦 Canada/Toronto [GH:MatinGhanbari/v2ray-conf]
+  - 🇳🇱 The Netherlands [TG]
+  - 🇫🇷 France [TG]
+  - 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
+  - '🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config] #2'
+  - 🇹🇼 Taiwan/New Taipei City [GH:MatinGhanbari/v2ray-conf]
+  - '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #2'
+  - 🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi]
+  - '🇩🇪 Germany/Frankfurt am Main [GH:barry-far/V2ray-config] #3'
+  - '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #2'
+  - '🇺🇸 United States [TG] #2'
+  - '🇳🇱 The Netherlands/Amsterdam [GH:ebrasha/free-v2ray-publi] #3'
+  - 🇬🇧 United Kingdom/Cardiff [GH:ebrasha/free-v2ray-publi]
   url: https://www.google.com/generate_204
   interval: 300
   tolerance: 50
