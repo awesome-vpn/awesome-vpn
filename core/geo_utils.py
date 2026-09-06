@@ -73,6 +73,9 @@ class GeoUtils:
         self._lock = threading.Lock()
         self._session = requests.Session()
         self._session.trust_env = False
+        adapter = requests.adapters.HTTPAdapter(pool_connections=50, pool_maxsize=50)
+        self._session.mount("http://", adapter)
+        self._session.mount("https://", adapter)
         self._session.headers.update({"User-Agent": "awesome-vpn/geo-lookup"})
         self._init_reader()
 

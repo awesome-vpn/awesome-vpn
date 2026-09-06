@@ -92,13 +92,13 @@ jobs:
     - name: Run Crawler
       id: crawler
       env:
-        # 优先读取 Variables（可见），回退 Secrets（兼容旧配置）
+        # Prefer repository Variables (visible), fallback to Secrets for backwards compatibility
         TELEGRAM_CHANNELS: ${{ vars.ACTIVE_TELEGRAM_CHANNELS || secrets.TELEGRAM_CHANNELS }}
         EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
         SOURCES_JSON: ${{ vars.ACTIVE_GITHUB_URLS || secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
         MAX_NODES: "50"
-        # 可选：大陆侧探活（自建杭州/深圳探针POST {server,port} → {ok:bool}）
+        # Optional China probe endpoint: POST {server, port} -> {ok: bool}
         CHINA_CHECK_URL: ${{ secrets.CHINA_CHECK_URL }}
       run: |
         uv run python main.py --validate --workers 30 --validate-workers 50 --output .
@@ -114,7 +114,7 @@ jobs:
         uv run python -c "import json,collections; tags=[n['tag'] for n in json.load(open('sing-box.json'))['outbounds']]; assert len(tags)==len(set(tags)), f'duplicate tags found: {len(tags)-len(set(tags))}'"
         echo "Output sizes:"
         ls -lh all sing-box.json clash.yaml
-        # 统计有效节点（排除策略组，按 type 而非 tag，改名免疫）
+        # Count functional nodes (excluding selector/urltest/direct route groups)
         NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("type") not in ("urltest","selector","direct")]))')
         echo "node_count=$NODE_COUNT" >> $GITHUB_OUTPUT
         echo "Node count: $NODE_COUNT (target MAX_NODES=${{ env.MAX_NODES }})"
@@ -124,7 +124,7 @@ jobs:
         if [ "$NODE_COUNT" -gt 50 ]; then
           echo "::warning::node count exceeds MAX_NODES (strict 50, got $NODE_COUNT)"
         fi
-        # 大陆友好度抽检：统计 REALITY/WS+TLS 占比（排除策略组）
+        # Sampling audit: count proportion of REALITY and WS+TLS nodes
         uv run python -c "import json; d=json.load(open('sing-box.json')); nodes=[n for n in d['outbounds'] if n.get('type') not in ('urltest','selector','direct')]; total=len(nodes); reality=sum(1 for n in nodes if n.get('tls',{}).get('reality',{}).get('enabled')); ws=sum(1 for n in nodes if (n.get('transport') or {}).get('type')=='ws'); print(f'Quality: REALITY {reality}/{total} ({reality*100//total if total else 0}%), WS {ws}/{total}')"
 
     - name: Upload artifacts
@@ -136,16 +136,23 @@ jobs:
           all
           sing-box.json
           clash.yaml
+          raw.txt
+          status.svg
+          telemetry.json
+          hysteria2.yaml
+          hysteria2.txt
+          reality.json
         retention-days: 7
-        if-no-files-found: error
+        if-no-files-found: warn
 
     - name: Commit and Push
       if: steps.verify.outputs.node_count != '0'
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add all sing-box.json clash.yaml
+        git add all sing-box.json clash.yaml config/channels.json config/radar.json config/node_ledger.json raw.txt status.svg telemetry.json hysteria2.yaml hysteria2.txt reality.json 2>/dev/null || true
         NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("type") not in ("urltest","selector","direct")]))')
         git diff --staged --quiet || \
-          git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes"
+          git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes [skip ci]"
         git push
+

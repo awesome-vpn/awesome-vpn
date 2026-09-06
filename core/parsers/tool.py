@@ -272,8 +272,7 @@ def filterNodes(nodelist, keywords):
         if not checkKeywords(keywords, node["name"]):
             newlist.append(node)
         else:
-            print("过滤节点名称 " + node["name"])
-            print("Lọc tên proxy" + node["name"])
+            print(f"Filtered node name: {node['name']}")
     return newlist
 
 
@@ -310,10 +309,8 @@ def removeNodes(nodelist):
         else:
             temp_list.append(_node)
             newlist.append(node)
-    print("去除了 " + str(i) + " 个重复节点")
-    print("Đã xóa các proxy trùng lặp " + str(i))
-    print("实际获取 " + str(len(newlist)) + " 个节点")
-    print("Thực tế nhận được " + str(len(newlist)) + " proxy")
+    print(f"Removed {i} duplicate nodes")
+    print(f"Harvested {len(newlist)} unique nodes")
     return newlist
 
 

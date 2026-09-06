@@ -1,22 +1,23 @@
 """China-aware quality scoring for proxy nodes.
 
-GitHub Actions 能连 ≠ 大陆能连。GFW 对直连境外 `server:port` 的
-阻断是主要差异。本模块用可本地计算的启发式打分，优选抗封锁形态，
-并与 validator 的实测 latency 结合做 Top-N 截断。
+GitHub Actions connectivity does not guarantee connectivity from mainland China.
+GFW blocking on direct outbound server:port connections is the primary difference.
+This module uses local heuristic scoring to favor anti-censorship configurations
+and combines with validator-measured latency for Top-N selection.
 
-设计原则：
-- REALITY / WS+TLS+CDN > 裸 SS/直连
-- 标准化 443 端口 > 随机高位端口
-- 有 SNI/指纹 > 无
+Design Principles:
+- REALITY / WS+TLS+CDN > Plain SS / direct
+- Standard port 443 > High random ports
+- SNI / Fingerprint present > absent
 """
 
 from typing import Any
 
 import requests
 
-# GFW 友好端口（Cloudflare/标准 HTTPS）
+# Censorship-resilient ports (Cloudflare / standard HTTPS)
 FAVORED_PORTS = {443, 8443, 2053, 2083, 2087, 2096, 2052, 2056, 4430}
-# REALITY 常用伪装域名（越主流越不易被主动探测）
+# Commonly masqueraded SNI domains for REALITY (mainstream domains resist active probing)
 POPULAR_SNI_HINTS = (
     "apple.com",
     "microsoft.com",
@@ -36,7 +37,7 @@ def _port_score(port: int | None) -> int:
         return 10
     if port in FAVORED_PORTS:
         return 6
-    # 高位随机端口在大陆被限速/QoS 概率更高
+    # High random ports face higher probability of QoS / throttling
     if port > 10000:
         return -2
     return 0
@@ -45,7 +46,7 @@ def _port_score(port: int | None) -> int:
 def _tls_score(node: dict[str, Any]) -> int:
     tls = node.get("tls") or {}
     if not tls.get("enabled"):
-        return -5  # 无 TLS 的裸节点大陆存活率极低
+        return -5  # Plain nodes without TLS have low survivability
     score = 0
     if tls.get("server_name"):
         score += 4
@@ -53,10 +54,10 @@ def _tls_score(node: dict[str, Any]) -> int:
         if any(h in sni for h in POPULAR_SNI_HINTS):
             score += 3
     if tls.get("reality", {}).get("enabled"):
-        score += 12  # REALITY 抗封锁最强
+        score += 12  # REALITY provides the strongest anti-censorship capability
     if tls.get("utls", {}).get("enabled"):
         score += 3
-    # insecure=True 意味着自签名，大陆部分网络会拦截
+    # insecure=True indicates self-signed certificate, subject to interception
     if tls.get("insecure"):
         score -= 2
     return score
@@ -66,7 +67,7 @@ def _transport_score(node: dict[str, Any]) -> int:
     tr = node.get("transport") or {}
     t = tr.get("type", "")
     if t == "ws":
-        # WS over CDN 若 Host 是泛解析或 workers.dev 等，GFW 识别成本高
+        # WS over CDN with wildcards or workers.dev increases inspection cost for DPI
         host = (tr.get("headers") or {}).get("Host", "")
         if host and ("workers.dev" in host or "cdn" in host.lower()):
             return 6
@@ -75,13 +76,13 @@ def _transport_score(node: dict[str, Any]) -> int:
         return 3
     if t == "http":
         return 1
-    # 无 transport 的直连 VLESS/SS 最易被识别
+    # Direct VLESS/SS without transport encapsulation is easiest to fingerprint
     return -3
 
 
 def _protocol_score(node: dict[str, Any]) -> int:
     ntype = node.get("type", "").lower()
-    # QUIC 系大陆 QoS 严重，但抗 TCP 阻断有优势，折中
+    # QUIC-based protocols may face UDP QoS, but offer superior TCP RST resistance
     if ntype in ("hysteria2", "hy2"):
         return 5
     if ntype == "tuic":
@@ -98,7 +99,7 @@ def _protocol_score(node: dict[str, Any]) -> int:
 
 
 def china_resistance_score(node: dict[str, Any]) -> int:
-    """0-30+ 分，分数越高越适合大陆直连。仅用本地字段，无需网络。"""
+    """Calculate 0-30+ score where higher values favor direct China connectivity. Pure local heuristic."""
     port = node.get("server_port") or node.get("port")
     try:
         port = int(port) if port else None
@@ -107,29 +108,31 @@ def china_resistance_score(node: dict[str, Any]) -> int:
     return _port_score(port) + _tls_score(node) + _transport_score(node) + _protocol_score(node)
 
 
-def quality_score(node: dict[str, Any], latency_ms: float | None = None) -> float:
-    """综合分 = 抗封锁分*2 - 延迟惩罚。latency_ms 来自 validator 实测。"""
+def quality_score(
+    node: dict[str, Any],
+    latency_ms: float | None = None,
+    longevity_bonus: float = 0.0,
+) -> float:
+    """Overall score = Censorship score * 2 - Latency penalty + Longevity bonus."""
     base = china_resistance_score(node) * 2.0
     if latency_ms is not None:
-        # 延迟 <200ms 满分，>1500ms 直接淘汰（validator 已 1.0s 阈值，此处再惩罚）
+        # Latency <200ms yields full score, >1000ms incurs penalty
         if latency_ms > 1000:
             base -= (latency_ms - 1000) / 100.0
-        # 快速节点奖励
+        # Fast node reward
         if latency_ms < 300:
             base += 5
         elif latency_ms < 600:
             base += 2
-    return base
+    return base + longevity_bonus
 
 
 def filter_timeout_outliers(
     nodes: list[dict[str, Any]], latency_key: str = "_latency_ms", max_latency_ms: int = 500
 ) -> list[dict[str, Any]]:
-    """科学剔除 timeout：硬阈值 500ms（大陆体感），无墙环境下验证有墙可用性。
+    """Filter out latency outliers exceeding max_latency_ms (default 500ms).
 
-    500ms 基于大陆到美西 150-250ms 基础 + 代理转发 100ms + 余量，>500ms 在 Clash/sing-box
-    实际使用中体感卡顿且超时率高，实测几十个 timeout 节点均落于此区间。
-    无 _latency_ms（未测速）则放行，交由 quality 排序。
+    Un-benchmarked nodes (latency None) are retained and ranked by quality score.
     """
     if not nodes:
         return nodes
@@ -143,10 +146,9 @@ def filter_timeout_outliers(
 def filter_by_china_probe(
     nodes: list[dict[str, Any]], probe_url: str, timeout: int = 4, max_workers: int = 20
 ) -> list[dict[str, Any]]:
-    """可选的大陆侧探活：POST {server,port} 到自建探针，仅保留探针返回 ok 的节点。
+    """Optional China-side probe: POST {server, port} to probe endpoint, keeping only responsive nodes.
 
-    探针建议部署在阿里云/腾讯云杭州/深圳轻量，逻辑：`socket.create_connection((server,port), timeout=2)`。
-    若探针未配置或失败，返回原列表（不阻断）。
+    Falls back to original node list if probe is unreachable or unconfigured.
     """
     if not probe_url or not nodes:
         return nodes
@@ -163,10 +165,10 @@ def filter_by_china_probe(
             )
             if resp.status_code == 200:
                 data = resp.json() if "json" in resp.headers.get("Content-Type", "") else {}
-                # 兼容 {ok:true} 或 {reachable:true}
+                # Compatible with {ok: true} or {reachable: true}
                 if data.get("ok") is True or data.get("reachable") is True:
                     return node
-                # 若探针返回非 JSON，按 HTTP 200 视为可达（简化）
+                # Fallback on HTTP 200 if response is non-JSON
                 if not data:
                     return node
             return None
@@ -180,5 +182,5 @@ def filter_by_china_probe(
             res = fut.result()
             if res is not None:
                 kept.append(res)
-    # 探针全失败则回退原列表，避免因探针故障导致 0 节点
+    # If all probe requests fail, return original list to avoid dropping all nodes due to probe outage
     return kept if kept else nodes

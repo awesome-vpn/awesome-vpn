@@ -11,31 +11,34 @@ import subprocess
 import tempfile
 import threading
 import time
+from typing import Any
 
 import requests
 
-# 测试目标：Google 生成 204 响应（必须通过代理才能访问）
+from core.dual_validator import detect_physical_interface
+
+# Benchmark target: Google 204 response (requires functional proxy to reach)
 TEST_URL = "https://www.google.com/generate_204"
 
-# IP检测服务（HTTPS，同时验证代理的 HTTPS 转发能力）
+# IP verification services (HTTPS, verifies outbound HTTPS relay)
 IP_CHECK_URLS = [
     "https://ipinfo.io/ip",
     "https://api.ipify.org",
 ]
 
-# DNS 测试：验证通过代理解析国内域名
+# DNS test: verify domestic domain resolution via proxy
 DNS_TEST_DOMAINS = [
     ("www.baidu.com", "Baidu"),
     ("www.taobao.com", "Taobao"),
 ]
 
-# 端口分配锁，避免并发冲突
+# Port allocation lock to prevent concurrency collisions
 _port_lock = threading.Lock()
 _allocated_ports: set[int] = set()
 
 
 def _get_unique_port():
-    """让 OS 分配一个空闲端口，避免与 ephemeral 端口范围冲突"""
+    """Allocate an available ephemeral port to prevent binding collisions."""
     with _port_lock:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind(("127.0.0.1", 0))
@@ -53,6 +56,9 @@ class Validator:
 
         # local_mode=True: skip direct TCP checks (they fail behind GFW)
         self.local_mode = local_mode
+        self.interface = detect_physical_interface() if self.local_mode else ""
+        if self.interface:
+            print(f"Validator: Binding to physical interface '{self.interface}' (bypassing TUN)")
 
         if self.sing_box_path and os.path.exists(self.sing_box_path):
             print(f"Validator: Using sing-box at {self.sing_box_path}")
@@ -67,10 +73,10 @@ class Validator:
         print(f"Validator: Original IP: {self.original_ip}")
 
     def _get_original_ip(self):
-        """获取当前机器的真实IP（不经过代理）"""
+        """Retrieve real external IP of current host (bypassing proxies)."""
         for url in IP_CHECK_URLS:
             try:
-                # 明确不使用代理，禁用环境变量代理设置
+                # Explicitly bypass proxies and disable environment proxy variables
                 session = requests.Session()
                 session.trust_env = False
                 resp = session.get(url, timeout=5)
@@ -130,24 +136,24 @@ class Validator:
         return False
 
     def check_udp_dns_via_socks5(self, listen_port, timeout=5):
-        """
-        通过 SOCKS5 UDP ASSOCIATE 测试 UDP 转发
-        构造 DNS 查询包测试 8.8.8.8:53
+        """Test UDP relay via SOCKS5 UDP ASSOCIATE.
+
+        Constructs DNS query packet to 8.8.8.8:53.
         """
         try:
-            # 先建立 SOCKS5 TCP 连接做 UDP ASSOCIATE
+            # Establish SOCKS5 TCP connection for UDP ASSOCIATE
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(timeout)
             sock.connect(("127.0.0.1", listen_port))
 
-            # SOCKS5 握手
+            # SOCKS5 handshake
             sock.sendall(b"\x05\x01\x00")  # ver 5, 1 auth method, no auth
             resp = sock.recv(2)
             if resp[0] != 0x05 or resp[1] != 0x00:
                 sock.close()
                 return False
 
-            # UDP ASSOCIATE 请求
+            # UDP ASSOCIATE request
             sock.sendall(
                 b"\x05\x03\x00\x01\x00\x00\x00\x00\x00\x00"
             )  # ver, UDP, rsv, ATYP, IP, port
@@ -156,7 +162,7 @@ class Validator:
                 sock.close()
                 return False
 
-            # 解析 UDP relay 地址
+            # Parse UDP relay address
             if resp[3] == 0x01:  # IPv4
                 udp_addr = (socket.inet_ntoa(resp[4:8]), struct.unpack(">H", resp[8:10])[0])
             else:
@@ -165,11 +171,11 @@ class Validator:
 
             sock.close()
 
-            # 现在通过 UDP relay 发送 DNS 查询
+            # Transmit DNS query through UDP relay
             udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             udp_sock.settimeout(timeout)
 
-            # 构造 SOCKS5 UDP 头部 + DNS 查询
+            # Construct SOCKS5 UDP header + DNS query
             dns_query = b"\x00\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x03www\x06google\x03com\x00\x00\x01\x00\x01"
             udp_packet = (
                 b"\x00\x00\x00\x01\x01\x01\x01\x01\x00\x35" + dns_query
@@ -184,17 +190,15 @@ class Validator:
             return False
 
     def check_dns_via_proxy(self, listen_port, domain, timeout=5):
-        """
-        通过 SOCKS5 代理的 TCP DNS 检查域名解析
-        """
+        """Verify domain resolution via SOCKS5 TCP DNS relay."""
         try:
             import socket
 
-            # 使用 SOCKS5 代理建立 TCP 连接到 8.8.8.8:53
+            # Connect to 8.8.8.8:53 via SOCKS5 proxy
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.settimeout(timeout)
 
-            # SOCKS5 握手
+            # SOCKS5 handshake
             sock.connect(("127.0.0.1", listen_port))
             sock.sendall(b"\x05\x01\x00")
             resp = sock.recv(2)
@@ -202,14 +206,14 @@ class Validator:
                 sock.close()
                 return False
 
-            # CONNECT 到 8.8.8.8:53
+            # CONNECT to 8.8.8.8:53
             sock.sendall(b"\x05\x01\x00\x01\x08\x08\x08\x08\x00\x35")
             resp = sock.recv(10)
             if resp[0] != 0x05 or resp[1] != 0x00:
                 sock.close()
                 return False
 
-            # 发送 DNS over TCP 查询
+            # Send DNS over TCP query
             query = self._build_dns_query(domain)
             sock.sendall(struct.pack(">H", len(query)) + query)
 
@@ -217,14 +221,14 @@ class Validator:
             resp = sock.recv(resp_len)
             sock.close()
 
-            # 解析 DNS 响应获取 IP
+            # Parse DNS response to extract IP
             ip = self._parse_dns_response(resp)
             return ip is not None
         except Exception:
             return False
 
     def _build_dns_query(self, domain):
-        """构造 DNS A 记录查询包"""
+        """Construct DNS A-record query payload."""
         parts = domain.split(".")
         qname = b"".join(bytes([len(p)]) + p.encode() for p in parts) + b"\x00"
         return (
@@ -234,14 +238,14 @@ class Validator:
         )
 
     def _parse_dns_response(self, data):
-        """解析 DNS 响应获取第一个 A 记录 IP"""
+        """Parse DNS response payload and extract first A-record IP."""
         try:
             if len(data) < 12:
                 return None
             ancount = struct.unpack(">H", data[6:8])[0]
             if ancount == 0:
                 return None
-            # 跳过 header 和 question
+            # Skip header and question section
             pos = 12
             while pos < len(data) and data[pos] != 0:
                 if data[pos] & 0xC0 == 0xC0:
@@ -318,8 +322,8 @@ class Validator:
         port = node.get("server_port") or node.get("port")
         node_type = node.get("type", "").lower()
 
-        # UDP 协议（QUIC-based）跳过 TCP ping，TCP 连不上其 UDP 端口是正常的
-        # 本地模式下也跳过 TCP ping：直连境外服务器在墙内经常被拦截
+        # UDP protocols (QUIC-based) skip TCP ping since TCP connection to UDP port fails normally
+        # In local mode, skip direct TCP ping as outbound connections may be intercepted by local firewalls
         UDP_PROTOCOLS = {"hysteria2", "hy2", "tuic"}
         if server and port and node_type not in UDP_PROTOCOLS and not self.local_mode:
             if not self.tcp_ping(server, port, timeout=2):
@@ -335,12 +339,32 @@ class Validator:
 
         listen_port = _get_unique_port()
 
+        dns_config: dict[str, Any] = {
+            "servers": [{"type": "udp", "tag": "dns-remote", "server": "8.8.8.8"}],
+            "final": "dns-remote",
+        }
+        outbound_direct: dict[str, Any] = {"type": "direct", "tag": "direct"}
+
+        if self.local_mode and self.interface:
+            dns_config = {
+                "servers": [
+                    {
+                        "type": "udp",
+                        "tag": "dns-direct",
+                        "server": "223.5.5.5",
+                        "server_port": 53,
+                        "detour": "direct",
+                    },
+                ],
+                "final": "dns-direct",
+                "strategy": "prefer_ipv4",
+            }
+            node_config["bind_interface"] = self.interface
+            outbound_direct["bind_interface"] = self.interface
+
         test_config = {
             "log": {"level": "fatal", "timestamp": True},
-            "dns": {
-                "servers": [{"type": "udp", "tag": "dns-remote", "server": "8.8.8.8"}],
-                "final": "dns-remote",
-            },
+            "dns": dns_config,
             "inbounds": [
                 {
                     "type": "socks",
@@ -349,7 +373,7 @@ class Validator:
                     "listen_port": listen_port,
                 }
             ],
-            "outbounds": [node_config, {"type": "direct", "tag": "direct"}],
+            "outbounds": [node_config, outbound_direct],
             "route": {
                 "rules": [{"inbound": "socks-in", "outbound": node_config.get("tag", "proxy")}]
             },
@@ -362,9 +386,11 @@ class Validator:
                 json.dump(test_config, tmp_file)
                 tmp_config_path = tmp_file.name
 
+            env = dict(os.environ)
+            env["ENABLE_DEPRECATED_LEGACY_DNS_SERVERS"] = "true"
             cmd = [self.sing_box_path, "run", "-c", tmp_config_path]
             proc = subprocess.Popen(
-                cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True
+                cmd, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True, env=env
             )
 
             # Poll until SOCKS5 port is accepting connections (much faster than fixed sleep)
@@ -376,11 +402,11 @@ class Validator:
                 return False, 0.0
 
             proxies = {
-                "http": f"socks5://127.0.0.1:{listen_port}",
-                "https": f"socks5://127.0.0.1:{listen_port}",
+                "http": f"socks5h://127.0.0.1:{listen_port}",
+                "https": f"socks5h://127.0.0.1:{listen_port}",
             }
 
-            # === 验证 2: google.com/generate_204 == 204 via proxy, <1.0s ===
+            # Verification: google.com/generate_204 returns 204 via proxy
             start = time.time()
             try:
                 session = requests.Session()
@@ -388,12 +414,13 @@ class Validator:
                 session.proxies.update(proxies)
                 resp = session.get(TEST_URL, timeout=timeout)
                 latency = time.time() - start
-                if resp.status_code != 204 or latency >= 1.0:
+                max_lat = 4.0 if self.local_mode else 1.0
+                if resp.status_code != 204 or latency >= max_lat:
                     return False, latency * 1000
             except Exception:
                 return False, 0.0
 
-            # === 验证 4: UDP 支持（hysteria2/tuic 必须）===
+            # Verification: UDP support (required for hysteria2 / tuic)
             if node_type in ["hysteria2", "hy2", "tuic"]:
                 udp_ok = self.check_udp_dns_via_socks5(listen_port, timeout=3)
                 if not udp_ok:
@@ -414,7 +441,7 @@ class Validator:
                         proc.wait(timeout=1)
                     except Exception:
                         pass
-            # 进程已终止后再释放端口，避免其他线程拿到仍被占用的端口
+            # Release allocated port only after process is terminated to avoid collision
             with _port_lock:
                 _allocated_ports.discard(listen_port)
 
@@ -426,26 +453,25 @@ class Validator:
 
 
 def quick_tcp_prescreen(nodes, max_workers=60, timeout=2):
-    """
-    P1: 快速 TCP 连通性预筛选（仅对 TCP 协议节点）
-    在 sing-box 验证前快速排除不通的节点，大幅缩短总验证时间
+    """P1: Fast TCP connectivity pre-screening (TCP nodes only).
 
-    注意：UDP 协议节点（hysteria2/tuic）跳过 TCP 预筛选，直接进入完整验证
+    Quickly eliminates unreachable endpoints before launching sing-box processes.
+    UDP nodes (hysteria2/tuic) skip this check and proceed to full validation.
     """
     import concurrent.futures
 
-    # UDP 协议列表 - 这些节点跳过 TCP 预筛选
+    # UDP protocol list: skip TCP pre-screening
     UDP_PROTOCOLS = {"hysteria2", "hy2", "tuic"}
 
-    tcp_nodes = []  # 需要 TCP 预筛选的节点
-    udp_nodes = []  # UDP 协议节点，直接保留
+    tcp_nodes = []  # Nodes requiring TCP pre-screen
+    udp_nodes = []  # UDP protocol nodes passed through directly
 
     for node in nodes:
         node_type = node.get("type", "").lower()
         if node_type in UDP_PROTOCOLS:
-            udp_nodes.append(node)  # UDP 节点直接进入完整验证
+            udp_nodes.append(node)  # UDP nodes enter full validation directly
         else:
-            tcp_nodes.append(node)  # TCP 节点做预筛选
+            tcp_nodes.append(node)  # TCP nodes undergo pre-screening
 
     def tcp_check(node):
         server = node.get("server")
@@ -460,7 +486,7 @@ def quick_tcp_prescreen(nodes, max_workers=60, timeout=2):
         except Exception:
             return None
 
-    # 只对 TCP 节点进行预筛选
+    # Pre-screen TCP nodes only
     passed_tcp = []
     total_tcp = len(tcp_nodes)
 
@@ -478,7 +504,7 @@ def quick_tcp_prescreen(nodes, max_workers=60, timeout=2):
                         f"  TCP pre-screen: {i + 1}/{total_tcp} checked, {len(passed_tcp)} passed..."
                     )
 
-    # 合并：通过 TCP 预筛选的节点 + 跳过的 UDP 节点
+    # Merge passed TCP nodes + skipped UDP nodes
     result = passed_tcp + udp_nodes
     print(
         f"  TCP pre-screen: {len(passed_tcp)}/{len(tcp_nodes)} TCP passed, {len(udp_nodes)} UDP skipped"

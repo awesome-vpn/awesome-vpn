@@ -10,7 +10,7 @@ def parse(data):
     if not info or info.isspace():
         return None
     try:
-        if info.find("?") > -1:  # fuck奇葩的URI格式
+        if info.find("?") > -1:  # Non-standard URI format with query parameters
             server_info = urlparse(info)
             netquery = dict(
                 (k, v if len(v) > 1 else v[0]) for k, v in parse_qs(server_info.query).items()
@@ -54,7 +54,7 @@ def parse(data):
                     "headers": {
                         "Host": netquery.get(
                             "host", ""
-                        )  # 如果 'obfsParam' 不存在或解析失败，使用 'host' 字段
+                        )  # Use 'host' field if 'obfsParam' absent or parsing fails
                     },
                 }
 
@@ -66,12 +66,11 @@ def parse(data):
                         "host", ""
                     )
                 except json.JSONDecodeError:
-                    pass  # JSON 解码失败时忽略异常
+                    pass  # Ignore JSON decode error when obfsParam is plain text
             return node
         else:
             proxy_str = tool.b64Decode(info).decode("utf-8")
     except Exception:
-        print(info)
         return None
     try:
         item = json.loads(proxy_str)

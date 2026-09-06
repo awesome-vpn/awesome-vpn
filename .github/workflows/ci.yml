@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint: # ruff lint + format — 零容忍，自动可修复的会推回由 autofix 作业处理
+  lint: # ruff lint + format
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -30,7 +30,7 @@ jobs:
       - name: Ruff format check
         run: uv run ruff format --check .
 
-  typecheck: # mypy 渐进式类型检查
+  typecheck: # mypy static type analysis
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -42,9 +42,9 @@ jobs:
       - run: uv sync --group dev
       - name: mypy
         run: uv run mypy core main.py --ignore-missing-imports --explicit-package-bases
-        continue-on-error: true # 过渡期不阻断，成熟后改为 false
+        continue-on-error: true # Non-blocking advisory during transition
 
-  test: # pytest + coverage + xdist 并行 + codecov
+  test: # pytest + coverage + xdist parallel
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
@@ -77,7 +77,7 @@ jobs:
           path: htmlcov
           retention-days: 7
 
-  security: # bandit + pip-audit 轻量安全
+  security: # bandit + pip-audit security scanning
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

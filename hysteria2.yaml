@@ -1,0 +1,12 @@
+port: 7890
+mode: Rule
+proxies: []
+proxy-groups:
+- name: Auto-HY2
+  type: url-test
+  proxies:
+  - DIRECT
+  url: https://www.google.com/generate_204
+  interval: 300
+rules:
+- MATCH,Auto-HY2

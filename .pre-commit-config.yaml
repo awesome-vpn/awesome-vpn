@@ -1,8 +1,9 @@
-# 顶级预提交自动纠错 — 本地: pre-commit install 后每次 commit 自动修复
-# CI  : 同步在 .github/workflows/ci.yml 中强制校验（fail-fast）
-# 手动: pre-commit run --all-files  或  make fix
+# Automated pre-commit hooks configuration
+# Local: auto-fixes on commit after `pre-commit install`
+# CI: verified in .github/workflows/ci.yml
+# Manual: `pre-commit run --all-files` or `make fix`
 repos:
-  # 1. 基础文件卫生 (pre-commit-hooks) — 最主流、零误报
+  # 1. Basic file hygiene (pre-commit-hooks)
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -24,7 +25,7 @@ repos:
         args: [--autofix, --top-keys=outbounds]
         exclude: ^sing-box\.json$
 
-  # 2. Ruff: lint 自动修复 + format (替代 black/isort/flake8 三件套)
+  # 2. Ruff: lint auto-fix + formatting (replaces black/isort/flake8)
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.16.3
     hooks:
@@ -34,7 +35,7 @@ repos:
       - id: ruff-format
         types: [python]
 
-  # 3. Deptry: 依赖健康 (轻量, 仅提示不阻断)
+  # 3. Deptry: dependency health
   # - repo: https://github.com/fpgmaas/deptry
   #   rev: 0.18.0
   #   hooks:
@@ -42,7 +43,7 @@ repos:
   #       args: [--verbose]
   #       pass_filenames: false
 
-  # 4. Bandit: 安全扫描 (仅扫描 core/main, 采用 pyproject.toml 的 skips)
+  # 4. Bandit: security scan (scans core/ and main.py using pyproject.toml skips)
   - repo: https://github.com/pycqa/bandit
     rev: 1.9.4
     hooks:
@@ -50,7 +51,7 @@ repos:
         args: ["-c", "pyproject.toml", "-r", "core", "main.py"]
         exclude: ^tests/
 
-  # 5. Mypy: 类型检查 (仅提示, 渐进式严格化)
+  # 5. Mypy: type check
   # - repo: https://github.com/pre-commit/mirrors-mypy
   #   rev: v1.11.2
   #   hooks:
@@ -64,4 +65,4 @@ ci:
   autofix_prs: true
   autoupdate_branch: ""
   autoupdate_commit_msg: "chore(pre-commit): autoupdate"
-  skip: []  # 不跳过任何 hook
+  skip: []  # Do not skip hooks

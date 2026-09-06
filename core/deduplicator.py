@@ -86,21 +86,19 @@ class Deduplicator:
         Uses SHA256 for stability across runs.
         """
         try:
-            node_type = data.get("type")
+            node_type = str(data.get("type", "")).lower()
             if not node_type:
                 return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
 
-            path = ""
-            if node_type == "vmess":
-                # transport is nested in 'transport' field in sing-box config usually,
-                # but AutoMergePublicNodes assumes a flat structure or specific keys.
-                # We need to adapt to sing-box outbound format.
-                # Sing-box format: https://sing-box.sagernet.org/configuration/outbound/vmess/
+            server = str(data.get("server", "")).strip().lower()
+            port = str(data.get("server_port") or data.get("port", "")).strip()
+            path = f"{node_type}:{server}:{port}:"
 
-                # Check for transport path
+            if node_type == "vmess":
+                # transport is nested in 'transport' field in sing-box config usually
                 transport = data.get("transport", {})
                 net = transport.get("type", "")
-                path = net + ":"
+                path += net + ":"
 
                 if net == "ws":
                     path += transport.get("headers", {}).get("Host", "")
@@ -112,15 +110,13 @@ class Deduplicator:
                     path += transport.get("service_name", "")
 
                 # Add UUID for vmess uniqueness
-                path += ":" + data.get("uuid", "")
+                path += ":" + str(data.get("uuid", ""))
 
-            elif node_type == "shadowsocks":  # sing-box uses 'shadowsocks' not 'ss'
-                path = data.get("password", "")
-                # SS in sing-box: method, password.
-                # If server:port:method:password are same, it's same.
+            elif node_type in ("shadowsocks", "ss"):
+                path += str(data.get("password", ""))
 
             elif node_type == "trojan":
-                path = data.get("password", "") + ":"
+                path += str(data.get("password", "")) + ":"
                 transport = data.get("transport", {})
                 net = transport.get("type", "")
 
@@ -131,7 +127,7 @@ class Deduplicator:
                     path += transport.get("service_name", "")
 
             elif node_type == "vless":
-                path = data.get("uuid", "") + ":"
+                path += str(data.get("uuid", "")) + ":"
                 transport = data.get("transport", {})
                 net = transport.get("type", "")
 
@@ -140,13 +136,6 @@ class Deduplicator:
                     path += "/" + transport.get("path", "")
                 elif net == "grpc":
                     path += transport.get("service_name", "")
-
-            else:
-                # Fallback for other types (hysteria, etc)
-                # Use server:port:type as basic key if parsing fails or not implemented
-                server = data.get("server", "")
-                port = data.get("server_port") or data.get("port", "")
-                path = f"{node_type}:{server}:{port}"
 
             return hashlib.sha256(path.encode()).hexdigest()
 

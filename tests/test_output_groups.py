@@ -94,7 +94,10 @@ def test_clash_groups_are_english_and_standard():
         # Auto is url-test with all nodes (with emoji prefix)
         assert groups["Auto"]["type"] == "url-test"
         assert len(groups["Auto"]["proxies"]) == 3
-        assert all(any(n.endswith(tag) for n in groups["Auto"]["proxies"]) for tag in ["node-1", "node-2", "node-3"])
+        assert all(
+            any(n.endswith(tag) for n in groups["Auto"]["proxies"])
+            for tag in ["node-1", "node-2", "node-3"]
+        )
         assert groups["Auto"]["url"] == "https://www.google.com/generate_204"
         # rules
         assert data["rules"][-1] == "MATCH,PROXY"

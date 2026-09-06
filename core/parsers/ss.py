@@ -112,11 +112,13 @@ def parse(data):
             node["multiplex"]["min_streams"] = int(smux_dict["min-streams"])
         if smux_dict.get("padding") == "True":
             node["multiplex"]["padding"] = True
-    try:  # fuck
+    try:
         param = param.split("?")[0]
-        matcher = tool.b64Decode(param)  # 保留'/'测试能不能解码
+        matcher = tool.b64Decode(param)  # Retain '/' to test if base64 decodable
     except Exception:
-        param = param.split("/")[0].split("?")[0]  # 不能解码说明'/'不是base64内容
+        param = param.split("/")[0].split("?")[
+            0
+        ]  # If decode fails, '/' is path separator rather than base64
     if param.find("@") > -1:
         matcher = re.match(r"(.*?)@(.*):(.*)", param)
         if matcher:

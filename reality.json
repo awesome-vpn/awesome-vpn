@@ -44,50 +44,6 @@
           "fingerprint": "chrome"
         }
       }
-    },
-    {
-      "tag": "Canada/Montréal [GH:ermaozi/get_s]",
-      "type": "shadowsocks",
-      "server": "35.182.118.89",
-      "server_port": 443,
-      "method": "aes-256-cfb",
-      "password": "amazonskr05"
-    },
-    {
-      "tag": "Malaysia/Cyberjaya [GH:ermaozi/get_s]",
-      "type": "shadowsocks",
-      "server": "118.107.222.231",
-      "server_port": 65443,
-      "method": "aes-256-cfb",
-      "password": "7eadc6dbe2ae"
-    },
-    {
-      "type": "urltest",
-      "tag": "Auto",
-      "outbounds": [
-        "Germany/Frankfurt am Main [GH:Surfboardv2ra]",
-        "Singapore/Singapore [GH:Mahdi0024/Pro]",
-        "Canada/Montréal [GH:ermaozi/get_s]",
-        "Malaysia/Cyberjaya [GH:ermaozi/get_s]"
-      ],
-      "url": "https://www.google.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50,
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "selector",
-      "tag": "PROXY",
-      "outbounds": [
-        "Auto",
-        "direct"
-      ],
-      "default": "Auto",
-      "interrupt_exist_connections": false
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
     }
   ]
 }

@@ -1,7 +1,7 @@
 name: Autofix
 
-# 主流自动纠错工作流：PR 中若 ruff 可自动修复，直接推回 fix commit
-# 等价于本地 pre-commit install 后 commit 时的自动修复，但覆盖“忘记本地安装”的情况
+# Automated fix workflow: auto-fixes and commits format/lint issues on PR
+# Mirrors local pre-commit hooks for contributors who omitted local hook setup
 on:
   pull_request:
     branches: [master, main]
