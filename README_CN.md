@@ -52,12 +52,13 @@
 
 ## 📥 订阅链接（镜像加速）
 
-如果 GitHub 访问慢，试试这些镜像：
+如果 GitHub 访问缓慢或无法直连，推荐使用稳定可靠的 jsDelivr CDN 镜像加速源：
 
-| 镜像 | 链接 | 位置 |
-|------|------|------|
-| **KKGitHub** | `https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all` | 香港 |
-| **GHProxy** | `https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all` | 日本 |
+| 格式 | jsDelivr CDN 加速订阅链接 | 推荐客户端 |
+|------|---------------------------|------------|
+| **Clash YAML** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/clash.yaml`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/clash.yaml) | Clash Verge Rev |
+| **Sing-box JSON** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/sing-box.json`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/sing-box.json) | Sing-box, NekoBox |
+| **通用 Base64** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/all`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/all) | v2rayN, v2rayNG |
 
 ---
 
@@ -108,7 +109,7 @@
 <summary><b>Clash Verge Rev（Windows / macOS / Linux）</b></summary>
 
 1. 从 [GitHub Releases](https://github.com/clash-verge-rev/clash-verge-rev/releases) 下载对应系统的安装包安装
-2. 点击本 README 最上方的 **[⚡ 一键导入]** 按钮，或在软件「订阅/配置」中粘贴 **Clash YAML** 链接
+2. 在软件「订阅/配置」中粘贴 **Clash YAML** 链接，或访问 [网页端](https://awesome-vpn.github.io/) 点击一键导入
 3. 点击右侧「保存并导入」完成下载
 4. 在「代理」列表中勾选测速较低的优质节点
 5. 打开「系统代理」或「TUN 模式」开关即可上网

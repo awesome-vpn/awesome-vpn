@@ -52,12 +52,13 @@ Right-click the link → "Copy link address":
 
 ## 📥 Subscription Links (Mirror)
 
-If GitHub is slow in your region, try these mirrors:
+If GitHub is slow or inaccessible in your region, use the official jsDelivr CDN mirror:
 
-| Mirror | Link | Location |
-|--------|------|----------|
-| **KKGitHub** | `https://raw.kkgithub.com/awesome-vpn/awesome-vpn/master/all` | Hong Kong |
-| **GHProxy** | `https://ghproxy.net/https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all` | Japan |
+| Format | Subscription Link (jsDelivr CDN) | Best For |
+|--------|----------------------------------|----------|
+| **Clash YAML** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/clash.yaml`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/clash.yaml) | Clash Verge Rev |
+| **Sing-box JSON** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/sing-box.json`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/sing-box.json) | Sing-box, NekoBox |
+| **Base64 List** | [`https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/all`](https://cdn.jsdelivr.net/gh/awesome-vpn/awesome-vpn@master/all) | v2rayN, v2rayNG |
 
 ---
 
@@ -108,7 +109,7 @@ Possible reasons:
 <summary><b>Clash Verge Rev (Windows / macOS / Linux)</b></summary>
 
 1. Download and install from [GitHub Releases](https://github.com/clash-verge-rev/clash-verge-rev/releases)
-2. Click the **[⚡ One-Click Import]** button at the top of this README, or paste the **Clash YAML** link in "Profiles / Subscriptions"
+2. Paste the **Clash YAML** link in "Profiles / Subscriptions", or use one-click import on our [Website](https://awesome-vpn.github.io/)
 3. Click "Save & Import" to download the node list
 4. In the "Proxies" panel, select a low-latency server
 5. Toggle "System Proxy" or "TUN Mode" on to connect
