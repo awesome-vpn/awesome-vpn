@@ -42,10 +42,10 @@
 | 系统 | 推荐开源软件 | GitHub Stars | 官方开源与下载地址 |
 |------|-------------|--------------|-------------------|
 | **Windows** | Clash Verge Rev / v2rayN | 142k★ / 115k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | Clash Verge Rev / Sing-box | 142k★ / 37k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
-| **Linux** | Clash Verge Rev / Sing-box | 142k★ / 37k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
-| **Android** | v2rayNG / Sing-box / NekoBox | 62k★ / 37k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
-| **iOS** | Sing-box | 37k★ | [App Store 免费安装 (sing-box MT)](https://apps.apple.com/app/sing-box-mt/id6670355458) / [GitHub](https://github.com/SagerNet/sing-box) |
+| **macOS** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Linux** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Android** | v2rayNG / NekoBox | 62k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
+| **iOS** | | | |
 
 ### 第三步：粘贴使用
 
@@ -122,14 +122,12 @@
 </details>
 
 <details>
-<summary><b>Sing-box（iOS / Android / macOS）</b></summary>
+<summary><b>NekoBox（Android）</b></summary>
 
-1. **iOS**：直接在 App Store 免费搜索安装 `sing-box MT`（SagerNet 官方开源）；**Android / PC**：从 [GitHub Releases](https://github.com/SagerNet/sing-box/releases) 下载
-2. 打开应用，进入 **Profiles（配置）** 标签页
-3. 点击右上角 **+** → 选择 **New Profile**
-4. Type 选择 **Remote**，在 URL 栏粘贴 **Sing-box JSON** 订阅链接
-5. 点击右上角保存，然后点击配置进行更新
-6. 返回 Dashboard 界面，点击 **Start** 开关连接
+1. 从 [GitHub Releases](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) 下载并安装 apk
+2. 打开 NekoBox，点击右上角菜单 (⋮) → 选择 **新建配置** / **从剪贴板导入 / 扫描**
+3. 粘贴 **Sing-box JSON** 或 **Base64 列表** 订阅链接
+4. 点击更新订阅分组，选择节点后点击右下角悬浮按钮启动连接
 </details>
 
 <details>

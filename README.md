@@ -42,10 +42,10 @@ Right-click the link → "Copy link address":
 | Platform | Recommended Client | GitHub Stars | Official Download & Repo |
 |----------|-------------------|--------------|--------------------------|
 | **Windows** | Clash Verge Rev / v2rayN | 142k★ / 115k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | Clash Verge Rev / Sing-box | 142k★ / 37k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
-| **Linux** | Clash Verge Rev / Sing-box | 142k★ / 37k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) |
-| **Android** | v2rayNG / Sing-box / NekoBox | 62k★ / 37k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [Sing-box](https://github.com/SagerNet/sing-box/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
-| **iOS** | Sing-box | 37k★ | [Free on App Store (sing-box MT)](https://apps.apple.com/app/sing-box-mt/id6670355458) / [GitHub](https://github.com/SagerNet/sing-box) |
+| **macOS** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Linux** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Android** | v2rayNG / NekoBox | 62k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
+| **iOS** | | | |
 
 ### Step 3: Paste and connect
 
@@ -122,14 +122,12 @@ Possible reasons:
 </details>
 
 <details>
-<summary><b>Sing-box (iOS / Android / macOS)</b></summary>
+<summary><b>NekoBox (Android)</b></summary>
 
-1. **iOS**: Install free from App Store (`sing-box MT`, official SagerNet open-source); **Android / PC**: Download from [GitHub Releases](https://github.com/SagerNet/sing-box/releases)
-2. Open Sing-box and navigate to the **Profiles** tab
-3. Tap **+** → select **New Profile**
-4. Set Type to **Remote**, paste the **Sing-box JSON** subscription link into the URL field
-5. Save the profile and tap to update
-6. Return to the Dashboard and toggle the **Start** switch to connect
+1. Download from [GitHub Releases](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)
+2. Open NekoBox, tap the top menu (⋮) → select **New Profile** / **Import from URL**
+3. Paste the **Sing-box JSON** or **Base64 List** subscription link
+4. Tap to update the subscription group, choose a proxy, and tap the **Connect** floating button
 </details>
 
 <details>
