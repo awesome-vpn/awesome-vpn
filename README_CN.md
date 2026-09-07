@@ -37,15 +37,15 @@
 
 ### 第二步：下载客户端软件
 
-> 🛡️ **准入原则：** 本项目仅推荐 **100% 纯开源、100% 纯免费（零广告/零内购）、GitHub Star 超过 20,000+** 的成熟顶级客户端。拒绝任何收费商业闭源软件。
+> 🛡️ **准入原则：** 本项目仅推荐 **100% 纯开源、100% 纯免费（零广告/零内购）** 的主流客户端。拒绝任何收费商业闭源软件。
 
-| 系统 | 推荐开源软件 | GitHub Stars | 官方开源与下载地址 |
-|------|-------------|--------------|-------------------|
-| **Windows** | Clash Verge Rev / v2rayN | 142k★ / 115k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **Linux** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **Android** | v2rayNG / NekoBox | 62k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
-| **iOS** | | | |
+| 系统 | 推荐开源软件 | 官方开源与下载地址 |
+|------|-------------|-------------------|
+| **Windows** | Clash Verge Rev / v2rayN | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
+| **macOS** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Linux** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Android** | v2rayNG / NekoBox | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
+| **iOS** | | |
 
 ### 第三步：粘贴使用
 

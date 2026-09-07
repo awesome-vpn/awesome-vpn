@@ -37,15 +37,15 @@ Right-click the link → "Copy link address":
 
 ### Step 2: Download a client app
 
-> 🛡️ **Inclusion Policy:** This project exclusively recommends clients that are **100% open-source, 100% free (zero ads / zero paywalls), and have 20,000+ GitHub Stars**. Paid commercial or closed-source software is strictly excluded.
+> 🛡️ **Inclusion Policy:** This project exclusively recommends clients that are **100% open-source and 100% free (zero ads / zero paywalls)**. Paid commercial or closed-source software is strictly excluded.
 
-| Platform | Recommended Client | GitHub Stars | Official Download & Repo |
-|----------|-------------------|--------------|--------------------------|
-| **Windows** | Clash Verge Rev / v2rayN | 142k★ / 115k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
-| **macOS** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **Linux** | Clash Verge Rev | 142k★ | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
-| **Android** | v2rayNG / NekoBox | 62k★ / 22k★ | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
-| **iOS** | | | |
+| Platform | Recommended Client | Official Download & Repo |
+|----------|-------------------|--------------------------|
+| **Windows** | Clash Verge Rev / v2rayN | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) / [v2rayN](https://github.com/2dust/v2rayN/releases) |
+| **macOS** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Linux** | Clash Verge Rev | [Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases) |
+| **Android** | v2rayNG / NekoBox | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
+| **iOS** | | |
 
 ### Step 3: Paste and connect
 
