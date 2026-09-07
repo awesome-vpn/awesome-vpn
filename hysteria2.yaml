@@ -1,11 +1,28 @@
 port: 7890
 mode: Rule
-proxies: []
+proxies:
+- name: 🇫🇷 France/Paris [GH:barry-far/V2r]
+  type: hysteria2
+  server: 35.181.169.140
+  port: 443
+  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
+  udp: true
+  sni: 35.181.169.140
+  skip-cert-verify: true
+- name: '🇫🇷 France/Paris [GH:barry-far/V2r] #2'
+  type: hysteria2
+  server: 62.210.147.2
+  port: 43115
+  password: github.com/Alvin9999-newpac/fanqiang
+  udp: true
+  sni: www.microsoft.com
+  skip-cert-verify: true
 proxy-groups:
 - name: Auto-HY2
   type: url-test
   proxies:
-  - DIRECT
+  - 🇫🇷 France/Paris [GH:barry-far/V2r]
+  - '🇫🇷 France/Paris [GH:barry-far/V2r] #2'
   url: https://www.google.com/generate_204
   interval: 300
 rules:
