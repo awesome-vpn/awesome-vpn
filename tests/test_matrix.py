@@ -32,14 +32,12 @@ def test_matrix_exporter_and_telemetry():
         source_links = {id(n): f"{n['type']}://test#{n['tag']}" for n in test_nodes}
         raw_links = ["ss://test1", "vmess://test2"]
 
-        # Export Matrix
+        # Export Matrix (strictly 3 subscription files)
         exported = exporter.export_all(test_nodes, source_links, raw_links)
         assert os.path.exists(exported["sing-box"])
         assert os.path.exists(exported["clash"])
         assert os.path.exists(exported["all"])
-        assert os.path.exists(exported["raw"])
-        assert "hysteria2_clash" in exported
-        assert "reality_singbox" in exported
+        assert len(exported) == 3
 
         # Telemetry
         rep = reporter.generate_report(

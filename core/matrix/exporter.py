@@ -129,79 +129,15 @@ class MatrixExporter:
             f.write(encoded)
         return path
 
-    def export_raw_pool(self, raw_links: list[str]) -> str:
-        """Export raw, unfiltered candidate proxy link list."""
-        path = os.path.join(self.output_dir, "raw.txt")
-        with open(path, "w", encoding="utf-8") as f:
-            f.write("\n".join(raw_links))
-        return path
-
-    def export_protocol_specific(
-        self, nodes: list[dict[str, Any]], source_links: dict[int, str]
-    ) -> dict[str, str]:
-        """Export dedicated subscription endpoints for modern protocols (Hysteria2, Reality)."""
-        hy2_nodes = [n for n in nodes if n.get("type") in ("hysteria2", "hy2")]
-        reality_nodes = [
-            n for n in nodes if n.get("type") == "vless" and n.get("tls", {}).get("reality")
-        ]
-
-        results = {}
-
-        # 1. Hysteria2 Clash subscription
-        hy2_proxies = to_clash_proxies(hy2_nodes) if hy2_nodes else []
-        hy2_names = [p["name"] for p in hy2_proxies if "name" in p]
-        hy2_data = {
-            "port": 7890,
-            "mode": "Rule",
-            "proxies": hy2_proxies,
-            "proxy-groups": [
-                {
-                    "name": "Auto-HY2",
-                    "type": "url-test",
-                    "proxies": hy2_names if hy2_names else ["DIRECT"],
-                    "url": "https://www.google.com/generate_204",
-                    "interval": 300,
-                }
-            ],
-            "rules": ["MATCH,Auto-HY2"],
-        }
-        hy2_clash_path = os.path.join(self.output_dir, "hysteria2.yaml")
-        with open(hy2_clash_path, "w", encoding="utf-8") as f:
-            yaml.dump(hy2_data, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-        results["hysteria2_clash"] = hy2_clash_path
-
-        # Hysteria2 Base64
-        hy2_links = [
-            source_links.get(
-                id(n), f"hysteria2://{n.get('tag')}@{n.get('server')}:{n.get('server_port')}"
-            )
-            for n in hy2_nodes
-        ]
-        hy2_b64_path = os.path.join(self.output_dir, "hysteria2.txt")
-        with open(hy2_b64_path, "w", encoding="utf-8") as f:
-            f.write(base64.b64encode("\n".join(hy2_links).encode()).decode())
-        results["hysteria2_b64"] = hy2_b64_path
-
-        # 2. Reality Sing-box subscription
-        reality_path = os.path.join(self.output_dir, "reality.json")
-        with open(reality_path, "w", encoding="utf-8") as f:
-            json.dump({"outbounds": reality_nodes}, f, indent=2, ensure_ascii=False)
-        results["reality_singbox"] = reality_path
-
-        return results
-
     def export_all(
         self,
         curated_nodes: list[dict[str, Any]],
         source_links: dict[int, str],
-        raw_links: list[str],
+        raw_links: list[str] | None = None,
     ) -> dict[str, str]:
-        """Generate the full subscription matrix."""
-        res = {
+        """Generate only the 3 standardized subscription feeds."""
+        return {
             "sing-box": self.export_curated_singbox(curated_nodes),
             "clash": self.export_curated_clash(curated_nodes),
             "all": self.export_curated_base64(curated_nodes, source_links),
-            "raw": self.export_raw_pool(raw_links),
         }
-        res.update(self.export_protocol_specific(curated_nodes, source_links))
-        return res

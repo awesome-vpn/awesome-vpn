@@ -14,7 +14,6 @@ from core.harvesters.github_radar import GitHubRadarHarvester
 from core.harvesters.static_feed import StaticFeedHarvester
 from core.harvesters.telegram import TelegramHarvester
 from core.matrix.exporter import MatrixExporter
-from core.matrix.telemetry import TelemetryReporter
 from core.node_ledger import NodeLedger
 from core.quality import filter_by_china_probe, filter_timeout_outliers, quality_score
 from core.spider import Spider
@@ -114,7 +113,6 @@ class NodePipeline:
         self.ledger = ChannelLedger(self.ledger_path)
         self.node_ledger = NodeLedger(self.node_ledger_path)
         self.exporter = MatrixExporter(self.output_dir)
-        self.telemetry = TelemetryReporter(self.output_dir)
 
     def harvest_all(self) -> tuple[list[str], dict[str, str]]:
         """Harvest across Telegram topology, GitHub Radar, and static feeds."""
@@ -329,12 +327,6 @@ class NodePipeline:
         logger.info("=" * 60)
 
         exported_paths = self.exporter.export_all(curated_nodes, source_links, raw_links)
-        self.telemetry.generate_report(
-            curated_nodes=curated_nodes,
-            total_raw_count=len(raw_links),
-            passed_validation_count=len(curated_nodes),
-            latencies=latencies,
-        )
 
         logger.info(f"Exported files to {self.output_dir}:")
         for key, path in exported_paths.items():

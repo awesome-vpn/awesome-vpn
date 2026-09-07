@@ -12,7 +12,6 @@
 
 <div align="center">
 
-[![Live Node Status](status.svg)](https://awesome-vpn.github.io/)
 [![English](https://img.shields.io/badge/Language-English-blue?style=for-the-badge&logo=markdown)](README.md)
 [![简体中文](https://img.shields.io/badge/语言-简体中文-green?style=for-the-badge&logo=markdown)](README_CN.md)
 [![一键导入到 Clash](https://img.shields.io/badge/⚡%20一键导入-Clash-orange?style=for-the-badge)](clash://install-config?url=https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml)
@@ -27,36 +26,13 @@
 
 右键点击链接 → "复制链接地址"：
 
-#### 🌟 深度优选高速主订阅（Sing-box实测测速，Top 80 优质节点）
-
 | 格式 | 订阅链接 | 适用客户端 | 一键导入 |
 |------|----------|-----------|---------|
 | **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev | [⚡ 一键导入](clash://install-config?url=https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) |
 | **Sing-box JSON** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json) | Sing-box、NekoBox | — |
 | **Base64 列表** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all) | v2rayN、v2rayNG | — |
 
-#### ⚡ 现代抗封锁专属协议与生节点池
-
-| 分流通道 | 格式 | 订阅链接 | 特点 |
-|---------|------|----------|------|
-| **Hysteria 2** | Clash YAML | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml) | 极低延迟，基于 UDP QUIC 抗拥塞阻断 |
-| **VLESS Reality** | Sing-box JSON | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json) | 无证书伪装，无 SNI 泄漏风险 |
-| **全量生节点候选池** | 纯文本 | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/raw.txt`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/raw.txt) | 1,000+ 动态裂变收集但未深度实测的原节点 |
-
-<details>
-<summary><b>📋 复制全部精选链接</b></summary>
-
-```
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json
-```
-
-</details>
-
-> 💡 **不知道选哪个？** 推荐使用 **Clash YAML**（搭配 Clash Verge Rev 一键导入）或 **Sing-box JSON**。
+> 💡 **使用建议：** 推荐使用 **Clash YAML**（搭配 Clash Verge Rev 一键导入）或 **Sing-box JSON**。导入客户端后，请直接保持选择 **「Auto / 自动优选」** 节点分组，客户端会在你本地网络中实时并发测速并无感切换至最快可用节点。
 
 
 ### 第二步：下载客户端软件

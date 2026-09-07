@@ -12,7 +12,6 @@
 
 <div align="center">
 
-[![Live Node Status](status.svg)](https://awesome-vpn.github.io/)
 [![English](https://img.shields.io/badge/Language-English-green?style=for-the-badge&logo=markdown)](README.md)
 [![简体中文](https://img.shields.io/badge/语言-简体中文-blue?style=for-the-badge&logo=markdown)](README_CN.md)
 [![One-Click Import to Clash](https://img.shields.io/badge/⚡%20One--Click%20Import-Clash-orange?style=for-the-badge)](clash://install-config?url=https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml)
@@ -27,36 +26,13 @@
 
 Right-click the link → "Copy link address":
 
-#### 🌟 Curated Fast Pool (Deep-Tested, Top 80)
-
 | Format | Subscription Link | Best For | One-Click |
 |--------|-------------------|----------|-----------|
 | **Clash YAML** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) | Clash Verge Rev | [⚡ Import](clash://install-config?url=https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml) |
 | **Sing-box JSON** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json) | Sing-box, NekoBox | — |
 | **Base64 List** | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all) | v2rayN, v2rayNG | — |
 
-#### ⚡ Modern Protocols & Raw Feeds
-
-| Channel | Format | Subscription Link | Highlights |
-|---------|--------|-------------------|------------|
-| **Hysteria 2** | Clash YAML | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml) | Ultra low latency, UDP anti-censorship |
-| **VLESS Reality** | Sing-box JSON | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json) | Zero SNI leakage, TLS camouflage |
-| **Raw Candidate Pool** | Plain Text | [`https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/raw.txt`](https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/raw.txt) | 1,000+ unfiltered scraped nodes |
-
-<details>
-<summary><b>📋 Copy all curated links</b></summary>
-
-```
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/clash.yaml
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/sing-box.json
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/all
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/hysteria2.yaml
-https://raw.githubusercontent.com/awesome-vpn/awesome-vpn/master/reality.json
-```
-
-</details>
-
-> 💡 **Don't know which one?** Use the **Clash YAML** (with Clash Verge Rev) or **Sing-box JSON**.
+> 💡 **Tip:** We recommend **Clash YAML** (with Clash Verge Rev) or **Sing-box JSON**. After importing, simply select the **"Auto"** group to let your client automatically route through the lowest-latency responsive node in your local network.
 
 
 ### Step 2: Download a client app
