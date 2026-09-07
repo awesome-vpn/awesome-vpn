@@ -1,9 +1,3 @@
-<div align="right">
-  <strong>🌐 Language / 语言:</strong>
-  <a href="README.md"><b>English</b></a> |
-  <a href="README_CN.md"><b>简体中文</b></a>
-</div>
-
 # Awesome VPN 🌍
 
 **免费代理节点，每日自动更新。无需配置，复制即用。**

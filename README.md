@@ -1,9 +1,3 @@
-<div align="right">
-  <strong>🌐 Language / 语言:</strong>
-  <a href="README.md"><b>English</b></a> |
-  <a href="README_CN.md"><b>简体中文</b></a>
-</div>
-
 # Awesome VPN 🌍
 
 **Free proxy nodes, updated daily. Zero config, copy and use.**
