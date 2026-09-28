@@ -5,6 +5,21 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+- name: 🇳🇱 The Netherlands/Eygelshoven [TG]
+  type: vless
+  server: 31.56.184.132
+  port: 8443
+  uuid: 11f21602-47aa-42e2-9149-69120f2e6df6
+  udp: true
+  tls: true
+  servername: cloudflare.com
+  reality-opts:
+    public-key: bzbe7QdD633ew_Er1_YWEhuCEHWurmDpxpz3fRzXr0A
+    short-id: b4e3b0b55b8dc75b
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: shiforgrpc
 - name: 🇳🇱 The Netherlands [TG]
   type: vless
   server: 78.111.89.171
@@ -17,9 +32,9 @@ proxies:
     public-key: lYcMPEgf6ePmF_d8RXR5fsVorycW37v_ECl-fz_H6w4
     short-id: cfe08c23a85f24
   client-fingerprint: chrome
-- name: 🇩🇪 Germany [GH:Mahdi0024/Pro]
+- name: 🇩🇪 Germany [TG]
   type: vless
-  server: 169.40.42.15
+  server: 169.40.42.212
   port: 443
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   udp: true
@@ -42,6 +57,82 @@ proxies:
   reality-opts:
     public-key: Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc
   client-fingerprint: chrome
+- name: '🇩🇪 Germany [TG] #2'
+  type: vless
+  server: 169.40.42.52
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
+- name: '🇩🇪 Germany [TG] #3'
+  type: vless
+  server: 169.40.42.16
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  type: vless
+  server: 169.40.42.15
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: 🇫🇷 France [TG]
+  type: vless
+  server: 54.37.136.194
+  port: 2053
+  uuid: e8a432c8-5d84-49a5-b822-67ed761a58f9
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: Vemd9Jjk5xKO8qSC3g8VVagwcb4J1BcTvp86CswQC0A
+    short-id: 50ba05992b05c1c3
+  client-fingerprint: chrome
+- name: 🇨🇦 Canada [TG]
+  type: vless
+  server: 66.70.179.198
+  port: 2053
+  uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
+  udp: true
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
+    short-id: 83f8317a948bb769
+  client-fingerprint: chrome
+- name: '🇩🇪 Germany [TG] #4'
+  type: vless
+  server: 169.40.42.95
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
 - name: 🇺🇸 United States/North Bergen [TG]
   type: vless
   server: 137.184.218.169
@@ -54,7 +145,109 @@ proxies:
   reality-opts:
     public-key: lJ9INPpO4rdnm2Tek_yg0PGFyUrBB6MoKyvqt_Mfqm0
   client-fingerprint: chrome
+- name: '🇩🇪 Germany [GH:Mahdi0024/Pro] #2'
+  type: vless
+  server: 169.40.42.232
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
+- name: '🇺🇸 United States [TG] #2'
+  type: vless
+  server: xray2-direct-mci1-fs-ce.freesocks.work
+  port: 443
+  uuid: 338764e6-0e53-4d51-8057-80ce8d49a963
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: dl.google.com
+  reality-opts:
+    public-key: 7j3hmlHrEDk3Kjx-dFG3E3jf0c6PZF45trIPFsuKWmI
+  client-fingerprint: chrome
+- name: '🇩🇪 Germany [TG] #5'
+  type: vless
+  server: 169.40.42.202
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: 🇫🇮 Finland/Helsinki [TG]
+  type: vless
+  server: 185.79.138.71
+  port: 448
+  uuid: 0b0915d7-6800-4580-a44b-77d84f105e6a
+  udp: true
+  tls: true
+  servername: www.samsung.com
+  reality-opts:
+    public-key: CsDgNRcCwCkPIslfZpKTIK71KFpIFNsotbdzKcZVoH8
+    short-id: cd21e552537c7c0b
+  client-fingerprint: chrome
+- name: 🇳🇱 The Netherlands/Haarlem [TG]
+  type: vless
+  server: 51.158.206.93
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/San Francisco [TG]
+  type: vless
+  server: 172.67.130.187
+  port: 2083
+  uuid: 2b8738de-1af5-4267-b101-c05707769ed4
+  udp: true
+  tls: true
+  servername: fans.liverpool.qzz.io
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiY0Y0cENQUmxsNyIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
+    headers:
+      Host: fans.liverpool.qzz.io
+- name: '🇳🇱 The Netherlands/Haarlem [TG] #2'
+  type: vless
+  server: 51.158.206.96
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
 - name: 🇺🇸 United States/Hillsboro [GH:barry-far/V2r]
+  type: vless
+  server: 15.204.97.206
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/Hillsboro [TG]
   type: vless
   server: 15.204.97.216
   port: 23576
@@ -67,33 +260,135 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇯🇵 Japan/Minamishinagawa [GH:Mahdi0024/Pro]
+- name: '🇳🇱 The Netherlands/Haarlem [TG] #3'
   type: vless
-  server: 108.160.128.46
-  port: 443
-  uuid: de241e4e-226e-46d5-aa79-602e11ef94d8
+  server: 51.158.206.26
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   udp: true
   flow: xtls-rprx-vision
   tls: true
-  servername: www.bing.com
+  servername: fuck.rkn
   reality-opts:
-    public-key: cZ9MxrT-CYtdhBdbGeqzcQEvWvAuKw7fEfRbR8QrOlM
-    short-id: 37bb73b5
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
   client-fingerprint: chrome
-- name: 🇺🇸 United States/San Francisco [TG]
+- name: 🇺🇸 United States [GH:Surfboardv2ra]
   type: vless
-  server: chatgpt.com
+  server: 136.148.71.151
   port: 443
-  uuid: 5dc15e15-f285-4a9d-959b-0e4fbdd77b63
+  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: germa12.ggisopi.su
+  reality-opts:
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  client-fingerprint: chrome
+- name: '🇺🇸 United States/San Francisco [TG] #2'
+  type: vless
+  server: 104.21.31.137
+  port: 443
+  uuid: 59c70620-d2f3-4255-9d6f-f4c5103d64ce
   udp: true
   tls: true
-  servername: powered-by-surena.user68f797c2f3e1b.workers.dev
+  servername: 59fssIBE-SDDrRs3qW83QQZz0H1NT-o.q7qwsxItB6BYi5nMTa4naAlz.woRkErs.deV
   network: ws
   ws-opts:
-    path: /?ed
+    path: /vl/FpYFoMlg8sRpgV7SSaOaRYa3fagqGu?ed
     headers:
-      Host: powered-by-surena.user68f797c2f3e1b.workers.dev
-- name: 🇺🇸 United States [GH:barry-far/V2r]
+      Host: 59fssibe-sddrrs3qw83qqzz0h1nt-o.q7qwsxitb6byi5nmta4naalz.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #3'
+  type: vless
+  server: 104.27.52.69
+  port: 443
+  uuid: 73796e63-0000-4000-8000-000000000000
+  udp: true
+  tls: true
+  servername: icy-pine-5efc.aoigjojowfie123.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: icy-pine-5efc.aoigjojowfie123.workers.dev
+- name: '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
+  type: vless
+  server: 15.204.97.219
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇳🇴 Norway/Nordland [TG]
+  type: vless
+  server: 46.29.238.88
+  port: 40443
+  uuid: db320947-adfb-400d-b60b-383b8324bffe
+  udp: true
+  tls: true
+  servername: deepl.com
+  reality-opts:
+    public-key: aZOpodpnifoxDqTzWgxJRffgsiGnG9-h-EZd4SvOImc
+    short-id: f7b2
+  client-fingerprint: chrome
+- name: '🇺🇸 United States/San Francisco [TG] #4'
+  type: vless
+  server: 172.67.208.1
+  port: 443
+  uuid: 1443b7a1-7ba9-4ec9-b904-2e867367b5d7
+  udp: true
+  tls: true
+  servername: odd-violet-5440.asdgrweeee13.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: odd-violet-5440.asdgrweeee13.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #5'
+  type: vless
+  server: www.speedtest.net
+  port: 443
+  uuid: b19419fa-8009-455b-b059-765e2856883a
+  udp: true
+  tls: true
+  servername: akbarian34.j9z65ce2uyks.workers.dev
+  network: ws
+  ws-opts:
+    path: /vl/3Qe9Fv1V2cqEtXyBQApZYi
+    headers:
+      Host: akbarian34.j9z65ce2uyks.workers.dev
+- name: '🇺🇸 United States/San Francisco [TG] #6'
+  type: vless
+  server: small-scene-f215.amiralizarefast1.workers.dev
+  port: 443
+  uuid: d9f94532-c4d4-4f94-ba23-6eb6d35bfc7d
+  udp: true
+  tls: true
+  servername: small-scene-f215.amiralizarefast1.workers.dev
+  network: ws
+  ws-opts:
+    path: /eyJqdW5rIjoiZW5GMjJSRmYiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByZWZpeCIsInBhbmVsSVBzIjpbIlsyNjAyOmZjNTk6YjA6NjQ6Ol0iXX0=
+    headers:
+      Host: small-scene-f215.amiralizarefast1.workers.dev
+- name: 🇺🇸 United States/San Francisco [GH:Surfboardv2ra]
+  type: vless
+  server: 104.16.104.120
+  port: 443
+  uuid: 103744ce-0153-49b1-2eac-d293a6ddd7e2
+  udp: true
+  tls: true
+  servername: nahan-mouse-7749.amirsina2026.workers.dev
+  network: ws
+  ws-opts:
+    path: /sync
+    headers:
+      Host: nahan-mouse-7749.amirsina2026.workers.dev
+- name: '🇺🇸 United States [TG] #3'
   type: trojan
   server: 151.101.56.255
   port: 443
@@ -105,33 +400,19 @@ proxies:
     path: /
     headers:
       Host: mitivpn---nl--s---mitivpn-2.global.ssl.fastly.net
-- name: '🇺🇸 United States/San Francisco [TG] #2'
-  type: vless
-  server: 104.21.41.207
-  port: 2096
-  uuid: 0ef949f6-569f-4f2a-b05a-1b6d5d8b9905
+- name: 🇺🇸 United States [GH:barry-far/V2r]
+  type: trojan
+  server: 151.101.56.9
+  port: 443
+  password: MiTiVPN
   udp: true
-  tls: true
-  servername: w0G3KKeMY4T7QqlC.27bwiyGDh5h777Qm4.WorKERS.DeV
+  sni: ssl.fastly.com
   network: ws
   ws-opts:
-    path: /vl/Jyrh0Z2XTUYAlEgEbvvWuNU
+    path: /
     headers:
-      Host: w0g3kkemy4t7qqlc.27bwiygdh5h777qm4.workers.dev
-- name: 🇺🇸 United States/Los Angeles [TG]
-  type: vless
-  server: 172.235.43.210
-  port: 53957
-  uuid: 7ab29f89-6eef-4171-b232-fc4f580ad31b
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.nvidia.com
-  reality-opts:
-    public-key: XUHlbk5VH5z4E2wxZBhlpLZ33qevyQgqU7dheRDgoGQ
-    short-id: 44e82fd7b97b14
-  client-fingerprint: chrome
-- name: '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
+      Host: mitivpn---gb--s---mitivpn-1.global.ssl.fastly.net
+- name: '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #3'
   type: vless
   server: 15.204.97.197
   port: 23576
@@ -142,9 +423,43 @@ proxies:
   servername: fuck.rkn
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
   client-fingerprint: chrome
-- name: '🇺🇸 United States/San Francisco [TG] #3'
+- name: 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
+  type: vless
+  server: 130.107.73.148
+  port: 41373
+  uuid: a71c8954-66a8-4321-bedb-2336230d81ce
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: google.com
+  reality-opts:
+    public-key: m0GsZOAwvAJEaqh9aH6qfOmBKo0KW0jY_tJEC6KaDEU
+    short-id: 0e
+  client-fingerprint: chrome
+- name: 🇬🇧 United Kingdom/London [TG]
+  type: vless
+  server: 66.90.104.42
+  port: 2083
+  uuid: cd3bb7d9-7df3-4644-ac05-c260990ac277
+  udp: true
+  network: grpc
+  grpc-opts:
+    grpc-service-name: vless
+- name: 🇺🇸 United States/Buffalo [TG]
+  type: vless
+  server: 186.246.21.156
+  port: 40443
+  uuid: 17d29827-7cf1-4115-b40d-548e10ec355d
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: deepl.com
+  reality-opts:
+    public-key: bjOGTQ4xsiFbyCPM_WzoK53L130rW5vZJtuYDJx_pkM
+    short-id: aa3c
+  client-fingerprint: qq
+- name: '🇺🇸 United States/San Francisco [TG] #7'
   type: vless
   server: 104.16.107.139
   port: 8880
@@ -155,18 +470,68 @@ proxies:
     path: /pyip=proxyip.jp.cmliussss.net
     headers:
       Host: weathered-mode-8f39.83-33c.workers.dev
-- name: '🇺🇸 United States/San Francisco [TG] #4'
+- name: '🇺🇸 United States/San Francisco [GH:Surfboardv2ra] #2'
   type: vless
-  server: 172.64.150.28
-  port: 2082
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  server: 172.64.154.8
+  port: 2052
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   network: ws
   ws-opts:
-    path: /fp
+    path: /?ed=2560security=tls
     headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: '🇺🇸 United States/San Francisco [TG] #5'
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: 🇳🇱 The Netherlands/Haarlem [GH:Surfboardv2ra]
+  type: vless
+  server: 51.158.206.80
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇬🇧 United Kingdom/City of London [TG]
+  type: vless
+  server: 3.9.135.156
+  port: 51847
+  uuid: 391a01e9-b664-407b-9158-610fab3f5920
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.tesla.com
+  reality-opts:
+    public-key: S6noV0L8eNASnTe1gXLutLZNdfENsvKMsOJiGQYi6nc
+    short-id: 0eec442e7b34d2f2
+  client-fingerprint: chrome
+- name: 🇫🇷 France/Paris [TG]
+  type: vless
+  server: 62.210.91.10
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: '🇺🇸 United States/San Francisco [TG] #8'
+  type: vless
+  server: 108.162.198.178
+  port: 2086
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  udp: true
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+- name: '🇺🇸 United States/San Francisco [TG] #9'
   type: vless
   server: 104.21.227.134
   port: 80
@@ -177,10 +542,27 @@ proxies:
     path: /ELiV2-RAY----ELiV2-RAY----ELiV2-RAY----ELiV2-RAY----ELiV2-RAY----ELiV2-RAY
     headers:
       Host: elenaaaaaaaaaa.cloudns.pro
-- name: '🇺🇸 United States/San Francisco [TG] #6'
+- name: 🇵🇱 Poland/Warsaw [GH:ermaozi/get_s]
+  type: hysteria2
+  server: 217.60.33.215
+  port: 443
+  password: 865e271f7c97b549b024255c9d02cebe9cc0c2c070a82b1e11bb11b9cd88dd01
+  udp: true
+  sni: streambox.wwwinternetvideo.click
+- name: '🇫🇷 France [TG] #2'
   type: vless
-  server: 108.162.198.178
-  port: 8080
+  server: 162.19.10.99
+  port: 443
+  uuid: e8b1500b-e9e8-5492-8312-f4eadf7d0767
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: nasnet-162191099-direct.mbghalibaf.com
+  skip-cert-verify: true
+- name: '🇺🇸 United States/San Francisco [TG] #10'
+  type: vless
+  server: 172.64.158.146
+  port: 8880
   uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
   network: ws
@@ -188,31 +570,7 @@ proxies:
     path: /?ed=2560security=tls
     headers:
       Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: '🇺🇸 United States/San Francisco [TG] #7'
-  type: vless
-  server: 162.159.45.19
-  port: 80
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 United States/Dallas [GH:barry-far/V2r]
-  type: ss
-  server: 156.146.38.167
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
-  udp: true
-- name: 🇯🇵 Japan/Tokyo [GH:Surfboardv2ra]
-  type: vless
-  server: 137.220.221.179
-  port: 443
-  uuid: a16a3336-c9ab-489f-9b85-c973f5e2cfa4
-  udp: true
-- name: '🇺🇸 United States/San Francisco [TG] #8'
+- name: '🇺🇸 United States/San Francisco [TG] #11'
   type: vless
   server: 188.114.97.6
   port: 8080
@@ -223,9 +581,9 @@ proxies:
     path: /eyJqdW5rIjoiVXFEMlhKZVY4dzNoTUtpZCIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
     headers:
       Host: tight-bush-0bb4.bshxyyxhdjdggb.workers.dev
-- name: '🇺🇸 United States/San Francisco [TG] #9'
+- name: 🇷🇺 Russia [TG]
   type: vless
-  server: 8.34.70.30
+  server: 176.124.223.30
   port: 8880
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   udp: true
@@ -233,181 +591,138 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: vms.lifetime09.workers.dev
-- name: '🇺🇸 United States/San Francisco [TG] #10'
+      Host: vms.lifetime38.workers.dev
+- name: '🇺🇸 United States [TG] #4'
   type: vless
-  server: 172.64.229.170
-  port: 80
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: '🇺🇸 United States/San Francisco [TG] #11'
-  type: vless
-  server: 172.64.154.8
+  server: 162.120.94.30
   port: 8880
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   udp: true
   network: ws
   ws-opts:
-    path: /?ed=2560security=tls
+    path: /
     headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
+      Host: vms.lifetime07.workers.dev
 - name: '🇺🇸 United States/San Francisco [TG] #12'
   type: vless
   server: 172.64.229.170
-  port: 2095
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: '🇺🇸 United States/San Francisco [TG] #13'
-  type: vless
-  server: 162.159.38.127
-  port: 2082
-  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
-  udp: true
-  network: ws
-  ws-opts:
-    path: /?ed=2560security=tls
-    headers:
-      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
-- name: 🇺🇸 United States/San Jose [GH:ermaozi/get_s]
-  type: hysteria2
-  server: 163.192.14.135
-  port: 50160
-  password: 099830134df5ac3a04a4b21d39b8c395
-  udp: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: 🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro]
-  type: ss
-  server: 18.181.165.254
-  port: 443
-  password: amazonskr05
-  cipher: aes-256-cfb
-  udp: true
-- name: 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
-  type: ss
-  server: 82.38.31.3
-  port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇬🇧 United Kingdom/Slough [GH:barry-far/V2r]
-  type: ss
-  server: 143.110.161.156
-  port: 17000
-  password: pX0uhU3ZjUcLWYs0Vez55BO3JoQrRlL
-  cipher: aes-256-gcm
-  udp: true
-- name: '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
-  type: ss
-  server: 82.38.31.47
-  port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #3'
-  type: ss
-  server: 82.38.31.182
-  port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: '🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro] #2'
-  type: ss
-  server: 84.247.155.196
   port: 80
-  password: 3eOFeNssde7PYYMv
-  cipher: aes-256-gcm
+  uuid: 47fcef29-ab4e-4aa6-932b-d95a18f28a4e
   udp: true
-- name: 🇳🇱 The Netherlands/Amsterdam [GH:Mahdi0024/Pro]
-  type: ss
-  server: 108.181.126.122
-  port: 8388
-  password: CJmTCCx7Ltud
-  cipher: chacha20-ietf-poly1305
-  udp: true
+  network: ws
+  ws-opts:
+    path: /?ed=2560security=tls
+    headers:
+      Host: 8nj2r.2k8t.f88.hh.vavava.kdns.fr
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto
   - DIRECT
+  - 🇳🇱 The Netherlands/Eygelshoven [TG]
   - 🇳🇱 The Netherlands [TG]
-  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇩🇪 Germany [TG]
   - 🇺🇸 United States [TG]
+  - '🇩🇪 Germany [TG] #2'
+  - '🇩🇪 Germany [TG] #3'
+  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇫🇷 France [TG]
+  - 🇨🇦 Canada [TG]
+  - '🇩🇪 Germany [TG] #4'
   - 🇺🇸 United States/North Bergen [TG]
-  - 🇺🇸 United States/Hillsboro [GH:barry-far/V2r]
-  - 🇯🇵 Japan/Minamishinagawa [GH:Mahdi0024/Pro]
+  - '🇩🇪 Germany [GH:Mahdi0024/Pro] #2'
+  - '🇺🇸 United States [TG] #2'
+  - '🇩🇪 Germany [TG] #5'
+  - 🇫🇮 Finland/Helsinki [TG]
+  - 🇳🇱 The Netherlands/Haarlem [TG]
   - 🇺🇸 United States/San Francisco [TG]
-  - 🇺🇸 United States [GH:barry-far/V2r]
+  - '🇳🇱 The Netherlands/Haarlem [TG] #2'
+  - 🇺🇸 United States/Hillsboro [GH:barry-far/V2r]
+  - 🇺🇸 United States/Hillsboro [TG]
+  - '🇳🇱 The Netherlands/Haarlem [TG] #3'
+  - 🇺🇸 United States [GH:Surfboardv2ra]
   - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States/Los Angeles [TG]
-  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
   - '🇺🇸 United States/San Francisco [TG] #3'
+  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
+  - 🇳🇴 Norway/Nordland [TG]
   - '🇺🇸 United States/San Francisco [TG] #4'
   - '🇺🇸 United States/San Francisco [TG] #5'
   - '🇺🇸 United States/San Francisco [TG] #6'
+  - 🇺🇸 United States/San Francisco [GH:Surfboardv2ra]
+  - '🇺🇸 United States [TG] #3'
+  - 🇺🇸 United States [GH:barry-far/V2r]
+  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #3'
+  - 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
+  - 🇬🇧 United Kingdom/London [TG]
+  - 🇺🇸 United States/Buffalo [TG]
   - '🇺🇸 United States/San Francisco [TG] #7'
-  - 🇺🇸 United States/Dallas [GH:barry-far/V2r]
-  - 🇯🇵 Japan/Tokyo [GH:Surfboardv2ra]
+  - '🇺🇸 United States/San Francisco [GH:Surfboardv2ra] #2'
+  - 🇳🇱 The Netherlands/Haarlem [GH:Surfboardv2ra]
+  - 🇬🇧 United Kingdom/City of London [TG]
+  - 🇫🇷 France/Paris [TG]
   - '🇺🇸 United States/San Francisco [TG] #8'
   - '🇺🇸 United States/San Francisco [TG] #9'
+  - 🇵🇱 Poland/Warsaw [GH:ermaozi/get_s]
+  - '🇫🇷 France [TG] #2'
   - '🇺🇸 United States/San Francisco [TG] #10'
   - '🇺🇸 United States/San Francisco [TG] #11'
+  - 🇷🇺 Russia [TG]
+  - '🇺🇸 United States [TG] #4'
   - '🇺🇸 United States/San Francisco [TG] #12'
-  - '🇺🇸 United States/San Francisco [TG] #13'
-  - 🇺🇸 United States/San Jose [GH:ermaozi/get_s]
-  - 🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro]
-  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
-  - 🇬🇧 United Kingdom/Slough [GH:barry-far/V2r]
-  - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
-  - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #3'
-  - '🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:Mahdi0024/Pro]
 - name: Auto
   type: url-test
   proxies:
+  - 🇳🇱 The Netherlands/Eygelshoven [TG]
   - 🇳🇱 The Netherlands [TG]
-  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇩🇪 Germany [TG]
   - 🇺🇸 United States [TG]
+  - '🇩🇪 Germany [TG] #2'
+  - '🇩🇪 Germany [TG] #3'
+  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇫🇷 France [TG]
+  - 🇨🇦 Canada [TG]
+  - '🇩🇪 Germany [TG] #4'
   - 🇺🇸 United States/North Bergen [TG]
-  - 🇺🇸 United States/Hillsboro [GH:barry-far/V2r]
-  - 🇯🇵 Japan/Minamishinagawa [GH:Mahdi0024/Pro]
+  - '🇩🇪 Germany [GH:Mahdi0024/Pro] #2'
+  - '🇺🇸 United States [TG] #2'
+  - '🇩🇪 Germany [TG] #5'
+  - 🇫🇮 Finland/Helsinki [TG]
+  - 🇳🇱 The Netherlands/Haarlem [TG]
   - 🇺🇸 United States/San Francisco [TG]
-  - 🇺🇸 United States [GH:barry-far/V2r]
+  - '🇳🇱 The Netherlands/Haarlem [TG] #2'
+  - 🇺🇸 United States/Hillsboro [GH:barry-far/V2r]
+  - 🇺🇸 United States/Hillsboro [TG]
+  - '🇳🇱 The Netherlands/Haarlem [TG] #3'
+  - 🇺🇸 United States [GH:Surfboardv2ra]
   - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States/Los Angeles [TG]
-  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
   - '🇺🇸 United States/San Francisco [TG] #3'
+  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #2'
+  - 🇳🇴 Norway/Nordland [TG]
   - '🇺🇸 United States/San Francisco [TG] #4'
   - '🇺🇸 United States/San Francisco [TG] #5'
   - '🇺🇸 United States/San Francisco [TG] #6'
+  - 🇺🇸 United States/San Francisco [GH:Surfboardv2ra]
+  - '🇺🇸 United States [TG] #3'
+  - 🇺🇸 United States [GH:barry-far/V2r]
+  - '🇺🇸 United States/Hillsboro [GH:barry-far/V2r] #3'
+  - 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
+  - 🇬🇧 United Kingdom/London [TG]
+  - 🇺🇸 United States/Buffalo [TG]
   - '🇺🇸 United States/San Francisco [TG] #7'
-  - 🇺🇸 United States/Dallas [GH:barry-far/V2r]
-  - 🇯🇵 Japan/Tokyo [GH:Surfboardv2ra]
+  - '🇺🇸 United States/San Francisco [GH:Surfboardv2ra] #2'
+  - 🇳🇱 The Netherlands/Haarlem [GH:Surfboardv2ra]
+  - 🇬🇧 United Kingdom/City of London [TG]
+  - 🇫🇷 France/Paris [TG]
   - '🇺🇸 United States/San Francisco [TG] #8'
   - '🇺🇸 United States/San Francisco [TG] #9'
+  - 🇵🇱 Poland/Warsaw [GH:ermaozi/get_s]
+  - '🇫🇷 France [TG] #2'
   - '🇺🇸 United States/San Francisco [TG] #10'
   - '🇺🇸 United States/San Francisco [TG] #11'
+  - 🇷🇺 Russia [TG]
+  - '🇺🇸 United States [TG] #4'
   - '🇺🇸 United States/San Francisco [TG] #12'
-  - '🇺🇸 United States/San Francisco [TG] #13'
-  - 🇺🇸 United States/San Jose [GH:ermaozi/get_s]
-  - 🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro]
-  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
-  - 🇬🇧 United Kingdom/Slough [GH:barry-far/V2r]
-  - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
-  - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #3'
-  - '🇯🇵 Japan/Tokyo [GH:Mahdi0024/Pro] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:Mahdi0024/Pro]
   url: https://www.google.com/generate_204
   interval: 300
   tolerance: 50
