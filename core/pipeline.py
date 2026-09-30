@@ -15,7 +15,12 @@ from core.harvesters.static_feed import StaticFeedHarvester
 from core.harvesters.telegram import TelegramHarvester
 from core.matrix.exporter import MatrixExporter
 from core.node_ledger import NodeLedger
-from core.quality import filter_by_china_probe, filter_timeout_outliers, quality_score
+from core.quality import (
+    filter_by_china_probe,
+    filter_by_min_resistance_score,
+    filter_timeout_outliers,
+    quality_score,
+)
 from core.spider import Spider
 from core.validator import Validator
 
@@ -267,6 +272,12 @@ class NodePipeline:
             tested_nodes = filter_timeout_outliers(
                 tested_nodes, "_latency_ms", max_latency_ms=max_lat_threshold
             )
+
+            # 3b. Hard China-resistance filter: GH Actions runners are never GFW-blocked,
+            # so raw reachability there doesn't prove a node works for censored clients.
+            # Drop configs with negative anti-censorship heuristics (e.g. plain protocols
+            # without TLS on non-standard ports) instead of only deprioritizing them.
+            tested_nodes = filter_by_min_resistance_score(tested_nodes, min_score=0)
 
             # 4. Optional China external probe filter
             china_check_url = os.getenv("CHINA_CHECK_URL", "").strip()
