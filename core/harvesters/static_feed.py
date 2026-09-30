@@ -1,4 +1,11 @@
-"""Static Feed Harvester for fixed URLs, date-parameterized sources, and nested lists."""
+"""Static Feed Harvester for fixed URLs, date-parameterized sources, and nested lists.
+
+Source URLs are tracked in a `UrlSourceLedger` (see `core/harvesters/url_source_ledger.py`)
+instead of being read fresh from a static file/secret on every run. This makes the
+list of sources self-healing: URLs that repeatedly yield zero nodes are automatically
+backed off (frozen) and later revived, mirroring the pattern already used for
+Telegram channels (`ChannelLedger`) and GitHub Radar repositories.
+"""
 
 import json
 import logging
@@ -8,6 +15,7 @@ from datetime import datetime
 from typing import Any
 
 from core.harvesters.base import BaseHarvester, HarvestResult
+from core.harvesters.url_source_ledger import UrlSourceLedger
 from core.spider import Spider
 
 logger = logging.getLogger(__name__)
@@ -58,57 +66,90 @@ def resolve_date_url(url: str) -> str:
         return url
 
 
+def parse_sources_entries(data: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
+    """Extract (url, options) pairs from a `{"urls": [...]}` style config.
+
+    Shared by both the on-disk `sources.json` file and the `SOURCES_JSON`
+    environment variable/secret, which use the identical schema.
+    """
+    entries: list[tuple[str, dict[str, Any]]] = []
+    raw_sources = data.get("urls", []) if isinstance(data, dict) else []
+    for entry in raw_sources:
+        options: dict[str, Any] = {}
+        if isinstance(entry, dict):
+            if entry.get("enabled") is False:
+                continue
+            url = entry.get("url")
+            if not url:
+                continue
+            if entry.get("update_method") == "change_date":
+                url = resolve_date_url(url)
+            if entry.get("max_nodes"):
+                options["max_nodes"] = entry.get("max_nodes")
+            if entry.get("ignore_protocols"):
+                options["ignore_protocols"] = entry.get("ignore_protocols")
+        else:
+            url = str(entry)
+        if url:
+            entries.append((url, options))
+    return entries
+
+
+def parse_sources_json_str(raw: str) -> list[tuple[str, dict[str, Any]]]:
+    """Parse a `SOURCES_JSON` env var/secret payload (same schema as sources.json)."""
+    if not raw or not raw.strip():
+        return []
+    try:
+        data = json.loads(raw)
+    except Exception as e:
+        logger.warning(f"Failed to parse SOURCES_JSON payload: {e}")
+        return []
+    return parse_sources_entries(data)
+
+
 class StaticFeedHarvester(BaseHarvester):
-    """Harvester for static seed URLs, sources.json, and sources.list files."""
+    """
+    Harvester for static/parameterized subscription URLs.
+
+    URL health and lifecycle (active/candidate/frozen, failure backoff,
+    revival, garbage collection) is tracked via `UrlSourceLedger` so the
+    list of sources is a self-updating, git-tracked store rather than a
+    flat static secret that silently rots.
+    """
 
     def __init__(
         self,
+        ledger: UrlSourceLedger | None = None,
         config_path: str | None = None,
         sources_list_path: str | None = None,
         extra_urls: list[str] | None = None,
+        seed_entries: list[tuple[str, dict[str, Any]]] | None = None,
         spider: Spider | None = None,
         max_workers: int = 10,
+        max_candidates_per_run: int = 30,
         timeout: int = 15,
     ):
         super().__init__(name="StaticFeedHarvester", timeout=timeout)
+        self.ledger = ledger
         self.config_path = config_path
         self.sources_list_path = sources_list_path
         self.extra_urls = extra_urls or []
+        self.seed_entries = seed_entries or []
         self.spider = spider or Spider(max_workers=max_workers, timeout=timeout)
         self.max_workers = max_workers
+        self.max_candidates_per_run = max_candidates_per_run
 
-    def _load_sources_json(self) -> tuple[list[str], dict[str, dict[str, Any]]]:
-        urls: list[str] = []
-        url_options: dict[str, dict[str, Any]] = {}
+    def _load_sources_json(self) -> list[tuple[str, dict[str, Any]]]:
+        """Legacy local-file support: `config/sources.json` (optional, git-ignored)."""
         if not self.config_path or not os.path.exists(self.config_path):
-            return urls, url_options
-
+            return []
         try:
             with open(self.config_path, encoding="utf-8") as f:
                 data = json.load(f)
-            raw_sources = data.get("urls", [])
-            for entry in raw_sources:
-                options: dict[str, Any] = {}
-                if isinstance(entry, dict):
-                    if entry.get("enabled") is False:
-                        continue
-                    url = entry.get("url")
-                    if not url:
-                        continue
-                    if entry.get("update_method") == "change_date":
-                        url = resolve_date_url(url)
-                    if entry.get("max_nodes"):
-                        options["max_nodes"] = entry.get("max_nodes")
-                    if entry.get("ignore_protocols"):
-                        options["ignore_protocols"] = entry.get("ignore_protocols")
-                else:
-                    url = str(entry)
-                urls.append(url)
-                url_options[url] = options
+            return parse_sources_entries(data)
         except Exception as e:
             logger.warning(f"Error loading {self.config_path}: {e}")
-
-        return urls, url_options
+            return []
 
     def _load_sources_list(self) -> list[tuple[str, dict[str, Any]]]:
         entries: list[tuple[str, dict[str, Any]]] = []
@@ -167,19 +208,33 @@ class StaticFeedHarvester(BaseHarvester):
 
         return entries
 
-    def harvest(self) -> HarvestResult:
-        urls_to_fetch, url_options = self._load_sources_json()
-
+    def _collect_seed_entries(self) -> list[tuple[str, dict[str, Any]]]:
+        """Merge every one-time seed source: env-provided seeds, extra URLs,
+        the legacy local sources.json file, and sources.list entries."""
+        merged: dict[str, dict[str, Any]] = {}
+        for url, options in self.seed_entries:
+            merged[url] = options
+        for url, options in self._load_sources_json():
+            merged.setdefault(url, options)
         for u in self.extra_urls:
-            urls_to_fetch.append(u)
-            url_options[u] = {}
+            merged.setdefault(u, {})
+        for url, options in self._load_sources_list():
+            merged.setdefault(url, options)
+        return list(merged.items())
 
-        list_entries = self._load_sources_list()
-        for u, opts in list_entries:
-            urls_to_fetch.append(u)
-            url_options[u] = opts
+    def harvest(self) -> HarvestResult:
+        seed = self._collect_seed_entries()
 
-        urls_to_fetch = list(dict.fromkeys(urls_to_fetch))
+        if self.ledger is not None:
+            probe_entries = self.ledger.get_probe_list(
+                max_candidates=self.max_candidates_per_run, seed_urls=seed
+            )
+        else:
+            # No ledger wired: fall back to the flat, non-persistent legacy behavior.
+            probe_entries = seed
+
+        url_options = dict(probe_entries)
+        urls_to_fetch = list(url_options.keys())
         logger.info(f"[{self.name}] Fetching {len(urls_to_fetch)} static and parameterized URLs...")
 
         all_links: list[str] = []
@@ -187,6 +242,7 @@ class StaticFeedHarvester(BaseHarvester):
 
         fetch_results = self.spider.fetch_urls_parallel(urls_to_fetch, max_workers=self.max_workers)
         for url, content in fetch_results.items():
+            links: list[str] = []
             if content:
                 links = self.spider.parse_subscription(content)
                 links = apply_source_filters(links, url_options.get(url, {}))
@@ -195,6 +251,15 @@ class StaticFeedHarvester(BaseHarvester):
                     if link not in source_map:
                         source_map[link] = url
                 all_links.extend(links)
+            else:
+                logger.debug(f"  {url}: 0 links (fetch failed or empty)")
+
+            if self.ledger is not None:
+                self.ledger.record_result(url, len(links))
+
+        if self.ledger is not None:
+            self.ledger.garbage_collect()
+            self.ledger.save()
 
         unique_links = list(set(all_links))
         logger.info(f"[{self.name}] Completed: {len(unique_links)} unique links extracted")

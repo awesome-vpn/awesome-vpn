@@ -95,6 +95,8 @@ jobs:
         # Prefer repository Variables (visible), fallback to Secrets for backwards compatibility
         TELEGRAM_CHANNELS: ${{ vars.ACTIVE_TELEGRAM_CHANNELS || secrets.TELEGRAM_CHANNELS }}
         EXTRA_URLS: ${{ secrets.EXTRA_URLS }}
+        # One-time seed merged into the persistent config/url_sources.json ledger;
+        # the ledger (not this secret) is the ongoing source of truth across runs.
         SOURCES_JSON: ${{ vars.ACTIVE_GITHUB_URLS || secrets.SOURCES_JSON }}
         SING_BOX_VERSION: ${{ env.SING_BOX_VERSION }}
         MAX_NODES: "50"
@@ -144,7 +146,7 @@ jobs:
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add all sing-box.json clash.yaml config/channels.json config/radar.json config/node_ledger.json 2>/dev/null || true
+        git add all sing-box.json clash.yaml config/channels.json config/radar.json config/node_ledger.json config/url_sources.json 2>/dev/null || true
         NODE_COUNT=$(uv run python -c 'import json; d=json.load(open("sing-box.json")); print(len([n for n in d["outbounds"] if n.get("type") not in ("urltest","selector","direct")]))')
         git diff --staged --quiet || \
           git commit -m "update: $(date +'%Y-%m-%d') - ${NODE_COUNT} nodes [skip ci]"
