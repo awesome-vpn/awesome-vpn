@@ -7,19 +7,6 @@ external-controller: 127.0.0.1:9090
 proxies:
 - name: 🇩🇪 Germany [TG]
   type: vless
-  server: 169.40.42.35
-  port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: yahoo.com
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: '🇩🇪 Germany [TG] #2'
-  type: vless
   server: 169.40.42.104
   port: 443
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
@@ -31,9 +18,9 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: ios
-- name: 🇩🇪 Germany [GH:Surfboardv2ra]
+- name: '🇩🇪 Germany [TG] #2'
   type: vless
-  server: 169.40.42.225
+  server: 169.40.42.35
   port: 443
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   udp: true
@@ -44,57 +31,32 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
-- name: 🇳🇱 The Netherlands/Amsterdam [TG]
+- name: 🇩🇪 Germany [GH:Surfboardv2ra]
   type: vless
-  server: 86.54.28.75
+  server: 169.40.42.163
   port: 443
-  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   udp: true
   flow: xtls-rprx-vision
   tls: true
-  servername: www.apple.com
+  servername: yahoo.com
   reality-opts:
-    public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
-    short-id: 1d86d17709852910
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
   client-fingerprint: chrome
-- name: 🇺🇸 United States/North Bergen [GH:Mahdi0024/Pro]
+- name: 🇺🇸 United States [TG]
   type: vless
-  server: 159.89.87.21
-  port: 28190
-  uuid: 14c80e0e-f7ce-4991-94fc-99a1db4a9b1e
+  server: 47.253.226.114
+  port: 443
+  uuid: 055a1ce8-2a16-4a0d-a2c2-22826c9b2413
   udp: true
   flow: xtls-rprx-vision
-  tls: true
-  servername: aws.amazon.com
-  reality-opts:
-    public-key: ZJRnFU-1s1JOnO8E9uZ7b00l1fPEh63fGRbdBANFRno
-  client-fingerprint: chrome
-- name: 🇨🇦 Canada [TG]
-  type: vless
-  server: 66.70.179.198
-  port: 2053
-  uuid: dc620cd6-a9d8-4a0f-8f18-006b895db77e
-  udp: true
   tls: true
   servername: www.cloudflare.com
   reality-opts:
-    public-key: k4l6TxwkBbx9DhZAFpByq5rfCWFSgyOex3f_eFe9CWU
-    short-id: 83f8317a948bb769
-  client-fingerprint: firefox
-- name: 🇺🇸 United States/Hillsboro [TG]
-  type: vless
-  server: 15.204.97.197
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
+    public-key: Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc
   client-fingerprint: chrome
-- name: '🇺🇸 United States/Hillsboro [TG] #2'
+- name: 🇺🇸 United States/Hillsboro [TG]
   type: vless
   server: ww13.levikogjgfdd.ir
   port: 23576
@@ -107,98 +69,35 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇳🇱 The Netherlands/Haarlem [TG]
-  type: vless
-  server: 51.158.206.103
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: '🇳🇱 The Netherlands/Haarlem [TG] #2'
-  type: vless
-  server: 51.158.206.96
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇫🇷 France/Paris [TG]
-  type: vless
-  server: 62.210.91.10
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
-- name: 🇷🇺 Russia [TG]
-  type: vless
-  server: 147.45.47.83
-  port: 443
-  uuid: 8a1f8853-9a71-4ef2-a64c-4f0a94c2e14b
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: ozon.ru
-  reality-opts:
-    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
-  client-fingerprint: chrome
 - name: 🇺🇸 United States/San Francisco [TG]
   type: vless
-  server: 172.67.65.56
-  port: 2053
-  uuid: 099244b9-2168-4dbd-870e-cbbe9d6eb573
+  server: 104.18.35.15
+  port: 443
+  uuid: d342d11e-d224-4463-b982-532309285094
   udp: true
   tls: true
-  servername: whitecreeper.pages.dev
+  servername: ccc.010304.xyz
   network: ws
   ws-opts:
-    path: /proxyip
+    path: /fp=chrome
     headers:
-      Host: whitecreeper.pages.dev
-- name: '🇺🇸 United States/San Francisco [TG] #2'
+      Host: ccc.010304.xyz
+- name: '🇺🇸 United States/Hillsboro [TG] #2'
   type: vless
-  server: 172.64.150.28
-  port: 2082
-  uuid: e5cc16a6-ea42-46b2-82ae-ad2157e1641b
+  server: 15.204.97.209
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   udp: true
-  network: ws
-  ws-opts:
-    path: /fp
-    headers:
-      Host: hhlfy.twiladaphne.ndjp.net
-- name: 🇺🇸 United States/Chicago [GH:ermaozi/get_s]
-  type: hysteria2
-  server: promo3.betust.net
-  port: 443
-  password: 94c2b91777f8de3a5bc12d2a91b732c2
-  udp: true
-  sni: promo3.betust.net
-- name: 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
-  type: ss
-  server: 37.19.198.160
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
-  udp: true
-- name: '🇺🇸 United States/San Francisco [TG] #3'
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇷🇴 Romania [TG]
   type: vless
-  server: 8.6.112.50
+  server: 45.12.30.30
   port: 8880
   uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
   udp: true
@@ -206,27 +105,13 @@ proxies:
   ws-opts:
     path: /
     headers:
-      Host: vms.lifetime08.workers.dev
-- name: 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
+      Host: vms.lifetime28.workers.dev
+- name: 🇺🇸 United States/Staten Island [TG]
   type: ss
   server: 198.98.53.130
   port: 443
   password: eDfN7SODQceIOmIAbtJJtK
   cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
-  type: ss
-  server: 173.244.56.9
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
-  udp: true
-- name: '🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro] #2'
-  type: ss
-  server: 173.244.56.6
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
   udp: true
 - name: 🇬🇧 United Kingdom [TG]
   type: ss
@@ -235,28 +120,41 @@ proxies:
   password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
   udp: true
-- name: 🇦🇪 United Arab Emirates [TG]
+- name: 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
+  type: ss
+  server: 37.19.198.236
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
+  type: ss
+  server: 173.244.56.6
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇯🇵 Japan/Tokyo [GH:ermaozi/get_s]
+  type: hysteria2
+  server: 31.77.29.74
+  port: 4444
+  password: 10be1dad-9952-4c5e-aa30-db435f69b727
+  udp: true
+  sni: jap2.nexfile.net
+- name: 🇺🇸 United States/Dallas [TG]
   type: vless
-  server: 185.158.133.30
-  port: 8880
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  server: 3h-unitedstates1.09vpn.com
+  port: 80
+  uuid: 18cf8db1-9f86-43f7-baa0-382efb7f2dfa
   udp: true
   network: ws
   ws-opts:
-    path: /
+    path: /vless/
     headers:
-      Host: vms.lifetime58.workers.dev
-- name: 🇲🇽 Mexico/Mexico City [TG]
-  type: vless
-  server: 149.104.90.21
-  port: 19167
-  uuid: e9a8144e-5237-488a-afb1-9ca3d8d54c80
-  udp: true
-  tls: true
-  servername: mx001.zestapp778.com
-- name: 🇳🇱 The Netherlands [GH:Mahdi0024/Pro]
+      Host: 3h-unitedstates1.09vpn.com
+- name: '🇬🇧 United Kingdom [TG] #2'
   type: ss
-  server: 193.29.139.202
+  server: 82.38.31.35
   port: 8080
   password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
@@ -268,19 +166,12 @@ proxies:
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
   udp: true
-- name: 🇳🇱 The Netherlands/Rozendaal [GH:Mahdi0024/Pro]
+- name: 🇺🇸 United States/Ashburn [GH:barry-far/V2r]
   type: ss
-  server: 109.201.152.181
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-cfb
-  udp: true
-- name: '🇺🇸 United States/New York [GH:Mahdi0024/Pro] #2'
-  type: ss
-  server: 37.19.198.244
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
+  server: 45.86.51.18
+  port: 19999
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  cipher: aes-256-gcm
   udp: true
 - name: 🇺🇸 United States/Dallas [GH:Mahdi0024/Pro]
   type: ss
@@ -289,93 +180,86 @@ proxies:
   password: shadowsocks
   cipher: aes-128-gcm
   udp: true
-- name: '🇺🇸 United States/Dallas [GH:Mahdi0024/Pro] #2'
-  type: ss
-  server: 156.146.38.168
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
+- name: '🇯🇵 Japan/Tokyo [GH:ermaozi/get_s] #2'
+  type: hysteria2
+  server: jap2.nexfile.net
+  port: 4444
+  password: 10be1dad-9952-4c5e-aa30-db435f69b727
   udp: true
-- name: 🇮🇹 Italy/Milan [TG]
+  skip-cert-verify: true
+- name: 🇨🇭 Switzerland/Zurich [GH:Mahdi0024/Pro]
   type: ss
-  server: 202.50.253.18
+  server: 132.243.175.144
+  port: 8388
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇺🇸 United States/Washington [GH:barry-far/V2r]
+  type: ss
+  server: 185.230.230.18
+  port: 19999
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  cipher: aes-256-gcm
+  udp: true
+- name: '🇬🇧 United Kingdom [TG] #3'
+  type: ss
+  server: 82.38.31.54
+  port: 8080
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇺🇸 United States/Miami [GH:barry-far/V2r]
+  type: ss
+  server: 193.151.160.9
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
   udp: true
 - name: 🇺🇸 United States/San Jose [GH:Mahdi0024/Pro]
   type: ss
-  server: 107.155.57.11
+  server: 107.155.57.51
   port: 8080
   password: 14fFPrbezE3HDZzsMOr6
   cipher: rc4-md5
   udp: true
-- name: 🇯🇵 Japan/Tokyo [TG]
+- name: 🇺🇸 United States/Los Angeles [GH:Mahdi0024/Pro]
   type: ss
-  server: 84.247.155.196
-  port: 80
-  password: 3eOFeNssde7PYYMv
-  cipher: aes-256-gcm
+  server: 107.151.182.253
+  port: 8080
+  password: 14fFPrbezE3HDZzsMOr6
+  cipher: rc4-md5
   udp: true
-- name: '🇮🇹 Italy/Milan [TG] #2'
+- name: 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
   type: ss
-  server: 202.50.253.72
-  port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
+  server: 138.197.141.58
+  port: 8080
+  password: 14fFPrbezE3HDZzsMOr6
+  cipher: rc4-md5
   udp: true
-- name: 🇩🇪 Germany/Frankfurt am Main [TG]
+- name: 🇺🇸 United States/Chicago [GH:Mahdi0024/Pro]
   type: ss
-  server: 185.176.204.18
-  port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
+  server: 138.199.42.68
+  port: 8080
+  password: 14fFPrbezE3HDZzsMOr6
+  cipher: rc4-md5
+  udp: true
+- name: 🇺🇸 United States/Las Vegas [GH:Mahdi0024/Pro]
+  type: ss
+  server: 79.110.53.169
+  port: 8080
+  password: 14fFPrbezE3HDZzsMOr6
+  cipher: rc4-md5
   udp: true
 - name: 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
   type: ss
-  server: 178.83.185.156
-  port: 8080
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: '🇬🇧 United Kingdom [TG] #2'
-  type: ss
-  server: 82.38.31.176
+  server: 82.38.31.204
   port: 8080
   password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
-  udp: true
-- name: 🇺🇸 United States/Reston [GH:Mahdi0024/Pro]
-  type: ss
-  server: 15.204.247.175
-  port: 8008
-  password: XKFKl2rULjIp74
-  cipher: aes-256-gcm
-  udp: true
-- name: '🇬🇧 United Kingdom [TG] #3'
-  type: ss
-  server: 82.38.31.218
-  port: 8080
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  cipher: chacha20-ietf-poly1305
-  udp: true
-- name: '🇮🇹 Italy/Milan [TG] #3'
-  type: ss
-  server: 202.50.253.45
-  port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-- name: 🇩🇪 Germany [GH:Mahdi0024/Pro]
-  type: ss
-  server: 213.202.208.199
-  port: 7001
-  password: RexnBgU7EV5ADxG
-  cipher: aes-256-gcm
   udp: true
 - name: '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
   type: ss
-  server: 82.38.31.219
+  server: 82.38.31.194
   port: 8080
   password: k1dBOmOB4oqi7Ump37a1bQ
   cipher: chacha20-ietf-poly1305
@@ -389,43 +273,32 @@ proxy-groups:
   - 🇩🇪 Germany [TG]
   - '🇩🇪 Germany [TG] #2'
   - 🇩🇪 Germany [GH:Surfboardv2ra]
-  - 🇳🇱 The Netherlands/Amsterdam [TG]
-  - 🇺🇸 United States/North Bergen [GH:Mahdi0024/Pro]
-  - 🇨🇦 Canada [TG]
+  - 🇺🇸 United States [TG]
   - 🇺🇸 United States/Hillsboro [TG]
-  - '🇺🇸 United States/Hillsboro [TG] #2'
-  - 🇳🇱 The Netherlands/Haarlem [TG]
-  - '🇳🇱 The Netherlands/Haarlem [TG] #2'
-  - 🇫🇷 France/Paris [TG]
-  - 🇷🇺 Russia [TG]
   - 🇺🇸 United States/San Francisco [TG]
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States/Chicago [GH:ermaozi/get_s]
-  - 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/San Francisco [TG] #3'
-  - 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
-  - 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro] #2'
+  - '🇺🇸 United States/Hillsboro [TG] #2'
+  - 🇷🇴 Romania [TG]
+  - 🇺🇸 United States/Staten Island [TG]
   - 🇬🇧 United Kingdom [TG]
-  - 🇦🇪 United Arab Emirates [TG]
-  - 🇲🇽 Mexico/Mexico City [TG]
-  - 🇳🇱 The Netherlands [GH:Mahdi0024/Pro]
-  - 🇺🇸 United States/Newark [GH:barry-far/V2r]
-  - 🇳🇱 The Netherlands/Rozendaal [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/New York [GH:Mahdi0024/Pro] #2'
-  - 🇺🇸 United States/Dallas [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/Dallas [GH:Mahdi0024/Pro] #2'
-  - 🇮🇹 Italy/Milan [TG]
-  - 🇺🇸 United States/San Jose [GH:Mahdi0024/Pro]
-  - 🇯🇵 Japan/Tokyo [TG]
-  - '🇮🇹 Italy/Milan [TG] #2'
-  - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
+  - 🇯🇵 Japan/Tokyo [GH:ermaozi/get_s]
+  - 🇺🇸 United States/Dallas [TG]
   - '🇬🇧 United Kingdom [TG] #2'
-  - 🇺🇸 United States/Reston [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Newark [GH:barry-far/V2r]
+  - 🇺🇸 United States/Ashburn [GH:barry-far/V2r]
+  - 🇺🇸 United States/Dallas [GH:Mahdi0024/Pro]
+  - '🇯🇵 Japan/Tokyo [GH:ermaozi/get_s] #2'
+  - 🇨🇭 Switzerland/Zurich [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Washington [GH:barry-far/V2r]
   - '🇬🇧 United Kingdom [TG] #3'
-  - '🇮🇹 Italy/Milan [TG] #3'
-  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Miami [GH:barry-far/V2r]
+  - 🇺🇸 United States/San Jose [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Los Angeles [GH:Mahdi0024/Pro]
+  - 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Chicago [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Las Vegas [GH:Mahdi0024/Pro]
+  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
   - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
 - name: Auto
   type: url-test
@@ -433,43 +306,32 @@ proxy-groups:
   - 🇩🇪 Germany [TG]
   - '🇩🇪 Germany [TG] #2'
   - 🇩🇪 Germany [GH:Surfboardv2ra]
-  - 🇳🇱 The Netherlands/Amsterdam [TG]
-  - 🇺🇸 United States/North Bergen [GH:Mahdi0024/Pro]
-  - 🇨🇦 Canada [TG]
+  - 🇺🇸 United States [TG]
   - 🇺🇸 United States/Hillsboro [TG]
-  - '🇺🇸 United States/Hillsboro [TG] #2'
-  - 🇳🇱 The Netherlands/Haarlem [TG]
-  - '🇳🇱 The Netherlands/Haarlem [TG] #2'
-  - 🇫🇷 France/Paris [TG]
-  - 🇷🇺 Russia [TG]
   - 🇺🇸 United States/San Francisco [TG]
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - 🇺🇸 United States/Chicago [GH:ermaozi/get_s]
-  - 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/San Francisco [TG] #3'
-  - 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
-  - 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro] #2'
+  - '🇺🇸 United States/Hillsboro [TG] #2'
+  - 🇷🇴 Romania [TG]
+  - 🇺🇸 United States/Staten Island [TG]
   - 🇬🇧 United Kingdom [TG]
-  - 🇦🇪 United Arab Emirates [TG]
-  - 🇲🇽 Mexico/Mexico City [TG]
-  - 🇳🇱 The Netherlands [GH:Mahdi0024/Pro]
-  - 🇺🇸 United States/Newark [GH:barry-far/V2r]
-  - 🇳🇱 The Netherlands/Rozendaal [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/New York [GH:Mahdi0024/Pro] #2'
-  - 🇺🇸 United States/Dallas [GH:Mahdi0024/Pro]
-  - '🇺🇸 United States/Dallas [GH:Mahdi0024/Pro] #2'
-  - 🇮🇹 Italy/Milan [TG]
-  - 🇺🇸 United States/San Jose [GH:Mahdi0024/Pro]
-  - 🇯🇵 Japan/Tokyo [TG]
-  - '🇮🇹 Italy/Milan [TG] #2'
-  - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/New York [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Phoenix [GH:Mahdi0024/Pro]
+  - 🇯🇵 Japan/Tokyo [GH:ermaozi/get_s]
+  - 🇺🇸 United States/Dallas [TG]
   - '🇬🇧 United Kingdom [TG] #2'
-  - 🇺🇸 United States/Reston [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Newark [GH:barry-far/V2r]
+  - 🇺🇸 United States/Ashburn [GH:barry-far/V2r]
+  - 🇺🇸 United States/Dallas [GH:Mahdi0024/Pro]
+  - '🇯🇵 Japan/Tokyo [GH:ermaozi/get_s] #2'
+  - 🇨🇭 Switzerland/Zurich [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Washington [GH:barry-far/V2r]
   - '🇬🇧 United Kingdom [TG] #3'
-  - '🇮🇹 Italy/Milan [TG] #3'
-  - 🇩🇪 Germany [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Miami [GH:barry-far/V2r]
+  - 🇺🇸 United States/San Jose [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Los Angeles [GH:Mahdi0024/Pro]
+  - 🇨🇦 Canada/Toronto [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Chicago [GH:Mahdi0024/Pro]
+  - 🇺🇸 United States/Las Vegas [GH:Mahdi0024/Pro]
+  - 🇬🇧 United Kingdom [GH:Mahdi0024/Pro]
   - '🇬🇧 United Kingdom [GH:Mahdi0024/Pro] #2'
   url: https://www.google.com/generate_204
   interval: 300
