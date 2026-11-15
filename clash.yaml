@@ -7,6 +7,19 @@ external-controller: 127.0.0.1:9090
 proxies:
 - name: 🇩🇪 Germany [TG]
   type: vless
+  server: 169.40.42.35
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: '🇩🇪 Germany [TG] #2'
+  type: vless
   server: 169.40.42.202
   port: 443
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
@@ -18,9 +31,35 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
+- name: '🇩🇪 Germany [TG] #3'
+  type: vless
+  server: 169.40.42.89
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
 - name: 🇺🇸 United States/Hillsboro [TG]
   type: vless
-  server: 15.204.97.198
+  server: 15.204.97.197
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/Hillsboro [GH:Surfboardv2ra]
+  type: vless
+  server: 15.204.97.216
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   udp: true
@@ -33,7 +72,7 @@ proxies:
   client-fingerprint: chrome
 - name: '🇺🇸 United States/Hillsboro [TG] #2'
   type: vless
-  server: 15.204.97.219
+  server: ww13.levikogjgfdd.ir
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   udp: true
@@ -44,19 +83,6 @@ proxies:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
   client-fingerprint: chrome
-- name: 🇺🇸 United States/San Francisco [TG]
-  type: vless
-  server: yx.l110.us.ci
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /
-    headers:
-      Host: fs.qicai99.com
 - name: 🇺🇸 United States/Phoenix [TG]
   type: trojan
   server: 66.163.112.242
@@ -64,13 +90,6 @@ proxies:
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   udp: true
   sni: resources.unlockyourfuturefindyourperfectcareer.com
-- name: 🇨🇦 Canada/Toronto [TG]
-  type: trojan
-  server: 216.152.147.74
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  sni: api.connectingpeoplewithgreatjobs.com
 - name: '🇺🇸 United States/Phoenix [TG] #2'
   type: trojan
   server: 66.163.112.31
@@ -85,66 +104,34 @@ proxies:
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   udp: true
   sni: courses.healthcarejobshubenhancemedicalprofessionalskillstoday.com
-- name: '🇨🇦 Canada/Toronto [TG] #2'
-  type: trojan
-  server: 216.152.147.152
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  sni: learn.connectingpeoplewithgreatjobs.com
-- name: '🇺🇸 United States/San Francisco [TG] #2'
+- name: 🇺🇸 United States/Chicago [TG]
   type: vless
-  server: 172.67.74.177
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  server: 216.227.161.95
+  port: 7443
+  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
   udp: true
   tls: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /?Telegram---MTMVPN---MTMVPN---MTMVPN---MTMVPN
-    headers:
-      Host: fs.qicai99.com
-- name: '🇺🇸 United States/San Francisco [TG] #3'
+  servername: media3.abvphelp.cc
+  reality-opts:
+    public-key: uNqGvaJEIFTFQvAxsTDhetPxkIWzJuBtxXsK0yFMYzM
+    short-id: 48d5cf47
+  client-fingerprint: firefox
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
+- name: 🇺🇸 United States/San Francisco [TG]
   type: vless
-  server: cucc.cloudflare.seeck.cn
+  server: 172.67.136.172
   port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  uuid: e14a20cc-1b84-49d9-b0f4-0b6ab95dc1ab
   udp: true
   tls: true
-  servername: fs.qicai99.com
+  servername: log-svc-31164c-gw.sandy-harbor-9ae1.workers.dev
   network: ws
   ws-opts:
-    path: /
+    path: /7535cdef70c9d7d4
     headers:
-      Host: fs.qicai99.com
-- name: '🇺🇸 United States/San Francisco [TG] #4'
-  type: vless
-  server: 172.64.155.209
-  port: 443
-  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
-  udp: true
-  tls: true
-  servername: fs.qicai99.com
-  network: ws
-  ws-opts:
-    path: /fp=chrome
-    headers:
-      Host: fs.qicai99.com
-- name: 🇺🇸 United States/Detroit [TG]
-  type: trojan
-  server: 170.101.101.53
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  sni: www.explorecreativejobsandenhanceyourcareerportfolio.com
-- name: 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
-  type: ss
-  server: 198.98.53.130
-  port: 443
-  password: eDfN7SODQceIOmIAbtJJtK
-  cipher: chacha20-ietf-poly1305
-  udp: true
+      Host: log-svc-31164c-gw.sandy-harbor-9ae1.workers.dev
 - name: 🇺🇸 United States/Dallas [TG]
   type: ss
   server: 156.146.38.168
@@ -154,40 +141,42 @@ proxies:
   udp: true
 - name: '🇺🇸 United States/Dallas [TG] #2'
   type: ss
-  server: 156.146.38.170
+  server: 156.146.38.167
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
   udp: true
-- name: 🇩🇪 Germany/Frankfurt am Main [TG]
+- name: 🇺🇸 United States/Atlanta [GH:barry-far/V2r]
   type: ss
-  server: 185.176.204.18
+  server: 149.40.57.134
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
   udp: true
-- name: 🌍 Cyprus [TG]
-  type: vless
-  server: 45.86.60.174
-  port: 16443
-  uuid: 13e541f3-d09d-4633-89df-8513db0ced20
-  udp: true
-- name: 🇳🇱 The Netherlands [TG]
+- name: 🇺🇸 United States/Los Angeles [TG]
   type: ss
-  server: 193.29.139.234
-  port: 8080
-  password: 4a2rfixophdjffa8KVA4Aa
+  server: 216.105.168.18
+  port: 443
+  password: bQZl7HDxSabr1FurTYQHFU
   cipher: chacha20-ietf-poly1305
   udp: true
-- name: '🇩🇪 Germany [TG] #2'
-  type: vless
-  server: 2.31.100.78
-  port: 13060
-  uuid: 679d0fcc-4c72-4073-8f1d-311b69ef72b5
+- name: 🇩🇪 Germany/Frankfurt am Main [TG]
+  type: ss
+  server: 193.108.119.83
+  port: 19999
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  cipher: aes-256-gcm
   udp: true
 - name: 🇬🇧 United Kingdom/London [TG]
   type: ss
   server: 198.244.201.129
+  port: 19999
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  cipher: aes-256-gcm
+  udp: true
+- name: 🇫🇷 France/Paris [TG]
+  type: ss
+  server: 167.17.64.175
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
@@ -199,20 +188,6 @@ proxies:
   password: 29irqk0paakcx19v
   cipher: chacha20-ietf-poly1305
   udp: true
-- name: 🇫🇷 France/Paris [TG]
-  type: ss
-  server: 167.17.64.175
-  port: 19999
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  cipher: aes-256-gcm
-  udp: true
-- name: 🇮🇹 Italy [TG]
-  type: ss
-  server: 57.131.4.13
-  port: 8080
-  password: mx81glqbtlwuhcjo
-  cipher: chacha20-ietf-poly1305
-  udp: true
 - name: 🇪🇸 Spain/Madrid [TG]
   type: ss
   server: 5.188.181.201
@@ -220,23 +195,37 @@ proxies:
   password: UkXRsXvR6buDMG2Y
   cipher: aes-256-cfb
   udp: true
-- name: '🇩🇪 Germany/Frankfurt am Main [TG] #2'
+- name: 🇺🇸 United States/Miami [TG]
   type: ss
-  server: 193.108.119.83
+  server: 193.151.160.9
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
   udp: true
-- name: 🇨🇦 Canada/Montreal [TG]
+- name: 🇨🇦 Canada/Montreal [GH:barry-far/V2r]
   type: ss
   server: 158.51.121.221
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
   udp: true
-- name: 🇺🇸 United States/Miami [TG]
+- name: 🇬🇧 United Kingdom [TG]
   type: ss
-  server: 193.151.160.9
+  server: 54.37.240.40
+  port: 8080
+  password: 8nrpt2il04ptci2j
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇺🇸 United States/Chicago [GH:barry-far/V2r]
+  type: ss
+  server: 216.106.178.169
+  port: 19999
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  cipher: aes-256-gcm
+  udp: true
+- name: '🇩🇪 Germany/Frankfurt am Main [TG] #2'
+  type: ss
+  server: 57.129.83.85
   port: 19999
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   cipher: aes-256-gcm
@@ -248,64 +237,58 @@ proxy-groups:
   - Auto
   - DIRECT
   - 🇩🇪 Germany [TG]
+  - '🇩🇪 Germany [TG] #2'
+  - '🇩🇪 Germany [TG] #3'
   - 🇺🇸 United States/Hillsboro [TG]
+  - 🇺🇸 United States/Hillsboro [GH:Surfboardv2ra]
   - '🇺🇸 United States/Hillsboro [TG] #2'
-  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States/Phoenix [TG]
-  - 🇨🇦 Canada/Toronto [TG]
   - '🇺🇸 United States/Phoenix [TG] #2'
   - 🇺🇸 United States/Atlanta [TG]
-  - '🇨🇦 Canada/Toronto [TG] #2'
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - '🇺🇸 United States/San Francisco [TG] #3'
-  - '🇺🇸 United States/San Francisco [TG] #4'
-  - 🇺🇸 United States/Detroit [TG]
-  - 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
+  - 🇺🇸 United States/Chicago [TG]
+  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States/Dallas [TG]
   - '🇺🇸 United States/Dallas [TG] #2'
+  - 🇺🇸 United States/Atlanta [GH:barry-far/V2r]
+  - 🇺🇸 United States/Los Angeles [TG]
   - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🌍 Cyprus [TG]
-  - 🇳🇱 The Netherlands [TG]
-  - '🇩🇪 Germany [TG] #2'
   - 🇬🇧 United Kingdom/London [TG]
-  - 🇫🇷 France [TG]
   - 🇫🇷 France/Paris [TG]
-  - 🇮🇹 Italy [TG]
+  - 🇫🇷 France [TG]
   - 🇪🇸 Spain/Madrid [TG]
-  - '🇩🇪 Germany/Frankfurt am Main [TG] #2'
-  - 🇨🇦 Canada/Montreal [TG]
   - 🇺🇸 United States/Miami [TG]
+  - 🇨🇦 Canada/Montreal [GH:barry-far/V2r]
+  - 🇬🇧 United Kingdom [TG]
+  - 🇺🇸 United States/Chicago [GH:barry-far/V2r]
+  - '🇩🇪 Germany/Frankfurt am Main [TG] #2'
 - name: Auto
   type: url-test
   proxies:
   - 🇩🇪 Germany [TG]
+  - '🇩🇪 Germany [TG] #2'
+  - '🇩🇪 Germany [TG] #3'
   - 🇺🇸 United States/Hillsboro [TG]
+  - 🇺🇸 United States/Hillsboro [GH:Surfboardv2ra]
   - '🇺🇸 United States/Hillsboro [TG] #2'
-  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States/Phoenix [TG]
-  - 🇨🇦 Canada/Toronto [TG]
   - '🇺🇸 United States/Phoenix [TG] #2'
   - 🇺🇸 United States/Atlanta [TG]
-  - '🇨🇦 Canada/Toronto [TG] #2'
-  - '🇺🇸 United States/San Francisco [TG] #2'
-  - '🇺🇸 United States/San Francisco [TG] #3'
-  - '🇺🇸 United States/San Francisco [TG] #4'
-  - 🇺🇸 United States/Detroit [TG]
-  - 🇺🇸 United States/Staten Island [GH:barry-far/V2r]
+  - 🇺🇸 United States/Chicago [TG]
+  - 🇺🇸 United States/San Francisco [TG]
   - 🇺🇸 United States/Dallas [TG]
   - '🇺🇸 United States/Dallas [TG] #2'
+  - 🇺🇸 United States/Atlanta [GH:barry-far/V2r]
+  - 🇺🇸 United States/Los Angeles [TG]
   - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🌍 Cyprus [TG]
-  - 🇳🇱 The Netherlands [TG]
-  - '🇩🇪 Germany [TG] #2'
   - 🇬🇧 United Kingdom/London [TG]
-  - 🇫🇷 France [TG]
   - 🇫🇷 France/Paris [TG]
-  - 🇮🇹 Italy [TG]
+  - 🇫🇷 France [TG]
   - 🇪🇸 Spain/Madrid [TG]
-  - '🇩🇪 Germany/Frankfurt am Main [TG] #2'
-  - 🇨🇦 Canada/Montreal [TG]
   - 🇺🇸 United States/Miami [TG]
+  - 🇨🇦 Canada/Montreal [GH:barry-far/V2r]
+  - 🇬🇧 United Kingdom [TG]
+  - 🇺🇸 United States/Chicago [GH:barry-far/V2r]
+  - '🇩🇪 Germany/Frankfurt am Main [TG] #2'
   url: https://www.google.com/generate_204
   interval: 300
   tolerance: 50
