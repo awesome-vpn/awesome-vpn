@@ -26,29 +26,6 @@
     {
       "tag": "Germany [TG] #2",
       "type": "vless",
-      "server": "169.40.42.202",
-      "server_port": 443,
-      "uuid": "d65cc14c-f53f-4fe2-b262-97856601319c",
-      "packet_encoding": "xudp",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "yahoo.com",
-        "reality": {
-          "enabled": true,
-          "public_key": "e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg",
-          "short_id": "c39cc7310a"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "Germany [TG] #3",
-      "type": "vless",
       "server": "169.40.42.89",
       "server_port": 443,
       "uuid": "d65cc14c-f53f-4fe2-b262-97856601319c",
@@ -70,32 +47,58 @@
       }
     },
     {
-      "tag": "United States/Hillsboro [TG]",
+      "tag": "United States/Los Angeles [GH:Surfboardv2ra]",
       "type": "vless",
-      "server": "15.204.97.197",
-      "server_port": 23576,
-      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "server": "172.239.67.142",
+      "server_port": 443,
+      "uuid": "b0d814b5-7232-4fe9-9ce9-e552c9abbae8",
+      "packet_encoding": "xudp",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "itunes.apple.com",
+        "reality": {
+          "enabled": true,
+          "public_key": "Knpni0SBmL6d1nGWtqmHRDsOQvQxcD2Wd0eOf2KZtgs",
+          "short_id": "ba356a45"
+        },
+        "utls": {
+          "enabled": true
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "itunes.apple.com"
+        }
+      }
+    },
+    {
+      "tag": "United States [TG]",
+      "type": "vless",
+      "server": "47.253.226.114",
+      "server_port": 443,
+      "uuid": "055a1ce8-2a16-4a0d-a2c2-22826c9b2413",
       "packet_encoding": "xudp",
       "flow": "xtls-rprx-vision",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "fuck.rkn",
+        "server_name": "www.cloudflare.com",
         "reality": {
           "enabled": true,
-          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
-          "short_id": "01"
+          "public_key": "Svl81isn16RPAFnjtmYw7A6TPnsEPLHuYYaJht65Rzc"
         },
         "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
+          "enabled": true
         }
       }
     },
     {
-      "tag": "United States/Hillsboro [GH:Surfboardv2ra]",
+      "tag": "United States/Hillsboro [TG]",
       "type": "vless",
-      "server": "15.204.97.216",
+      "server": "15.204.97.219",
       "server_port": 23576,
       "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
       "packet_encoding": "xudp",
@@ -139,6 +142,73 @@
       }
     },
     {
+      "tag": "United States/Hillsboro [GH:Surfboardv2ra]",
+      "type": "vless",
+      "server": "15.204.97.216",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fuck.rkn",
+        "reality": {
+          "enabled": true,
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
+          "short_id": "01"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "United States/Hillsboro [TG] #3",
+      "type": "vless",
+      "server": "15.204.97.206",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fuck.rkn",
+        "reality": {
+          "enabled": true,
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s"
+        },
+        "utls": {
+          "enabled": true
+        }
+      }
+    },
+    {
+      "tag": "United States/Hillsboro [TG] #4",
+      "type": "vless",
+      "server": "15.204.97.198",
+      "server_port": 23576,
+      "uuid": "48ff2b70-e180-582f-8866-d9a2edeed5f5",
+      "packet_encoding": "xudp",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "fuck.rkn",
+        "reality": {
+          "enabled": true,
+          "public_key": "1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s",
+          "short_id": "01"
+        },
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
       "tag": "United States/Phoenix [TG]",
       "type": "trojan",
       "server": "66.163.112.242",
@@ -148,6 +218,22 @@
         "enabled": true,
         "insecure": false,
         "server_name": "resources.unlockyourfuturefindyourperfectcareer.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "tag": "Canada/Toronto [TG]",
+      "type": "trojan",
+      "server": "216.152.147.74",
+      "server_port": 443,
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "api.connectingpeoplewithgreatjobs.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -179,51 +265,27 @@
       }
     },
     {
-      "tag": "United States/Chicago [TG]",
-      "type": "vless",
-      "server": "216.227.161.95",
-      "server_port": 7443,
-      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
-      "packet_encoding": "xudp",
+      "tag": "United States/Miami [TG]",
+      "type": "trojan",
+      "server": "169.197.140.171",
+      "server_port": 443,
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "media3.abvphelp.cc",
-        "reality": {
-          "enabled": true,
-          "public_key": "uNqGvaJEIFTFQvAxsTDhetPxkIWzJuBtxXsK0yFMYzM",
-          "short_id": "48d5cf47"
-        },
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
+        "server_name": "cdn.discoverfreshgraduatejobsstartyourprofessionaljourney.com"
       }
     },
     {
-      "tag": "United States/San Francisco [TG]",
-      "type": "vless",
-      "server": "172.67.136.172",
+      "tag": "Canada/Toronto [TG] #2",
+      "type": "trojan",
+      "server": "216.152.147.85",
       "server_port": 443,
-      "uuid": "e14a20cc-1b84-49d9-b0f4-0b6ab95dc1ab",
-      "packet_encoding": "xudp",
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
       "tls": {
         "enabled": true,
         "insecure": false,
-        "server_name": "log-svc-31164c-gw.sandy-harbor-9ae1.workers.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/7535cdef70c9d7d4",
-        "headers": {
-          "Host": "log-svc-31164c-gw.sandy-harbor-9ae1.workers.dev"
-        },
-        "early_data_header_name": "Sec-WebSocket-Protocol",
-        "max_early_data": 2560
+        "server_name": "cdn.connectingpeoplewithgreatjobs.com"
       }
     },
     {
@@ -237,69 +299,45 @@
     {
       "tag": "United States/Dallas [TG] #2",
       "type": "shadowsocks",
-      "server": "156.146.38.167",
+      "server": "156.146.38.170",
       "server_port": 443,
       "method": "aes-128-gcm",
       "password": "shadowsocks"
     },
     {
-      "tag": "United States/Atlanta [GH:barry-far/V2r]",
+      "tag": "United Kingdom/City of London [TG]",
       "type": "shadowsocks",
-      "server": "149.40.57.134",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+      "server": "18.175.238.57",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
     },
     {
-      "tag": "United States/Los Angeles [TG]",
+      "tag": "United Kingdom/City of London [TG] #2",
       "type": "shadowsocks",
-      "server": "216.105.168.18",
+      "server": "18.134.252.228",
       "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "bQZl7HDxSabr1FurTYQHFU"
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "Cg2Dw4OhdBZhqbeO9ZTA3g/Gk/AvsrYZGhAJeGnQIx4="
     },
     {
       "tag": "Germany/Frankfurt am Main [TG]",
       "type": "shadowsocks",
-      "server": "193.108.119.83",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+      "server": "47.91.74.232",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y="
     },
     {
-      "tag": "United Kingdom/London [TG]",
+      "tag": "United States [TG] #2",
       "type": "shadowsocks",
-      "server": "198.244.201.129",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+      "server": "47.85.201.22",
+      "server_port": 443,
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "3NBsnBLanPfG6i3S2GTHineswr6EeSJPb0PCeMQoGoA="
     },
     {
-      "tag": "France/Paris [TG]",
-      "type": "shadowsocks",
-      "server": "167.17.64.175",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "tag": "France [TG]",
-      "type": "shadowsocks",
-      "server": "51.83.61.102",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "29irqk0paakcx19v"
-    },
-    {
-      "tag": "Spain/Madrid [TG]",
-      "type": "shadowsocks",
-      "server": "5.188.181.201",
-      "server_port": 9001,
-      "method": "aes-256-cfb",
-      "password": "UkXRsXvR6buDMG2Y"
-    },
-    {
-      "tag": "United States/Miami [TG]",
+      "tag": "United States/Miami [TG] #2",
       "type": "shadowsocks",
       "server": "193.151.160.9",
       "server_port": 19999,
@@ -307,36 +345,12 @@
       "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
     },
     {
-      "tag": "Canada/Montreal [GH:barry-far/V2r]",
+      "tag": "Canada [TG]",
       "type": "shadowsocks",
-      "server": "158.51.121.221",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "tag": "United Kingdom [TG]",
-      "type": "shadowsocks",
-      "server": "54.37.240.40",
+      "server": "15.235.121.109",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
-      "password": "8nrpt2il04ptci2j"
-    },
-    {
-      "tag": "United States/Chicago [GH:barry-far/V2r]",
-      "type": "shadowsocks",
-      "server": "216.106.178.169",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
-    },
-    {
-      "tag": "Germany/Frankfurt am Main [TG] #2",
-      "type": "shadowsocks",
-      "server": "57.129.83.85",
-      "server_port": 19999,
-      "method": "aes-256-gcm",
-      "password": "ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4="
+      "password": "575hiopq2h28yao6"
     },
     {
       "type": "urltest",
@@ -344,29 +358,27 @@
       "outbounds": [
         "Germany [TG]",
         "Germany [TG] #2",
-        "Germany [TG] #3",
+        "United States/Los Angeles [GH:Surfboardv2ra]",
+        "United States [TG]",
         "United States/Hillsboro [TG]",
-        "United States/Hillsboro [GH:Surfboardv2ra]",
         "United States/Hillsboro [TG] #2",
+        "United States/Hillsboro [GH:Surfboardv2ra]",
+        "United States/Hillsboro [TG] #3",
+        "United States/Hillsboro [TG] #4",
         "United States/Phoenix [TG]",
+        "Canada/Toronto [TG]",
         "United States/Phoenix [TG] #2",
         "United States/Atlanta [TG]",
-        "United States/Chicago [TG]",
-        "United States/San Francisco [TG]",
+        "United States/Miami [TG]",
+        "Canada/Toronto [TG] #2",
         "United States/Dallas [TG]",
         "United States/Dallas [TG] #2",
-        "United States/Atlanta [GH:barry-far/V2r]",
-        "United States/Los Angeles [TG]",
+        "United Kingdom/City of London [TG]",
+        "United Kingdom/City of London [TG] #2",
         "Germany/Frankfurt am Main [TG]",
-        "United Kingdom/London [TG]",
-        "France/Paris [TG]",
-        "France [TG]",
-        "Spain/Madrid [TG]",
-        "United States/Miami [TG]",
-        "Canada/Montreal [GH:barry-far/V2r]",
-        "United Kingdom [TG]",
-        "United States/Chicago [GH:barry-far/V2r]",
-        "Germany/Frankfurt am Main [TG] #2"
+        "United States [TG] #2",
+        "United States/Miami [TG] #2",
+        "Canada [TG]"
       ],
       "url": "https://www.google.com/generate_204",
       "interval": "5m",
