@@ -60,7 +60,9 @@ class HoneypotFilter:
     def is_blocked_ip(ip_str: str) -> bool:
         """Check if an IP string falls into private, loopback, or reserved ranges."""
         try:
-            ip = ipaddress.ip_address(ip_str)
+            ip = ipaddress.ip_address(ip_str.strip("[]"))
+            if not ip.is_global or ip.is_multicast:
+                return True
             for net in BLOCKED_NETWORKS:
                 if ip in net:
                     return True
@@ -77,9 +79,17 @@ class HoneypotFilter:
         if not isinstance(node, dict):
             return True
 
-        server = str(node.get("server", "")).strip().lower()
-        if not server or "." not in server:
+        server = str(node.get("server", "")).strip().strip("[]").lower()
+        if not server:
             return True
+        try:
+            address = ipaddress.ip_address(server)
+        except ValueError:
+            if "." not in server or ":" in server:
+                return True
+        else:
+            if address.version == 6 and (not address.is_global or address.is_multicast):
+                return True
 
         # Check port
         raw_port = node.get("server_port") or node.get("port")

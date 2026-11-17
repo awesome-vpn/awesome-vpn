@@ -5,7 +5,12 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from core.quality import china_resistance_score, filter_by_china_probe, quality_score
+from core.quality import (
+    china_resistance_score,
+    filter_by_china_probe,
+    filter_by_min_resistance_score,
+    quality_score,
+)
 
 
 def test_reality_ws_443_scores_high():
@@ -37,6 +42,27 @@ def test_quality_score_latency_penalty():
     fast = quality_score(node, latency_ms=200)
     slow = quality_score(node, latency_ms=1200)
     assert fast > slow
+
+
+def test_filter_by_min_resistance_score_drops_low_scoring_nodes():
+    good = {
+        "type": "vless",
+        "server_port": 443,
+        "tls": {"enabled": True, "server_name": "apple.com", "reality": {"enabled": True}},
+    }
+    bad = {"type": "shadowsocks", "server_port": 23456, "tls": {}}
+    assert china_resistance_score(bad) < 0
+    kept = filter_by_min_resistance_score([good, bad], min_score=0)
+    assert kept == [good]
+
+
+def test_filter_by_min_resistance_score_fallback_when_all_fail():
+    bad = {"type": "shadowsocks", "server_port": 23456, "tls": {}}
+    assert filter_by_min_resistance_score([bad], min_score=0) == [bad]
+
+
+def test_filter_by_min_resistance_score_empty_list():
+    assert filter_by_min_resistance_score([], min_score=0) == []
 
 
 def test_filter_by_china_probe_no_url_pass_through():

@@ -11,11 +11,17 @@ from core.filters.prescreen import PrescreenFunnel
 from core.geo_utils import GeoUtils
 from core.harvesters.channel_ledger import ChannelLedger
 from core.harvesters.github_radar import GitHubRadarHarvester
-from core.harvesters.static_feed import StaticFeedHarvester
+from core.harvesters.static_feed import StaticFeedHarvester, parse_sources_json_str
 from core.harvesters.telegram import TelegramHarvester
+from core.harvesters.url_source_ledger import UrlSourceLedger
 from core.matrix.exporter import MatrixExporter
 from core.node_ledger import NodeLedger
-from core.quality import filter_by_china_probe, filter_timeout_outliers, quality_score
+from core.quality import (
+    filter_by_china_probe,
+    filter_by_min_resistance_score,
+    filter_timeout_outliers,
+    quality_score,
+)
 from core.spider import Spider
 from core.validator import Validator
 
@@ -106,11 +112,13 @@ class NodePipeline:
         self.ledger_path = os.path.join(self.base_dir, "config", "channels.json")
         self.radar_path = os.path.join(self.base_dir, "config", "radar.json")
         self.node_ledger_path = os.path.join(self.base_dir, "config", "node_ledger.json")
+        self.url_source_ledger_path = os.path.join(self.base_dir, "config", "url_sources.json")
         self.sources_json_path = os.path.join(self.base_dir, "config", "sources.json")
         self.sources_list_path = os.path.join(self.base_dir, "config", "sources.list")
         self.mmdb_path = os.path.join(self.base_dir, "config", "GeoLite2-City.mmdb")
 
         self.ledger = ChannelLedger(self.ledger_path)
+        self.url_source_ledger = UrlSourceLedger(self.url_source_ledger_path)
         self.node_ledger = NodeLedger(self.node_ledger_path)
         self.exporter = MatrixExporter(self.output_dir)
 
@@ -146,11 +154,17 @@ class NodePipeline:
         link_to_source.update(gh_result.source_map)
 
         # 3. Static & Parameterized Feeds
+        # SOURCES_JSON / EXTRA_URLS are one-time seeds merged into the persistent
+        # UrlSourceLedger (config/url_sources.json); the ledger - not the secret -
+        # is the ongoing source of truth across runs.
+        seed_entries = parse_sources_json_str(os.getenv("SOURCES_JSON", ""))
         extra_urls = [u.strip() for u in os.getenv("EXTRA_URLS", "").splitlines() if u.strip()]
         static_harvester = StaticFeedHarvester(
+            ledger=self.url_source_ledger,
             config_path=self.sources_json_path,
             sources_list_path=self.sources_list_path,
             extra_urls=extra_urls,
+            seed_entries=seed_entries,
             spider=self.spider,
             max_workers=self.workers,
         )
@@ -267,6 +281,12 @@ class NodePipeline:
             tested_nodes = filter_timeout_outliers(
                 tested_nodes, "_latency_ms", max_latency_ms=max_lat_threshold
             )
+
+            # 3b. Hard China-resistance filter: GH Actions runners are never GFW-blocked,
+            # so raw reachability there doesn't prove a node works for censored clients.
+            # Drop configs with negative anti-censorship heuristics (e.g. plain protocols
+            # without TLS on non-standard ports) instead of only deprioritizing them.
+            tested_nodes = filter_by_min_resistance_score(tested_nodes, min_score=0)
 
             # 4. Optional China external probe filter
             china_check_url = os.getenv("CHINA_CHECK_URL", "").strip()

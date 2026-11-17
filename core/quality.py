@@ -143,6 +143,28 @@ def filter_timeout_outliers(
     ]
 
 
+def filter_by_min_resistance_score(
+    nodes: list[dict[str, Any]], min_score: int = 0
+) -> list[dict[str, Any]]:
+    """Hard-filter out nodes with a china_resistance_score below min_score.
+
+    GitHub Actions runners are never GFW-blocked, so a node "passing" active
+    validation there only proves the server is reachable from an unrestricted
+    network - it says nothing about whether mainland/censored clients can
+    actually reach it. Plain, unobfuscated protocols on non-standard ports
+    (negative score) are the ones most commonly reported as "all timeout" by
+    users behind the GFW, so they are dropped outright instead of merely
+    being ranked lower.
+
+    Falls back to the original list if the filter would remove every node,
+    to avoid publishing an empty subscription.
+    """
+    if not nodes:
+        return nodes
+    kept = [n for n in nodes if china_resistance_score(n) >= min_score]
+    return kept if kept else nodes
+
+
 def filter_by_china_probe(
     nodes: list[dict[str, Any]], probe_url: str, timeout: int = 4, max_workers: int = 20
 ) -> list[dict[str, Any]]:

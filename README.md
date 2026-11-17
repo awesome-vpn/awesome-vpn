@@ -1,13 +1,20 @@
+<div align="center">
+
+[![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
+
+<br/>
+
+<img src="https://repository-images.githubusercontent.com/146239863/0ec178f0-8551-44cb-8216-f6b48db6d3f0" alt="Awesome VPN Banner" width="100%" />
+
 # Awesome VPN 🌍
 
 **Free proxy nodes, updated daily. Zero config, copy and use.**
 
-🌐 **Quick Copy:** https://awesome-vpn.github.io/
-
-<div align="center">
+🌐 **Web Portal & One-Click Import:** [https://awesome-vpn.github.io/](https://awesome-vpn.github.io/)
 
 [![English](https://img.shields.io/badge/Language-English-green?style=for-the-badge&logo=markdown)](README.md)
 [![简体中文](https://img.shields.io/badge/语言-简体中文-blue?style=for-the-badge&logo=markdown)](README_CN.md)
+[![Stand With Ukraine](https://img.shields.io/badge/Stand_With-Ukraine_🇺🇦-0057B7?style=for-the-badge&labelColor=FFD700)](https://stand-with-ukraine.pp.ua)
 
 </div>
 

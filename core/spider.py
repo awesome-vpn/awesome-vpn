@@ -82,7 +82,8 @@ class Spider:
                         content = line + "\n"
                 elif tp == "sub":
                     content = chunk.decode(errors="ignore")
-                    return content
+                    pending = None
+                    break
         if pending is not None:
             content += pending.decode(errors="ignore")
         return content

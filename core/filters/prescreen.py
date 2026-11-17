@@ -27,11 +27,9 @@ UDP_PROTOCOLS = {"hysteria2", "hy2", "tuic"}
 def fast_tcp_ping(server: str, port: int, timeout: float = 2.0) -> bool:
     """Non-blocking TCP socket connect check to eliminate completely dead hosts."""
     try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-            sock.settimeout(timeout)
-            sock.connect((server, port))
+        with socket.create_connection((server, port), timeout=timeout):
             return True
-    except Exception:
+    except OSError:
         return False
 
 

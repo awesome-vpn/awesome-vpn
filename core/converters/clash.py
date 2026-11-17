@@ -172,9 +172,9 @@ def _convert_vless(node: dict[str, Any]) -> dict[str, Any]:
     return proxy
 
 
-def _convert_shadowsocks(node: dict[str, Any]) -> dict[str, Any]:
+def _convert_shadowsocks(node: dict[str, Any]) -> dict[str, Any] | None:
     tag = node.get("tag", "ss")
-    return {
+    proxy: dict[str, Any] = {
         "name": f"{_emoji_for_tag(tag)} {tag}",
         "type": "ss",
         "server": node.get("server", ""),
@@ -183,6 +183,45 @@ def _convert_shadowsocks(node: dict[str, Any]) -> dict[str, Any]:
         "cipher": node.get("method", "none"),
         "udp": True,
     }
+    plugin = node.get("plugin")
+    if plugin:
+        raw_opts = str(node.get("plugin_opts") or "")
+        options: dict[str, Any] = {}
+        for item in raw_opts.split(";"):
+            if not item:
+                continue
+            if "=" in item:
+                key, val = item.split("=", 1)
+                options[key] = val
+            else:
+                options[item] = True
+        if plugin in ("obfs-local", "obfs", "simple-obfs"):
+            mode = options.get("obfs") or options.get("mode")
+            if not isinstance(mode, str) or not mode:
+                return None
+            proxy["plugin"] = "obfs"
+            proxy["plugin-opts"] = {"mode": mode}
+            host = options.get("obfs-host") or options.get("host")
+            if isinstance(host, str) and host:
+                proxy["plugin-opts"]["host"] = host
+        elif plugin == "v2ray-plugin":
+            if set(options) - {"mode", "host", "path", "mux", "tls", "skip-cert-verify"}:
+                return None
+            mode = options.get("mode")
+            if not isinstance(mode, str) or not mode:
+                return None
+            proxy["plugin"] = plugin
+            proxy["plugin-opts"] = {
+                key: (
+                    value in (True, "1", "true")
+                    if key in {"mux", "tls", "skip-cert-verify"}
+                    else value
+                )
+                for key, value in options.items()
+            }
+        else:
+            return None
+    return proxy
 
 
 def _convert_trojan(node: dict[str, Any]) -> dict[str, Any]:
