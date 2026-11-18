@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
+- name: 🇩🇪 Germany [TG]
   type: vless
   server: 169.40.42.89
   port: 443
@@ -17,8 +17,8 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  client-fingerprint: ios
+- name: 🇺🇸 United States/Los Angeles [GH:Mahdi0024/ProxyCollector]
   type: vless
   server: 172.236.239.126
   port: 443
@@ -48,48 +48,51 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
-- name: 🌍 Lithuania [TG]
+- name: 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
   type: vless
-  server: 84.32.54.237
-  port: 443
-  uuid: a30903dc-1bf0-4be5-8b1b-603a3a56211c
+  server: 15.204.97.219
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/San Jose [TG]
+  type: vless
+  server: panel.apexkey.store
+  port: 2053
+  uuid: cdb7fa1d-6e7a-467c-da9c-da363c7bf779
   udp: true
   tls: true
-  servername: rly-gw-cfg.galioncc.com
+  servername: www.cloudflare.com
   reality-opts:
-    public-key: drl7nndYdfzZY1aQ0eUAWmNV0nsHig2uDnu9siy9biQ
-    short-id: 868419504747f6de
+    public-key: DEFJSLdILrvauMpwtpvFZddadpt3rNtv03Dui2EkmRk
+    short-id: '68'
   client-fingerprint: chrome
-- name: 🇺🇸 United States/Phoenix [TG]
+- name: 🇳🇱 The Netherlands/Haarlem [TG]
+  type: vless
+  server: 51.158.206.12
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+    short-id: '01'
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/Seattle [GH:MatinGhanbari/v2ray-conf]
   type: trojan
-  server: 66.163.112.31
+  server: resources.findlocaljobnetworkandbuildcommunityconnections.com
   port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  password: f0eb8c92ce8946aaba856569cff1a16b
   udp: true
-  sni: unlockyourfuturefindyourperfectcareer.com
-- name: 🇺🇸 United States/Atlanta [TG]
-  type: trojan
-  server: 216.152.156.212
-  port: 443
-  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  udp: true
-  sni: courses.healthcarejobshubenhancemedicalprofessionalskillstoday.com
-- name: 🇺🇸 United States/San Jose [GH:Surfboardv2ray/TGParse]
-  type: hysteria2
-  server: 37.123.193.151
-  port: 4942
-  password: 9263c76e
-  udp: true
-  sni: www.bing.com
-  skip-cert-verify: true
-- name: 🇺🇸 United States/Los Angeles [GH:Surfboardv2ray/TGParse]
-  type: hysteria2
-  server: 38.76.150.108
-  port: 36712
-  password: AIcYjw5Oc9Rrrr9SGDUBbBIC
-  udp: true
-  sni: 38.76.150.108
-  skip-cert-verify: true
+  sni: resources.findlocaljobnetworkandbuildcommunityconnections.com
 - name: 🇩🇪 Germany/Frankfurt am Main [GH:Mahdi0024/ProxyCollector]
   type: ss
   server: 47.245.173.25
@@ -99,17 +102,10 @@ proxies:
   udp: true
 - name: 🇩🇪 Germany/Frankfurt am Main [TG]
   type: ss
-  server: 8.211.38.49
+  server: 8.220.81.25
   port: 443
   password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-- name: 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
-  type: ss
-  server: 141.98.101.178
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
   udp: true
 proxy-groups:
 - name: PROXY
@@ -117,31 +113,27 @@ proxy-groups:
   proxies:
   - Auto
   - DIRECT
-  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  - 🇩🇪 Germany [TG]
+  - 🇺🇸 United States/Los Angeles [GH:Mahdi0024/ProxyCollector]
   - 🇩🇪 Germany [GH:youfoundamin/V2rayCollec]
-  - 🌍 Lithuania [TG]
-  - 🇺🇸 United States/Phoenix [TG]
-  - 🇺🇸 United States/Atlanta [TG]
-  - 🇺🇸 United States/San Jose [GH:Surfboardv2ray/TGParse]
-  - 🇺🇸 United States/Los Angeles [GH:Surfboardv2ray/TGParse]
+  - 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
+  - 🇺🇸 United States/San Jose [TG]
+  - 🇳🇱 The Netherlands/Haarlem [TG]
+  - 🇺🇸 United States/Seattle [GH:MatinGhanbari/v2ray-conf]
   - 🇩🇪 Germany/Frankfurt am Main [GH:Mahdi0024/ProxyCollector]
   - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
 - name: Auto
   type: url-test
   proxies:
-  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  - 🇩🇪 Germany [TG]
+  - 🇺🇸 United States/Los Angeles [GH:Mahdi0024/ProxyCollector]
   - 🇩🇪 Germany [GH:youfoundamin/V2rayCollec]
-  - 🌍 Lithuania [TG]
-  - 🇺🇸 United States/Phoenix [TG]
-  - 🇺🇸 United States/Atlanta [TG]
-  - 🇺🇸 United States/San Jose [GH:Surfboardv2ray/TGParse]
-  - 🇺🇸 United States/Los Angeles [GH:Surfboardv2ray/TGParse]
+  - 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
+  - 🇺🇸 United States/San Jose [TG]
+  - 🇳🇱 The Netherlands/Haarlem [TG]
+  - 🇺🇸 United States/Seattle [GH:MatinGhanbari/v2ray-conf]
   - 🇩🇪 Germany/Frankfurt am Main [GH:Mahdi0024/ProxyCollector]
   - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
   url: https://www.google.com/generate_204
   interval: 300
   tolerance: 50
