@@ -10,11 +10,6 @@ dependencies = [
     "requests[socks]>=2.32.0",
     "PyYAML>=6.0.1",
     "beautifulsoup4>=4.12.0",
-    "chardet>=5.2.0",
-    "cryptography>=42.0.0",
-    "paramiko>=3.4.0",
-    "scp>=0.15.0",
-    "geoip2>=4.7.0",
     "maxminddb>=2.2.0",
     "python-dotenv>=1.0.0",
 ]
@@ -120,7 +115,7 @@ exclude_lines = [
 ]
 skip_covered = false
 show_missing = true
-fail_under = 25  # Starting at 25%, tightened progressively as coverage increases
+fail_under = 70
 precision = 2
 
 [tool.coverage.html]
@@ -155,4 +150,4 @@ skips = ["B101", "B601", "B110", "B112", "B105", "B106", "B311", "B104", "B404",
 
 # ========== Deptry: Dependency Health Check ==========
 [tool.deptry]
-# Optional: run deptry . to inspect dependency usage
+known_first_party = ["core", "main"]

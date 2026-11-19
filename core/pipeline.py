@@ -16,6 +16,9 @@ from core.harvesters.telegram import TelegramHarvester
 from core.harvesters.url_source_ledger import UrlSourceLedger
 from core.matrix.exporter import MatrixExporter
 from core.node_ledger import NodeLedger
+
+# Import protocol parsers
+from core.parsers import hysteria2, ss, trojan, tuic, vless, vmess
 from core.quality import (
     filter_by_china_probe,
     filter_by_min_resistance_score,
@@ -24,17 +27,6 @@ from core.quality import (
 )
 from core.spider import Spider
 from core.validator import Validator
-
-# Import protocol parsers
-try:
-    import hysteria2
-    import ss
-    import trojan
-    import tuic
-    import vless
-    import vmess
-except ImportError:
-    from core.parsers import hysteria2, ss, trojan, tuic, vless, vmess
 
 PROTOCOL_PARSERS = {
     "vmess": vmess,

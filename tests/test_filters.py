@@ -64,3 +64,22 @@ def test_fair_source_interleaving():
     assert "SourceA" in sources
     assert "SourceB" in sources
     assert "SourceC" in sources
+
+
+def test_prescreen_prioritizes_higher_resistance_within_same_protocol():
+    funnel = PrescreenFunnel(max_validation_candidates=1, local_mode=True)
+    plain_vless = {"server": "1.1.1.1", "server_port": 23456, "type": "vless"}
+    reality_vless = {
+        "server": "1.1.1.2",
+        "server_port": 443,
+        "type": "vless",
+        "tls": {"enabled": True, "server_name": "www.apple.com", "reality": {"enabled": True}},
+    }
+    result = funnel.filter(
+        [
+            (plain_vless, "vless://plain", "SourceA"),
+            (reality_vless, "vless://reality", "SourceA"),
+        ]
+    )
+    assert len(result) == 1
+    assert result[0][0]["server"] == "1.1.1.2"

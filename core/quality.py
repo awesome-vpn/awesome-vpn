@@ -46,6 +46,12 @@ def _port_score(port: int | None) -> int:
 def _tls_score(node: dict[str, Any]) -> int:
     tls = node.get("tls") or {}
     if not tls.get("enabled"):
+        plugin = node.get("plugin")
+        plugin_opts = str(node.get("plugin_opts", ""))
+        if plugin == "v2ray-plugin" and "tls" in plugin_opts:
+            return 2
+        if plugin in ("obfs-local", "obfs", "simple-obfs") and "obfs=tls" in plugin_opts:
+            return 2
         return -5  # Plain nodes without TLS have low survivability
     score = 0
     if tls.get("server_name"):
@@ -76,6 +82,20 @@ def _transport_score(node: dict[str, Any]) -> int:
         return 3
     if t == "http":
         return 1
+    tls = node.get("tls") or {}
+    if tls.get("reality", {}).get("enabled") or node.get("flow"):
+        return 4
+    ntype = str(node.get("type", "")).lower()
+    if ntype in ("hysteria2", "hy2", "tuic"):
+        return 3
+    if node.get("plugin") in (
+        "obfs-local",
+        "obfs",
+        "simple-obfs",
+        "v2ray-plugin",
+        "shadow-tls",
+    ) or node.get("detour"):
+        return 3
     # Direct VLESS/SS without transport encapsulation is easiest to fingerprint
     return -3
 

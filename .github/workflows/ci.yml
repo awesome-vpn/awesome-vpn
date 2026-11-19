@@ -29,6 +29,8 @@ jobs:
         run: uv run ruff check .
       - name: Ruff format check
         run: uv run ruff format --check .
+      - name: Deptry dependency check
+        run: uv run deptry .
 
   typecheck: # mypy static type analysis
     runs-on: ubuntu-latest
@@ -42,7 +44,6 @@ jobs:
       - run: uv sync --group dev
       - name: mypy
         run: uv run mypy core main.py --ignore-missing-imports --explicit-package-bases
-        continue-on-error: true # Non-blocking advisory during transition
 
   test: # pytest + coverage + xdist parallel
     runs-on: ubuntu-latest
@@ -60,7 +61,7 @@ jobs:
         run: uv sync --group dev
       - name: Run tests with coverage
         run: |
-          uv run pytest --cov --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=25 -n auto -q
+          uv run pytest --cov --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=70 -n auto -q
       - name: Upload coverage to Codecov (best-effort)
         if: matrix.python-version == '3.11'
         continue-on-error: true

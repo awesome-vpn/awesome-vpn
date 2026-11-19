@@ -65,10 +65,33 @@ def test_filter_by_min_resistance_score_empty_list():
     assert filter_by_min_resistance_score([], min_score=0) == []
 
 
-def test_filter_by_china_probe_no_url_pass_through():
+def test_filter_by_china_probe_empty_or_no_url_pass_through():
     nodes = [{"server": "1.1.1.1", "server_port": 443}]
     assert filter_by_china_probe(nodes, "") == nodes
     assert filter_by_china_probe(nodes, None) == nodes
+
+
+def test_ss_plugin_and_quic_resistance_scoring():
+    ss_v2ray = {
+        "type": "shadowsocks",
+        "server_port": 443,
+        "plugin": "v2ray-plugin",
+        "plugin_opts": "mode=websocket;host=cdn.example;tls;",
+    }
+    ss_obfs_tls = {
+        "type": "shadowsocks",
+        "server_port": 443,
+        "plugin": "obfs-local",
+        "plugin_opts": "obfs=tls;obfs-host=cloudflare.com;",
+    }
+    hy2_node = {
+        "type": "hysteria2",
+        "server_port": 443,
+        "tls": {"enabled": True, "server_name": "apple.com"},
+    }
+    assert china_resistance_score(ss_v2ray) > 10
+    assert china_resistance_score(ss_obfs_tls) > 10
+    assert china_resistance_score(hy2_node) >= 20
 
 
 def test_filter_by_china_probe_uses_probe(monkeypatch):

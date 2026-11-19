@@ -7,6 +7,7 @@ from typing import Any
 
 from core.deduplicator import Deduplicator
 from core.filters.honeypot import HoneypotFilter
+from core.quality import china_resistance_score
 
 logger = logging.getLogger(__name__)
 
@@ -137,7 +138,7 @@ class PrescreenFunnel:
         def _get_protocol_weight(item):
             node = item[0]
             ntype = str(node.get("type", "")).lower()
-            return PROTOCOL_WEIGHTS.get(ntype, 30)
+            return (PROTOCOL_WEIGHTS.get(ntype, 30), china_resistance_score(node))
 
         # Group by source to ensure balanced representation across all harvesters
         source_buckets: dict[str, list[tuple[dict[str, Any], str, str]]] = {}
