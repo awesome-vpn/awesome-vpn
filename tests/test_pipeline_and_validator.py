@@ -180,10 +180,14 @@ def test_validator_methods_and_quick_prescreen(tmp_path):
     # Test real loopback TCP connection + wait_for_socks5_ready
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as srv:
         srv.bind(("127.0.0.1", 0))
-        srv.listen(1)
+        srv.listen(8)
         srv_port = srv.getsockname()[1]
         assert val.tcp_ping("127.0.0.1", srv_port, timeout=1) is True
+        conn, _ = srv.accept()
+        conn.close()
         assert val._wait_for_socks5_ready(srv_port, timeout=1) is True
+        conn, _ = srv.accept()
+        conn.close()
 
         prescreened = quick_tcp_prescreen(
             [
@@ -194,6 +198,8 @@ def test_validator_methods_and_quick_prescreen(tmp_path):
             max_workers=2,
             timeout=1,
         )
+        conn, _ = srv.accept()
+        conn.close()
         assert len(prescreened) == 2
 
     # Mocked sing-box subprocess validation success
