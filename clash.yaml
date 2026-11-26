@@ -5,46 +5,20 @@ mode: Rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
+- name: 🇩🇪 Germany [TG]
+  type: vless
+  server: 169.40.42.89
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: ios
 - name: 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
-  type: vless
-  server: 169.40.42.168
-  port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: yahoo.com
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: 🇩🇪 Germany [GH:barry-far/V2ray-config]
-  type: vless
-  server: 169.40.42.35
-  port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: yahoo.com
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: 🇮🇱 Israel/Ashdod [GH:SoliSpirit/v2ray-configs]
-  type: vless
-  server: 185.95.231.156
-  port: 443
-  uuid: 1f8cf47a-b66a-4916-979f-26edfcf44eea
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.apple.com
-  reality-opts:
-    public-key: 8eXftARun6KH38UZhuqIfPR1VF2DLS9RMBZEnF5k6To
-    short-id: a3a578ab
-  client-fingerprint: chrome
-- name: '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
   type: vless
   server: 169.40.42.231
   port: 443
@@ -56,23 +30,10 @@ proxies:
   reality-opts:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: '🇩🇪 Germany [GH:barry-far/V2ray-config] #3'
+  client-fingerprint: ios
+- name: '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #2'
   type: vless
   server: 169.40.42.163
-  port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: yahoo.com
-  reality-opts:
-    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
-    short-id: c39cc7310a
-  client-fingerprint: chrome
-- name: 🇩🇪 Germany [TG]
-  type: vless
-  server: 169.40.42.202
   port: 443
   uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   udp: true
@@ -96,7 +57,33 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
-- name: '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #2'
+- name: 🇩🇪 Germany [GH:barry-far/V2ray-config]
+  type: vless
+  server: 169.40.42.35
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #3'
+  type: vless
+  server: 169.40.42.168
+  port: 443
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yahoo.com
+  reality-opts:
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
+  client-fingerprint: chrome
+- name: '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
   type: vless
   server: 169.40.42.74
   port: 443
@@ -109,22 +96,64 @@ proxies:
     public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
     short-id: c39cc7310a
   client-fingerprint: chrome
-- name: 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
+- name: '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #4'
   type: vless
-  server: free-amsterdam-node-1.cloudwidecdn.com
+  server: 169.40.42.90
   port: 443
-  uuid: 44ae52b9-76fc-444d-8e43-186b4384b80a
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
   udp: true
   flow: xtls-rprx-vision
   tls: true
-  servername: www.apple.com
+  servername: yahoo.com
   reality-opts:
-    public-key: PryGoq51ilG0eLUPl9i0xCvmk1xpwkyFSr_tG4GNLlU
-    short-id: 1d86d17709852910
+    public-key: e2RLf57Li_-MDZGE9ss1BWPgP54mqRb5PfXhW2jcVVg
+    short-id: c39cc7310a
   client-fingerprint: chrome
-- name: 🇳🇱 The Netherlands/Haarlem [TG]
+- name: 🇨🇦 Canada/Toronto [GH:barry-far/V2ray-config]
   type: vless
-  server: 51.158.206.26
+  server: 209.200.246.148
+  port: 443
+  uuid: ca52e2b6-fb9f-4dac-b6dc-49da9923f251
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.cloudflare.com
+  reality-opts:
+    public-key: uTmb-ytXsx8p0fkBz7A76SHpWk7_oVutIA4LGTE8BQk
+    short-id: f98843107912e782
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  type: vless
+  server: 172.233.129.172
+  port: 443
+  uuid: 40a4b915-5e6f-4316-9bb1-e899f30608e3
+  udp: true
+  tls: true
+  servername: itunes.apple.com
+  reality-opts:
+    public-key: LWfC_chpo4uDtzJ9VVnuTcf6zTzWKx-LCJAE2Ltl7h4
+    short-id: 5818adc3
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /ws
+    headers:
+      Host: itunes.apple.com
+- name: 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
+  type: vless
+  server: 15.204.97.219
+  port: 23576
+  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: fuck.rkn
+  reality-opts:
+    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
+  client-fingerprint: chrome
+- name: 🇺🇸 United States/Hillsboro [TG]
+  type: vless
+  server: 15.204.97.198
   port: 23576
   uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
   udp: true
@@ -134,20 +163,7 @@ proxies:
   reality-opts:
     public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
     short-id: '01'
-  client-fingerprint: chrome
-- name: 🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf]
-  type: vless
-  server: 51.158.206.8
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-    short-id: '01'
-  client-fingerprint: chrome
+  client-fingerprint: firefox
 - name: 🇫🇷 France [TG]
   type: vless
   server: 152.228.139.33
@@ -163,14 +179,13 @@ proxies:
   network: grpc
   grpc-opts:
     grpc-service-name: grpc-common3
-- name: 🇳🇱 The Netherlands/Amsterdam [GH:ermaozi/get_subscribe]
+- name: 🇳🇱 The Netherlands/Amsterdam [GH:Surfboardv2ray/TGParse]
   type: hysteria2
   server: 212.34.137.105
   port: 443
   password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
   udp: true
   sni: shorts.blog-forme.ru
-  skip-cert-verify: true
 - name: 🇸🇪 Sweden/Stockholm [GH:Surfboardv2ray/TGParse]
   type: hysteria2
   server: 50.7.38.243
@@ -179,50 +194,17 @@ proxies:
   udp: true
   sni: promo.betust.net
   skip-cert-verify: true
-- name: '🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf] #2'
-  type: vless
-  server: 51.158.206.87
-  port: 23576
-  uuid: 48ff2b70-e180-582f-8866-d9a2edeed5f5
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: fuck.rkn
-  reality-opts:
-    public-key: 1y5h2FGWKXTJ9xLPCqPo6Mw7RxoZzh6fGkEQKNxpZ3s
-  client-fingerprint: chrome
-- name: 🇺🇸 United States/Chicago [TG]
-  type: vless
-  server: 67.220.73.204
-  port: 16016
-  uuid: 814bd064-544d-4255-a070-5705c03f6da9
-  udp: true
-  flow: xtls-rprx-vision
-  tls: true
-  servername: www.apple.com
-  reality-opts:
-    public-key: k2hPp0tTW0Da-HK94wYpSCLbuK44LfGqC2MSJIM1Ti0
-    short-id: 48050fab
-  client-fingerprint: chrome
-- name: 🇺🇸 United States/Charlotte [GH:ermaozi/get_subscribe]
+- name: 🇺🇸 United States/Los Angeles [GH:ermaozi/get_subscribe]
   type: hysteria2
-  server: 193.233.130.66
-  port: 443
-  password: e2552c42-fdf8-45d4-9be5-98819dcd0211
+  server: 179.254.94.184
+  port: 8443
+  password: 0b396097d052915ef304b40d2bda6a2d
   udp: true
-  sni: app.vles.space
+  sni: www.bing.com
   skip-cert-verify: true
-- name: 🇫🇷 France/Paris [GH:Surfboardv2ray/TGParse]
-  type: hysteria2
-  server: 13.36.234.11
-  port: 443
-  password: H7mP2xY9kJ4nQ8wR5tF6vB3z
-  udp: true
-  sni: vpn-fr-001.fastervpn.world
-  skip-cert-verify: true
-- name: 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+- name: 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
   type: ss
-  server: 156.146.38.170
+  server: 37.19.198.244
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
@@ -234,55 +216,111 @@ proxies:
   password: shadowsocks
   cipher: aes-128-cfb
   udp: true
-- name: 🇺🇸 United States/Phoenix [GH:SoliSpirit/v2ray-configs]
+- name: 🇬🇧 United Kingdom/Manchester [GH:barry-far/V2ray-config]
+  type: ss
+  server: 141.98.101.181
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇬🇧 United Kingdom/London [GH:MatinGhanbari/v2ray-conf]
+  type: ss
+  server: 158.173.24.73
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇺🇸 United States/Dallas [GH:barry-far/V2ray-config]
+  type: ss
+  server: 156.146.38.168
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+  type: ss
+  server: 156.146.38.169
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
+  type: ss
+  server: 158.173.20.171
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #2'
+  type: ss
+  server: 37.19.198.243
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇨🇦 Canada/Vancouver [TG]
+  type: ss
+  server: 149.22.95.183
+  port: 443
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
   type: ss
   server: 173.244.56.9
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
   udp: true
-- name: 🇺🇸 United States/Los Angeles [GH:barry-far/V2ray-config]
+- name: 🇦🇪 United Arab Emirates [GH:Pawdroid/Free-servers]
   type: hysteria2
-  server: 154.40.49.216
-  port: 40055
-  password: 57beeeb0-03fc-4fc9-94da-7604488a7134
+  server: 128.254.186.190
+  port: 13337
+  password: 900c8c92-1979-4c7c-8f2f-63e87d53d8fe
   udp: true
-  sni: psstatic.cdn.bcebos.com
+  sni: mother-earth.fyi
   skip-cert-verify: true
-- name: 🇨🇦 Canada/Montreal [GH:SoliSpirit/v2ray-configs]
+- name: '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #3'
   type: ss
-  server: 134.195.198.163
+  server: 37.19.198.236
   port: 443
-  password: PmCqK98WqhSC
-  cipher: chacha20-ietf-poly1305
+  password: shadowsocks
+  cipher: aes-128-gcm
   udp: true
-- name: 🇮🇪 Ireland/Dublin [GH:SoliSpirit/v2ray-configs]
+- name: 🇯🇵 Japan/Tokyo [GH:barry-far/V2ray-config]
   type: ss
-  server: 20.234.98.208
+  server: 149.22.87.241
   port: 443
-  password: 1fgEGq5a3tJiLpUq
+  password: shadowsocks
+  cipher: aes-128-gcm
+  udp: true
+- name: 🇳🇱 The Netherlands [GH:barry-far/V2ray-config]
+  type: ss
+  server: 193.29.139.235
+  port: 443
+  password: oZIoA69Q8yhcQV8ka3Pa3A
   cipher: chacha20-ietf-poly1305
   udp: true
 - name: 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
   type: ss
-  server: 141.98.101.178
+  server: 141.98.101.182
   port: 443
   password: shadowsocks
   cipher: aes-128-gcm
   udp: true
-- name: 🇩🇪 Germany/Frankfurt am Main [TG]
+- name: 🇺🇸 United States/Chicago [GH:barry-far/V2ray-config]
   type: ss
-  server: 8.209.119.13
+  server: 67.220.73.247
+  port: 443
+  password: DGjtV63aPW3E
+  cipher: chacha20-ietf-poly1305
+  udp: true
+- name: 🇩🇪 Germany/Frankfurt am Main [GH:SoliSpirit/v2ray-configs]
+  type: ss
+  server: 47.91.74.232
   port: 443
   password: 8yO3ANWefuuGs1lRKXECQA1FEhxlWFV2ppQMcBaZo5Y=
   cipher: 2022-blake3-chacha20-poly1305
-  udp: true
-- name: 🇯🇵 Japan/Tokyo [GH:SoliSpirit/v2ray-configs]
-  type: ss
-  server: 149.22.87.240
-  port: 443
-  password: shadowsocks
-  cipher: aes-128-gcm
   udp: true
 proxy-groups:
 - name: PROXY
@@ -290,63 +328,75 @@ proxy-groups:
   proxies:
   - Auto
   - DIRECT
-  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
-  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
-  - 🇮🇱 Israel/Ashdod [GH:SoliSpirit/v2ray-configs]
-  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
-  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #3'
   - 🇩🇪 Germany [TG]
-  - 🇺🇸 United States/New York [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
   - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
-  - 🇳🇱 The Netherlands/Haarlem [TG]
-  - 🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/New York [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
+  - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #3'
+  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
+  - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #4'
+  - 🇨🇦 Canada/Toronto [GH:barry-far/V2ray-config]
+  - 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  - 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
+  - 🇺🇸 United States/Hillsboro [TG]
   - 🇫🇷 France [TG]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:ermaozi/get_subscribe]
+  - 🇳🇱 The Netherlands/Amsterdam [GH:Surfboardv2ray/TGParse]
   - 🇸🇪 Sweden/Stockholm [GH:Surfboardv2ray/TGParse]
-  - '🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf] #2'
-  - 🇺🇸 United States/Chicago [TG]
-  - 🇺🇸 United States/Charlotte [GH:ermaozi/get_subscribe]
-  - 🇫🇷 France/Paris [GH:Surfboardv2ray/TGParse]
-  - 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+  - 🇺🇸 United States/Los Angeles [GH:ermaozi/get_subscribe]
+  - 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
   - 🇳🇱 The Netherlands/Rozendaal [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Phoenix [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Los Angeles [GH:barry-far/V2ray-config]
-  - 🇨🇦 Canada/Montreal [GH:SoliSpirit/v2ray-configs]
-  - 🇮🇪 Ireland/Dublin [GH:SoliSpirit/v2ray-configs]
+  - 🇬🇧 United Kingdom/Manchester [GH:barry-far/V2ray-config]
+  - 🇬🇧 United Kingdom/London [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Dallas [GH:barry-far/V2ray-config]
+  - 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+  - 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
+  - '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #2'
+  - 🇨🇦 Canada/Vancouver [TG]
+  - 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
+  - 🇦🇪 United Arab Emirates [GH:Pawdroid/Free-servers]
+  - '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #3'
+  - 🇯🇵 Japan/Tokyo [GH:barry-far/V2ray-config]
+  - 🇳🇱 The Netherlands [GH:barry-far/V2ray-config]
   - 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
-  - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇯🇵 Japan/Tokyo [GH:SoliSpirit/v2ray-configs]
+  - 🇺🇸 United States/Chicago [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany/Frankfurt am Main [GH:SoliSpirit/v2ray-configs]
 - name: Auto
   type: url-test
   proxies:
-  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
-  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
-  - 🇮🇱 Israel/Ashdod [GH:SoliSpirit/v2ray-configs]
-  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
-  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #3'
   - 🇩🇪 Germany [TG]
-  - 🇺🇸 United States/New York [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany [GH:SoliSpirit/v2ray-configs]
   - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #2'
-  - 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
-  - 🇳🇱 The Netherlands/Haarlem [TG]
-  - 🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/New York [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany [GH:barry-far/V2ray-config]
+  - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #3'
+  - '🇩🇪 Germany [GH:barry-far/V2ray-config] #2'
+  - '🇩🇪 Germany [GH:SoliSpirit/v2ray-configs] #4'
+  - 🇨🇦 Canada/Toronto [GH:barry-far/V2ray-config]
+  - 🇺🇸 United States/Los Angeles [GH:ripaojiedian/freenode]
+  - 🇺🇸 United States/Hillsboro [GH:youfoundamin/V2rayCollec]
+  - 🇺🇸 United States/Hillsboro [TG]
   - 🇫🇷 France [TG]
-  - 🇳🇱 The Netherlands/Amsterdam [GH:ermaozi/get_subscribe]
+  - 🇳🇱 The Netherlands/Amsterdam [GH:Surfboardv2ray/TGParse]
   - 🇸🇪 Sweden/Stockholm [GH:Surfboardv2ray/TGParse]
-  - '🇳🇱 The Netherlands/Haarlem [GH:MatinGhanbari/v2ray-conf] #2'
-  - 🇺🇸 United States/Chicago [TG]
-  - 🇺🇸 United States/Charlotte [GH:ermaozi/get_subscribe]
-  - 🇫🇷 France/Paris [GH:Surfboardv2ray/TGParse]
-  - 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+  - 🇺🇸 United States/Los Angeles [GH:ermaozi/get_subscribe]
+  - 🇺🇸 United States/New York [GH:MatinGhanbari/v2ray-conf]
   - 🇳🇱 The Netherlands/Rozendaal [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Phoenix [GH:SoliSpirit/v2ray-configs]
-  - 🇺🇸 United States/Los Angeles [GH:barry-far/V2ray-config]
-  - 🇨🇦 Canada/Montreal [GH:SoliSpirit/v2ray-configs]
-  - 🇮🇪 Ireland/Dublin [GH:SoliSpirit/v2ray-configs]
+  - 🇬🇧 United Kingdom/Manchester [GH:barry-far/V2ray-config]
+  - 🇬🇧 United Kingdom/London [GH:MatinGhanbari/v2ray-conf]
+  - 🇺🇸 United States/Dallas [GH:barry-far/V2ray-config]
+  - 🇺🇸 United States/Dallas [GH:SoliSpirit/v2ray-configs]
+  - 🇳🇱 The Netherlands/Amsterdam [GH:SoliSpirit/v2ray-configs]
+  - '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #2'
+  - 🇨🇦 Canada/Vancouver [TG]
+  - 🇺🇸 United States/Phoenix [GH:barry-far/V2ray-config]
+  - 🇦🇪 United Arab Emirates [GH:Pawdroid/Free-servers]
+  - '🇺🇸 United States/New York [GH:barry-far/V2ray-config] #3'
+  - 🇯🇵 Japan/Tokyo [GH:barry-far/V2ray-config]
+  - 🇳🇱 The Netherlands [GH:barry-far/V2ray-config]
   - 🇬🇧 United Kingdom/Manchester [GH:MatinGhanbari/v2ray-conf]
-  - 🇩🇪 Germany/Frankfurt am Main [TG]
-  - 🇯🇵 Japan/Tokyo [GH:SoliSpirit/v2ray-configs]
+  - 🇺🇸 United States/Chicago [GH:barry-far/V2ray-config]
+  - 🇩🇪 Germany/Frankfurt am Main [GH:SoliSpirit/v2ray-configs]
   url: https://www.google.com/generate_204
   interval: 300
   tolerance: 50
