@@ -43,6 +43,7 @@ Right-click the link → "Copy link address":
 | **Android** | v2rayNG / NekoBox | [v2rayNG](https://github.com/2dust/v2rayNG/releases) / [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases) |
 | **iOS** | | |
 
+- [HotaruNet](https://github.com/OneForAllHub/HotaruNet) - Free, open-source (GPL-3.0) Android & Windows VPN client featuring real bandwidth probing and autonomous failover across VLESS REALITY, Cloudflare WARP, Hysteria 2, and XHTTP.
 ### Step 3: Paste and connect
 
 1. Open your client app
